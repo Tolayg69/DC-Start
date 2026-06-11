@@ -260,7 +260,7 @@ body.is-auth .nav__right .only-auth{display:flex;}
 .htoast__txt span{font-size:11.5px; color:var(--ink-400); font-weight:700;}
 
 /* mini-carte */
-.hmap{position:absolute; z-index:2; left:-8px; bottom:-6px; display:flex; align-items:center; gap:13px; background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--sh-md); padding:11px 15px 11px 11px; transform:rotate(-2deg); animation:hfloat 6.5s ease-in-out .8s infinite;}
+.hmap{position:absolute; z-index:2; left:-8px; bottom:42px; display:flex; align-items:center; gap:13px; background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--sh-md); padding:11px 15px 11px 11px; transform:rotate(-2deg); animation:hfloat 6.5s ease-in-out .8s infinite;}
 .hmap__grid{position:relative; width:64px; height:48px; border-radius:9px; background:var(--cyan-pale);
   background-image:linear-gradient(var(--cyan) .6px, transparent .6px), linear-gradient(90deg, var(--cyan) .6px, transparent .6px);
   background-size:13px 13px; background-position:center; opacity:.95; flex:none; overflow:hidden;}
@@ -651,7 +651,7 @@ body.is-embed #deviceHost{display:none !important;}
   .hero__stage{min-height:0; max-width:460px; margin:0 auto; padding:18px 6px 14px;}
   .hq{margin:0 auto; transform:rotate(-1deg);}
   .htoast{top:-12px; right:2px;}
-  .hmap{left:2px; bottom:-10px;}
+  .hmap{left:2px; bottom:6px;}
   .hsearch .btn span{display:none;}
   .hsearch .btn{padding:12px;}
   .resume{grid-template-columns:1fr;}
@@ -683,6 +683,28 @@ body.is-embed #deviceHost{display:none !important;}
   .trust__sep{display:none;}
 }
 
+/* badge premium */
+.badge--prem{display:inline-flex; align-items:center; gap:5px; background:var(--or-pale); color:var(--or-ink); font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; border-radius:var(--r-pill); padding:3px 9px; vertical-align:2px; margin-left:6px;}
+.badge--prem svg{width:10px; height:10px;}
+
+/* drawer : accordéon Jeux */
+.mdrawer__acc{width:100%; background:none; cursor:pointer; font-family:inherit; text-align:left; color:inherit;}
+.mdrawer__chev{display:inline-flex; transition:transform .18s ease;}
+.mdrawer__acc.open .mdrawer__chev{transform:rotate(180deg);}
+.mdrawer__sub{display:none; padding:2px 2px 8px; border-bottom:1px solid var(--line);}
+.mdrawer__sub.open{display:block;}
+.mdrawer__sublink{display:flex; align-items:center; gap:11px; padding:10px 12px; border-radius:10px; font-weight:700; font-size:14.5px; color:var(--ink-700);}
+.mdrawer__sublink:hover{background:var(--surface-3);}
+.mdrawer__subcover{width:30px; height:30px; border-radius:8px; flex:none;}
+.mdrawer__sublink--all{color:var(--magenta);}
+
+/* recherche mobile : panneau façon méga-menu */
+@media (max-width:880px){
+  .nav__search .ac{border-radius:18px; padding:10px; border:1px solid var(--line); box-shadow:var(--sh-lg);}
+  .nav__search .ac__item{padding:11px 10px; border-radius:12px;}
+  .nav__search .ac__ico{width:34px; height:34px; border-radius:9px;}
+}
+
 </style>
 </head>
 <body>
@@ -692,35 +714,53 @@ body.is-embed #deviceHost{display:none !important;}
 <!-- ================= NAV ================= -->
 <nav class="nav">
   <div class="nav__inner">
-    <a href="#" class="logo" aria-label="Lynk — accueil"><img src="assets/lynk-blanc.png" alt="LYNK"></a>
+    <a href="index.html" class="logo" aria-label="Lynk — accueil"><svg style="height:18px;width:auto;display:block" id="Calque_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1068.57 386.6">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #9520b3;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <path class="cls-2" d="M812.55,196.86c0-60.73.07-121.46-.12-182.18-.02-5.65,1.45-7.36,7.2-7.21,15.73.4,31.48.41,47.21,0,5.71-.15,6.8,1.75,6.78,7.01-.2,44.41-.02,88.82-.22,133.23-.02,5.49,1.22,7.49,7.14,7.36,21.32-.47,42.73.78,63.95-.75,34.45-2.49,60.35-29.79,62.83-64.91,1.73-24.53.4-49.14.67-73.71.09-8.07.02-8.08,8.05-8.08,15.53,0,31.06.01,46.6,0,3.02,0,5.79-.25,5.68,4.27-.76,31.16,1.9,62.42-1.63,93.48-3.42,30.05-14.83,56.53-37.93,77.13-2.02,1.8-4.29,3.03-.74,6.09,24.22,20.83,35.38,48.21,39.01,79.16,2.3,19.55,1.02,39.2,1.21,58.81.17,17.76-.15,35.53.15,53.29.09,5.27-1.66,6.62-6.72,6.53-15.94-.29-31.89-.27-47.84,0-4.72.08-5.92-1.5-5.93-6.04-.11-32.42,1.17-64.88-.52-97.26-1.72-33.06-24.09-58.93-55.73-66.08-4.07-.92-8.19-1.17-12.34-1.17-19.67,0-39.35.2-59.02-.13-5.55-.09-6.93,1.57-6.91,6.98.2,52.05.02,104.11.25,156.16.03,5.89-1.41,7.77-7.5,7.61-15.73-.43-31.48-.37-47.21-.02-5.36.12-6.49-1.72-6.48-6.71.15-60.93.1-121.87.1-182.8Z"/>
+  <path class="cls-2" d="M545.52,256.7c0,40.9-.11,81.81.13,122.71.03,5.6-1.65,6.94-7.02,6.82-15.73-.35-31.48-.2-47.22-.07-3.68.03-5.66-.53-5.64-4.97.45-80.35-1.08-160.72.87-241.06.73-29.82,7.83-58.55,24.04-84.24,21.4-33.91,53.1-50.94,92.42-54.9,27.46-2.77,54.25.02,79.59,11.47,34.74,15.7,55.41,43.36,66.2,79.13,6.13,20.34,8.63,41.23,8.72,62.38.19,45.65-.04,91.31.18,136.97.03,5.7-1.52,7.4-7.28,7.26-15.52-.39-31.07-.33-46.6-.02-5.12.1-6.67-1.35-6.65-6.56.19-47.72.21-95.44.05-143.16-.05-16.13-1.32-32.1-7.28-47.45-9.04-23.29-25.77-36.87-50.35-40.75-18.26-2.88-36.5-2.68-53.75,4.72-24.77,10.63-34.44,31.93-38.57,56.74-1.56,9.4-1.83,18.91-1.85,28.4-.05,35.53-.02,71.07-.02,106.6Z"/>
+  <path class="cls-2" d="M285.8,299.77c0-26.64-.02-53.28.02-79.92,0-3.26-.03-5.84-4.28-6.81-55.73-12.73-85.37-49.84-97.02-103.66-3.51-16.2-4.84-32.65-5.01-49.18-.16-15.49.12-30.98-.13-46.47-.07-4.51,1.04-6.1,5.83-6.02,16.56.28,33.13.25,49.69.02,4.35-.06,5.61,1.24,5.58,5.57-.13,21.06-.19,42.13.23,63.19.32,16.18,2.83,31.95,10.24,46.74,7.63,15.23,19.3,25.73,35.51,30.58,20.94,6.28,42.05,6.38,62.76-1.26,18.79-6.93,30.08-21.06,36.5-39.48,1.22-3.5,2.48-7.07,2.98-10.71.66-4.76,2.67-6.43,7.66-6.33,15.94.33,31.89.15,47.83.11,3.14,0,5.81-.12,5.04,4.52-5.94,35.69-19.32,67.37-48.94,90.21-14.12,10.89-30.15,18-47.55,21.74-4.91,1.06-6.1,3.1-6.09,7.83.16,52.87.01,105.74.23,158.61.02,5.72-1.56,7.35-7.27,7.21-15.73-.38-31.47-.32-47.2-.02-5.09.1-6.74-1.29-6.7-6.54.25-26.64.11-53.28.11-79.92Z"/>
+  <path class="cls-2" d="M61.27,133.2c0,37.79-.2,75.58.09,113.37.13,16.2,2.85,32.02,10.59,46.63,8.82,16.64,22.71,26.32,40.97,30.03,6.7,1.36,13.48,2.02,20.35,2,28.57-.08,57.15.14,85.72-.17,5.87-.06,7.28,1.79,7.16,7.35-.34,16.1-.15,32.21-.1,48.32.01,3.15-.05,5.64-4.43,5.56-34.56-.66-69.2,1.84-103.66-1.36-31.04-2.88-58.4-14.76-79.97-38.02-17.82-19.21-27.44-42.45-32.81-67.69C1.52,261.99.15,244.53.14,226.95.12,156.32.21,85.69,0,15.07c-.02-5.9,1.34-7.76,7.46-7.58,15.52.46,31.06.43,46.58.01,5.91-.16,7.16,1.84,7.13,7.37-.23,39.44-.12,78.89-.12,118.33.08,0,.15,0,.23,0Z"/>
+  <path class="cls-1" d="M727.51,386.14c-17.11.09-30.87-13.6-30.75-30.58.12-16.81,13.65-30.2,30.51-30.19,16.87.02,30.57,13.6,30.49,30.21-.08,16.72-13.7,30.48-30.25,30.56Z"/>
+  <path class="cls-1" d="M422.25,6.7c16.72.05,30.28,13.52,30.44,30.25.16,16.72-13.93,30.65-30.88,30.52-16.43-.12-29.91-13.62-29.98-30.02-.07-17.38,13.2-30.8,30.41-30.75Z"/>
+</svg></a>
 
     <div class="nav__links hide-mobile">
       <div class="nav__item">
-        <a class="nav__link" href="#jeux">Jeux
+        <a class="nav__link" href="jeux.html">Jeux
           <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
         </a>
         <div class="mega">
           <div class="mega__grid">
-            <a class="mega__row" href="#"><span class="mega__cover cover-er"></span><span><span class="mega__name">Elden Ring</span><br><span class="mega__meta">214 guides · carte interactive</span></span></a>
-            <a class="mega__row" href="#"><span class="mega__cover cover-zd"></span><span><span class="mega__name">Zelda : TOTK</span><br><span class="mega__meta">186 guides · carte interactive</span></span></a>
-            <a class="mega__row" href="#"><span class="mega__cover cover-bg"></span><span><span class="mega__name">Baldur's Gate 3</span><br><span class="mega__meta">158 guides · builds</span></span></a>
-            <a class="mega__row" href="#"><span class="mega__cover cover-gi"></span><span><span class="mega__name">Genshin Impact</span><br><span class="mega__meta">142 guides · événements</span></span></a>
-            <a class="mega__row" href="#"><span class="mega__cover cover-cp"></span><span><span class="mega__name">Cyberpunk 2077</span><br><span class="mega__meta">96 guides · soluces</span></span></a>
-            <a class="mega__row" href="#"><span class="mega__cover cover-d4"></span><span><span class="mega__name">Diablo IV</span><br><span class="mega__meta">88 guides · builds saison 8</span></span></a>
+            <a class="mega__row" href="jeu.html"><span class="mega__cover cover-er"></span><span><span class="mega__name">Elden Ring</span><br><span class="mega__meta">214 guides · carte interactive</span></span></a>
+            <a class="mega__row" href="jeu.html"><span class="mega__cover cover-zd"></span><span><span class="mega__name">Zelda : TOTK</span><br><span class="mega__meta">186 guides · carte interactive</span></span></a>
+            <a class="mega__row" href="jeu.html"><span class="mega__cover cover-bg"></span><span><span class="mega__name">Baldur's Gate 3</span><br><span class="mega__meta">158 guides · builds</span></span></a>
+            <a class="mega__row" href="jeu.html"><span class="mega__cover cover-gi"></span><span><span class="mega__name">Genshin Impact</span><br><span class="mega__meta">142 guides · événements</span></span></a>
+            <a class="mega__row" href="jeu.html"><span class="mega__cover cover-cp"></span><span><span class="mega__name">Cyberpunk 2077</span><br><span class="mega__meta">96 guides · soluces</span></span></a>
+            <a class="mega__row" href="jeu.html"><span class="mega__cover cover-d4"></span><span><span class="mega__name">Diablo IV</span><br><span class="mega__meta">88 guides · builds saison 8</span></span></a>
           </div>
           <div class="mega__foot">
             <span class="sec-kicker" style="font-size:11px;"><span class="dots"><i></i><i></i></span> Les plus consultés cette semaine</span>
-            <a class="link-arrow" href="#jeux">Tous les jeux
+            <a class="link-arrow" href="jeux.html">Tous les jeux
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
             </a>
           </div>
         </div>
       </div>
-      <a class="nav__link" href="#guides">Guides &amp; soluces</a>
-      <a class="nav__link" href="#cartes">Cartes</a>
-      <a class="nav__link" href="#builds">Builds</a>
-      <a class="nav__link" href="#actus">Actualités</a>
-      <a class="nav__link" href="#communaute">Communauté</a>
+      <a class="nav__link" href="guides.html">Guides &amp; soluces</a>
+      <a class="nav__link" href="cartes.html">Cartes</a>
+      <a class="nav__link" href="builds.html">Builds</a>
+      <a class="nav__link" href="actualites.html">Actualités</a>
+      <a class="nav__link" href="communaute.html">Communauté</a>
     </div>
 
     <div class="nav__search search">
@@ -733,20 +773,20 @@ body.is-embed #deviceHost{display:none !important;}
 
     <div class="nav__right">
       <!-- état visiteur -->
-      <a class="btn btn--ghost btn--sm only-guest hide-mobile" href="#premium" style="color:var(--or-ink);">
+      <a class="btn btn--ghost btn--sm only-guest hide-mobile" href="premium.html" style="color:var(--or-ink);">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>
         Premium</a>
-      <a class="btn btn--ghost btn--sm only-guest hide-mobile" href="#">Connexion</a>
-      <a class="btn btn--primary btn--sm only-guest" href="#">S'inscrire</a>
+      <a class="btn btn--outline btn--sm only-guest" href="connexion.html">Connexion</a>
+      <a class="btn btn--primary btn--sm only-guest hide-mobile" href="inscription.html">S'inscrire</a>
       <!-- état connecté -->
       <span class="points only-auth hide-mobile" title="11 540 points — niveau 23">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>
         11 540 · niv. 23</span>
-      <button class="iconbtn only-auth" aria-label="Notifications">
+      <a class="iconbtn only-auth" aria-label="Notifications" href="notifications.html">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
         <span class="iconbtn__dot"></span>
-      </button>
-      <button class="avatar only-auth" aria-label="Mon profil">É</button>
+      </a>
+      <a class="avatar only-auth" aria-label="Mon profil" href="profil.html">É</a>
       <button id="burgerBtn" class="iconbtn nav__burger" aria-label="Menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </button>
@@ -761,21 +801,21 @@ body.is-embed #deviceHost{display:none !important;}
     <div class="hero__copy">
       <span class="hero__eyebrow"><span class="dots"><i></i><i></i></span> Guides · Cartes · Builds · Actus · Communauté</span>
       <h1>Boss imbattable ?<br>Quête introuvable ?<br><span class="m">On a la soluce.</span></h1>
-      <p class="hero__sub">Guides vérifiés, cartes interactives, builds optimisés, suivi de progression et entraide entre joueurs — tout ce qu'il faut pour finir tes jeux à 100 %, sans pub intrusive.</p>
+      <p class="hero__sub">Guides vérifiés, cartes interactives, builds optimisés, suivi de progression et entraide entre joueurs — un coup de pouce ponctuel sur un boss ou la route du 100 %, chacun avance à sa façon. Et toujours sans pub intrusive.</p>
 
       <div class="hero__cta">
-        <a class="btn btn--primary" href="#guides"><span>Explorer les guides</span>
+        <a class="btn btn--primary" href="guides.html"><span>Explorer les guides</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
         </a>
-        <a class="btn btn--outline" href="#cartes">Voir les cartes interactives</a>
+        <a class="btn btn--outline" href="cartes.html">Voir les cartes interactives</a>
       </div>
 
       <div class="quick">
         <span class="quick__lbl">Très demandés :</span>
-        <a class="chip" href="#"><span class="chip__dot" style="background:var(--magenta)"></span>Elden Ring</a>
-        <a class="chip" href="#"><span class="chip__dot" style="background:var(--cyan)"></span>Zelda TOTK</a>
-        <a class="chip" href="#"><span class="chip__dot" style="background:var(--or)"></span>Baldur's Gate 3</a>
-        <a class="chip hide-mobile" href="#"><span class="chip__dot" style="background:var(--magenta)"></span>Genshin Impact</a>
+        <a class="chip" href="jeu.html"><span class="chip__dot" style="background:var(--magenta)"></span>Elden Ring</a>
+        <a class="chip" href="jeu.html"><span class="chip__dot" style="background:var(--cyan)"></span>Zelda TOTK</a>
+        <a class="chip" href="jeu.html"><span class="chip__dot" style="background:var(--or)"></span>Baldur's Gate 3</a>
+        <a class="chip hide-mobile" href="jeu.html"><span class="chip__dot" style="background:var(--magenta)"></span>Genshin Impact</a>
       </div>
 
       <div class="trust">
@@ -797,7 +837,7 @@ body.is-embed #deviceHost{display:none !important;}
             <span class="hq__game">Elden Ring</span>
             <span class="hq__meta">Journal de quêtes · complétion</span>
           </div>
-          <span class="hq__lvl">NIV. 23</span>
+          
         </div>
         <div class="hq__barrow">
           <div class="progress hq__bar"><div class="progress__bar" style="width:68%;"></div></div>
@@ -837,7 +877,7 @@ body.is-embed #deviceHost{display:none !important;}
       <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Mes jeux</span>
       <div class="sec-head__row">
         <h2 class="sec-title">Reprends où tu t'es arrêté, Éric</h2>
-        <a class="link-arrow" href="#">Tous mes jeux
+        <a class="link-arrow" href="mes-jeux.html">Tous mes jeux
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
       </div>
     </div>
@@ -857,7 +897,7 @@ body.is-embed #deviceHost{display:none !important;}
           <div class="step done"><span class="step__box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span class="step__t">Parler à Ranni à la tour de Renna</span></div>
           <div class="step next"><span class="step__box"></span><span class="step__t"><b>Prochaine étape :</b> atteindre la cité éternelle de Nokstella</span></div>
         </div>
-        <a class="btn btn--white" href="#" style="align-self:flex-start; position:relative; z-index:1;">Reprendre ma progression</a>
+        <a class="btn btn--white" href="jeu.html" style="align-self:flex-start; position:relative; z-index:1;">Reprendre ma progression</a>
       </div>
       <div class="resume__side">
         <div class="alert-card">
@@ -875,7 +915,7 @@ body.is-embed #deviceHost{display:none !important;}
             <div><div class="alert-row__t">2 réponses à ta question sur l'Abîme</div><div class="alert-row__m">Forum Genshin Impact · il y a 40 min</div></div>
           </div>
         </div>
-        <a class="btn btn--outline btn--block" href="#">Gérer mes jeux suivis</a>
+        <a class="btn btn--outline btn--block" href="mes-jeux.html">Gérer mes jeux suivis</a>
       </div>
     </div>
   </div>
@@ -890,8 +930,8 @@ body.is-embed #deviceHost{display:none !important;}
         <h2 class="sec-title" style="margin-top:6px;">Une page d'accueil qui connaît tes jeux</h2>
         <p class="sec-sub" style="margin-top:8px;">Crée ton compte gratuit : suis tes jeux, reprends ta progression où tu t'es arrêté, reçois les alertes de patch et gagne des points à chaque contribution.</p>
         <div style="display:flex; gap:10px; margin-top:18px; flex-wrap:wrap;">
-          <a class="btn btn--primary" href="#">Créer mon compte gratuit</a>
-          <a class="btn btn--ghost" href="#">Voir un exemple</a>
+          <a class="btn btn--primary" href="inscription.html">Créer mon compte gratuit</a>
+          <a class="btn btn--ghost" href="profil.html">Voir un exemple</a>
         </div>
       </div>
       <div class="discover__demo" aria-hidden="true">
@@ -907,6 +947,147 @@ body.is-embed #deviceHost{display:none !important;}
           <div class="demo-card__badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> +120 points cette semaine</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4 · GUIDES RÉCENTS ================= -->
+<section id="guides" class="section section--pale">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker"><span class="dots"><i></i><i></i></span> À la une</span>
+      <div class="sec-head__row">
+        <h2 class="sec-title">Guides récents &amp; mis à jour</h2>
+        <a class="link-arrow" href="guides.html">Tous les guides
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+      </div>
+    </div>
+
+    <div class="guides">
+      <article class="card">
+        <div class="card__thumb cover-er"><span class="card__game">Elden Ring</span><button class="fav" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div>
+        <div class="card__body">
+          <div class="card__top"><span class="tag tag--guide">Guide de boss</span><span class="badge badge--maj badge--dot">Màj il y a 2 j</span></div>
+          <h3 class="card__title">Battre Malenia : stratégie complète, builds conseillés et invocations</h3>
+          <div class="card__foot">
+            <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>12 min</span>
+            <span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,8 <span style="color:var(--ink-400); font-weight:400;">(412)</span></span>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card__thumb cover-zd"><span class="card__game">Zelda TOTK</span><button class="fav" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div>
+        <div class="card__body">
+          <div class="card__top"><span class="tag tag--carte">Carte interactive</span></div>
+          <h3 class="card__title">Toutes les graines Korogu : carte interactive et méthode par région</h3>
+          <div class="card__foot">
+            <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>8 min</span>
+            <span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,9 <span style="color:var(--ink-400); font-weight:400;">(803)</span></span>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card__thumb cover-bg"><span class="card__game">Baldur's Gate 3</span><button class="fav on" aria-label="Retirer des favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div>
+        <div class="card__body">
+          <div class="card__top"><span class="tag tag--build">Build</span></div>
+          <h3 class="card__title">Build Moine voie de l'astre : dégâts maximum pour l'acte 3</h3>
+          <div class="card__foot">
+            <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>15 min</span>
+            <span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,9 <span style="color:var(--ink-400); font-weight:400;">(287)</span></span>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card__thumb cover-gi"><span class="card__game">Genshin Impact</span><button class="fav" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div>
+        <div class="card__body">
+          <div class="card__top"><span class="tag tag--soluce">Soluce</span><span class="badge badge--maj badge--dot">Patch 5.6</span></div>
+          <h3 class="card__title">Réussir l'Abîme 12 étoiles : équipes F2P et rotations détaillées</h3>
+          <div class="card__foot">
+            <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>10 min</span>
+            <span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,7 <span style="color:var(--ink-400); font-weight:400;">(529)</span></span>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card__thumb cover-cp"><span class="card__game">Cyberpunk 2077</span><button class="fav" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div>
+        <div class="card__body">
+          <div class="card__top"><span class="tag tag--soluce">Soluce</span></div>
+          <h3 class="card__title">Phantom Liberty : tous les choix qui comptent et toutes les fins</h3>
+          <div class="card__foot">
+            <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>14 min</span>
+            <span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,6 <span style="color:var(--ink-400); font-weight:400;">(193)</span></span>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card__thumb cover-d4"><span class="card__game">Diablo IV</span><button class="fav" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div>
+        <div class="card__body">
+          <div class="card__top"><span class="tag tag--guide">Guide</span></div>
+          <h3 class="card__title">Farm d'or efficace en saison 8 : les 5 méthodes qui marchent vraiment</h3>
+          <div class="card__foot">
+            <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>6 min</span>
+            <span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,5 <span style="color:var(--ink-400); font-weight:400;">(74)</span></span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 7 · ACTUS ================= -->
+<section id="actus" class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Actualités</span>
+      <div class="sec-head__row">
+        <h2 class="sec-title">Ce qui bouge en ce moment</h2>
+        <a class="link-arrow" href="actualites.html">Toutes les actus
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="news-scroll">
+      <article class="ncard">
+        <div class="ncard__thumb cover-er"><span class="badge badge--new badge--dot ncard__fresh">Il y a 2 h</span></div>
+        <div class="ncard__body">
+          <span class="tag tag--actu">Patch notes</span>
+          <h3 class="ncard__t">Elden Ring 1.12.3 : équilibrage des armes de sang et corrections</h3>
+          <span class="ncard__m">3 guides déjà mis à jour</span>
+        </div>
+      </article>
+      <article class="ncard">
+        <div class="ncard__thumb cover-gi"><span class="badge badge--new badge--dot ncard__fresh">Il y a 5 h</span></div>
+        <div class="ncard__body">
+          <span class="tag tag--actu">Mise à jour</span>
+          <h3 class="ncard__t">Genshin Impact 5.7 : bannières, événements et nouvelles quêtes</h3>
+          <span class="ncard__m">Récap complet en 4 min</span>
+        </div>
+      </article>
+      <article class="ncard">
+        <div class="ncard__thumb cover-mh"><span class="badge badge--maj badge--dot ncard__fresh">Hier</span></div>
+        <div class="ncard__body">
+          <span class="tag tag--actu">Événement</span>
+          <h3 class="ncard__t">Monster Hunter Wilds : le festival d'été apporte 2 monstres inédits</h3>
+          <span class="ncard__m">Builds conseillés inclus</span>
+        </div>
+      </article>
+      <article class="ncard">
+        <div class="ncard__thumb cover-poe"><span class="badge badge--maj badge--dot ncard__fresh">Hier</span></div>
+        <div class="ncard__body">
+          <span class="tag tag--actu">Nouvelle ligue</span>
+          <h3 class="ncard__t">Path of Exile 2 : tout savoir sur la ligue avant son lancement</h3>
+          <span class="ncard__m">Starter builds à jour</span>
+        </div>
+      </article>
+      <article class="ncard">
+        <div class="ncard__thumb cover-bg"><span class="badge badge--maj badge--dot ncard__fresh">Il y a 2 j</span></div>
+        <div class="ncard__body">
+          <span class="tag tag--actu">Communauté</span>
+          <h3 class="ncard__t">Baldur's Gate 3 : le patch 8 ajoute 12 sous-classes — le récap</h3>
+          <span class="ncard__m">52 builds re-testés</span>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -945,7 +1126,7 @@ body.is-embed #deviceHost{display:none !important;}
         </div>
       </article>
       <article class="gcard">
-        <div class="gcard__cover cover-bg"><span class="badge badge--verif badge--dot">Vérifié</span><button class="fav gcard__fav" aria-label="Suivre Baldur's Gate 3"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Baldur's Gate 3</span></div>
+        <div class="gcard__cover cover-bg"><span class="badge badge--maj badge--dot">À jour</span><button class="fav gcard__fav" aria-label="Suivre Baldur's Gate 3"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Baldur's Gate 3</span></div>
         <div class="gcard__body">
           <div class="gcard__meta"><b>158 guides</b> · 52 builds · soluce complète</div>
           <span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
@@ -959,7 +1140,7 @@ body.is-embed #deviceHost{display:none !important;}
         </div>
       </article>
       <article class="gcard hide-mobile">
-        <div class="gcard__cover cover-cp"><span class="badge badge--verif badge--dot">Vérifié</span><button class="fav gcard__fav" aria-label="Suivre Cyberpunk 2077"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Cyberpunk 2077</span></div>
+        <div class="gcard__cover cover-cp"><span class="badge badge--maj badge--dot">À jour</span><button class="fav gcard__fav" aria-label="Suivre Cyberpunk 2077"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Cyberpunk 2077</span></div>
         <div class="gcard__body">
           <div class="gcard__meta"><b>96 guides</b> · toutes les fins</div>
           <span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
@@ -988,89 +1169,172 @@ body.is-embed #deviceHost{display:none !important;}
       </article>
     </div>
     <div style="display:flex; justify-content:center; margin-top:28px;">
-      <a class="btn btn--outline" href="#">Parcourir tous les jeux</a>
+      <a class="btn btn--outline" href="jeux.html">Parcourir tous les jeux</a>
     </div>
   </div>
 </section>
 
-<!-- ================= 4 · GUIDES RÉCENTS ================= -->
-<section id="guides" class="section">
+<!-- ================= 8 · COMMUNAUTÉ ================= -->
+<section id="communaute" class="section">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-kicker"><span class="dots"><i></i><i></i></span> À la une</span>
+      <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Communauté</span>
       <div class="sec-head__row">
-        <h2 class="sec-title">Guides récents &amp; mis à jour</h2>
-        <a class="link-arrow" href="#">Tous les guides
+        <h2 class="sec-title">Pose ta question, la communauté répond</h2>
+        <a class="link-arrow" href="communaute.html">Tout le forum
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
       </div>
     </div>
+    <div class="community">
+      <div class="threads">
+        <div class="thread">
+          <span class="thread__av" style="background:var(--magenta);">K</span>
+          <div class="thread__main">
+            <div class="thread__t">Impossible de battre le boss final en NG+2, des conseils ?</div>
+            <div class="thread__meta"><span>Elden Ring</span>·<span>il y a 14 min</span>·<span class="thread__res"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Résolu</span></div>
+          </div>
+          <div class="thread__count"><b>23</b><span>réponses</span></div>
+        </div>
+        <div class="thread">
+          <span class="thread__av" style="background:var(--cyan);">M</span>
+          <div class="thread__main">
+            <div class="thread__t">Quel ordre pour les sanctuaires du désert de Gerudo ?</div>
+            <div class="thread__meta"><span>Zelda TOTK</span>·<span>il y a 32 min</span></div>
+          </div>
+          <div class="thread__count"><b>8</b><span>réponses</span></div>
+        </div>
+        <div class="thread">
+          <span class="thread__av" style="background:var(--or); color:var(--noir);">S</span>
+          <div class="thread__main">
+            <div class="thread__t">Team full F2P pour l'Abîme 5.6, c'est jouable ?</div>
+            <div class="thread__meta"><span>Genshin Impact</span>·<span>il y a 1 h</span>·<span class="thread__res"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Résolu</span></div>
+          </div>
+          <div class="thread__count"><b>41</b><span>réponses</span></div>
+        </div>
+        <div class="thread">
+          <span class="thread__av" style="background:var(--noir);">R</span>
+          <div class="thread__main">
+            <div class="thread__t">Build arbalète viable en hardcore saison 8 ?</div>
+            <div class="thread__meta"><span>Diablo IV</span>·<span>il y a 2 h</span></div>
+          </div>
+          <div class="thread__count"><b>12</b><span>réponses</span></div>
+        </div>
+      </div>
+      <aside class="community__side">
+        <h3>Une question ? Pose-la.</h3>
+        <p>Des joueurs qui répondent vite et sans jugement : la question bête n'existe pas.</p>
+        <div class="community__stat">
+          <div><div class="v">28 400</div><div class="l">membres</div></div>
+          <div><div class="v">9 min</div><div class="l">réponse médiane</div></div>
+          <div><div class="v">87 %</div><div class="l">questions résolues</div></div>
+        </div>
+        <a class="btn btn--white" href="communaute.html">Rejoindre la communauté</a>
+        <a href="https://discord.gg/lynk" style="font-size:13.5px; font-weight:700; color:rgba(255,255,255,.85); text-align:center;">Ou rejoindre le Discord →</a>
+      </aside>
+    </div>
+  </div>
+</section>
 
-    <div class="guides">
-      <article class="card">
-        <div class="card__thumb cover-er"><span class="card__game">Elden Ring</span><button class="fav" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div>
-        <div class="card__body">
-          <div class="card__top"><span class="tag tag--guide">Guide de boss</span><span class="badge badge--maj badge--dot">Màj il y a 2 j</span></div>
-          <h3 class="card__title">Battre Malenia : stratégie complète, builds conseillés et invocations</h3>
-          <div class="card__foot">
-            <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>12 min</span>
-            <span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,8 <span style="color:var(--ink-400); font-weight:400;">(412)</span></span>
+<!-- ================= 9 · GAMIFICATION ================= -->
+<section class="section section--pale">
+  <div class="wrap">
+    <div class="gamif">
+      <div class="gamif__grid">
+        <div>
+          <span class="sec-kicker" style="color:var(--or);"><span class="dots"><i style="background:var(--or)"></i><i style="background:var(--or)"></i></span> Gamification</span>
+          <h2>Jouer te rapporte.<br>Contribuer aussi.</h2>
+          <p class="gamif__sub">Gagne des points en progressant, en aidant les autres et en complétant des défis. Échange-les contre des réductions matériel et des codes promo chez nos partenaires.</p>
+          <div class="gamif__badges">
+            <div class="gbadge"><span class="gbadge__d" style="background:var(--or);"><svg viewBox="0 0 24 24" fill="none" stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg></span><span class="gbadge__l">Premier guide</span></div>
+            <div class="gbadge"><span class="gbadge__d" style="background:var(--cyan);"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg></span><span class="gbadge__l">Cartographe</span></div>
+            <div class="gbadge"><span class="gbadge__d" style="background:var(--magenta);"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span><span class="gbadge__l">Centurion d'entraide</span></div>
+            <div class="gbadge locked"><span class="gbadge__d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span><span class="gbadge__l">Stratège</span></div>
+            <div class="gbadge locked"><span class="gbadge__d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span><span class="gbadge__l">Légende</span></div>
+          </div>
+          <div class="rewards">
+            <div class="reward">
+              <span class="reward__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5 5 19"></path><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg></span>
+              <div><div class="reward__t">−10 % matériel gaming</div><div class="reward__m">2 500 points · partenaires</div></div>
+            </div>
+            <div class="reward">
+              <span class="reward__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="14" x="3" y="8" rx="2"></rect><path d="M12 8V21"></path><path d="M19 12v0a4.5 4.5 0 0 0-4.5-4.5h-5A4.5 4.5 0 0 0 5 12v0"></path><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"></path></svg></span>
+              <div><div class="reward__t">Codes promo jeux</div><div class="reward__m">dès 1 000 points</div></div>
+            </div>
           </div>
         </div>
+        <div>
+          <div class="leaderboard">
+            <div class="lrow">
+              <span class="lrow__rank">1</span><span class="lrow__av" style="background:var(--magenta);">N</span><span class="lrow__n">NovaKnight</span><span class="lrow__pts">12 480</span>
+            </div>
+            <div class="lrow">
+              <span class="lrow__rank">2</span><span class="lrow__av" style="background:var(--cyan);">L</span><span class="lrow__n">Lyra_M</span><span class="lrow__pts">11 920</span>
+            </div>
+            <div class="lrow me">
+              <span class="lrow__rank">3</span><span class="lrow__av" style="background:var(--or); color:var(--noir);">É</span><span class="lrow__n">Toi — ÉricQ <span style="font-weight:400; color:#a8a8af; font-size:12px;">· niv. 23</span></span><span class="lrow__pts">11 540</span>
+            </div>
+            <div class="lrow">
+              <span class="lrow__rank">4</span><span class="lrow__av" style="background:#5865F2;">T</span><span class="lrow__n">Tarnished_77</span><span class="lrow__pts">10 870</span>
+            </div>
+          </div>
+          <a class="btn btn--premium btn--block" href="recompenses.html" style="margin-top:16px;">Découvrir les récompenses</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 10 · PREMIUM ================= -->
+<section id="premium" class="section">
+  <div class="wrap">
+    <div class="premium-head">
+      <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Lynk Premium</span>
+      <h2 class="sec-title">L'information reste gratuite.<br>Le confort, lui, se mérite… ou s'offre.</h2>
+      <span class="premium-note">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>
+        Tout le contenu reste accessible gratuitement — Premium ajoute le confort, pas l'accès.
+      </span>
+    </div>
+
+    <div class="pricing">
+      <article class="ptier">
+        <span class="ptier__name">Essentiel</span>
+        <div class="ptier__price">1,99 €<small> /mois</small></div>
+        <p class="ptier__desc">Le confort de base pour suivre tes jeux sans friction.</p>
+        <ul class="ptier__feats">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Publicité fortement réduite</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Checklists &amp; suivi de progression</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Marqueurs personnels sur les cartes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Alertes sur tes jeux favoris</li>
+        </ul>
+        <a class="btn btn--outline btn--block" href="premium.html">Choisir Essentiel</a>
       </article>
-      <article class="card">
-        <div class="card__thumb cover-zd"><span class="card__game">Zelda TOTK</span><button class="fav" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div>
-        <div class="card__body">
-          <div class="card__top"><span class="tag tag--carte">Carte interactive</span><span class="badge badge--verif badge--dot">Vérifié</span></div>
-          <h3 class="card__title">Toutes les graines Korogu : carte interactive et méthode par région</h3>
-          <div class="card__foot">
-            <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>8 min</span>
-            <span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,9 <span style="color:var(--ink-400); font-weight:400;">(803)</span></span>
-          </div>
-        </div>
+
+      <article class="ptier ptier--feat">
+        <span class="ptier__badge">Le plus populaire</span>
+        <span class="ptier__name">Premium</span>
+        <div class="ptier__price">4,99 €<small> /mois</small></div>
+        <p class="ptier__desc">L'expérience complète, fluide et sans aucune publicité.</p>
+        <ul class="ptier__feats">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Zéro publicité, zéro cookie publicitaire</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Toutes les cartes interactives</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Suivi automatique des succès &amp; trophées</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Statistiques détaillées par jeu</li>
+        </ul>
+        <a class="btn btn--primary btn--block" href="premium.html">Passer Premium</a>
       </article>
-      <article class="card">
-        <div class="card__thumb cover-bg"><span class="card__game">Baldur's Gate 3</span><button class="fav on" aria-label="Retirer des favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div>
-        <div class="card__body">
-          <div class="card__top"><span class="tag tag--build">Build</span><span class="badge badge--verif badge--dot">Vérifié</span></div>
-          <h3 class="card__title">Build Moine voie de l'astre : dégâts maximum pour l'acte 3</h3>
-          <div class="card__foot">
-            <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>15 min</span>
-            <span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,9 <span style="color:var(--ink-400); font-weight:400;">(287)</span></span>
-          </div>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__thumb cover-gi"><span class="card__game">Genshin Impact</span><button class="fav" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div>
-        <div class="card__body">
-          <div class="card__top"><span class="tag tag--soluce">Soluce</span><span class="badge badge--maj badge--dot">Patch 5.6</span></div>
-          <h3 class="card__title">Réussir l'Abîme 12 étoiles : équipes F2P et rotations détaillées</h3>
-          <div class="card__foot">
-            <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>10 min</span>
-            <span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,7 <span style="color:var(--ink-400); font-weight:400;">(529)</span></span>
-          </div>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__thumb cover-cp"><span class="card__game">Cyberpunk 2077</span><button class="fav" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div>
-        <div class="card__body">
-          <div class="card__top"><span class="tag tag--soluce">Soluce</span></div>
-          <h3 class="card__title">Phantom Liberty : tous les choix qui comptent et toutes les fins</h3>
-          <div class="card__foot">
-            <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>14 min</span>
-            <span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,6 <span style="color:var(--ink-400); font-weight:400;">(193)</span></span>
-          </div>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__thumb cover-d4"><span class="card__game">Diablo IV</span><button class="fav" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div>
-        <div class="card__body">
-          <div class="card__top"><span class="tag tag--guide">Guide</span><span class="badge badge--new badge--dot">Nouveau</span></div>
-          <h3 class="card__title">Farm d'or efficace en saison 8 : les 5 méthodes qui marchent vraiment</h3>
-          <div class="card__foot">
-            <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>6 min</span>
-            <span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,5 <span style="color:var(--ink-400); font-weight:400;">(74)</span></span>
-          </div>
-        </div>
+
+      <article class="ptier">
+        <span class="ptier__name">Légende</span>
+        <div class="ptier__price">9,99 €<small> /mois</small></div>
+        <p class="ptier__desc">Pour les plus engagés : exclusivités et avantages partenaires.</p>
+        <ul class="ptier__feats">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Tout Premium, plus :</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Contenus exclusifs &amp; accès anticipé</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Réductions partenaires renforcées</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Support prioritaire &amp; votes roadmap</li>
+        </ul>
+        <a class="btn btn--outline btn--block" href="premium.html">Choisir Légende</a>
       </article>
     </div>
   </div>
@@ -1093,7 +1357,7 @@ body.is-embed #deviceHost{display:none !important;}
         </div>
       </div>
       <div>
-        <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Fonctionnalité phare</span>
+        <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Cartes interactives</span>
         <h2 class="sec-title" style="margin:8px 0 10px;">Des cartes interactives,<br>pas des captures floues</h2>
         <p class="sec-sub" style="margin-bottom:22px;">Chaque monde ouvert cartographié : quêtes, collectibles, boss et points d'intérêt filtrables en un clic.</p>
         <div class="feature__list">
@@ -1103,14 +1367,14 @@ body.is-embed #deviceHost{display:none !important;}
           </div>
           <div class="fl-row">
             <span class="fl-row__ico" style="background:var(--or-pale); color:var(--or-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg></span>
-            <div><div class="fl-row__t">Ajoute et partage tes propres marqueurs</div><div class="fl-row__m">Tes spots de farm, tes secrets — partagés avec la communauté si tu veux.</div></div>
+            <div><div class="fl-row__t">Ajoute et partage tes propres marqueurs <span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></div><div class="fl-row__m">Tes spots de farm, tes secrets — partagés avec la communauté si tu veux.</div></div>
           </div>
           <div class="fl-row">
             <span class="fl-row__ico" style="background:var(--magenta-pale); color:var(--magenta-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>
-            <div><div class="fl-row__t">Progression synchronisée</div><div class="fl-row__m">Coche ce que tu as trouvé : la carte et ton suivi de jeu restent alignés.</div></div>
+            <div><div class="fl-row__t">Progression synchronisée <span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></div><div class="fl-row__m">Coche ce que tu as trouvé : la carte et ton suivi de jeu restent alignés.</div></div>
           </div>
         </div>
-        <a class="btn btn--primary" href="#" style="margin-top:24px;">Explorer les cartes</a>
+        <a class="btn btn--primary" href="cartes.html" style="margin-top:24px;">Explorer les cartes</a>
       </div>
     </div>
   </div>
@@ -1123,7 +1387,7 @@ body.is-embed #deviceHost{display:none !important;}
       <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Builds &amp; optimisation</span>
       <div class="sec-head__row">
         <h2 class="sec-title">Les builds plébiscités par la communauté</h2>
-        <a class="link-arrow" href="#">Tous les builds
+        <a class="link-arrow" href="builds.html">Tous les builds
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
       </div>
     </div>
@@ -1175,259 +1439,7 @@ body.is-embed #deviceHost{display:none !important;}
       </article>
     </div>
     <div style="display:flex; justify-content:center; margin-top:28px;">
-      <a class="btn btn--outline" href="#">Trouver le bon build</a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 7 · ACTUS ================= -->
-<section id="actus" class="section section--pale">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Actualités gaming</span>
-      <div class="sec-head__row">
-        <h2 class="sec-title">Ce qui bouge sur tes jeux</h2>
-        <a class="link-arrow" href="#">Toutes les actus
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
-      </div>
-    </div>
-  </div>
-  <div class="wrap">
-    <div class="news-scroll">
-      <article class="ncard">
-        <div class="ncard__thumb cover-er"><span class="badge badge--new badge--dot ncard__fresh">Il y a 2 h</span></div>
-        <div class="ncard__body">
-          <span class="tag tag--actu">Patch notes</span>
-          <h3 class="ncard__t">Elden Ring 1.12.3 : équilibrage des armes de sang et corrections</h3>
-          <span class="ncard__m">3 guides déjà mis à jour</span>
-        </div>
-      </article>
-      <article class="ncard">
-        <div class="ncard__thumb cover-gi"><span class="badge badge--new badge--dot ncard__fresh">Il y a 5 h</span></div>
-        <div class="ncard__body">
-          <span class="tag tag--actu">Mise à jour</span>
-          <h3 class="ncard__t">Genshin Impact 5.7 : bannières, événements et nouvelles quêtes</h3>
-          <span class="ncard__m">Récap complet en 4 min</span>
-        </div>
-      </article>
-      <article class="ncard">
-        <div class="ncard__thumb cover-mh"><span class="badge badge--maj badge--dot ncard__fresh">Hier</span></div>
-        <div class="ncard__body">
-          <span class="tag tag--actu">Événement</span>
-          <h3 class="ncard__t">Monster Hunter Wilds : le festival d'été apporte 2 monstres inédits</h3>
-          <span class="ncard__m">Builds conseillés inclus</span>
-        </div>
-      </article>
-      <article class="ncard">
-        <div class="ncard__thumb cover-poe"><span class="badge badge--maj badge--dot ncard__fresh">Hier</span></div>
-        <div class="ncard__body">
-          <span class="tag tag--actu">Nouvelle ligue</span>
-          <h3 class="ncard__t">Path of Exile 2 : tout savoir sur la ligue avant son lancement</h3>
-          <span class="ncard__m">Starter builds à jour</span>
-        </div>
-      </article>
-      <article class="ncard">
-        <div class="ncard__thumb cover-bg"><span class="badge badge--maj badge--dot ncard__fresh">Il y a 2 j</span></div>
-        <div class="ncard__body">
-          <span class="tag tag--actu">Communauté</span>
-          <h3 class="ncard__t">Baldur's Gate 3 : le patch 8 ajoute 12 sous-classes — le récap</h3>
-          <span class="ncard__m">52 builds re-testés</span>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 8 · COMMUNAUTÉ ================= -->
-<section id="communaute" class="section">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Communauté</span>
-      <div class="sec-head__row">
-        <h2 class="sec-title">Pose ta question, la communauté répond</h2>
-        <a class="link-arrow" href="#">Tout le forum
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
-      </div>
-    </div>
-    <div class="community">
-      <div class="threads">
-        <div class="thread">
-          <span class="thread__av" style="background:var(--magenta);">K</span>
-          <div class="thread__main">
-            <div class="thread__t">Impossible de battre le boss final en NG+2, des conseils ?</div>
-            <div class="thread__meta"><span>Elden Ring</span>·<span>il y a 14 min</span>·<span class="thread__res"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Résolu</span></div>
-          </div>
-          <div class="thread__count"><b>23</b><span>réponses</span></div>
-        </div>
-        <div class="thread">
-          <span class="thread__av" style="background:var(--cyan);">M</span>
-          <div class="thread__main">
-            <div class="thread__t">Quel ordre pour les sanctuaires du désert de Gerudo ?</div>
-            <div class="thread__meta"><span>Zelda TOTK</span>·<span>il y a 32 min</span></div>
-          </div>
-          <div class="thread__count"><b>8</b><span>réponses</span></div>
-        </div>
-        <div class="thread">
-          <span class="thread__av" style="background:var(--or); color:var(--noir);">S</span>
-          <div class="thread__main">
-            <div class="thread__t">Team full F2P pour l'Abîme 5.6, c'est jouable ?</div>
-            <div class="thread__meta"><span>Genshin Impact</span>·<span>il y a 1 h</span>·<span class="thread__res"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Résolu</span></div>
-          </div>
-          <div class="thread__count"><b>41</b><span>réponses</span></div>
-        </div>
-        <div class="thread">
-          <span class="thread__av" style="background:var(--noir);">R</span>
-          <div class="thread__main">
-            <div class="thread__t">Build arbalète viable en hardcore saison 8 ?</div>
-            <div class="thread__meta"><span>Diablo IV</span>·<span>il y a 2 h</span></div>
-          </div>
-          <div class="thread__count"><b>12</b><span>réponses</span></div>
-        </div>
-      </div>
-      <aside class="community__side">
-        <h3>Rejoins l'entraide Lynk</h3>
-        <p>Des joueurs qui répondent vite, des experts par jeu, zéro jugement. La question bête n'existe pas.</p>
-        <div class="community__stat">
-          <div><div class="v">28 400</div><div class="l">membres</div></div>
-          <div><div class="v">9 min</div><div class="l">réponse médiane</div></div>
-          <div><div class="v">87 %</div><div class="l">questions résolues</div></div>
-        </div>
-        <a class="btn btn--white" href="#">Rejoindre la communauté</a>
-        <a href="#" style="font-size:13.5px; font-weight:700; color:rgba(255,255,255,.85); text-align:center;">Ou rejoindre le Discord →</a>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 9 · GAMIFICATION ================= -->
-<section class="section section--pale">
-  <div class="wrap">
-    <div class="gamif">
-      <div class="gamif__grid">
-        <div>
-          <span class="sec-kicker" style="color:var(--or);"><span class="dots"><i style="background:var(--or)"></i><i style="background:var(--or)"></i></span> Gamification</span>
-          <h2>Jouer te rapporte.<br>Contribuer aussi.</h2>
-          <p class="gamif__sub">Gagne des points en progressant, en aidant les autres et en complétant des défis. Échange-les contre des réductions matériel et des codes promo chez nos partenaires.</p>
-          <div class="gamif__badges">
-            <div class="gbadge"><span class="gbadge__d" style="background:var(--or);"><svg viewBox="0 0 24 24" fill="none" stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg></span><span class="gbadge__l">Premier guide</span></div>
-            <div class="gbadge"><span class="gbadge__d" style="background:var(--cyan);"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg></span><span class="gbadge__l">Cartographe</span></div>
-            <div class="gbadge"><span class="gbadge__d" style="background:var(--magenta);"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span><span class="gbadge__l">Centurion d'entraide</span></div>
-            <div class="gbadge locked"><span class="gbadge__d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span><span class="gbadge__l">Stratège</span></div>
-            <div class="gbadge locked"><span class="gbadge__d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span><span class="gbadge__l">Légende</span></div>
-          </div>
-          <div class="rewards">
-            <div class="reward">
-              <span class="reward__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5 5 19"></path><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg></span>
-              <div><div class="reward__t">−10 % matériel gaming</div><div class="reward__m">2 500 points · partenaires</div></div>
-            </div>
-            <div class="reward">
-              <span class="reward__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="14" x="3" y="8" rx="2"></rect><path d="M12 8V21"></path><path d="M19 12v0a4.5 4.5 0 0 0-4.5-4.5h-5A4.5 4.5 0 0 0 5 12v0"></path><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"></path></svg></span>
-              <div><div class="reward__t">Codes promo jeux</div><div class="reward__m">dès 1 000 points</div></div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="leaderboard">
-            <div class="lrow">
-              <span class="lrow__rank">1</span><span class="lrow__av" style="background:var(--magenta);">N</span><span class="lrow__n">NovaKnight</span><span class="lrow__pts">12 480</span>
-            </div>
-            <div class="lrow">
-              <span class="lrow__rank">2</span><span class="lrow__av" style="background:var(--cyan);">L</span><span class="lrow__n">Lyra_M</span><span class="lrow__pts">11 920</span>
-            </div>
-            <div class="lrow me">
-              <span class="lrow__rank">3</span><span class="lrow__av" style="background:var(--or); color:var(--noir);">É</span><span class="lrow__n">Toi — ÉricQ <span style="font-weight:400; color:#a8a8af; font-size:12px;">· niv. 23</span></span><span class="lrow__pts">11 540</span>
-            </div>
-            <div class="lrow">
-              <span class="lrow__rank">4</span><span class="lrow__av" style="background:#5865F2;">T</span><span class="lrow__n">Tarnished_77</span><span class="lrow__pts">10 870</span>
-            </div>
-          </div>
-          <a class="btn btn--premium btn--block" href="#" style="margin-top:16px;">Découvrir les récompenses</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 10 · PREMIUM ================= -->
-<section id="premium" class="section">
-  <div class="wrap">
-    <div class="premium-head">
-      <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Lynk Premium</span>
-      <h2 class="sec-title">L'information reste gratuite.<br>Le confort, lui, se mérite… ou s'offre.</h2>
-      <span class="premium-note">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>
-        Tout le contenu reste accessible gratuitement — Premium ajoute le confort, pas l'accès.
-      </span>
-    </div>
-
-    <div class="pricing">
-      <article class="ptier">
-        <span class="ptier__name">Essentiel</span>
-        <div class="ptier__price">1,99 €<small> /mois</small></div>
-        <p class="ptier__desc">Le confort de base pour suivre tes jeux sans friction.</p>
-        <ul class="ptier__feats">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Publicité fortement réduite</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Checklists &amp; suivi de progression</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Marqueurs personnels sur les cartes</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Alertes sur tes jeux favoris</li>
-        </ul>
-        <a class="btn btn--outline btn--block" href="#">Choisir Essentiel</a>
-      </article>
-
-      <article class="ptier ptier--feat">
-        <span class="ptier__badge">Le plus populaire</span>
-        <span class="ptier__name">Premium</span>
-        <div class="ptier__price">4,99 €<small> /mois</small></div>
-        <p class="ptier__desc">L'expérience complète, fluide et sans aucune publicité.</p>
-        <ul class="ptier__feats">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Zéro publicité, zéro cookie publicitaire</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Toutes les cartes interactives</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Suivi automatique des succès &amp; trophées</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Statistiques détaillées par jeu</li>
-        </ul>
-        <a class="btn btn--primary btn--block" href="#">Passer Premium</a>
-      </article>
-
-      <article class="ptier">
-        <span class="ptier__name">Légende</span>
-        <div class="ptier__price">9,99 €<small> /mois</small></div>
-        <p class="ptier__desc">Pour les plus engagés : exclusivités et avantages partenaires.</p>
-        <ul class="ptier__feats">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Tout Premium, plus :</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Contenus exclusifs &amp; accès anticipé</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Réductions partenaires renforcées</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Support prioritaire &amp; votes roadmap</li>
-        </ul>
-        <a class="btn btn--outline btn--block" href="#">Choisir Légende</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 11 · RÉASSURANCE ================= -->
-<section class="section section--mag section--tight">
-  <div class="wrap">
-    <div class="why">
-      <div class="why__c">
-        <span class="why__ico" style="background:#fff; color:var(--magenta);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1.5"></rect><rect width="7" height="7" x="14" y="3" rx="1.5"></rect><rect width="7" height="7" x="14" y="14" rx="1.5"></rect><rect width="7" height="7" x="3" y="14" rx="1.5"></rect></svg></span>
-        <span class="why__t">Tout au même endroit</span>
-        <span class="why__m">Guides, cartes, builds, actus et entraide : fini les 12 onglets ouverts.</span>
-      </div>
-      <div class="why__c">
-        <span class="why__ico" style="background:#fff; color:var(--ok);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg></span>
-        <span class="why__t">Fiable et à jour</span>
-        <span class="why__m">Contenus vérifiés, datés et synchronisés avec les patchs.</span>
-      </div>
-      <div class="why__c">
-        <span class="why__ico" style="background:#fff; color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13.5 8.5-5 5"></path><path d="m8.5 8.5 5 5"></path><circle cx="12" cy="12" r="9"></circle></svg></span>
-        <span class="why__t">Sans pub intrusive</span>
-        <span class="why__m">Pas de pop-up, pas d'auto-play : l'interface respire, toi aussi.</span>
-      </div>
-      <div class="why__c">
-        <span class="why__ico" style="background:#fff; color:var(--or-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"></circle><path d="M20 21a8 8 0 0 0-16 0"></path></svg></span>
-        <span class="why__t">Pensé pour toi</span>
-        <span class="why__m">Tes jeux, ta progression, tes alertes : une page d'accueil qui te connaît.</span>
-      </div>
+      <a class="btn btn--outline" href="builds.html">Trouver le bon build</a>
     </div>
   </div>
 </section>
@@ -1437,37 +1449,55 @@ body.is-embed #deviceHost{display:none !important;}
   <div class="wrap">
     <div class="footer__top">
       <div class="footer__brand">
-        <a href="#" class="logo logo--plain"><img src="assets/lynk-blanc.png" alt="LYNK" style="height:22px;"></a>
+        <a href="index.html" class="logo"><svg style="height:20px;width:auto;display:block" id="Calque_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1068.57 386.6">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #9520b3;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <path class="cls-2" d="M812.55,196.86c0-60.73.07-121.46-.12-182.18-.02-5.65,1.45-7.36,7.2-7.21,15.73.4,31.48.41,47.21,0,5.71-.15,6.8,1.75,6.78,7.01-.2,44.41-.02,88.82-.22,133.23-.02,5.49,1.22,7.49,7.14,7.36,21.32-.47,42.73.78,63.95-.75,34.45-2.49,60.35-29.79,62.83-64.91,1.73-24.53.4-49.14.67-73.71.09-8.07.02-8.08,8.05-8.08,15.53,0,31.06.01,46.6,0,3.02,0,5.79-.25,5.68,4.27-.76,31.16,1.9,62.42-1.63,93.48-3.42,30.05-14.83,56.53-37.93,77.13-2.02,1.8-4.29,3.03-.74,6.09,24.22,20.83,35.38,48.21,39.01,79.16,2.3,19.55,1.02,39.2,1.21,58.81.17,17.76-.15,35.53.15,53.29.09,5.27-1.66,6.62-6.72,6.53-15.94-.29-31.89-.27-47.84,0-4.72.08-5.92-1.5-5.93-6.04-.11-32.42,1.17-64.88-.52-97.26-1.72-33.06-24.09-58.93-55.73-66.08-4.07-.92-8.19-1.17-12.34-1.17-19.67,0-39.35.2-59.02-.13-5.55-.09-6.93,1.57-6.91,6.98.2,52.05.02,104.11.25,156.16.03,5.89-1.41,7.77-7.5,7.61-15.73-.43-31.48-.37-47.21-.02-5.36.12-6.49-1.72-6.48-6.71.15-60.93.1-121.87.1-182.8Z"/>
+  <path class="cls-2" d="M545.52,256.7c0,40.9-.11,81.81.13,122.71.03,5.6-1.65,6.94-7.02,6.82-15.73-.35-31.48-.2-47.22-.07-3.68.03-5.66-.53-5.64-4.97.45-80.35-1.08-160.72.87-241.06.73-29.82,7.83-58.55,24.04-84.24,21.4-33.91,53.1-50.94,92.42-54.9,27.46-2.77,54.25.02,79.59,11.47,34.74,15.7,55.41,43.36,66.2,79.13,6.13,20.34,8.63,41.23,8.72,62.38.19,45.65-.04,91.31.18,136.97.03,5.7-1.52,7.4-7.28,7.26-15.52-.39-31.07-.33-46.6-.02-5.12.1-6.67-1.35-6.65-6.56.19-47.72.21-95.44.05-143.16-.05-16.13-1.32-32.1-7.28-47.45-9.04-23.29-25.77-36.87-50.35-40.75-18.26-2.88-36.5-2.68-53.75,4.72-24.77,10.63-34.44,31.93-38.57,56.74-1.56,9.4-1.83,18.91-1.85,28.4-.05,35.53-.02,71.07-.02,106.6Z"/>
+  <path class="cls-2" d="M285.8,299.77c0-26.64-.02-53.28.02-79.92,0-3.26-.03-5.84-4.28-6.81-55.73-12.73-85.37-49.84-97.02-103.66-3.51-16.2-4.84-32.65-5.01-49.18-.16-15.49.12-30.98-.13-46.47-.07-4.51,1.04-6.1,5.83-6.02,16.56.28,33.13.25,49.69.02,4.35-.06,5.61,1.24,5.58,5.57-.13,21.06-.19,42.13.23,63.19.32,16.18,2.83,31.95,10.24,46.74,7.63,15.23,19.3,25.73,35.51,30.58,20.94,6.28,42.05,6.38,62.76-1.26,18.79-6.93,30.08-21.06,36.5-39.48,1.22-3.5,2.48-7.07,2.98-10.71.66-4.76,2.67-6.43,7.66-6.33,15.94.33,31.89.15,47.83.11,3.14,0,5.81-.12,5.04,4.52-5.94,35.69-19.32,67.37-48.94,90.21-14.12,10.89-30.15,18-47.55,21.74-4.91,1.06-6.1,3.1-6.09,7.83.16,52.87.01,105.74.23,158.61.02,5.72-1.56,7.35-7.27,7.21-15.73-.38-31.47-.32-47.2-.02-5.09.1-6.74-1.29-6.7-6.54.25-26.64.11-53.28.11-79.92Z"/>
+  <path class="cls-2" d="M61.27,133.2c0,37.79-.2,75.58.09,113.37.13,16.2,2.85,32.02,10.59,46.63,8.82,16.64,22.71,26.32,40.97,30.03,6.7,1.36,13.48,2.02,20.35,2,28.57-.08,57.15.14,85.72-.17,5.87-.06,7.28,1.79,7.16,7.35-.34,16.1-.15,32.21-.1,48.32.01,3.15-.05,5.64-4.43,5.56-34.56-.66-69.2,1.84-103.66-1.36-31.04-2.88-58.4-14.76-79.97-38.02-17.82-19.21-27.44-42.45-32.81-67.69C1.52,261.99.15,244.53.14,226.95.12,156.32.21,85.69,0,15.07c-.02-5.9,1.34-7.76,7.46-7.58,15.52.46,31.06.43,46.58.01,5.91-.16,7.16,1.84,7.13,7.37-.23,39.44-.12,78.89-.12,118.33.08,0,.15,0,.23,0Z"/>
+  <path class="cls-1" d="M727.51,386.14c-17.11.09-30.87-13.6-30.75-30.58.12-16.81,13.65-30.2,30.51-30.19,16.87.02,30.57,13.6,30.49,30.21-.08,16.72-13.7,30.48-30.25,30.56Z"/>
+  <path class="cls-1" d="M422.25,6.7c16.72.05,30.28,13.52,30.44,30.25.16,16.72-13.93,30.65-30.88,30.52-16.43-.12-29.91-13.62-29.98-30.02-.07-17.38,13.2-30.8,30.41-30.75Z"/>
+</svg></a>
         <p>Le hub central du joueur. Toute l'aide au jeu vidéo, centralisée, fiable et sans publicité intrusive.</p>
         <div class="footer__social">
-          <a class="fsoc" href="#" aria-label="Discord"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.2a18 18 0 0 0-5.4 0L8.7 3a19.8 19.8 0 0 0-5 1.5A20.3 20.3 0 0 0 .3 18.1a19.9 19.9 0 0 0 6 3l1.3-2a12.8 12.8 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12 0l.5.4a12.8 12.8 0 0 1-2 1l1.2 2a19.9 19.9 0 0 0 6.1-3 20.2 20.2 0 0 0-3.5-13.7ZM8.5 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"></path></svg></a>
-          <a class="fsoc" href="#" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.2 2h6.4l4.4 5.9L18.9 2Zm-1.1 18.1h1.7L7.1 3.8H5.3l12.5 16.3Z"></path></svg></a>
-          <a class="fsoc" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
-          <a class="fsoc" href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 7.1a4.8 4.8 0 0 1-3.5-1.6 4.8 4.8 0 0 1-1.2-3.2h-3.2v13a2.9 2.9 0 1 1-2.1-2.8V9.2a6.1 6.1 0 1 0 5.3 6V8.9a8 8 0 0 0 4.7 1.5Z"></path></svg></a>
+          <a class="fsoc" href="https://discord.gg/lynk" aria-label="Discord"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.2a18 18 0 0 0-5.4 0L8.7 3a19.8 19.8 0 0 0-5 1.5A20.3 20.3 0 0 0 .3 18.1a19.9 19.9 0 0 0 6 3l1.3-2a12.8 12.8 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12 0l.5.4a12.8 12.8 0 0 1-2 1l1.2 2a19.9 19.9 0 0 0 6.1-3 20.2 20.2 0 0 0-3.5-13.7ZM8.5 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"></path></svg></a>
+          <a class="fsoc" href="https://x.com/lynk" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.2 2h6.4l4.4 5.9L18.9 2Zm-1.1 18.1h1.7L7.1 3.8H5.3l12.5 16.3Z"></path></svg></a>
+          <a class="fsoc" href="https://instagram.com/lynk" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
+          <a class="fsoc" href="https://tiktok.com/@lynk" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 7.1a4.8 4.8 0 0 1-3.5-1.6 4.8 4.8 0 0 1-1.2-3.2h-3.2v13a2.9 2.9 0 1 1-2.1-2.8V9.2a6.1 6.1 0 1 0 5.3 6V8.9a8 8 0 0 0 4.7 1.5Z"></path></svg></a>
         </div>
       </div>
       <div class="footer__col">
         <h5>Jeux</h5>
-        <a href="#">Elden Ring</a>
-        <a href="#">Zelda : TOTK</a>
-        <a href="#">Baldur's Gate 3</a>
-        <a href="#">Genshin Impact</a>
-        <a href="#">Tous les jeux</a>
+        <a href="jeu.html">Elden Ring</a>
+        <a href="jeu.html">Zelda : TOTK</a>
+        <a href="jeu.html">Baldur's Gate 3</a>
+        <a href="jeu.html">Genshin Impact</a>
+        <a href="jeux.html">Tous les jeux</a>
       </div>
       <div class="footer__col">
         <h5>Ressources</h5>
-        <a href="#">Guides &amp; soluces</a>
-        <a href="#">Cartes interactives</a>
-        <a href="#">Builds</a>
-        <a href="#">Actualités</a>
-        <a href="#">Vidéos</a>
+        <a href="guides.html">Guides &amp; soluces</a>
+        <a href="cartes.html">Cartes interactives</a>
+        <a href="builds.html">Builds</a>
+        <a href="actualites.html">Actualités</a>
+        <a href="videos.html">Vidéos</a>
       </div>
       <div class="footer__col">
         <h5>Communauté</h5>
-        <a href="#">Forum d'entraide</a>
-        <a href="#">Serveur Discord</a>
-        <a href="#">Devenir contributeur</a>
-        <a href="#">Règles &amp; modération</a>
+        <a href="communaute.html">Forum d'entraide</a>
+        <a href="https://discord.gg/lynk">Serveur Discord</a>
+        <a href="contribuer.html">Devenir contributeur</a>
+        <a href="regles.html">Règles &amp; modération</a>
       </div>
       <div class="footer__news">
         <h5>Newsletter</h5>
@@ -1481,11 +1511,11 @@ body.is-embed #deviceHost{display:none !important;}
     <div class="footer__bottom">
       <div class="footer__legal">
         <span>© 2026 Lynk</span>
-        <a href="#">Mentions légales</a>
-        <a href="#">Confidentialité (RGPD)</a>
-        <a href="#">Cookies</a>
-        <a href="#">CGU</a>
-        <a href="#">Contact</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité (RGPD)</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="cgu.html">CGU</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
     <p class="footer__aff">Transparence : certains liens vers des jeux ou du matériel sont affiliés — ils ne coûtent rien de plus et aident Lynk à rester sans publicité intrusive. Les contenus sponsorisés sont toujours signalés.</p>
@@ -1507,21 +1537,46 @@ body.is-embed #deviceHost{display:none !important;}
   <div class="mdrawer__scrim"></div>
   <div class="mdrawer__panel">
     <div class="mdrawer__head">
-      <span class="logo"><img src="assets/lynk-blanc.png" alt="LYNK" style="height:14px;"></span>
+      <span class="logo"><svg style="height:14px;width:auto;display:block" id="Calque_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1068.57 386.6">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #9520b3;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <path class="cls-2" d="M812.55,196.86c0-60.73.07-121.46-.12-182.18-.02-5.65,1.45-7.36,7.2-7.21,15.73.4,31.48.41,47.21,0,5.71-.15,6.8,1.75,6.78,7.01-.2,44.41-.02,88.82-.22,133.23-.02,5.49,1.22,7.49,7.14,7.36,21.32-.47,42.73.78,63.95-.75,34.45-2.49,60.35-29.79,62.83-64.91,1.73-24.53.4-49.14.67-73.71.09-8.07.02-8.08,8.05-8.08,15.53,0,31.06.01,46.6,0,3.02,0,5.79-.25,5.68,4.27-.76,31.16,1.9,62.42-1.63,93.48-3.42,30.05-14.83,56.53-37.93,77.13-2.02,1.8-4.29,3.03-.74,6.09,24.22,20.83,35.38,48.21,39.01,79.16,2.3,19.55,1.02,39.2,1.21,58.81.17,17.76-.15,35.53.15,53.29.09,5.27-1.66,6.62-6.72,6.53-15.94-.29-31.89-.27-47.84,0-4.72.08-5.92-1.5-5.93-6.04-.11-32.42,1.17-64.88-.52-97.26-1.72-33.06-24.09-58.93-55.73-66.08-4.07-.92-8.19-1.17-12.34-1.17-19.67,0-39.35.2-59.02-.13-5.55-.09-6.93,1.57-6.91,6.98.2,52.05.02,104.11.25,156.16.03,5.89-1.41,7.77-7.5,7.61-15.73-.43-31.48-.37-47.21-.02-5.36.12-6.49-1.72-6.48-6.71.15-60.93.1-121.87.1-182.8Z"/>
+  <path class="cls-2" d="M545.52,256.7c0,40.9-.11,81.81.13,122.71.03,5.6-1.65,6.94-7.02,6.82-15.73-.35-31.48-.2-47.22-.07-3.68.03-5.66-.53-5.64-4.97.45-80.35-1.08-160.72.87-241.06.73-29.82,7.83-58.55,24.04-84.24,21.4-33.91,53.1-50.94,92.42-54.9,27.46-2.77,54.25.02,79.59,11.47,34.74,15.7,55.41,43.36,66.2,79.13,6.13,20.34,8.63,41.23,8.72,62.38.19,45.65-.04,91.31.18,136.97.03,5.7-1.52,7.4-7.28,7.26-15.52-.39-31.07-.33-46.6-.02-5.12.1-6.67-1.35-6.65-6.56.19-47.72.21-95.44.05-143.16-.05-16.13-1.32-32.1-7.28-47.45-9.04-23.29-25.77-36.87-50.35-40.75-18.26-2.88-36.5-2.68-53.75,4.72-24.77,10.63-34.44,31.93-38.57,56.74-1.56,9.4-1.83,18.91-1.85,28.4-.05,35.53-.02,71.07-.02,106.6Z"/>
+  <path class="cls-2" d="M285.8,299.77c0-26.64-.02-53.28.02-79.92,0-3.26-.03-5.84-4.28-6.81-55.73-12.73-85.37-49.84-97.02-103.66-3.51-16.2-4.84-32.65-5.01-49.18-.16-15.49.12-30.98-.13-46.47-.07-4.51,1.04-6.1,5.83-6.02,16.56.28,33.13.25,49.69.02,4.35-.06,5.61,1.24,5.58,5.57-.13,21.06-.19,42.13.23,63.19.32,16.18,2.83,31.95,10.24,46.74,7.63,15.23,19.3,25.73,35.51,30.58,20.94,6.28,42.05,6.38,62.76-1.26,18.79-6.93,30.08-21.06,36.5-39.48,1.22-3.5,2.48-7.07,2.98-10.71.66-4.76,2.67-6.43,7.66-6.33,15.94.33,31.89.15,47.83.11,3.14,0,5.81-.12,5.04,4.52-5.94,35.69-19.32,67.37-48.94,90.21-14.12,10.89-30.15,18-47.55,21.74-4.91,1.06-6.1,3.1-6.09,7.83.16,52.87.01,105.74.23,158.61.02,5.72-1.56,7.35-7.27,7.21-15.73-.38-31.47-.32-47.2-.02-5.09.1-6.74-1.29-6.7-6.54.25-26.64.11-53.28.11-79.92Z"/>
+  <path class="cls-2" d="M61.27,133.2c0,37.79-.2,75.58.09,113.37.13,16.2,2.85,32.02,10.59,46.63,8.82,16.64,22.71,26.32,40.97,30.03,6.7,1.36,13.48,2.02,20.35,2,28.57-.08,57.15.14,85.72-.17,5.87-.06,7.28,1.79,7.16,7.35-.34,16.1-.15,32.21-.1,48.32.01,3.15-.05,5.64-4.43,5.56-34.56-.66-69.2,1.84-103.66-1.36-31.04-2.88-58.4-14.76-79.97-38.02-17.82-19.21-27.44-42.45-32.81-67.69C1.52,261.99.15,244.53.14,226.95.12,156.32.21,85.69,0,15.07c-.02-5.9,1.34-7.76,7.46-7.58,15.52.46,31.06.43,46.58.01,5.91-.16,7.16,1.84,7.13,7.37-.23,39.44-.12,78.89-.12,118.33.08,0,.15,0,.23,0Z"/>
+  <path class="cls-1" d="M727.51,386.14c-17.11.09-30.87-13.6-30.75-30.58.12-16.81,13.65-30.2,30.51-30.19,16.87.02,30.57,13.6,30.49,30.21-.08,16.72-13.7,30.48-30.25,30.56Z"/>
+  <path class="cls-1" d="M422.25,6.7c16.72.05,30.28,13.52,30.44,30.25.16,16.72-13.93,30.65-30.88,30.52-16.43-.12-29.91-13.62-29.98-30.02-.07-17.38,13.2-30.8,30.41-30.75Z"/>
+</svg></span>
       <button id="drawerClose" class="iconbtn" aria-label="Fermer">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg>
       </button>
     </div>
-    <a class="mdrawer__link" href="#jeux">Jeux <span>→</span></a>
-    <a class="mdrawer__link" href="#guides">Guides &amp; soluces <span>→</span></a>
-    <a class="mdrawer__link" href="#cartes">Cartes interactives <span>→</span></a>
-    <a class="mdrawer__link" href="#builds">Builds <span>→</span></a>
-    <a class="mdrawer__link" href="#actus">Actualités <span>→</span></a>
-    <a class="mdrawer__link" href="#communaute">Communauté <span>→</span></a>
+    <button class="mdrawer__link mdrawer__acc" id="drawerJeux" type="button">Jeux <span class="mdrawer__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="m6 9 6 6 6-6"></path></svg></span></button>
+    <div class="mdrawer__sub" id="drawerJeuxSub">
+      <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-er"></span>Elden Ring</a>
+      <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-zd"></span>Zelda : Tears of the Kingdom</a>
+      <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-bg"></span>Baldur's Gate 3</a>
+      <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-gi"></span>Genshin Impact</a>
+      <a class="mdrawer__sublink mdrawer__sublink--all" href="jeux.html">Voir tous les jeux →</a>
+    </div>
+    <a class="mdrawer__link" href="guides.html">Guides &amp; soluces <span>→</span></a>
+    <a class="mdrawer__link" href="cartes.html">Cartes interactives <span>→</span></a>
+    <a class="mdrawer__link" href="builds.html">Builds <span>→</span></a>
+    <a class="mdrawer__link" href="actualites.html">Actualités <span>→</span></a>
+    <a class="mdrawer__link" href="communaute.html">Communauté <span>→</span></a>
     <div class="mdrawer__cta">
-      <a class="btn btn--primary btn--block only-guest" href="#">S'inscrire</a>
-      <a class="btn btn--outline btn--block only-guest" href="#">Connexion</a>
-      <a class="btn btn--premium btn--block" href="#premium">Découvrir Premium</a>
+      <a class="btn btn--primary btn--block only-guest" href="inscription.html">S'inscrire</a>
+      <a class="btn btn--outline btn--block only-guest" href="connexion.html">Connexion</a>
+      <a class="btn btn--premium btn--block" href="premium.html">Découvrir Premium</a>
     </div>
   </div>
 </div>
@@ -1683,6 +1738,10 @@ body.is-embed #deviceHost{display:none !important;}
       });
     });
   });
+
+  var accBtn=document.getElementById('drawerJeux');
+  var accSub=document.getElementById('drawerJeuxSub');
+  if(accBtn&&accSub){accBtn.addEventListener('click',function(){accSub.classList.toggle('open');accBtn.classList.toggle('open');});}
 
   applyAuth();
   if(!isEmbed) applyView();
