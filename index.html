@@ -214,15 +214,64 @@ body.is-auth .nav__right .only-auth{display:flex;}
 .hero h1 .m{color:var(--magenta);}
 .hero__sub{font-size:19px; color:var(--ink-500); margin:20px auto 0; max-width:60ch; line-height:1.5;}
 
-/* big hero search */
-.hsearch{margin:36px auto 0; max-width:680px;}
-.hsearch__field{display:flex; align-items:center; gap:14px; background:#fff; border:2px solid var(--noir); border-radius:var(--r-pill); padding:0 10px 0 22px; height:66px; box-shadow:var(--sh-lg); transition:border-color .16s, box-shadow .16s;}
-.hsearch__field:focus-within{border-color:var(--magenta); box-shadow:var(--sh-mag);}
-.hsearch__field > svg{width:24px; height:24px; color:var(--magenta); flex:none;}
-.hsearch__input{flex:1; min-width:0; border:none; outline:none; background:none; font-family:var(--sans); font-size:18px; color:var(--noir);}
-.hsearch__input::placeholder{color:var(--ink-400);}
-.hsearch .btn{height:48px;}
-.hsearch-wrap{position:relative; max-width:680px; margin:36px auto 0;}
+/* ---- hero gaming : 2 colonnes ---- */
+.hero__grid{display:grid; grid-template-columns:1.04fr .96fr; gap:54px; align-items:center; max-width:1180px; text-align:left; padding:58px var(--gut) 54px;}
+.hero__grid .hero__eyebrow{margin-bottom:20px;}
+.hero__grid h1{font-size:52px;}
+.hero__grid .hero__sub{margin:18px 0 0; max-width:54ch;}
+.hero__cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:28px;}
+.hero__grid .quick{justify-content:flex-start; margin-top:22px;}
+.hero__grid .trust{justify-content:flex-start; gap:18px; margin-top:26px;}
+
+/* scène : décor radar + cartes flottantes */
+.hero__stage{position:relative; min-height:430px;}
+.hero__stage::before{content:""; position:absolute; inset:-30px -20px;
+  background:
+    radial-gradient(circle at 62% 44%, transparent 118px, var(--cyan-pale) 119px, transparent 121px),
+    radial-gradient(circle at 62% 44%, transparent 178px, var(--magenta-pale) 179px, transparent 181px),
+    radial-gradient(circle at 62% 44%, transparent 238px, var(--line) 239px, transparent 241px);
+  opacity:.85; pointer-events:none;}
+
+/* journal de quêtes */
+.hq{position:relative; z-index:1; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-lg); padding:20px 20px 14px; max-width:430px; margin-left:auto; transform:rotate(-1.2deg);}
+.hq__head{display:flex; align-items:center; gap:13px;}
+.hq__cover{width:52px; height:52px; border-radius:13px; flex:none;}
+.hq__id{flex:1; min-width:0;}
+.hq__game{font-family:var(--serif); font-weight:800; font-size:16px; color:var(--noir); display:block;}
+.hq__meta{font-size:12px; color:var(--ink-400); font-weight:700;}
+.hq__lvl{font-family:var(--mono); font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--or-ink); background:var(--or-pale); border-radius:var(--r-pill); padding:5px 10px; flex:none;}
+.hq__barrow{display:flex; align-items:center; gap:11px; margin-top:15px;}
+.hq__bar{flex:1; background:var(--magenta-pale);}
+.hq__pct{font-family:var(--mono); font-size:12.5px; font-weight:700; color:var(--magenta);}
+.hq__list{list-style:none; margin:13px 0 0; padding:0;}
+.hq__list li{display:flex; align-items:center; gap:10px; padding:9px 0; border-top:1px dashed var(--line); font-size:13.5px; font-weight:700; color:var(--ink-700);}
+.hq__list li.is-done{color:var(--ink-400); text-decoration:line-through; text-decoration-thickness:1px;}
+.hq__check{width:21px; height:21px; border-radius:7px; background:var(--ok-pale,#e7f6ec); color:var(--ok); display:inline-flex; align-items:center; justify-content:center; flex:none;}
+.hq__check svg{width:12px; height:12px;}
+.hq__check--todo{background:var(--magenta-pale); color:var(--magenta);}
+.hq__tag{margin-left:auto; font-size:10.5px; font-weight:900; letter-spacing:.04em; text-transform:uppercase; color:var(--cyan-ink); background:var(--cyan-pale); border-radius:var(--r-pill); padding:4px 9px; text-decoration:none; flex:none;}
+
+/* toast succès */
+.htoast{position:absolute; z-index:2; top:-34px; right:-4px; display:flex; align-items:center; gap:11px; background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--sh-md); padding:11px 15px; transform:rotate(1.6deg); animation:hfloat 5.5s ease-in-out infinite;}
+.htoast__ico{width:34px; height:34px; border-radius:10px; background:var(--or-pale); color:var(--or-ink); display:inline-flex; align-items:center; justify-content:center; flex:none;}
+.htoast__ico svg{width:18px; height:18px;}
+.htoast__txt{display:flex; flex-direction:column; line-height:1.25;}
+.htoast__txt b{font-size:13px; color:var(--noir);}
+.htoast__txt span{font-size:11.5px; color:var(--ink-400); font-weight:700;}
+
+/* mini-carte */
+.hmap{position:absolute; z-index:2; left:-8px; bottom:-6px; display:flex; align-items:center; gap:13px; background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--sh-md); padding:11px 15px 11px 11px; transform:rotate(-2deg); animation:hfloat 6.5s ease-in-out .8s infinite;}
+.hmap__grid{position:relative; width:64px; height:48px; border-radius:9px; background:var(--cyan-pale);
+  background-image:linear-gradient(var(--cyan) .6px, transparent .6px), linear-gradient(90deg, var(--cyan) .6px, transparent .6px);
+  background-size:13px 13px; background-position:center; opacity:.95; flex:none; overflow:hidden;}
+.hmap__pin{position:absolute; width:9px; height:9px; border-radius:50% 50% 50% 0; background:var(--cyan-ink); transform:rotate(-45deg);}
+.hmap__pin--or{background:var(--or);}
+.hmap__txt{display:flex; flex-direction:column; line-height:1.25;}
+.hmap__txt b{font-size:13px; color:var(--noir);}
+.hmap__txt span{font-size:11.5px; color:var(--ink-400); font-weight:700;}
+
+@keyframes hfloat{0%,100%{translate:0 0;}50%{translate:0 -7px;}}
+@media (prefers-reduced-motion:reduce){.htoast,.hmap{animation:none;}}
 
 /* quick access chips */
 .quick{display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap; margin-top:20px;}
@@ -597,8 +646,12 @@ body.is-embed #deviceHost{display:none !important;}
   .nav__search{order:3; flex-basis:100%;}
   .hero h1{font-size:38px;}
   .hero__sub{font-size:16px;}
-  .hsearch__field{height:58px;}
-  .hsearch__input{font-size:16px;}
+  .hero__grid{grid-template-columns:1fr; gap:46px; padding-top:44px;}
+  .hero__grid h1{font-size:38px;}
+  .hero__stage{min-height:0; max-width:460px; margin:0 auto; padding:18px 6px 14px;}
+  .hq{margin:0 auto; transform:rotate(-1deg);}
+  .htoast{top:-12px; right:2px;}
+  .hmap{left:2px; bottom:-10px;}
   .hsearch .btn span{display:none;}
   .hsearch .btn{padding:12px;}
   .resume{grid-template-columns:1fr;}
@@ -674,7 +727,6 @@ body.is-embed #deviceHost{display:none !important;}
       <div class="search__field">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
         <input id="navSearchInput" class="search__input" type="text" placeholder="Rechercher…" aria-label="Recherche">
-        <span class="search__kbd">⌘K</span>
       </div>
       <div id="navAc" class="ac" role="listbox"></div>
     </div>
@@ -704,37 +756,74 @@ body.is-embed #deviceHost{display:none !important;}
 
 <!-- ================= HERO ================= -->
 <header class="hero">
-  <div class="hero__inner">
-    <span class="hero__eyebrow"><span class="dots"><i></i><i></i></span> Guides · Cartes · Builds · Actus · Communauté</span>
-    <h1>Bloqué ? <span class="m">Trouve la solution</span><br>en quelques secondes.</h1>
-    <p class="hero__sub">Toute l'aide au jeu vidéo, centralisée et fiable : guides vérifiés, cartes interactives, builds optimisés et entraide communautaire — sans publicité intrusive.</p>
+  <div class="hero__inner hero__grid">
 
-    <div class="hsearch-wrap">
-      <div class="hsearch__field">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
-        <input id="heroSearchInput" class="hsearch__input" type="text" placeholder="Sur quel jeu bloques-tu ?" aria-label="Recherche principale">
-        <button class="btn btn--primary"><span>Trouver de l'aide</span>
+    <div class="hero__copy">
+      <span class="hero__eyebrow"><span class="dots"><i></i><i></i></span> Guides · Cartes · Builds · Actus · Communauté</span>
+      <h1>Boss imbattable ?<br>Quête introuvable ?<br><span class="m">On a la soluce.</span></h1>
+      <p class="hero__sub">Guides vérifiés, cartes interactives, builds optimisés, suivi de progression et entraide entre joueurs — tout ce qu'il faut pour finir tes jeux à 100 %, sans pub intrusive.</p>
+
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#guides"><span>Explorer les guides</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-        </button>
+        </a>
+        <a class="btn btn--outline" href="#cartes">Voir les cartes interactives</a>
       </div>
-      <div id="heroAc" class="ac" role="listbox"></div>
+
+      <div class="quick">
+        <span class="quick__lbl">Très demandés :</span>
+        <a class="chip" href="#"><span class="chip__dot" style="background:var(--magenta)"></span>Elden Ring</a>
+        <a class="chip" href="#"><span class="chip__dot" style="background:var(--cyan)"></span>Zelda TOTK</a>
+        <a class="chip" href="#"><span class="chip__dot" style="background:var(--or)"></span>Baldur's Gate 3</a>
+        <a class="chip hide-mobile" href="#"><span class="chip__dot" style="background:var(--magenta)"></span>Genshin Impact</a>
+      </div>
+
+      <div class="trust">
+        <span class="trust__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> Contenus vérifiés et datés</span>
+        <span class="trust__sep"></span>
+        <span class="trust__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> À jour des derniers patchs</span>
+        <span class="trust__sep"></span>
+        <span class="trust__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> Sans publicité intrusive</span>
+      </div>
     </div>
 
-    <div class="quick">
-      <span class="quick__lbl">Très demandés :</span>
-      <a class="chip" href="#"><span class="chip__dot" style="background:var(--magenta)"></span>Elden Ring</a>
-      <a class="chip" href="#"><span class="chip__dot" style="background:var(--cyan)"></span>Zelda TOTK</a>
-      <a class="chip" href="#"><span class="chip__dot" style="background:var(--or)"></span>Baldur's Gate 3</a>
-      <a class="chip" href="#"><span class="chip__dot" style="background:var(--magenta)"></span>Genshin Impact</a>
-      <a class="chip hide-mobile" href="#"><span class="chip__dot" style="background:var(--cyan)"></span>Diablo IV</a>
-    </div>
+    <!-- Composition « journal de quêtes » : l'app en situation de jeu -->
+    <div class="hero__stage" aria-hidden="true">
 
-    <div class="trust">
-      <span class="trust__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> Contenus vérifiés et datés</span>
-      <span class="trust__sep"></span>
-      <span class="trust__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> À jour des derniers patchs</span>
-      <span class="trust__sep"></span>
-      <span class="trust__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> Sans publicité intrusive</span>
+      <div class="hq">
+        <div class="hq__head">
+          <span class="hq__cover cover-er"></span>
+          <div class="hq__id">
+            <span class="hq__game">Elden Ring</span>
+            <span class="hq__meta">Journal de quêtes · complétion</span>
+          </div>
+          <span class="hq__lvl">NIV. 23</span>
+        </div>
+        <div class="hq__barrow">
+          <div class="progress hq__bar"><div class="progress__bar" style="width:68%;"></div></div>
+          <span class="hq__pct">68 %</span>
+        </div>
+        <ul class="hq__list">
+          <li class="is-done"><span class="hq__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span> Tour de Caria — énigme résolue</li>
+          <li class="is-done"><span class="hq__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span> Cendres de guerre du Sacré relevées</li>
+          <li class="is-todo"><span class="hq__check hq__check--todo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="12" cy="12" r="8"></circle></svg></span> Vaincre Malenia <span class="hq__tag">Guide dispo</span></li>
+        </ul>
+      </div>
+
+      <div class="htoast">
+        <span class="htoast__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3h14v2h3v4a5 5 0 0 1-5 5h-.42A6 6 0 0 1 13 17.92V20h3v2H8v-2h3v-2.08A6 6 0 0 1 7.42 14H7a5 5 0 0 1-5-5V5h3V3zm0 4H4v2a3 3 0 0 0 3 3V7zm15 0h-1v5a3 3 0 0 0 3-3V7h-2z"></path></svg></span>
+        <span class="htoast__txt"><b>Succès débloqué !</b><span>« Sans lumière » · +50 pts</span></span>
+      </div>
+
+      <div class="hmap">
+        <div class="hmap__grid">
+          <span class="hmap__pin" style="left:22%; top:30%;"></span>
+          <span class="hmap__pin hmap__pin--or" style="left:58%; top:58%;"></span>
+          <span class="hmap__pin" style="left:78%; top:24%;"></span>
+        </div>
+        <span class="hmap__txt"><b>128 collectibles</b><span>localisés sur la carte</span></span>
+      </div>
+
     </div>
   </div>
 </header>
@@ -1565,7 +1654,6 @@ body.is-embed #deviceHost{display:none !important;}
       if(!ac.contains(e.target) && e.target!==input) ac.classList.remove('open');
     });
   }
-  wireSearch('#heroSearchInput', '#heroAc');
   wireSearch('#navSearchInput', '#navAc');
 
   /* ---------- favoris ---------- */
