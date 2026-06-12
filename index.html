@@ -654,10 +654,10 @@ body.is-embed #deviceHost{display:none !important;}
   .hero__sub{font-size:16px;}
   .hero__grid{grid-template-columns:1fr; gap:46px; padding-top:44px;}
   .hero__grid h1{font-size:38px;}
-  .hero__stage{min-height:0; max-width:460px; margin:0 auto; padding:18px 6px 14px;}
+  .hero__stage{min-height:0; max-width:460px; margin:0 auto; padding:18px 6px 88px;}
   .hq{margin:0 auto; transform:rotate(-1deg);}
   .htoast{top:-12px; right:2px;}
-  .hmap{left:2px; bottom:6px;}
+  .hmap{left:10px; bottom:0;}
   .hsearch .btn span{display:none;}
   .hsearch .btn{padding:12px;}
   .resume{grid-template-columns:1fr;}
@@ -711,6 +711,15 @@ body.is-embed #deviceHost{display:none !important;}
   .nav__search .ac__ico{width:34px; height:34px; border-radius:9px;}
 }
 
+/* recherche : panneau large façon méga-menu */
+.ac__cols{display:grid; grid-template-columns:1fr 1fr; gap:4px 16px;}
+@media (min-width:881px){
+  .nav__search .ac{width:640px; left:auto; right:0; padding:14px;}
+}
+@media (max-width:880px){
+  .ac__cols{grid-template-columns:1fr;}
+}
+
 </style>
 </head>
 <body>
@@ -762,12 +771,12 @@ body.is-embed #deviceHost{display:none !important;}
           </div>
         </div>
       </div>
-      <a class="nav__link" href="guides.html">Guides &amp; soluces</a>
+      <a class="nav__link" href="guides.html">Guides</a>
       <a class="nav__link" href="cartes.html">Cartes</a>
-      <a class="nav__link" href="builds.html">Builds</a>
-      <a class="nav__link" href="trophees.html">Trophées</a>
       <a class="nav__link" href="actualites.html">Actualités</a>
       <a class="nav__link" href="communaute.html">Communauté</a>
+      <a class="nav__link" href="trophees.html">Trophées</a>
+      <a class="nav__link" href="builds.html">Builds</a>
     </div>
 
     <div class="nav__search search">
@@ -806,7 +815,6 @@ body.is-embed #deviceHost{display:none !important;}
   <div class="hero__inner hero__grid">
 
     <div class="hero__copy">
-      <span class="hero__eyebrow"><span class="dots"><i></i><i></i></span> Guides · Cartes · Builds · Actus · Communauté</span>
       <h1>Boss imbattable ?<br>Quête introuvable ?<br><span class="m">On a la soluce.</span></h1>
       <p class="hero__sub">Guides vérifiés, cartes interactives, builds optimisés, suivi de progression et entraide entre joueurs — un coup de pouce ponctuel sur un boss ou la route du 100 %, chacun avance à sa façon. Et toujours sans pub intrusive.</p>
 
@@ -1628,10 +1636,10 @@ body.is-embed #deviceHost{display:none !important;}
     </div>
     <a class="mdrawer__link" href="guides.html">Guides &amp; soluces <span>→</span></a>
     <a class="mdrawer__link" href="cartes.html">Cartes interactives <span>→</span></a>
-    <a class="mdrawer__link" href="builds.html">Builds <span>→</span></a>
-    <a class="mdrawer__link" href="trophees.html">Guides des trophées <span>→</span></a>
     <a class="mdrawer__link" href="actualites.html">Actualités <span>→</span></a>
     <a class="mdrawer__link" href="communaute.html">Communauté <span>→</span></a>
+    <a class="mdrawer__link" href="trophees.html">Guides des trophées <span>→</span></a>
+    <a class="mdrawer__link" href="builds.html">Builds <span>→</span></a>
     <div class="mdrawer__cta">
       <a class="btn btn--primary btn--block only-guest" href="inscription.html">S'inscrire</a>
       <a class="btn btn--outline btn--block only-guest" href="connexion.html">Connexion</a>
@@ -1741,18 +1749,17 @@ body.is-embed #deviceHost{display:none !important;}
     var ac = document.querySelector(acSel);
     if(!input || !ac) return;
     function render(list){
-      var html = '';
       var games = list.filter(function(s){return s.k==='jeu'});
       var conts = list.filter(function(s){return s.k!=='jeu'});
-      if(games.length){
-        html += '<div class="ac__group"><span class="ac__glabel">Jeux</span></div>';
-        games.forEach(function(s){ html += row(s); });
+      function grp(label, arr){
+        if(!arr.length) return '';
+        var h = '<div class="ac__col"><div class="ac__group"><span class="ac__glabel">'+label+'</span></div>';
+        arr.forEach(function(s){ h += row(s); });
+        return h + '</div>';
       }
-      if(conts.length){
-        html += '<div class="ac__group"><span class="ac__glabel">Contenus</span></div>';
-        conts.forEach(function(s){ html += row(s); });
-      }
-      ac.innerHTML = html || '<div class="ac__group"><span class="ac__glabel">Aucun résultat — essaie un autre jeu</span></div>';
+      var cols = grp('Jeux', games) + grp('Contenus', conts);
+      ac.innerHTML = cols ? '<div class="ac__cols">'+cols+'</div>'
+        : '<div class="ac__group"><span class="ac__glabel">Aucun résultat — essaie un autre jeu</span></div>';
     }
     function row(s){
       return '<div class="ac__item"><span class="ac__ico" style="background:'+s.c+'">'+s.t.slice(0,1)+'</span>'+
