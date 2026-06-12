@@ -756,6 +756,14 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
 .nitem__dot{width:8px; height:8px; border-radius:50%; background:var(--magenta); margin-top:6px; flex:none;}
 .nitem--read .nitem__dot{background:transparent;}
 
+/* verrou du scroll d'arrière-plan quand un drawer est ouvert */
+body.drawer-open{overflow:hidden;}
+
+/* newsletter : messages de confirmation / erreur */
+.news-msg{display:none; font-size:12.5px; font-weight:700; margin-top:10px; line-height:1.4;}
+.news-msg.ok{display:block; color:#6ee7a0;}
+.news-msg.err{display:block; color:#ff9b9b;}
+
 </style>
 </head>
 <body>
@@ -1629,7 +1637,6 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
         <span class="nitem__dot"></span>
       </a>
     </div>
-    <a class="btn btn--outline btn--block" href="notifications.html" style="margin-top:12px;">Toutes les notifications</a>
   </aside>
 </div>
 
@@ -1660,15 +1667,16 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
         <p>Le hub central du joueur. Toute l'aide au jeu vidéo, centralisée, fiable et sans publicité intrusive.</p>
         <div class="footer__social">
           <a class="fsoc" href="https://discord.gg/lynk" aria-label="Discord"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.2a18 18 0 0 0-5.4 0L8.7 3a19.8 19.8 0 0 0-5 1.5A20.3 20.3 0 0 0 .3 18.1a19.9 19.9 0 0 0 6 3l1.3-2a12.8 12.8 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12 0l.5.4a12.8 12.8 0 0 1-2 1l1.2 2a19.9 19.9 0 0 0 6.1-3 20.2 20.2 0 0 0-3.5-13.7ZM8.5 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"></path></svg></a>
-          <a class="fsoc" href="https://x.com/lynk" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.2 2h6.4l4.4 5.9L18.9 2Zm-1.1 18.1h1.7L7.1 3.8H5.3l12.5 16.3Z"></path></svg></a>
+          <a class="fsoc" href="https://facebook.com/lynk" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14C17.17 2.1 16 2 14.8 2 12.2 2 10.5 3.66 10.5 6.7v2.8H8v4h2.5V22h3.5v-8.5Z"></path></svg></a>
           <a class="fsoc" href="https://instagram.com/lynk" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
           <a class="fsoc" href="https://tiktok.com/@lynk" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 7.1a4.8 4.8 0 0 1-3.5-1.6 4.8 4.8 0 0 1-1.2-3.2h-3.2v13a2.9 2.9 0 1 1-2.1-2.8V9.2a6.1 6.1 0 1 0 5.3 6V8.9a8 8 0 0 0 4.7 1.5Z"></path></svg></a>
-          <a class="fsoc" href="https://facebook.com/lynk" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14C17.17 2.1 16 2 14.8 2 12.2 2 10.5 3.66 10.5 6.7v2.8H8v4h2.5V22h3.5v-8.5Z"></path></svg></a>
+          <a class="fsoc" href="https://x.com/lynk" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.2 2h6.4l4.4 5.9L18.9 2Zm-1.1 18.1h1.7L7.1 3.8H5.3l12.5 16.3Z"></path></svg></a>
           <a class="fsoc" href="https://youtube.com/@lynk" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.1a4 4 0 0 0-2.8-2.9C18.2 3.7 12 3.7 12 3.7s-6.2 0-8.2.5A4 4 0 0 0 1 7.1 41 41 0 0 0 .5 12 41 41 0 0 0 1 16.9a4 4 0 0 0 2.8 2.8c2 .6 8.2.6 8.2.6s6.2 0 8.2-.6a4 4 0 0 0 2.8-2.8A41 41 0 0 0 23.5 12 41 41 0 0 0 23 7.1ZM9.8 15.5v-7l6 3.5-6 3.5Z"></path></svg></a>
         </div>
       </div>
       <div class="footer__col">
         <h5>Ressources</h5>
+        <a href="jeux.html">Jeux</a>
         <a href="guides.html">Guides</a>
         <a href="cartes.html">Cartes interactives</a>
         <a href="actualites.html">Actualités</a>
@@ -1685,9 +1693,10 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
         <h5>Newsletter</h5>
         <p>Les patchs, événements et meilleurs guides de tes jeux — une fois par semaine, sans spam.</p>
         <div class="news-field">
-          <input type="email" placeholder="ton@email.fr" aria-label="Adresse email">
-          <button class="btn btn--primary btn--sm">OK</button>
+          <input type="email" id="newsInput" placeholder="ton@email.fr" aria-label="Adresse email">
+          <button class="btn btn--primary btn--sm" id="newsBtn" type="button">OK</button>
         </div>
+        <p class="news-msg" id="newsMsg" role="status" aria-live="polite"></p>
       </div>
     </div>
     <div class="footer__bottom">
@@ -1806,7 +1815,8 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
 
   /* ---------- application de l'état ---------- */
   var FOLLOWED = ['er','zd','gi'];
-  function setScopes(mode){
+  function setScopes(mode, anchor){
+    var before = anchor ? anchor.getBoundingClientRect().top : 0;
     document.querySelectorAll('.scope').forEach(function(sc){
       sc.querySelectorAll('.scope__btn').forEach(function(b){
         b.classList.toggle('active', b.getAttribute('data-scope')===mode);
@@ -1816,9 +1826,13 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
         c.style.display = (mode==='tous' || FOLLOWED.indexOf(c.getAttribute('data-game'))>=0) ? '' : 'none';
       });
     });
+    if(anchor){
+      var delta = anchor.getBoundingClientRect().top - before;
+      if(delta !== 0) window.scrollBy({top: delta, left: 0, behavior: 'instant'});
+    }
   }
   document.querySelectorAll('.scope__btn').forEach(function(btn){
-    btn.addEventListener('click', function(){ setScopes(btn.getAttribute('data-scope')); });
+    btn.addEventListener('click', function(){ setScopes(btn.getAttribute('data-scope'), btn); });
   });
 
   function applyAuth(){
@@ -1922,21 +1936,22 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
   /* ---------- drawer mobile ---------- */
   var drawer = document.getElementById('mdrawer');
   var burger = document.getElementById('burgerBtn');
+  function lockScroll(on){ document.body.classList.toggle('drawer-open', on); }
   if(burger && drawer){
-    burger.addEventListener('click', function(){ drawer.classList.add('open'); });
-    drawer.querySelector('.mdrawer__scrim').addEventListener('click', function(){ drawer.classList.remove('open'); });
+    burger.addEventListener('click', function(){ drawer.classList.add('open'); lockScroll(true); });
+    drawer.querySelector('.mdrawer__scrim').addEventListener('click', function(){ drawer.classList.remove('open'); lockScroll(false); });
     var closeBtn = document.getElementById('drawerClose');
-    if(closeBtn) closeBtn.addEventListener('click', function(){ drawer.classList.remove('open'); });
+    if(closeBtn) closeBtn.addEventListener('click', function(){ drawer.classList.remove('open'); lockScroll(false); });
   }
 
   /* ---------- drawer notifications ---------- */
   var ndrawer = document.getElementById('ndrawer');
   var notifBtn = document.getElementById('notifBtn');
   if(notifBtn && ndrawer){
-    notifBtn.addEventListener('click', function(){ ndrawer.classList.add('open'); });
-    ndrawer.querySelector('.mdrawer__scrim').addEventListener('click', function(){ ndrawer.classList.remove('open'); });
+    notifBtn.addEventListener('click', function(){ ndrawer.classList.add('open'); lockScroll(true); });
+    ndrawer.querySelector('.mdrawer__scrim').addEventListener('click', function(){ ndrawer.classList.remove('open'); lockScroll(false); });
     var nclose = document.getElementById('ndrawerClose');
-    if(nclose) nclose.addEventListener('click', function(){ ndrawer.classList.remove('open'); });
+    if(nclose) nclose.addEventListener('click', function(){ ndrawer.classList.remove('open'); lockScroll(false); });
   }
 
   /* ---------- filtres (démo visuelle) ---------- */
@@ -1962,6 +1977,27 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
   var accBtn=document.getElementById('drawerJeux');
   var accSub=document.getElementById('drawerJeuxSub');
   if(accBtn&&accSub){accBtn.addEventListener('click',function(){accSub.classList.toggle('open');accBtn.classList.toggle('open');});}
+
+  /* ---------- newsletter : validation ---------- */
+  var newsInput = document.getElementById('newsInput');
+  var newsBtn = document.getElementById('newsBtn');
+  var newsMsg = document.getElementById('newsMsg');
+  function newsSubmit(){
+    if(!newsInput || !newsMsg) return;
+    var v = newsInput.value.trim();
+    var ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+    newsMsg.classList.remove('ok','err');
+    if(!v){ newsMsg.textContent = 'Entre ton adresse email pour t\u2019inscrire.'; newsMsg.classList.add('err'); return; }
+    if(!ok){ newsMsg.textContent = 'Hmm, cette adresse ne semble pas valide. V\u00e9rifie le format (ex. : toi@email.fr).'; newsMsg.classList.add('err'); return; }
+    newsMsg.textContent = 'C\u2019est not\u00e9 ! Tu recevras la prochaine \u00e9dition \u00e0 ' + v + '. \u00c0 tr\u00e8s vite \uD83C\uDFAE';
+    newsMsg.classList.add('ok');
+    newsInput.value = '';
+  }
+  if(newsBtn){ newsBtn.addEventListener('click', newsSubmit); }
+  if(newsInput){
+    newsInput.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); newsSubmit(); } });
+    newsInput.addEventListener('input', function(){ if(newsMsg){ newsMsg.classList.remove('ok','err'); } });
+  }
 
   applyAuth();
   if(!isEmbed) applyView();
