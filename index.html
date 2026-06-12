@@ -127,6 +127,7 @@ p{margin:0;}
 .tag--carte{background:var(--cyan-pale); color:var(--cyan-ink);}
 .tag--video{background:#ede9fb; color:#4b3a99;}
 .tag--actu{background:var(--surface-3); color:var(--ink-700);}
+.tag--trophee{background:var(--or-pale); color:var(--or-ink);}
 
 .badge{display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:700; padding:3px 9px; border-radius:var(--r-pill);}
 .badge svg{width:12px; height:12px;}
@@ -139,14 +140,14 @@ p{margin:0;}
    NAVBAR + méga-menu
    =================================================================== */
 .nav{position:sticky; top:0; z-index:60; background:rgba(255,250,250,.86); backdrop-filter:blur(14px); border-bottom:1px solid var(--line);}
-.nav__inner{display:flex; align-items:center; gap:22px; height:68px; max-width:var(--maxw); margin:0 auto; padding:0 var(--gut);}
+.nav__inner{display:flex; align-items:center; gap:13px; height:68px; max-width:var(--maxw); margin:0 auto; padding:0 var(--gut);}
 .nav__links{display:flex; align-items:center; gap:3px; flex:none;}
-.nav__link{display:inline-flex; align-items:center; gap:6px; font-size:14.5px; font-weight:700; color:var(--ink-700); padding:9px 12px; border-radius:var(--r-sm); transition:background .15s, color .15s;}
+.nav__link{display:inline-flex; align-items:center; gap:6px; font-size:13.5px; font-weight:700; color:var(--ink-700); padding:9px 9px; border-radius:var(--r-sm); transition:background .15s, color .15s;}
 .nav__link:hover{background:var(--surface-3); color:var(--magenta);}
 .nav__link .chev{width:14px; height:14px; opacity:.5; transition:transform .18s;}
 .nav__item{position:relative;}
 .nav__item:hover .chev{transform:rotate(180deg);}
-.nav__search{flex:1; min-width:0;}
+.nav__search{flex:1; min-width:170px;}
 .nav__right{display:flex; align-items:center; gap:10px; flex:none;}
 .nav .nav__burger{display:none;}
 
@@ -221,6 +222,7 @@ body.is-auth .nav__right .only-auth{display:flex;}
 .hero__grid .hero__sub{margin:18px 0 0; max-width:54ch;}
 .hero__cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:28px;}
 .hero__grid .quick{justify-content:flex-start; margin-top:22px;}
+.hero__grid .quick .quick__lbl{flex-basis:100%;}
 .hero__grid .trust{justify-content:flex-start; gap:18px; margin-top:26px;}
 
 /* scène : décor radar + cartes flottantes */
@@ -636,6 +638,10 @@ body.is-embed #deviceHost{display:none !important;}
 
 @media (max-width:1080px){
   .games{grid-template-columns:repeat(3,1fr);}
+  .nav__right .btn--ghost.hide-mobile{display:none;}
+  .nav__search{min-width:130px;}
+  .nav__inner{gap:10px;}
+  .nav__link{font-size:13px; padding:9px 7px;}
 }
 
 @media (max-width:880px){
@@ -759,6 +765,7 @@ body.is-embed #deviceHost{display:none !important;}
       <a class="nav__link" href="guides.html">Guides &amp; soluces</a>
       <a class="nav__link" href="cartes.html">Cartes</a>
       <a class="nav__link" href="builds.html">Builds</a>
+      <a class="nav__link" href="trophees.html">Trophées</a>
       <a class="nav__link" href="actualites.html">Actualités</a>
       <a class="nav__link" href="communaute.html">Communauté</a>
     </div>
@@ -819,11 +826,11 @@ body.is-embed #deviceHost{display:none !important;}
       </div>
 
       <div class="trust">
-        <span class="trust__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> Contenus vérifiés et datés</span>
+        <span class="trust__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> Contenus vérifiés</span>
         <span class="trust__sep"></span>
-        <span class="trust__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> À jour des derniers patchs</span>
+        <span class="trust__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> À jour des patchs</span>
         <span class="trust__sep"></span>
-        <span class="trust__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> Sans publicité intrusive</span>
+        <span class="trust__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> Sans pub intrusive</span>
       </div>
     </div>
 
@@ -1380,8 +1387,58 @@ body.is-embed #deviceHost{display:none !important;}
   </div>
 </section>
 
+<!-- ================= TROPHÉES & SUCCÈS ================= -->
+<section id="trophees" class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker" style="color:var(--or);"><span class="dots"><i style="background:var(--or)"></i><i style="background:var(--or)"></i></span> Guides des trophées</span>
+      <div class="sec-head__row">
+        <h2 class="sec-title">Le platine, sans rien manquer</h2>
+        <a class="link-arrow" href="trophees.html">Tous les guides de trophées
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+      </div>
+      <p class="sec-sub" style="margin-top:8px;">Listes complètes, succès manquables signalés et routes optimisées — avec suivi automatique de ta progression <span class="badge--prem"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></p>
+    </div>
+    <div class="guides">
+      <article class="card">
+        <div class="card__thumb cover-er"><span class="card__game">Elden Ring</span><button class="fav" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div>
+        <div class="card__body">
+          <div class="card__top"><span class="tag tag--trophee">Trophées</span><span class="badge badge--maj badge--dot">Màj 1.12.3</span></div>
+          <h3 class="card__title">Platine Elden Ring : la route optimisée, boss par boss</h3>
+          <div class="card__foot">
+            <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>18 min</span>
+            <span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,8 <span style="color:var(--ink-400); font-weight:400;">(356)</span></span>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card__thumb cover-bg"><span class="card__game">Baldur&#39;s Gate 3</span><button class="fav" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div>
+        <div class="card__body">
+          <div class="card__top"><span class="tag tag--trophee">Trophées</span></div>
+          <h3 class="card__title">Platine Baldur&#39;s Gate 3 : les succès manquables, acte par acte</h3>
+          <div class="card__foot">
+            <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>16 min</span>
+            <span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,9 <span style="color:var(--ink-400); font-weight:400;">(241)</span></span>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card__thumb cover-cp"><span class="card__game">Cyberpunk 2077</span><button class="fav" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div>
+        <div class="card__body">
+          <div class="card__top"><span class="tag tag--trophee">Trophées</span></div>
+          <h3 class="card__title">Platine Cyberpunk 2077 : tous les trophées en une seule partie</h3>
+          <div class="card__foot">
+            <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>12 min</span>
+            <span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,7 <span style="color:var(--ink-400); font-weight:400;">(188)</span></span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ================= 6 · BUILDS ================= -->
-<section id="builds" class="section">
+<section id="builds" class="section section--pale">
   <div class="wrap">
     <div class="sec-head">
       <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Builds &amp; optimisation</span>
@@ -1489,6 +1546,7 @@ body.is-embed #deviceHost{display:none !important;}
         <a href="guides.html">Guides &amp; soluces</a>
         <a href="cartes.html">Cartes interactives</a>
         <a href="builds.html">Builds</a>
+        <a href="trophees.html">Guides des trophées</a>
         <a href="actualites.html">Actualités</a>
         <a href="videos.html">Vidéos</a>
       </div>
@@ -1571,6 +1629,7 @@ body.is-embed #deviceHost{display:none !important;}
     <a class="mdrawer__link" href="guides.html">Guides &amp; soluces <span>→</span></a>
     <a class="mdrawer__link" href="cartes.html">Cartes interactives <span>→</span></a>
     <a class="mdrawer__link" href="builds.html">Builds <span>→</span></a>
+    <a class="mdrawer__link" href="trophees.html">Guides des trophées <span>→</span></a>
     <a class="mdrawer__link" href="actualites.html">Actualités <span>→</span></a>
     <a class="mdrawer__link" href="communaute.html">Communauté <span>→</span></a>
     <div class="mdrawer__cta">
@@ -1674,6 +1733,7 @@ body.is-embed #deviceHost{display:none !important;}
     {t:'Battre Malenia — stratégie complète', m:'Guide · Elden Ring', k:'guide', c:'#a200bc'},
     {t:'Toutes les graines Korogu', m:'Carte interactive · Zelda TOTK', k:'carte', c:'#06b6d4'},
     {t:'Build Moine — dégâts maximum', m:'Build · Baldur’s Gate 3', k:'build', c:'#f5a623'},
+    {t:'Platine Elden Ring — route optimisée', m:'Trophées · Elden Ring', k:'guide', c:'#6E5212'},
     {t:'Monter niveau 90 rapidement', m:'Astuce · Genshin Impact', k:'guide', c:'#a200bc'}
   ];
   function wireSearch(rootSel, acSel){
