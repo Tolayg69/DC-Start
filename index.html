@@ -531,7 +531,7 @@ body.is-auth .nav__right .only-auth{display:flex;}
    FOOTER
    =================================================================== */
 .footer{background:var(--noir); color:#fff; padding:56px 0 28px;}
-.footer__top{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr 1.2fr; gap:32px; padding-bottom:38px; border-bottom:1px solid rgba(255,255,255,.1);}
+.footer__top{display:grid; grid-template-columns:1.5fr .9fr .9fr 1.3fr; gap:40px; padding-bottom:38px; border-bottom:1px solid rgba(255,255,255,.1);}
 .footer__brand p{font-size:13.5px; color:#a8a8af; margin-top:16px; line-height:1.55; max-width:30ch;}
 .footer__social{display:flex; gap:10px; margin-top:18px;}
 .fsoc{width:40px; height:40px; border-radius:11px; background:rgba(255,255,255,.07); display:flex; align-items:center; justify-content:center; transition:background .15s;}
@@ -736,6 +736,26 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
 .scope__btn.active{background:#fff; color:var(--noir); box-shadow:var(--sh-sm);}
 .sec-head__tools{display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
 
+/* méga-menus liste (guides, cartes, trophées) */
+.mega--list{width:312px; padding:14px;}
+.mega--list > .sec-kicker{display:inline-flex; margin:2px 4px 10px;}
+.mega__list{display:flex; flex-direction:column; gap:2px;}
+.mega--list .mega__row{padding:8px 10px;}
+.mega--list .mega__cover{width:32px; height:32px;}
+.mega--list .mega__foot{margin-top:10px; padding-top:12px; justify-content:flex-end;}
+
+/* drawer notifications */
+.ndrawer__list{display:flex; flex-direction:column; gap:3px; margin-top:4px;}
+.nitem{display:flex; align-items:flex-start; gap:11px; padding:11px 10px; border-radius:12px; transition:background .14s;}
+.nitem:hover{background:var(--surface-3);}
+.nitem__ico{width:34px; height:34px; border-radius:10px; display:inline-flex; align-items:center; justify-content:center; flex:none;}
+.nitem__ico svg{width:17px; height:17px;}
+.nitem__txt{display:flex; flex-direction:column; line-height:1.3; flex:1; min-width:0;}
+.nitem__txt b{font-size:13.5px; color:var(--noir);}
+.nitem__txt span{font-size:12px; color:var(--ink-400); font-weight:700; margin-top:2px;}
+.nitem__dot{width:8px; height:8px; border-radius:50%; background:var(--magenta); margin-top:6px; flex:none;}
+.nitem--read .nitem__dot{background:transparent;}
+
 </style>
 </head>
 <body>
@@ -772,12 +792,12 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
         </a>
         <div class="mega">
           <div class="mega__grid">
-            <a class="mega__row" href="jeu.html"><span class="mega__cover cover-er"></span><span><span class="mega__name">Elden Ring</span><br><span class="mega__meta">214 guides · carte interactive</span></span></a>
-            <a class="mega__row" href="jeu.html"><span class="mega__cover cover-zd"></span><span><span class="mega__name">Zelda : TOTK</span><br><span class="mega__meta">186 guides · carte interactive</span></span></a>
-            <a class="mega__row" href="jeu.html"><span class="mega__cover cover-bg"></span><span><span class="mega__name">Baldur's Gate 3</span><br><span class="mega__meta">158 guides · builds</span></span></a>
-            <a class="mega__row" href="jeu.html"><span class="mega__cover cover-gi"></span><span><span class="mega__name">Genshin Impact</span><br><span class="mega__meta">142 guides · événements</span></span></a>
-            <a class="mega__row" href="jeu.html"><span class="mega__cover cover-cp"></span><span><span class="mega__name">Cyberpunk 2077</span><br><span class="mega__meta">96 guides · soluces</span></span></a>
-            <a class="mega__row" href="jeu.html"><span class="mega__cover cover-d4"></span><span><span class="mega__name">Diablo IV</span><br><span class="mega__meta">88 guides · builds saison 8</span></span></a>
+            <a class="mega__row" href="jeu.html"><span class="mega__cover cover-er"></span><span><span class="mega__name">Elden Ring</span><br><span class="mega__meta">214 guides · carte interactive · trophées</span></span></a>
+            <a class="mega__row" href="jeu.html"><span class="mega__cover cover-zd"></span><span><span class="mega__name">Zelda : TOTK</span><br><span class="mega__meta">186 guides · carte interactive · soluce complète</span></span></a>
+            <a class="mega__row" href="jeu.html"><span class="mega__cover cover-bg"></span><span><span class="mega__name">Baldur's Gate 3</span><br><span class="mega__meta">158 guides · soluce complète · builds</span></span></a>
+            <a class="mega__row" href="jeu.html"><span class="mega__cover cover-gi"></span><span><span class="mega__name">Genshin Impact</span><br><span class="mega__meta">142 guides · carte interactive · builds</span></span></a>
+            <a class="mega__row" href="jeu.html"><span class="mega__cover cover-cp"></span><span><span class="mega__name">Cyberpunk 2077</span><br><span class="mega__meta">96 guides · soluce complète · trophées</span></span></a>
+            <a class="mega__row" href="jeu.html"><span class="mega__cover cover-d4"></span><span><span class="mega__name">Diablo IV</span><br><span class="mega__meta">88 guides · soluce complète · builds</span></span></a>
           </div>
           <div class="mega__foot">
             <span class="sec-kicker" style="font-size:11px;"><span class="dots"><i></i><i></i></span> Les plus consultés cette semaine</span>
@@ -787,11 +807,58 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
           </div>
         </div>
       </div>
-      <a class="nav__link" href="guides.html">Guides</a>
-      <a class="nav__link" href="cartes.html">Cartes</a>
+      <div class="nav__item">
+        <a class="nav__link" href="guides.html">Guides <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></a>
+        <div class="mega mega--list">
+      <span class="sec-kicker" style="font-size:11px;"><span class="dots"><i></i><i></i></span> Les plus consultés cette semaine</span>
+      <div class="mega__list">
+      <a class="mega__row" href="guide.html"><span class="mega__cover cover-er"></span><span class="mega__name">Elden Ring</span></a>
+      <a class="mega__row" href="guide.html"><span class="mega__cover cover-zd"></span><span class="mega__name">Zelda : TOTK</span></a>
+      <a class="mega__row" href="guide.html"><span class="mega__cover cover-bg"></span><span class="mega__name">Baldur's Gate 3</span></a>
+      <a class="mega__row" href="guide.html"><span class="mega__cover cover-gi"></span><span class="mega__name">Genshin Impact</span></a>
+      <a class="mega__row" href="guide.html"><span class="mega__cover cover-cp"></span><span class="mega__name">Cyberpunk 2077</span></a>
+      <a class="mega__row" href="guide.html"><span class="mega__cover cover-d4"></span><span class="mega__name">Diablo IV</span></a>
+      </div>
+      <div class="mega__foot"><a class="link-arrow" href="guides.html">Tous les guides
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+      </div>
+    </div>
+      </div>
+      <div class="nav__item">
+        <a class="nav__link" href="cartes.html">Cartes <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></a>
+        <div class="mega mega--list">
+      <span class="sec-kicker" style="font-size:11px;"><span class="dots"><i></i><i></i></span> Les plus consultés cette semaine</span>
+      <div class="mega__list">
+      <a class="mega__row" href="carte.html"><span class="mega__cover cover-er"></span><span class="mega__name">Elden Ring</span></a>
+      <a class="mega__row" href="carte.html"><span class="mega__cover cover-zd"></span><span class="mega__name">Zelda : TOTK</span></a>
+      <a class="mega__row" href="carte.html"><span class="mega__cover cover-bg"></span><span class="mega__name">Baldur's Gate 3</span></a>
+      <a class="mega__row" href="carte.html"><span class="mega__cover cover-gi"></span><span class="mega__name">Genshin Impact</span></a>
+      <a class="mega__row" href="carte.html"><span class="mega__cover cover-cp"></span><span class="mega__name">Cyberpunk 2077</span></a>
+      <a class="mega__row" href="carte.html"><span class="mega__cover cover-d4"></span><span class="mega__name">Diablo IV</span></a>
+      </div>
+      <div class="mega__foot"><a class="link-arrow" href="cartes.html">Toutes les cartes
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+      </div>
+    </div>
+      </div>
       <a class="nav__link" href="actualites.html">Actualités</a>
       <a class="nav__link" href="communaute.html">Communauté</a>
-      <a class="nav__link" href="trophees.html">Trophées</a>
+      <div class="nav__item">
+        <a class="nav__link" href="trophees.html">Trophées <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></a>
+        <div class="mega mega--list">
+      <span class="sec-kicker" style="font-size:11px;"><span class="dots"><i></i><i></i></span> Les plus consultés cette semaine</span>
+      <div class="mega__list">
+      <a class="mega__row" href="trophee.html"><span class="mega__cover cover-er"></span><span class="mega__name">Elden Ring</span></a>
+      <a class="mega__row" href="trophee.html"><span class="mega__cover cover-bg"></span><span class="mega__name">Baldur's Gate 3</span></a>
+      <a class="mega__row" href="trophee.html"><span class="mega__cover cover-gi"></span><span class="mega__name">Genshin Impact</span></a>
+      <a class="mega__row" href="trophee.html"><span class="mega__cover cover-cp"></span><span class="mega__name">Cyberpunk 2077</span></a>
+      <a class="mega__row" href="trophee.html"><span class="mega__cover cover-d4"></span><span class="mega__name">Diablo IV</span></a>
+      </div>
+      <div class="mega__foot"><a class="link-arrow" href="trophees.html">Tous les guides de trophées
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+      </div>
+    </div>
+      </div>
       <a class="nav__link" href="builds.html">Builds</a>
     </div>
 
@@ -814,10 +881,10 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
       <span class="points only-auth hide-mobile" title="11 540 points">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>
         11 540 pts</span>
-      <a class="iconbtn only-auth" aria-label="Notifications" href="notifications.html">
+      <button class="iconbtn only-auth" id="notifBtn" type="button" aria-label="Notifications">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
         <span class="iconbtn__dot"></span>
-      </a>
+      </button>
       <a class="avatar only-auth" aria-label="Mon profil" href="profil.html">É</a>
       <button id="burgerBtn" class="iconbtn nav__burger" aria-label="Menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
@@ -959,7 +1026,7 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
       <div class="discover__txt">
         <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Ton compagnon de jeu</span>
         <h2 class="sec-title" style="margin-top:6px;">Un accueil qui connaît tes jeux <span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></h2>
-        <p class="sec-sub" style="margin-top:8px;">Avec Premium dès 1,99 €/mois : suis tes jeux, reprends ta progression où tu t'étais arrêté et reçois les alertes de patch. Le compte gratuit, lui, t'ouvre toute l'aide et la communauté — et chaque contribution rapporte des points.</p>
+        <p class="sec-sub" style="margin-top:8px;">Avec Premium dès 1,99 €/mois : suis tes jeux, reprends ta progression où tu t'étais arrêté et reçois une alerte dès qu'il se passe quelque chose sur tes jeux — patch, nouveau guide, événement ou réponse à tes questions.</p>
         <div style="display:flex; gap:10px; margin-top:18px; flex-wrap:wrap;">
           <a class="btn btn--primary" href="inscription.html">Créer mon compte gratuit</a>
           <a class="btn btn--premium" href="premium.html">Découvrir Premium</a>
@@ -1521,6 +1588,51 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
   </div>
 </section>
 
+
+<!-- ================= DRAWER NOTIFICATIONS ================= -->
+<div class="mdrawer ndrawer" id="ndrawer" aria-hidden="true">
+  <div class="mdrawer__scrim"></div>
+  <aside class="mdrawer__panel">
+    <div class="mdrawer__head">
+      <span style="font-family:var(--serif); font-weight:800; font-size:16px;">Notifications</span>
+      <button class="iconbtn" id="ndrawerClose" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
+    </div>
+    <div class="ndrawer__list">
+      <a class="nitem" href="notifications.html">
+        <span class="nitem__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span>
+        <span class="nitem__txt"><b>Patch 1.12.3 déployé</b><span>Elden Ring · il y a 2 h</span></span>
+        <span class="nitem__dot"></span>
+      </a>
+      <a class="nitem" href="notifications.html">
+        <span class="nitem__ico" style="background:var(--magenta-pale); color:var(--magenta-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg></span>
+        <span class="nitem__txt"><b>Guide mis à jour : « Battre Malenia »</b><span>Elden Ring · il y a 3 h</span></span>
+        <span class="nitem__dot"></span>
+      </a>
+      <a class="nitem" href="notifications.html">
+        <span class="nitem__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span>
+        <span class="nitem__txt"><b>2 réponses à ta question sur l’Abîme</b><span>Forum Genshin Impact · il y a 40 min</span></span>
+        <span class="nitem__dot"></span>
+      </a>
+      <a class="nitem nitem--read" href="notifications.html">
+        <span class="nitem__ico" style="background:var(--magenta-pale); color:var(--magenta-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg></span>
+        <span class="nitem__txt"><b>Nouvel article : sanctuaires du désert de Gerudo</b><span>Zelda TOTK · hier</span></span>
+        <span class="nitem__dot"></span>
+      </a>
+      <a class="nitem nitem--read" href="notifications.html">
+        <span class="nitem__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg></span>
+        <span class="nitem__txt"><b>Événement 5.7 : bannières dès demain</b><span>Genshin Impact · hier</span></span>
+        <span class="nitem__dot"></span>
+      </a>
+      <a class="nitem nitem--read" href="notifications.html">
+        <span class="nitem__ico" style="background:var(--or-pale); color:var(--or-ink);"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg></span>
+        <span class="nitem__txt"><b>Défi hebdo : +250 pts à gagner</b><span>Expire dans 2 jours</span></span>
+        <span class="nitem__dot"></span>
+      </a>
+    </div>
+    <a class="btn btn--outline btn--block" href="notifications.html" style="margin-top:12px;">Toutes les notifications</a>
+  </aside>
+</div>
+
 <!-- ================= 12 · FOOTER ================= -->
 <footer class="footer">
   <div class="wrap">
@@ -1551,30 +1663,22 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
           <a class="fsoc" href="https://x.com/lynk" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.2 2h6.4l4.4 5.9L18.9 2Zm-1.1 18.1h1.7L7.1 3.8H5.3l12.5 16.3Z"></path></svg></a>
           <a class="fsoc" href="https://instagram.com/lynk" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
           <a class="fsoc" href="https://tiktok.com/@lynk" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 7.1a4.8 4.8 0 0 1-3.5-1.6 4.8 4.8 0 0 1-1.2-3.2h-3.2v13a2.9 2.9 0 1 1-2.1-2.8V9.2a6.1 6.1 0 1 0 5.3 6V8.9a8 8 0 0 0 4.7 1.5Z"></path></svg></a>
+          <a class="fsoc" href="https://facebook.com/lynk" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14C17.17 2.1 16 2 14.8 2 12.2 2 10.5 3.66 10.5 6.7v2.8H8v4h2.5V22h3.5v-8.5Z"></path></svg></a>
+          <a class="fsoc" href="https://youtube.com/@lynk" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.1a4 4 0 0 0-2.8-2.9C18.2 3.7 12 3.7 12 3.7s-6.2 0-8.2.5A4 4 0 0 0 1 7.1 41 41 0 0 0 .5 12 41 41 0 0 0 1 16.9a4 4 0 0 0 2.8 2.8c2 .6 8.2.6 8.2.6s6.2 0 8.2-.6a4 4 0 0 0 2.8-2.8A41 41 0 0 0 23.5 12 41 41 0 0 0 23 7.1ZM9.8 15.5v-7l6 3.5-6 3.5Z"></path></svg></a>
         </div>
       </div>
       <div class="footer__col">
-        <h5>Jeux</h5>
-        <a href="jeu.html">Elden Ring</a>
-        <a href="jeu.html">Zelda : TOTK</a>
-        <a href="jeu.html">Baldur's Gate 3</a>
-        <a href="jeu.html">Genshin Impact</a>
-        <a href="jeux.html">Tous les jeux</a>
-      </div>
-      <div class="footer__col">
         <h5>Ressources</h5>
-        <a href="guides.html">Guides &amp; soluces</a>
+        <a href="guides.html">Guides</a>
         <a href="cartes.html">Cartes interactives</a>
-        <a href="builds.html">Builds</a>
-        <a href="trophees.html">Guides des trophées</a>
         <a href="actualites.html">Actualités</a>
-        <a href="videos.html">Vidéos</a>
+        <a href="trophees.html">Trophées</a>
+        <a href="builds.html">Builds</a>
       </div>
       <div class="footer__col">
         <h5>Communauté</h5>
-        <a href="communaute.html">Forum d'entraide</a>
+        <a href="communaute.html">Forums</a>
         <a href="https://discord.gg/lynk">Serveur Discord</a>
-        <a href="contribuer.html">Devenir contributeur</a>
         <a href="regles.html">Règles &amp; modération</a>
       </div>
       <div class="footer__news">
@@ -1646,11 +1750,11 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
       <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-gi"></span>Genshin Impact</a>
       <a class="mdrawer__sublink mdrawer__sublink--all" href="jeux.html">Voir tous les jeux →</a>
     </div>
-    <a class="mdrawer__link" href="guides.html">Guides &amp; soluces <span>→</span></a>
+    <a class="mdrawer__link" href="guides.html">Guides <span>→</span></a>
     <a class="mdrawer__link" href="cartes.html">Cartes interactives <span>→</span></a>
     <a class="mdrawer__link" href="actualites.html">Actualités <span>→</span></a>
     <a class="mdrawer__link" href="communaute.html">Communauté <span>→</span></a>
-    <a class="mdrawer__link" href="trophees.html">Guides des trophées <span>→</span></a>
+    <a class="mdrawer__link" href="trophees.html">Trophées <span>→</span></a>
     <a class="mdrawer__link" href="builds.html">Builds <span>→</span></a>
     <div class="mdrawer__cta">
       <a class="btn btn--primary btn--block only-guest" href="inscription.html">S'inscrire</a>
@@ -1823,6 +1927,16 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
     drawer.querySelector('.mdrawer__scrim').addEventListener('click', function(){ drawer.classList.remove('open'); });
     var closeBtn = document.getElementById('drawerClose');
     if(closeBtn) closeBtn.addEventListener('click', function(){ drawer.classList.remove('open'); });
+  }
+
+  /* ---------- drawer notifications ---------- */
+  var ndrawer = document.getElementById('ndrawer');
+  var notifBtn = document.getElementById('notifBtn');
+  if(notifBtn && ndrawer){
+    notifBtn.addEventListener('click', function(){ ndrawer.classList.add('open'); });
+    ndrawer.querySelector('.mdrawer__scrim').addEventListener('click', function(){ ndrawer.classList.remove('open'); });
+    var nclose = document.getElementById('ndrawerClose');
+    if(nclose) nclose.addEventListener('click', function(){ ndrawer.classList.remove('open'); });
   }
 
   /* ---------- filtres (démo visuelle) ---------- */
