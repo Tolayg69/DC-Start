@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lynk — Le hub central du joueur</title>
+<title>Lynk — Guides, cartes et soluces pour tes jeux</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
@@ -174,8 +174,10 @@ p{margin:0;}
 .ac__go{font-family:var(--mono); font-size:11px; color:var(--ink-400);}
 
 /* méga-menu */
-.mega{position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%) translateY(6px); width:560px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-lg); padding:18px; opacity:0; visibility:hidden; transition:opacity .16s, transform .16s; z-index:70;}
-.nav__item:hover .mega{opacity:1; visibility:visible; transform:translateX(-50%) translateY(0);}
+.mega{position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%) translateY(6px); width:560px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-lg); padding:18px; opacity:0; visibility:hidden; transition:opacity .14s, transform .14s, visibility 0s .14s; z-index:70;}
+/* pont invisible sur l'espace nav<->menu pour ne pas perdre le survol */
+.mega::before{content:""; position:absolute; left:0; right:0; top:-14px; height:14px;}
+.nav__item:hover .mega{opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); transition:opacity .14s, transform .14s, visibility 0s; z-index:80;}
 .mega__grid{display:grid; grid-template-columns:1fr 1fr; gap:6px;}
 .mega__row{display:flex; align-items:center; gap:11px; padding:9px 10px; border-radius:var(--r-sm); transition:background .14s;}
 .mega__row:hover{background:var(--surface-3);}
@@ -906,7 +908,7 @@ body.drawer-open{overflow:hidden;}
   <div class="hero__inner hero__grid">
 
     <div class="hero__copy">
-      <h1>Boss imbattable ?<br>Quête introuvable ?<br><span class="m">On a la soluce.</span></h1>
+      <h1>Collectible introuvable ?<br>Quête bloquée ?<br><span class="m">On a la soluce.</span></h1>
       <p class="hero__sub">Guides vérifiés, cartes interactives, builds optimisés, suivi de progression et entraide entre joueurs — un coup de pouce ponctuel sur un boss ou la route du 100 %, chacun avance à sa façon. Et toujours sans pub intrusive.</p>
 
       <div class="hero__cta">
@@ -918,10 +920,10 @@ body.drawer-open{overflow:hidden;}
 
       <div class="quick">
         <span class="quick__lbl">Très demandés :</span>
-        <a class="chip" href="jeu.html"><span class="chip__dot" style="background:var(--magenta)"></span>Elden Ring</a>
-        <a class="chip" href="jeu.html"><span class="chip__dot" style="background:var(--cyan)"></span>Zelda TOTK</a>
-        <a class="chip" href="jeu.html"><span class="chip__dot" style="background:var(--or)"></span>Baldur's Gate 3</a>
-        <a class="chip hide-mobile" href="jeu.html"><span class="chip__dot" style="background:var(--magenta)"></span>Genshin Impact</a>
+        <a class="chip" href="jeu.html">Elden Ring</a>
+        <a class="chip" href="jeu.html">Zelda TOTK</a>
+        <a class="chip" href="jeu.html">Baldur's Gate 3</a>
+        <a class="chip hide-mobile" href="jeu.html">Genshin Impact</a>
       </div>
 
       <div class="trust">
@@ -1488,7 +1490,7 @@ body.drawer-open{overflow:hidden;}
           <div><div class="v">87 %</div><div class="l">questions résolues</div></div>
         </div>
         <a class="btn btn--white" href="communaute.html">Rejoindre la communauté</a>
-        <a href="https://discord.gg/lynk" style="font-size:13.5px; font-weight:700; color:rgba(255,255,255,.85); text-align:center;">Ou rejoindre le Discord →</a>
+        <a href="#" onclick="return false;" style="font-size:13.5px; font-weight:700; color:rgba(255,255,255,.85); text-align:center;">Ou rejoindre le Discord →</a>
       </aside>
     </div>
   </div>
@@ -1511,21 +1513,21 @@ body.drawer-open{overflow:hidden;}
         <div class="card__thumb cover-er"><span class="card__game">Elden Ring</span><button class="fav" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div>
         <div class="card__body">
           <div class="card__top"><span class="tag tag--trophee">Trophées</span><span class="badge badge--maj badge--dot">Màj 1.12.3</span></div>
-          <h3 class="card__title">Platine Elden Ring : la route optimisée, boss par boss</h3>
+          <h3 class="card__title">Platine Elden Ring : la route complète, étape par étape</h3>
         </div>
       </article>
       <article class="card">
         <div class="card__thumb cover-bg"><span class="card__game">Baldur&#39;s Gate 3</span><button class="fav" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div>
         <div class="card__body">
           <div class="card__top"><span class="tag tag--trophee">Trophées</span></div>
-          <h3 class="card__title">Platine Baldur&#39;s Gate 3 : les succès manquables, acte par acte</h3>
+          <h3 class="card__title">Platine Baldur&#39;s Gate 3 : tous les succès manquables repérés</h3>
         </div>
       </article>
       <article class="card">
         <div class="card__thumb cover-cp"><span class="card__game">Cyberpunk 2077</span><button class="fav" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div>
         <div class="card__body">
           <div class="card__top"><span class="tag tag--trophee">Trophées</span></div>
-          <h3 class="card__title">Platine Cyberpunk 2077 : tous les trophées en une seule partie</h3>
+          <h3 class="card__title">Platine Cyberpunk 2077 : tous les trophées en une partie</h3>
         </div>
       </article>
     </div>
@@ -1547,12 +1549,12 @@ body.drawer-open{overflow:hidden;}
       <article class="bcard">
         <div class="bcard__head">
           <span class="bcard__ico" style="background:var(--magenta);">ER</span>
-          <div><div class="bcard__role">Elden Ring · PvE</div><div class="bcard__name">Samouraï saignement</div></div>
+          <div><div class="bcard__role">Elden Ring</div><div class="bcard__name">Samouraï saignement</div></div>
         </div>
         <div class="bcard__stats">
-          <span class="bstat"><span class="bstat__v">DEX 55</span><span class="bstat__l">stat clé</span></span>
-          <span class="bstat"><span class="bstat__v">Niv. 120</span><span class="bstat__l">recommandé</span></span>
-          <span class="bstat"><span class="bstat__v">S</span><span class="bstat__l">tier</span></span>
+          <span class="bstat"><span class="bstat__v">Début</span><span class="bstat__l">Disponibilité</span></span>
+          <span class="bstat"><span class="bstat__v">Facile</span><span class="bstat__l">Difficulté</span></span>
+          <span class="bstat"><span class="bstat__v">S</span><span class="bstat__l">Tier</span></span>
         </div>
         <div class="bcard__foot">
           <span class="votes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12"></path><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"></path></svg>96 % · 2 400 votes</span>
@@ -1562,12 +1564,12 @@ body.drawer-open{overflow:hidden;}
       <article class="bcard">
         <div class="bcard__head">
           <span class="bcard__ico" style="background:var(--or); color:var(--noir);">BG</span>
-          <div><div class="bcard__role">Baldur's Gate 3 · Tactique</div><div class="bcard__name">Moine voie de l'astre</div></div>
+          <div><div class="bcard__role">Baldur's Gate 3</div><div class="bcard__name">Moine voie de l'astre</div></div>
         </div>
         <div class="bcard__stats">
-          <span class="bstat"><span class="bstat__v">SAG 20</span><span class="bstat__l">stat clé</span></span>
-          <span class="bstat"><span class="bstat__v">Acte 3</span><span class="bstat__l">pic de puissance</span></span>
-          <span class="bstat"><span class="bstat__v">S</span><span class="bstat__l">tier</span></span>
+          <span class="bstat"><span class="bstat__v">Acte 1</span><span class="bstat__l">Disponibilité</span></span>
+          <span class="bstat"><span class="bstat__v">Moyen</span><span class="bstat__l">Difficulté</span></span>
+          <span class="bstat"><span class="bstat__v">S</span><span class="bstat__l">Tier</span></span>
         </div>
         <div class="bcard__foot">
           <span class="votes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12"></path><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"></path></svg>94 % · 1 800 votes</span>
@@ -1577,12 +1579,12 @@ body.drawer-open{overflow:hidden;}
       <article class="bcard">
         <div class="bcard__head">
           <span class="bcard__ico" style="background:var(--cyan);">D4</span>
-          <div><div class="bcard__role">Diablo IV · Saison 8</div><div class="bcard__name">Sorcier givre — endgame</div></div>
+          <div><div class="bcard__role">Diablo IV</div><div class="bcard__name">Sorcier givre</div></div>
         </div>
         <div class="bcard__stats">
-          <span class="bstat"><span class="bstat__v">T4</span><span class="bstat__l">viable tourment</span></span>
-          <span class="bstat"><span class="bstat__v">Niv. 60+</span><span class="bstat__l">endgame</span></span>
-          <span class="bstat"><span class="bstat__v">A</span><span class="bstat__l">tier</span></span>
+          <span class="bstat"><span class="bstat__v">Endgame</span><span class="bstat__l">Disponibilité</span></span>
+          <span class="bstat"><span class="bstat__v">Expert</span><span class="bstat__l">Difficulté</span></span>
+          <span class="bstat"><span class="bstat__v">A</span><span class="bstat__l">Tier</span></span>
         </div>
         <div class="bcard__foot">
           <span class="votes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12"></path><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"></path></svg>91 % · 3 100 votes</span>
@@ -1591,7 +1593,7 @@ body.drawer-open{overflow:hidden;}
       </article>
     </div>
     <div style="display:flex; justify-content:center; margin-top:28px;">
-      <a class="btn btn--outline" href="builds.html">Trouver le bon build</a>
+      <a class="btn btn--outline" href="builds.html">Découvrir tous les builds</a>
     </div>
   </div>
 </section>
@@ -1664,14 +1666,14 @@ body.drawer-open{overflow:hidden;}
   <path class="cls-1" d="M727.51,386.14c-17.11.09-30.87-13.6-30.75-30.58.12-16.81,13.65-30.2,30.51-30.19,16.87.02,30.57,13.6,30.49,30.21-.08,16.72-13.7,30.48-30.25,30.56Z"/>
   <path class="cls-1" d="M422.25,6.7c16.72.05,30.28,13.52,30.44,30.25.16,16.72-13.93,30.65-30.88,30.52-16.43-.12-29.91-13.62-29.98-30.02-.07-17.38,13.2-30.8,30.41-30.75Z"/>
 </svg></a>
-        <p>Le hub central du joueur. Toute l'aide au jeu vidéo, centralisée, fiable et sans publicité intrusive.</p>
+        <p>Toute l'aide dont vous avez besoin, centralisée, fiable et sans publicité intrusive.</p>
         <div class="footer__social">
-          <a class="fsoc" href="https://discord.gg/lynk" aria-label="Discord"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.2a18 18 0 0 0-5.4 0L8.7 3a19.8 19.8 0 0 0-5 1.5A20.3 20.3 0 0 0 .3 18.1a19.9 19.9 0 0 0 6 3l1.3-2a12.8 12.8 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12 0l.5.4a12.8 12.8 0 0 1-2 1l1.2 2a19.9 19.9 0 0 0 6.1-3 20.2 20.2 0 0 0-3.5-13.7ZM8.5 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"></path></svg></a>
-          <a class="fsoc" href="https://facebook.com/lynk" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14C17.17 2.1 16 2 14.8 2 12.2 2 10.5 3.66 10.5 6.7v2.8H8v4h2.5V22h3.5v-8.5Z"></path></svg></a>
-          <a class="fsoc" href="https://instagram.com/lynk" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
-          <a class="fsoc" href="https://tiktok.com/@lynk" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 7.1a4.8 4.8 0 0 1-3.5-1.6 4.8 4.8 0 0 1-1.2-3.2h-3.2v13a2.9 2.9 0 1 1-2.1-2.8V9.2a6.1 6.1 0 1 0 5.3 6V8.9a8 8 0 0 0 4.7 1.5Z"></path></svg></a>
-          <a class="fsoc" href="https://x.com/lynk" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.2 2h6.4l4.4 5.9L18.9 2Zm-1.1 18.1h1.7L7.1 3.8H5.3l12.5 16.3Z"></path></svg></a>
-          <a class="fsoc" href="https://youtube.com/@lynk" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.1a4 4 0 0 0-2.8-2.9C18.2 3.7 12 3.7 12 3.7s-6.2 0-8.2.5A4 4 0 0 0 1 7.1 41 41 0 0 0 .5 12 41 41 0 0 0 1 16.9a4 4 0 0 0 2.8 2.8c2 .6 8.2.6 8.2.6s6.2 0 8.2-.6a4 4 0 0 0 2.8-2.8A41 41 0 0 0 23.5 12 41 41 0 0 0 23 7.1ZM9.8 15.5v-7l6 3.5-6 3.5Z"></path></svg></a>
+          <a class="fsoc" href="#" onclick="return false;" aria-label="Discord"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.2a18 18 0 0 0-5.4 0L8.7 3a19.8 19.8 0 0 0-5 1.5A20.3 20.3 0 0 0 .3 18.1a19.9 19.9 0 0 0 6 3l1.3-2a12.8 12.8 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12 0l.5.4a12.8 12.8 0 0 1-2 1l1.2 2a19.9 19.9 0 0 0 6.1-3 20.2 20.2 0 0 0-3.5-13.7ZM8.5 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"></path></svg></a>
+          <a class="fsoc" href="#" onclick="return false;" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14C17.17 2.1 16 2 14.8 2 12.2 2 10.5 3.66 10.5 6.7v2.8H8v4h2.5V22h3.5v-8.5Z"></path></svg></a>
+          <a class="fsoc" href="#" onclick="return false;" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
+          <a class="fsoc" href="#" onclick="return false;" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 7.1a4.8 4.8 0 0 1-3.5-1.6 4.8 4.8 0 0 1-1.2-3.2h-3.2v13a2.9 2.9 0 1 1-2.1-2.8V9.2a6.1 6.1 0 1 0 5.3 6V8.9a8 8 0 0 0 4.7 1.5Z"></path></svg></a>
+          <a class="fsoc" href="#" onclick="return false;" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.2 2h6.4l4.4 5.9L18.9 2Zm-1.1 18.1h1.7L7.1 3.8H5.3l12.5 16.3Z"></path></svg></a>
+          <a class="fsoc" href="#" onclick="return false;" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.1a4 4 0 0 0-2.8-2.9C18.2 3.7 12 3.7 12 3.7s-6.2 0-8.2.5A4 4 0 0 0 1 7.1 41 41 0 0 0 .5 12 41 41 0 0 0 1 16.9a4 4 0 0 0 2.8 2.8c2 .6 8.2.6 8.2.6s6.2 0 8.2-.6a4 4 0 0 0 2.8-2.8A41 41 0 0 0 23.5 12 41 41 0 0 0 23 7.1ZM9.8 15.5v-7l6 3.5-6 3.5Z"></path></svg></a>
         </div>
       </div>
       <div class="footer__col">
@@ -1686,12 +1688,12 @@ body.drawer-open{overflow:hidden;}
       <div class="footer__col">
         <h5>Communauté</h5>
         <a href="communaute.html">Forums</a>
-        <a href="https://discord.gg/lynk">Serveur Discord</a>
+        <a href="#" onclick="return false;">Serveur Discord</a>
         <a href="regles.html">Règles &amp; modération</a>
       </div>
       <div class="footer__news">
         <h5>Newsletter</h5>
-        <p>Les patchs, événements et meilleurs guides de tes jeux — une fois par semaine, sans spam.</p>
+        <p>L'essentiel de tes jeux — les nouveautés à ne pas manquer, une fois par semaine.</p>
         <div class="news-field">
           <input type="email" id="newsInput" placeholder="ton@email.fr" aria-label="Adresse email">
           <button class="btn btn--primary btn--sm" id="newsBtn" type="button">OK</button>
@@ -1709,7 +1711,7 @@ body.drawer-open{overflow:hidden;}
         <a href="contact.html">Contact</a>
       </div>
     </div>
-    <p class="footer__aff">Transparence : certains liens vers des jeux ou du matériel sont affiliés — ils ne coûtent rien de plus et aident Lynk à rester sans publicité intrusive. Les contenus sponsorisés sont toujours signalés.</p>
+    <p class="footer__aff">Transparence : certains liens vers des jeux ou du matériel sont affiliés — ils ne coûtent rien de plus et aident Lynk à prospérer et à continuer à vous offrir la meilleure expérience. Les contenus sponsorisés sont toujours signalés.</p>
   </div>
 </footer>
 
@@ -1989,7 +1991,7 @@ body.drawer-open{overflow:hidden;}
     newsMsg.classList.remove('ok','err');
     if(!v){ newsMsg.textContent = 'Entre ton adresse email pour t\u2019inscrire.'; newsMsg.classList.add('err'); return; }
     if(!ok){ newsMsg.textContent = 'Hmm, cette adresse ne semble pas valide. V\u00e9rifie le format (ex. : toi@email.fr).'; newsMsg.classList.add('err'); return; }
-    newsMsg.textContent = 'C\u2019est not\u00e9 ! Tu recevras la prochaine \u00e9dition \u00e0 ' + v + '. \u00c0 tr\u00e8s vite \uD83C\uDFAE';
+    newsMsg.textContent = 'C\u2019est not\u00e9 ! Merci pour ton inscription !';
     newsMsg.classList.add('ok');
     newsInput.value = '';
   }
