@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Gestion des cookies — Lynk</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -139,7 +139,7 @@ p{margin:0;}
 /* ===================================================================
    NAVBAR + méga-menu
    =================================================================== */
-.nav{position:sticky; top:0; z-index:60; background:rgba(255,250,250,.86); backdrop-filter:blur(14px); border-bottom:1px solid var(--line);}
+.nav{position:sticky; top:0; z-index:60; background:var(--blanc); border-bottom:1px solid var(--line);}
 .nav__inner{display:flex; align-items:center; gap:13px; height:68px; max-width:var(--maxw); margin:0 auto; padding:0 var(--gut);}
 .nav__links{display:flex; align-items:center; gap:3px; flex:none;}
 .nav__link{display:inline-flex; align-items:center; gap:6px; font-size:13.5px; font-weight:700; color:var(--ink-700); padding:9px 9px; border-radius:var(--r-sm); transition:background .15s, color .15s;}
@@ -779,6 +779,12 @@ body.drawer-open{overflow:hidden;}
 .news-msg.err{display:block; color:#ff9b9b;}
 
 
+/* === espace en haut sur mobile : zone OPAQUE intégrée à la nav (rien ne défile dessous) === */
+@media (max-width:880px){
+  .nav{ padding-top: env(safe-area-inset-top, 0px); background: var(--blanc); }
+}
+body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
+
 
 /* ============ PAGES LÉGALES & CONTACT (styles additionnels) ============ */
 .phero{background:
@@ -992,7 +998,7 @@ body.drawer-open{overflow:hidden;}
     <span class="kicker"><span class="dots"><i></i><i></i></span> Cookies & traceurs</span>
     <h1>Gestion des cookies</h1>
     <p class="phero__sub">Les cookies utilisés par Lynk, leur finalité, et comment gérer votre consentement à tout moment.</p>
-      <span class="phero__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Dernière mise à jour : 15 juin 2026</span>
+      <span class="phero__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Dernière mise à jour : 3 juillet 2026</span>
   </div>
 </section>
 
@@ -1007,7 +1013,7 @@ body.drawer-open{overflow:hidden;}
     <a href="#duree">Durée de vie</a>
   </nav>
     <div class="prose">
-      <p class="lead">Lynk utilise des cookies et traceurs pour faire fonctionner le site, mesurer son audience et améliorer votre expérience. Vous gardez le contrôle : seuls les cookies essentiels sont déposés sans votre consentement.</p>
+      <p class="lead">Lynk utilise des cookies et traceurs pour faire fonctionner le site, mesurer son audience, améliorer votre expérience et afficher des publicités non intrusives aux comptes gratuits. Vous gardez le contrôle : seuls les cookies essentiels sont déposés sans votre consentement.</p>
 
       <h2 id="def">Qu'est-ce qu'un cookie ?</h2>
       <p>Un cookie est un petit fichier déposé sur votre appareil lors de la visite d'un site. Il permet notamment de mémoriser votre session, vos préférences, ou de mesurer la fréquentation du site. Certains sont indispensables au fonctionnement, d'autres sont facultatifs et soumis à votre accord.</p>
@@ -1019,7 +1025,8 @@ body.drawer-open{overflow:hidden;}
           <tr><td><strong>Essentiels</strong></td><td>Session, authentification, sécurité, mémorisation du consentement. Indispensables au fonctionnement.</td><td><span class="ctag ctag--ess">Toujours actif</span></td></tr>
           <tr><td><strong>Préférences</strong></td><td>Mémorisation de vos réglages (jeux suivis, affichage, marqueurs de carte).</td><td><span class="ctag ctag--opt">Sur consentement</span></td></tr>
           <tr><td><strong>Mesure d'audience</strong></td><td>Statistiques de fréquentation anonymisées pour améliorer la plateforme.</td><td><span class="ctag ctag--opt">Sur consentement</span></td></tr>
-          <tr><td><strong>Affiliation / partenaires</strong></td><td>Attribution des visites vers les liens affiliés, sans profilage publicitaire.</td><td><span class="ctag ctag--opt">Sur consentement</span></td></tr>
+          <tr><td><strong>Affiliation / partenaires</strong></td><td>Attribution des visites vers les liens affiliés, sans revente de vos données.</td><td><span class="ctag ctag--opt">Sur consentement</span></td></tr>
+          <tr><td><strong>Publicité</strong></td><td>Affichage de publicités non intrusives pour les comptes gratuits et mesure de leur performance, sans suivi entre sites tiers. Absentes pour les abonnés Premium.</td><td><span class="ctag ctag--opt">Sur consentement</span></td></tr>
         </tbody>
       </table>
 
@@ -1116,7 +1123,7 @@ body.drawer-open{overflow:hidden;}
       <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-gi"></span>Genshin Impact</a>
       <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-cp"></span>Cyberpunk 2077</a>
       <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-d4"></span>Diablo IV</a>
-      <a class="mdrawer__sublink mdrawer__sublink--all" href="jeux.html">Voir tous les jeux →</a>
+      <a class="mdrawer__sublink mdrawer__sublink--all" href="jeux.html">Tous les jeux →</a>
     </div>
     <button class="mdrawer__link mdrawer__acc" type="button">Guides <span class="mdrawer__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="m6 9 6 6 6-6"></path></svg></span></button>
     <div class="mdrawer__sub">
