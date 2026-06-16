@@ -778,13 +778,11 @@ body.drawer-open{overflow:hidden;}
 .news-msg.err{display:block; color:#ff9b9b;}
 
 
-/* === espace en haut sur mobile : l'encoche / barre d'état ne masque plus la nav === */
+/* === espace en haut sur mobile : zone OPAQUE intégrée à la nav (rien ne défile dessous) === */
 @media (max-width:880px){
-  body{ padding-top: env(safe-area-inset-top, 0px); }
-  .nav{ top: env(safe-area-inset-top, 0px); }
+  .nav{ padding-top: env(safe-area-inset-top, 0px); background: var(--blanc); }
 }
-body.is-embed{ padding-top: 44px; }
-body.is-embed .nav{ top: 44px; }
+body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
 </style>
 </head>
 <body>
