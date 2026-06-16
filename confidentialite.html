@@ -1218,12 +1218,11 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
   var state = { auth:false, view:'desktop' };
   try{
     var saved = localStorage.getItem('lynk_proto_state');
-    if(saved){ var sv = JSON.parse(saved); if(sv && typeof sv.auth !== 'undefined') state.auth = !!sv.auth; }
+    if(saved){ var sv = JSON.parse(saved); if(sv){ if(typeof sv.auth !== 'undefined') state.auth = !!sv.auth; if(typeof sv.view !== 'undefined') state.view = sv.view; } }
   }catch(e){}
-  /* l'aperçu mobile ne persiste jamais d'une page à l'autre : on démarre toujours en vue normale */
-  state.view = 'desktop';
   if(isEmbed){
     state.auth = params.get('auth') === '1';
+    state.view = 'desktop';
     document.body.classList.add('is-embed');
     /* dans l'aperçu, tout lien vers une autre page navigue dans la fenêtre principale (pas d'imbrication) */
     document.addEventListener('click', function(e){
