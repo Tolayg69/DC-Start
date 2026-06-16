@@ -1024,9 +1024,9 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
         <div class="idrow"><div class="idrow__k">Dénomination</div><div class="idrow__v">Lynk SAS — société par actions simplifiée</div></div>
         <div class="idrow"><div class="idrow__k">Capital social</div><div class="idrow__v">10 000 €</div></div>
         <div class="idrow"><div class="idrow__k">Siège social</div><div class="idrow__v">12 rue de la République, 69002 Lyon, France</div></div>
-        <div class="idrow"><div class="idrow__k">RCS</div><div class="idrow__v">Lyon B 000 101 101 <span style="color:var(--ink-400);">(exemple)</span></div></div>
-        <div class="idrow"><div class="idrow__k">SIREN</div><div class="idrow__v">000 101 101 <span style="color:var(--ink-400);">(exemple)</span></div></div>
-        <div class="idrow"><div class="idrow__k">TVA intracom.</div><div class="idrow__v">FR 00 000 101 101 <span style="color:var(--ink-400);">(exemple)</span></div></div>
+        <div class="idrow"><div class="idrow__k">RCS</div><div class="idrow__v">Lyon B 000 101 101</div></div>
+        <div class="idrow"><div class="idrow__k">SIREN</div><div class="idrow__v">000 101 101</div></div>
+        <div class="idrow"><div class="idrow__k">TVA intracom.</div><div class="idrow__v">FR 00 000 101 101</div></div>
         <div class="idrow"><div class="idrow__k">Directeur de la publication</div><div class="idrow__v">Le représentant légal de Lynk SAS</div></div>
         <div class="idrow"><div class="idrow__k">Contact</div><div class="idrow__v"><a class="inline" href="contact.html">contact@lynk.gg</a></div></div>
       </div>
@@ -1207,12 +1207,25 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
   var state = { auth:false, view:'desktop' };
   try{
     var saved = localStorage.getItem('lynk_proto_state');
-    if(saved) state = Object.assign(state, JSON.parse(saved));
+    if(saved){ var sv = JSON.parse(saved); if(sv && typeof sv.auth !== 'undefined') state.auth = !!sv.auth; }
   }catch(e){}
+  /* l'aperçu mobile ne persiste jamais d'une page à l'autre : on démarre toujours en vue normale */
+  state.view = 'desktop';
   if(isEmbed){
     state.auth = params.get('auth') === '1';
-    state.view = 'desktop';
     document.body.classList.add('is-embed');
+    /* dans l'aperçu, tout lien vers une autre page navigue dans la fenêtre principale (pas d'imbrication) */
+    document.addEventListener('click', function(e){
+      if(!e.target.closest) return;
+      if(e.target.closest('.fav')) return;
+      var a = e.target.closest('a[href]');
+      if(!a) return;
+      var href = a.getAttribute('href') || '';
+      if(!href || href.charAt(0) === '#' || href.indexOf('javascript:') === 0) return;
+      if(a.getAttribute('onclick')) return;
+      e.preventDefault();
+      try{ window.top.location.href = href; }catch(err){ window.location.href = href; }
+    }, true);
   }
   function persist(){
     if(isEmbed) return;
