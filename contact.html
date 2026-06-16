@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Contact — Lynk</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -139,7 +139,7 @@ p{margin:0;}
 /* ===================================================================
    NAVBAR + méga-menu
    =================================================================== */
-.nav{position:sticky; top:0; z-index:60; background:rgba(255,250,250,.86); backdrop-filter:blur(14px); border-bottom:1px solid var(--line);}
+.nav{position:sticky; top:0; z-index:60; background:var(--blanc); border-bottom:1px solid var(--line);}
 .nav__inner{display:flex; align-items:center; gap:13px; height:68px; max-width:var(--maxw); margin:0 auto; padding:0 var(--gut);}
 .nav__links{display:flex; align-items:center; gap:3px; flex:none;}
 .nav__link{display:inline-flex; align-items:center; gap:6px; font-size:13.5px; font-weight:700; color:var(--ink-700); padding:9px 9px; border-radius:var(--r-sm); transition:background .15s, color .15s;}
@@ -779,6 +779,12 @@ body.drawer-open{overflow:hidden;}
 .news-msg.err{display:block; color:#ff9b9b;}
 
 
+/* === espace en haut sur mobile : zone OPAQUE intégrée à la nav (rien ne défile dessous) === */
+@media (max-width:880px){
+  .nav{ padding-top: env(safe-area-inset-top, 0px); background: var(--blanc); }
+}
+body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
+
 
 /* ============ PAGES LÉGALES & CONTACT (styles additionnels) ============ */
 .phero{background:
@@ -1012,6 +1018,10 @@ body.drawer-open{overflow:hidden;}
         <div><div class="ccard__t">Support &amp; compte</div><div class="ccard__m">Aide sur ton compte, abonnement Premium ou un bug.</div><span class="ccard__v">support@lynk.gg</span></div>
       </div>
       <div class="ccard">
+        <span class="ccard__ico" style="background:var(--surface-3); color:var(--ink-700);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <div><div class="ccard__t">Données personnelles</div><div class="ccard__m">Exercer tes droits RGPD, questions sur tes données.</div><span class="ccard__v">privacy@lynk.gg</span></div>
+      </div>
+      <div class="ccard">
         <span class="ccard__ico" style="background:#e7e9ff; color:#5865F2;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.2a18 18 0 0 0-5.4 0L8.7 3a19.8 19.8 0 0 0-5 1.5A20.3 20.3 0 0 0 .3 18.1a19.9 19.9 0 0 0 6 3l1.3-2a12.8 12.8 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12 0l.5.4a12.8 12.8 0 0 1-2 1l1.2 2a19.9 19.9 0 0 0 6.1-3 20.2 20.2 0 0 0-3.5-13.7ZM8.5 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg></span>
         <div><div class="ccard__t">Communauté Discord</div><div class="ccard__m">Échange en direct avec la communauté et l'équipe.</div><a class="ccard__v" href="#" onclick="return false;">Rejoindre le serveur →</a></div>
       </div>
@@ -1117,7 +1127,7 @@ body.drawer-open{overflow:hidden;}
       <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-gi"></span>Genshin Impact</a>
       <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-cp"></span>Cyberpunk 2077</a>
       <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-d4"></span>Diablo IV</a>
-      <a class="mdrawer__sublink mdrawer__sublink--all" href="jeux.html">Voir tous les jeux →</a>
+      <a class="mdrawer__sublink mdrawer__sublink--all" href="jeux.html">Tous les jeux →</a>
     </div>
     <button class="mdrawer__link mdrawer__acc" type="button">Guides <span class="mdrawer__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="m6 9 6 6 6-6"></path></svg></span></button>
     <div class="mdrawer__sub">
