@@ -1013,7 +1013,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
     <a href="#duree">Durée de vie</a>
   </nav>
     <div class="prose">
-      <p class="lead">Lynk utilise des cookies et traceurs pour faire fonctionner le site, mesurer son audience, améliorer votre expérience et afficher des publicités non intrusives aux comptes gratuits. Vous gardez le contrôle : seuls les cookies essentiels sont déposés sans votre consentement.</p>
+      <p class="lead">Lynk utilise des cookies et traceurs pour faire fonctionner le site, mesurer son audience, améliorer votre expérience et afficher des publicités aux comptes gratuits. Vous gardez le contrôle : seuls les cookies essentiels sont déposés sans votre consentement.</p>
 
       <h2 id="def">Qu'est-ce qu'un cookie ?</h2>
       <p>Un cookie est un petit fichier déposé sur votre appareil lors de la visite d'un site. Il permet notamment de mémoriser votre session, vos préférences, ou de mesurer la fréquentation du site. Certains sont indispensables au fonctionnement, d'autres sont facultatifs et soumis à votre accord.</p>
@@ -1026,7 +1026,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
           <tr><td><strong>Préférences</strong></td><td>Mémorisation de vos réglages (jeux suivis, affichage, marqueurs de carte).</td><td><span class="ctag ctag--opt">Sur consentement</span></td></tr>
           <tr><td><strong>Mesure d'audience</strong></td><td>Statistiques de fréquentation anonymisées pour améliorer la plateforme.</td><td><span class="ctag ctag--opt">Sur consentement</span></td></tr>
           <tr><td><strong>Affiliation / partenaires</strong></td><td>Attribution des visites vers les liens affiliés, sans revente de vos données.</td><td><span class="ctag ctag--opt">Sur consentement</span></td></tr>
-          <tr><td><strong>Publicité</strong></td><td>Affichage de publicités non intrusives pour les comptes gratuits et mesure de leur performance, sans suivi entre sites tiers. Absentes pour les abonnés Premium.</td><td><span class="ctag ctag--opt">Sur consentement</span></td></tr>
+          <tr><td><strong>Publicité</strong></td><td>Affichage de publicités pour les comptes gratuits et mesure de leur performance, sans suivi entre sites tiers. Fortement réduites ou absentes selon le niveau d'abonnement Premium.</td><td><span class="ctag ctag--opt">Sur consentement</span></td></tr>
         </tbody>
       </table>
 
@@ -1193,12 +1193,25 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
   var state = { auth:false, view:'desktop' };
   try{
     var saved = localStorage.getItem('lynk_proto_state');
-    if(saved) state = Object.assign(state, JSON.parse(saved));
+    if(saved){ var sv = JSON.parse(saved); if(sv && typeof sv.auth !== 'undefined') state.auth = !!sv.auth; }
   }catch(e){}
+  /* l'aperçu mobile ne persiste jamais d'une page à l'autre : on démarre toujours en vue normale */
+  state.view = 'desktop';
   if(isEmbed){
     state.auth = params.get('auth') === '1';
-    state.view = 'desktop';
     document.body.classList.add('is-embed');
+    /* dans l'aperçu, tout lien vers une autre page navigue dans la fenêtre principale (pas d'imbrication) */
+    document.addEventListener('click', function(e){
+      if(!e.target.closest) return;
+      if(e.target.closest('.fav')) return;
+      var a = e.target.closest('a[href]');
+      if(!a) return;
+      var href = a.getAttribute('href') || '';
+      if(!href || href.charAt(0) === '#' || href.indexOf('javascript:') === 0) return;
+      if(a.getAttribute('onclick')) return;
+      e.preventDefault();
+      try{ window.top.location.href = href; }catch(err){ window.location.href = href; }
+    }, true);
   }
   function persist(){
     if(isEmbed) return;
