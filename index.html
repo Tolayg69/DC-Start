@@ -678,7 +678,11 @@ body.is-embed #deviceHost{display:none !important;}
   .resume{grid-template-columns:1fr;}
   .games{grid-template-columns:repeat(2,1fr);}
   .guides{grid-template-columns:1fr;}
-  .feature{grid-template-columns:1fr; gap:26px;}
+  .feature{display:flex; flex-direction:column; gap:26px;}
+  .feature__body{display:contents;}
+  .feature__intro{order:1;}
+  .feature__media{order:2;}
+  .feature__rest{order:3;}
   .builds{grid-template-columns:1fr;}
   .community{grid-template-columns:1fr;}
   .gamif__grid{grid-template-columns:1fr; gap:30px;}
@@ -1245,10 +1249,13 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
           <span><i style="background:var(--or)"></i>Mes marqueurs</span>
         </div>
       </div>
-      <div>
+      <div class="feature__body">
+        <div class="feature__intro">
         <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Cartes interactives</span>
         <h2 class="sec-title" style="margin:8px 0 10px;">Des cartes interactives,<br>pas des captures floues</h2>
         <p class="sec-sub" style="margin-bottom:22px;">Chaque monde ouvert cartographié : quêtes, collectibles, boss et points d'intérêt filtrables en un clic.</p>
+        </div>
+        <div class="feature__rest">
         <div class="feature__list">
           <div class="fl-row">
             <span class="fl-row__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
@@ -1264,6 +1271,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
           </div>
         </div>
         <a class="btn btn--primary" href="cartes.html" style="margin-top:24px;">Explorer les cartes</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1866,12 +1874,11 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
   var state = { auth:false, view:'desktop' };
   try{
     var saved = localStorage.getItem('lynk_proto_state');
-    if(saved){ var sv = JSON.parse(saved); if(sv && typeof sv.auth !== 'undefined') state.auth = !!sv.auth; }
+    if(saved){ var sv = JSON.parse(saved); if(sv){ if(typeof sv.auth !== 'undefined') state.auth = !!sv.auth; if(typeof sv.view !== 'undefined') state.view = sv.view; } }
   }catch(e){}
-  /* l'aperçu mobile ne persiste jamais d'une page à l'autre : on démarre toujours en vue normale */
-  state.view = 'desktop';
   if(isEmbed){
     state.auth = params.get('auth') === '1';
+    state.view = 'desktop';
     document.body.classList.add('is-embed');
     /* dans l'aperçu, tout lien vers une autre page navigue dans la fenêtre principale (pas d'imbrication) */
     document.addEventListener('click', function(e){
