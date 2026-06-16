@@ -384,7 +384,10 @@ body.is-auth .nav__right .only-auth{display:flex;}
 /* ===================================================================
    CARTES INTERACTIVES (feature)
    =================================================================== */
-.feature{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;}
+.feature{display:grid; grid-template-columns:1fr 1fr; column-gap:40px; row-gap:0; align-items:start; grid-template-areas:"media intro" "media rest";}
+.feature__media{grid-area:media; align-self:center;}
+.feature__intro{grid-area:intro;}
+.feature__rest{grid-area:rest;}
 .feature__media{aspect-ratio:4/3; border-radius:var(--r-xl); border:1px solid var(--line); position:relative; overflow:hidden; box-shadow:var(--sh-md);
   background:
    linear-gradient(rgba(18,18,18,.04) 1px, transparent 1px) 0 0/26px 26px,
@@ -678,11 +681,7 @@ body.is-embed #deviceHost{display:none !important;}
   .resume{grid-template-columns:1fr;}
   .games{grid-template-columns:repeat(2,1fr);}
   .guides{grid-template-columns:1fr;}
-  .feature{display:flex; flex-direction:column; gap:26px;}
-  .feature__body{display:contents;}
-  .feature__intro{order:1;}
-  .feature__media{order:2;}
-  .feature__rest{order:3;}
+  .feature{grid-template-columns:1fr; grid-template-areas:"intro" "media" "rest"; row-gap:26px;}
   .builds{grid-template-columns:1fr;}
   .community{grid-template-columns:1fr;}
   .gamif__grid{grid-template-columns:1fr; gap:30px;}
@@ -1249,8 +1248,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
           <span><i style="background:var(--or)"></i>Mes marqueurs</span>
         </div>
       </div>
-      <div class="feature__body">
-        <div class="feature__intro">
+      <div class="feature__intro">
         <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Cartes interactives</span>
         <h2 class="sec-title" style="margin:8px 0 10px;">Des cartes interactives,<br>pas des captures floues</h2>
         <p class="sec-sub" style="margin-bottom:22px;">Chaque monde ouvert cartographié : quêtes, collectibles, boss et points d'intérêt filtrables en un clic.</p>
@@ -1272,7 +1270,6 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
         </div>
         <a class="btn btn--primary" href="cartes.html" style="margin-top:24px;">Explorer les cartes</a>
         </div>
-      </div>
     </div>
   </div>
 </section>
