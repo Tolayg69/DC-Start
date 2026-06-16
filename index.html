@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Lynk — Guides, cartes et soluces pour tes jeux</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -684,7 +684,6 @@ body.is-embed #deviceHost{display:none !important;}
   .gamif__grid{grid-template-columns:1fr; gap:30px;}
   .gamif{padding:28px;}
   .pricing{grid-template-columns:1fr; gap:26px;}
-  .ptier--feat{order:-1;}
   .why{grid-template-columns:1fr 1fr; gap:24px;}
   .footer__top{grid-template-columns:1fr 1fr; gap:28px;}
   .footer__brand{grid-column:1/-1;}
@@ -778,6 +777,14 @@ body.drawer-open{overflow:hidden;}
 .news-msg.ok{display:block; color:#6ee7a0;}
 .news-msg.err{display:block; color:#ff9b9b;}
 
+
+/* === espace en haut sur mobile : l'encoche / barre d'état ne masque plus la nav === */
+@media (max-width:880px){
+  body{ padding-top: env(safe-area-inset-top, 0px); }
+  .nav{ top: env(safe-area-inset-top, 0px); }
+}
+body.is-embed{ padding-top: 44px; }
+body.is-embed .nav{ top: 44px; }
 </style>
 </head>
 <body>
@@ -1791,7 +1798,7 @@ body.drawer-open{overflow:hidden;}
       <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-gi"></span>Genshin Impact</a>
       <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-cp"></span>Cyberpunk 2077</a>
       <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-d4"></span>Diablo IV</a>
-      <a class="mdrawer__sublink mdrawer__sublink--all" href="jeux.html">Voir tous les jeux →</a>
+      <a class="mdrawer__sublink mdrawer__sublink--all" href="jeux.html">Tous les jeux →</a>
     </div>
     <button class="mdrawer__link mdrawer__acc" type="button">Guides <span class="mdrawer__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="m6 9 6 6 6-6"></path></svg></span></button>
     <div class="mdrawer__sub">
