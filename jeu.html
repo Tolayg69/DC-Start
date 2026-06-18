@@ -1206,7 +1206,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
       <a class="rtile" href="guide.html">
         <div class="rtile__top"><span class="rtile__ico" style="background:var(--magenta-pale); color:var(--magenta);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg></span><span class="rtile__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span></div>
         <div class="rtile__t">Soluce complète</div>
-        <div class="rtile__m">Toutes les zones explorées une à une, du début jusqu'à la fin du jeu.</div>
+        <div class="rtile__m">Tout le jeu décortiqué pas à pas : zones, quêtes et secrets, du début jusqu'à la fin.</div>
         
       </a>
       <a class="rtile" href="guide.html">
@@ -1277,7 +1277,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
       </a>
       <a class="grow" href="guide.html">
         <span class="grow__n">5</span>
-        <span class="grow__b"><span class="grow__t">Soluce complète : l'aventure pas à pas</span><span class="grow__m">Toutes les zones explorées une à une, du début jusqu'à la fin du jeu.</span></span>
+        <span class="grow__b"><span class="grow__t">Soluce complète : l'aventure pas à pas</span><span class="grow__m">Tout le jeu décortiqué pas à pas : zones, quêtes et secrets, du début jusqu'à la fin.</span></span>
         <span class="gtag gtag--cy">Soluce</span>
         <span class="grow__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
       </a>
@@ -1763,6 +1763,11 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
 (function(){
   document.querySelectorAll('.gfollow').forEach(function(b){
     b.addEventListener('click', function(){
+      if(!document.body.classList.contains('is-auth')){
+        var w = (window.top !== window.self) ? window.top : window;
+        w.location.href = 'connexion.html';
+        return;
+      }
       var on = b.classList.toggle('is-following');
       b.setAttribute('aria-pressed', on ? 'true' : 'false');
       var t = b.querySelector('.gfollow__t');
