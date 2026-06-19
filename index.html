@@ -193,6 +193,7 @@ p{margin:0;}
 .iconbtn__dot{position:absolute; top:9px; right:10px; width:8px; height:8px; border-radius:50%; background:var(--magenta); border:2px solid var(--blanc);}
 .points{display:inline-flex; align-items:center; gap:7px; background:var(--or-pale); color:var(--or-ink); font-weight:800; font-size:14px; padding:8px 13px; border-radius:var(--r-pill); font-family:var(--serif); white-space:nowrap;}
 .points svg{width:15px; height:15px;}
+.points--drawer{width:100%; justify-content:center; padding:12px 16px; font-size:15px;}
 .avatar{width:44px; height:44px; border-radius:var(--r-pill); background:var(--noir); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:16px; border:2px solid var(--magenta);}
 
 /* show/hide by auth state */
@@ -1065,19 +1066,10 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
       <div class="discover__txt">
         <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Ton compagnon de jeu</span>
         <h2 class="sec-title" style="margin-top:6px;">Un accueil qui connaît tes jeux <span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></h2>
-        <div class="auth-guest">
-          <p class="sec-sub" style="margin-top:8px;">Avec Premium dès 1,99 €/mois : suis tes jeux, reprends ta progression où tu t'étais arrêté et reçois une alerte dès qu'il se passe quelque chose sur tes jeux : patch, nouveau guide, événement ou réponse à tes questions.</p>
-          <div style="display:flex; gap:10px; margin-top:18px; flex-wrap:wrap;">
-            <a class="btn btn--primary" href="inscription.html">Créer mon compte gratuit</a>
-            <a class="btn btn--premium" href="premium.html">Découvrir Premium</a>
-          </div>
-        </div>
-        <div class="auth-only">
-          <p class="sec-sub" style="margin-top:8px;">Ton abonnement <strong>Légende</strong> est actif : tu profites de toutes les cartes interactives, du suivi automatique de ta progression, des contenus exclusifs et des avantages partenaires. Tout est déjà débloqué sur tes jeux.</p>
-          <div style="display:flex; gap:12px; margin-top:18px; flex-wrap:wrap; align-items:center;">
-            <span class="planpill"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Abonné Légende</span>
-            <a class="btn btn--outline" href="premium.html">Gérer mon abonnement</a>
-          </div>
+        <p class="sec-sub" style="margin-top:8px;">Avec Premium dès 1,99 €/mois : suis tes jeux, reprends ta progression où tu t'étais arrêté et reçois une alerte dès qu'il se passe quelque chose sur tes jeux : patch, nouveau guide, événement ou réponse à tes questions.</p>
+        <div style="display:flex; gap:10px; margin-top:18px; flex-wrap:wrap;">
+          <a class="btn btn--primary" href="inscription.html">Créer mon compte gratuit</a>
+          <a class="btn btn--premium" href="premium.html">Découvrir Premium</a>
         </div>
       </div>
       <div class="discover__demo" aria-hidden="true">
@@ -1858,8 +1850,9 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
     <div class="mdrawer__cta">
       <a class="btn btn--primary btn--block only-guest" href="inscription.html">S'inscrire</a>
       <a class="btn btn--outline btn--block only-guest" href="connexion.html">Connexion</a>
-      <a class="btn btn--premium btn--block only-guest" href="premium.html">Découvrir Premium</a>
-      <a class="btn btn--premium btn--block only-auth" href="premium.html">Gérer mon abonnement Légende</a>
+      <span class="points points--drawer only-auth" title="11 540 points">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>
+        11 540 pts</span>
     </div>
   </div>
 </div>
