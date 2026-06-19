@@ -917,6 +917,8 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
 .authcard__foot a{color:var(--magenta); font-weight:700;}
 .authnote{text-align:center; font-size:11.5px; color:var(--ink-400); line-height:1.5; margin-top:18px;}
 .authnote a{color:var(--ink-500); font-weight:700;}
+.authsent__ico{width:56px; height:56px; border-radius:50%; background:#e6f4ea; color:#1e8a4c; display:flex; align-items:center; justify-content:center; margin:4px auto 16px;}
+.authsent__ico svg{width:28px; height:28px;}
 .btn--block{width:100%; justify-content:center;}
 .linklist{display:flex; flex-direction:column; gap:10px; margin-bottom:20px;}
 .linkrow{display:flex; align-items:center; gap:13px; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); padding:12px 14px;}
@@ -1059,8 +1061,8 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
       <h1 class="authcard__title">Content de te revoir</h1>
       <p class="authcard__sub">Connecte-toi pour suivre tes jeux et synchroniser ta progression.</p>
       <div class="afield">
-        <label for="lg-email">Adresse email</label>
-        <input id="lg-email" type="email" placeholder="ton@email.fr" autocomplete="email">
+        <label for="lg-email">Adresse email ou pseudo</label>
+        <input id="lg-email" type="text" placeholder="ton@email.fr ou ton pseudo" autocomplete="username">
         <div class="afield__err" id="lg-email-err" style="display:none;">Adresse email invalide.</div>
       </div>
       <div class="afield">
@@ -1388,7 +1390,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
       }
       var cols = grp('Jeux', games) + grp('Contenus', conts);
       ac.innerHTML = cols ? '<div class="ac__cols">'+cols+'</div>'
-        : '<div class="ac__group"><span class="ac__glabel">Aucun résultat, essaie un autre jeu</span></div>';
+        : '<div class="ac__group"><span class="ac__glabel">Aucun résultat</span></div>';
     }
     function row(s){
       return '<div class="ac__item"><span class="ac__ico" style="background:'+s.c+'">'+s.t.slice(0,1)+'</span>'+
@@ -1509,9 +1511,10 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
   var lgE=$('lg-email'), lgP=$('lg-pass'), lgB=$('lg-submit');
   if(lgB){
     function lgCheck(){
-      var v=(lgE.value||'').trim(), ev=EMAIL_RE.test(v);
-      showErr('lg-email-err', v.length>0 && !ev);
-      lgB.disabled = !(ev && lgP.value.length>0);
+      var v=(lgE.value||'').trim(), valid;
+      if(v.indexOf('@')>=0){ valid=EMAIL_RE.test(v); showErr('lg-email-err', !valid); }
+      else { valid = v.length>=3; showErr('lg-email-err', false); }
+      lgB.disabled = !(valid && lgP.value.length>0);
     }
     lgE.addEventListener('input', lgCheck); lgP.addEventListener('input', lgCheck); lgCheck();
   }
@@ -1522,6 +1525,21 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
     function fgCheck(){ var v=(fgE.value||'').trim(), ev=EMAIL_RE.test(v); showErr('fg-email-err', v.length>0 && !ev); fgB.disabled = !ev; }
     fgE.addEventListener('input', fgCheck); fgCheck();
   }
+  window.lynkForgotSend = function(){
+    var v=($('fg-email').value||'').trim();
+    var sh=$('fg-shown'); if(sh) sh.textContent=v;
+    var fm=$('fg-form'), st=$('fg-sent');
+    if(fm) fm.style.display='none';
+    if(st) st.style.display='block';
+    startResend();
+  };
+  function startResend(){
+    var b=$('fg-resend'); if(!b) return;
+    var left=60; b.disabled=true; b.textContent='Renvoyer le lien ('+left+' s)';
+    var iv=setInterval(function(){ left--; if(left<=0){ clearInterval(iv); b.disabled=false; b.textContent='Renvoyer le lien'; } else { b.textContent='Renvoyer le lien ('+left+' s)'; } },1000);
+  }
+  var fgR=$('fg-resend');
+  if(fgR){ fgR.addEventListener('click', function(){ if(fgR.disabled) return; startResend(); }); }
 
   // --- Inscription ---
   var sgU=$('sg-pseudo'), sgE=$('sg-email'), sgP=$('sg-pass'), sgC=$('sg-confirm'), sgCgu=$('sg-cgu'), sgB=$('sg-submit');
