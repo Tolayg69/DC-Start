@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Lier mes comptes — Lynk</title>
+<title>Lier mes comptes · Lynk</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
@@ -886,27 +886,38 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
 .authtab.is-active{background:#fff; color:var(--magenta); box-shadow:var(--sh-xs);}
 .authcard__title{font-family:var(--serif); font-weight:800; font-size:23px; text-align:center; margin-bottom:6px;}
 .authcard__sub{text-align:center; color:var(--ink-500); font-size:14px; line-height:1.5; margin-bottom:22px;}
-.sso{display:flex; flex-direction:column; gap:10px; margin-bottom:18px;}
+.sso{display:flex; flex-direction:column; gap:10px;}
 .ssobtn{display:flex; align-items:center; justify-content:center; gap:10px; width:100%; padding:11px 16px; border:1.5px solid var(--line-2); border-radius:var(--r-pill); background:#fff; font-family:var(--sans); font-weight:700; font-size:14.5px; color:var(--noir); cursor:pointer; transition:border-color .14s, background .14s;}
 .ssobtn:hover{border-color:var(--ink-400); background:var(--surface-2);}
 .ssobtn svg{width:19px; height:19px; flex:none;}
-.authdiv{display:flex; align-items:center; gap:12px; color:var(--ink-400); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; margin:4px 0 18px;}
+.authdiv{display:flex; align-items:center; gap:12px; color:var(--ink-400); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; margin:18px 0;}
 .authdiv::before, .authdiv::after{content:""; flex:1; height:1px; background:var(--line);}
 .afield{margin-bottom:14px;}
 .afield label{display:block; font-size:13px; font-weight:700; color:var(--ink-700); margin-bottom:6px;}
-.afield input{width:100%; padding:11px 14px; border:1.5px solid var(--line-2); border-radius:var(--r); font-family:var(--sans); font-size:14.5px; color:var(--noir); background:var(--surface-2); outline:none; transition:border-color .14s, background .14s;}
+.afield input[type=text], .afield input[type=email], .afield input[type=password]{width:100%; padding:11px 14px; border:1.5px solid var(--line-2); border-radius:var(--r); font-family:var(--sans); font-size:14.5px; color:var(--noir); background:var(--surface-2); outline:none; transition:border-color .14s, background .14s;}
 .afield input:focus{border-color:var(--magenta); background:#fff;}
 .afield__hint{display:flex; justify-content:flex-end; margin-top:7px;}
 .afield__hint a{font-size:12.5px; font-weight:700; color:var(--magenta);}
-.acheck{display:flex; gap:9px; align-items:flex-start; font-size:12.5px; color:var(--ink-500); line-height:1.5; margin-bottom:18px;}
+.afield__err{font-size:12px; color:#c0392b; font-weight:700; margin-top:6px;}
+.pwrules{background:var(--surface-2); border:1px solid var(--line-2); border-radius:var(--r); padding:11px 13px; margin-bottom:14px;}
+.pwrules__h{font-size:12.5px; font-weight:700; color:var(--ink-700); margin-bottom:8px;}
+.pwrule{display:flex; align-items:center; gap:8px; font-size:12.5px; font-weight:600; line-height:1.75;}
+.pwrule__dot{width:15px; height:15px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center;}
+.pwrule__dot svg{width:9px; height:9px; opacity:0; transition:opacity .12s;}
+.pwrule.ko{color:#c0392b;}
+.pwrule.ko .pwrule__dot{background:#fdecea; color:#c0392b;}
+.pwrule.ok{color:#1e8a4c;}
+.pwrule.ok .pwrule__dot{background:#e6f4ea; color:#1e8a4c;}
+.pwrule.ok .pwrule__dot svg{opacity:1;}
+.acheck{display:flex; gap:9px; align-items:flex-start; font-size:12.5px; color:var(--ink-500); line-height:1.5; margin-bottom:14px;}
 .acheck input{margin-top:2px; accent-color:var(--magenta); flex:none; width:16px; height:16px;}
 .acheck a{color:var(--magenta); font-weight:700;}
-.btn--block{width:100%; justify-content:center;}
+.btn[disabled]{opacity:.45; cursor:not-allowed; pointer-events:none;}
 .authcard__foot{text-align:center; font-size:13.5px; color:var(--ink-500); margin-top:18px;}
 .authcard__foot a{color:var(--magenta); font-weight:700;}
 .authnote{text-align:center; font-size:11.5px; color:var(--ink-400); line-height:1.5; margin-top:18px;}
 .authnote a{color:var(--ink-500); font-weight:700;}
-/* liaison de comptes */
+.btn--block{width:100%; justify-content:center;}
 .linklist{display:flex; flex-direction:column; gap:10px; margin-bottom:20px;}
 .linkrow{display:flex; align-items:center; gap:13px; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); padding:12px 14px;}
 .linkrow__ico{width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex:none; color:#fff;}
@@ -1127,7 +1138,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
       </div>
       <div class="footer__news">
         <h5>Newsletter</h5>
-        <p>L'essentiel de tes jeux — les nouveautés à ne pas manquer, une fois par semaine.</p>
+        <p>L'essentiel de tes jeux : les nouveautés à ne pas manquer, une fois par semaine.</p>
         <div class="news-field">
           <input type="email" id="newsInput" placeholder="ton@email.fr" aria-label="Adresse email">
           <button class="btn btn--primary btn--sm" id="newsBtn" type="button">OK</button>
@@ -1145,7 +1156,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
         <a href="contact.html">Contact</a>
       </div>
     </div>
-    <p class="footer__aff">Transparence : certains liens vers des jeux ou du matériel sont affiliés — ils ne coûtent rien de plus et aident Lynk à prospérer et à continuer à vous offrir la meilleure expérience. Les contenus sponsorisés sont toujours signalés.</p>
+    <p class="footer__aff">Transparence : certains liens vers des jeux ou du matériel sont affiliés : ils ne coûtent rien de plus et aident Lynk à prospérer et à continuer à vous offrir la meilleure expérience. Les contenus sponsorisés sont toujours signalés.</p>
   </div>
 </footer>
 
@@ -1276,7 +1287,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
 </div>
 
 <script>
-/* LYNK — interactions : état auth, vue mobile, recherche, favoris, drawer */
+/* LYNK · interactions : état auth, vue mobile, recherche, favoris, drawer */
 (function(){
   var params = new URLSearchParams(location.search);
   var isEmbed = params.get('embed') === '1';
@@ -1381,10 +1392,10 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
     {t:'Zelda : Tears of the Kingdom', m:'186 guides · carte interactive', k:'jeu', c:'#0a5563'},
     {t:'Baldur’s Gate 3', m:'158 guides · builds', k:'jeu', c:'#7a4c00'},
     {t:'Genshin Impact', m:'142 guides · suivi d’événements', k:'jeu', c:'#5C1268'},
-    {t:'Battre Malenia — stratégie complète', m:'Guide · Elden Ring', k:'guide', c:'#a200bc'},
+    {t:'Battre Malenia : stratégie complète', m:'Guide · Elden Ring', k:'guide', c:'#a200bc'},
     {t:'Toutes les graines Korogu', m:'Carte interactive · Zelda TOTK', k:'carte', c:'#06b6d4'},
-    {t:'Build Moine — dégâts maximum', m:'Build · Baldur’s Gate 3', k:'build', c:'#f5a623'},
-    {t:'Platine Elden Ring — route optimisée', m:'Trophées · Elden Ring', k:'guide', c:'#6E5212'},
+    {t:'Build Moine : dégâts maximum', m:'Build · Baldur’s Gate 3', k:'build', c:'#f5a623'},
+    {t:'Platine Elden Ring : route optimisée', m:'Trophées · Elden Ring', k:'guide', c:'#6E5212'},
     {t:'Monter niveau 90 rapidement', m:'Astuce · Genshin Impact', k:'guide', c:'#a200bc'}
   ];
   function wireSearch(rootSel, acSel){
@@ -1402,7 +1413,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
       }
       var cols = grp('Jeux', games) + grp('Contenus', conts);
       ac.innerHTML = cols ? '<div class="ac__cols">'+cols+'</div>'
-        : '<div class="ac__group"><span class="ac__glabel">Aucun résultat — essaie un autre jeu</span></div>';
+        : '<div class="ac__group"><span class="ac__glabel">Aucun résultat, essaie un autre jeu</span></div>';
     }
     function row(s){
       return '<div class="ac__item"><span class="ac__ico" style="background:'+s.c+'">'+s.t.slice(0,1)+'</span>'+
@@ -1513,9 +1524,52 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
   };
   window.lynkLink = function(btn){
     if(btn.classList.contains('is-linked')) return;
-    btn.classList.add('is-linked');
-    btn.textContent = 'Lié';
+    btn.classList.add('is-linked'); btn.textContent = 'Lié';
   };
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function $(id){ return document.getElementById(id); }
+  function showErr(id, on){ var e=$(id); if(e) e.style.display = on ? 'block' : 'none'; }
+
+  // --- Connexion ---
+  var lgE=$('lg-email'), lgP=$('lg-pass'), lgB=$('lg-submit');
+  if(lgB){
+    function lgCheck(){
+      var v=(lgE.value||'').trim(), ev=EMAIL_RE.test(v);
+      showErr('lg-email-err', v.length>0 && !ev);
+      lgB.disabled = !(ev && lgP.value.length>0);
+    }
+    lgE.addEventListener('input', lgCheck); lgP.addEventListener('input', lgCheck); lgCheck();
+  }
+
+  // --- Mot de passe oublié ---
+  var fgE=$('fg-email'), fgB=$('fg-submit');
+  if(fgB){
+    function fgCheck(){ var v=(fgE.value||'').trim(), ev=EMAIL_RE.test(v); showErr('fg-email-err', v.length>0 && !ev); fgB.disabled = !ev; }
+    fgE.addEventListener('input', fgCheck); fgCheck();
+  }
+
+  // --- Inscription ---
+  var sgU=$('sg-pseudo'), sgE=$('sg-email'), sgP=$('sg-pass'), sgC=$('sg-confirm'), sgCgu=$('sg-cgu'), sgB=$('sg-submit');
+  if(sgB){
+    var rules = { len:function(v){return v.length>=8;}, digit:function(v){return /[0-9]/.test(v);},
+      upper:function(v){return /[A-Z]/.test(v);}, lower:function(v){return /[a-z]/.test(v);},
+      special:function(v){return /[^A-Za-z0-9]/.test(v);} };
+    function sgCheck(){
+      var v=sgP.value, all=true;
+      Object.keys(rules).forEach(function(k){
+        var ok=rules[k](v), el=document.querySelector('.pwrule[data-rule="'+k+'"]');
+        if(el){ el.classList.toggle('ok', ok); el.classList.toggle('ko', !ok); }
+        if(!ok) all=false;
+      });
+      var em=(sgE.value||'').trim(), ev=EMAIL_RE.test(em);
+      showErr('sg-email-err', em.length>0 && !ev);
+      var match = sgC.value.length>0 && sgC.value===v;
+      showErr('sg-confirm-err', sgC.value.length>0 && !match);
+      sgB.disabled = !(sgU.value.trim().length>0 && ev && all && match && sgCgu.checked);
+    }
+    [sgU,sgE,sgP,sgC].forEach(function(el){ el.addEventListener('input', sgCheck); });
+    sgCgu.addEventListener('change', sgCheck); sgCheck();
+  }
 })();
 </script>
 </body>
