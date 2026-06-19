@@ -193,6 +193,7 @@ p{margin:0;}
 .iconbtn__dot{position:absolute; top:9px; right:10px; width:8px; height:8px; border-radius:50%; background:var(--magenta); border:2px solid var(--blanc);}
 .points{display:inline-flex; align-items:center; gap:7px; background:var(--or-pale); color:var(--or-ink); font-weight:800; font-size:14px; padding:8px 13px; border-radius:var(--r-pill); font-family:var(--serif); white-space:nowrap;}
 .points svg{width:15px; height:15px;}
+.points--drawer{width:100%; justify-content:center; padding:12px 16px; font-size:15px;}
 .avatar{width:44px; height:44px; border-radius:var(--r-pill); background:var(--noir); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:16px; border:2px solid var(--magenta);}
 
 /* show/hide by auth state */
@@ -972,7 +973,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
 
     <div class="nav__right">
       <!-- état visiteur -->
-      <a class="btn btn--ghost btn--sm only-guest hide-mobile" href="premium.html" style="color:var(--or-ink);">
+      <a class="btn btn--premium btn--sm only-guest hide-mobile" href="premium.html">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>
         Premium</a>
       <a class="btn btn--outline btn--sm only-guest hide-mobile" href="connexion.html">Connexion</a>
@@ -1185,7 +1186,8 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
     <div class="mdrawer__cta">
       <a class="btn btn--primary btn--block only-guest" href="inscription.html">S'inscrire</a>
       <a class="btn btn--outline btn--block only-guest" href="connexion.html">Connexion</a>
-      <a class="btn btn--premium btn--block" href="premium.html">Découvrir Premium</a>
+      <a class="btn btn--premium btn--block only-guest" href="premium.html">Découvrir Premium</a>
+      <span class="points points--drawer only-auth" title="11 540 points"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 11 540 pts</span>
     </div>
   </div>
 </div>
@@ -1279,6 +1281,9 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
       e.preventDefault();
       try{ window.top.location.href = href; }catch(err){ window.location.href = href; }
     }, true);
+    window.addEventListener('message', function(ev){
+      if(ev.data && typeof ev.data.lynkAuth !== 'undefined'){ state.auth = !!ev.data.lynkAuth; applyAuth(); }
+    });
   }
   function persist(){
     if(isEmbed) return;
@@ -1313,7 +1318,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
     document.querySelectorAll('[data-sw="guest"]').forEach(function(b){ b.classList.toggle('active', !state.auth); });
     document.querySelectorAll('[data-sw="auth"]').forEach(function(b){ b.classList.toggle('active', state.auth); });
     var fr = document.getElementById('mobileFrame');
-    if(fr) fr.src = location.pathname + '?embed=1&auth=' + (state.auth ? '1':'0');
+    if(fr && fr.contentWindow){ try{ fr.contentWindow.postMessage({lynkAuth: state.auth}, '*'); }catch(e){} }
   }
   function applyView(){
     var mob = state.view === 'mobile';
