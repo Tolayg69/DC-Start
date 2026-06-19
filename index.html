@@ -201,6 +201,15 @@ p{margin:0;}
 body.is-auth .only-guest{display:none;}
 body.is-auth .only-auth{display:inline-flex;}
 body.is-auth .nav__right .only-auth{display:flex;}
+.auth-guest{display:block;}
+.auth-only{display:none;}
+body.is-auth .auth-guest{display:none;}
+body.is-auth .auth-only{display:block;}
+.planpill{display:inline-flex; align-items:center; gap:8px; background:var(--or-pale); color:var(--or-ink); font-weight:800; font-size:14px; padding:9px 16px; border-radius:var(--r-pill);}
+.planpill svg{width:16px; height:16px;}
+.premium-current{display:none; align-items:center; gap:9px; background:var(--or-pale); color:var(--or-ink); font-weight:700; font-size:14px; padding:11px 18px; border-radius:var(--r-pill); margin-top:4px;}
+.premium-current svg{width:17px; height:17px; flex:none;}
+body.is-auth .premium-current{display:inline-flex;}
 
 /* ===================================================================
    HERO
@@ -1056,10 +1065,19 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
       <div class="discover__txt">
         <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Ton compagnon de jeu</span>
         <h2 class="sec-title" style="margin-top:6px;">Un accueil qui connaît tes jeux <span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></h2>
-        <p class="sec-sub" style="margin-top:8px;">Avec Premium dès 1,99 €/mois : suis tes jeux, reprends ta progression où tu t'étais arrêté et reçois une alerte dès qu'il se passe quelque chose sur tes jeux : patch, nouveau guide, événement ou réponse à tes questions.</p>
-        <div style="display:flex; gap:10px; margin-top:18px; flex-wrap:wrap;">
-          <a class="btn btn--primary" href="inscription.html">Créer mon compte gratuit</a>
-          <a class="btn btn--premium" href="premium.html">Découvrir Premium</a>
+        <div class="auth-guest">
+          <p class="sec-sub" style="margin-top:8px;">Avec Premium dès 1,99 €/mois : suis tes jeux, reprends ta progression où tu t'étais arrêté et reçois une alerte dès qu'il se passe quelque chose sur tes jeux : patch, nouveau guide, événement ou réponse à tes questions.</p>
+          <div style="display:flex; gap:10px; margin-top:18px; flex-wrap:wrap;">
+            <a class="btn btn--primary" href="inscription.html">Créer mon compte gratuit</a>
+            <a class="btn btn--premium" href="premium.html">Découvrir Premium</a>
+          </div>
+        </div>
+        <div class="auth-only">
+          <p class="sec-sub" style="margin-top:8px;">Ton abonnement <strong>Légende</strong> est actif : tu profites de toutes les cartes interactives, du suivi automatique de ta progression, des contenus exclusifs et des avantages partenaires. Tout est déjà débloqué sur tes jeux.</p>
+          <div style="display:flex; gap:12px; margin-top:18px; flex-wrap:wrap; align-items:center;">
+            <span class="planpill"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Abonné Légende</span>
+            <a class="btn btn--outline" href="premium.html">Gérer mon abonnement</a>
+          </div>
         </div>
       </div>
       <div class="discover__demo" aria-hidden="true">
@@ -1347,6 +1365,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
     <div class="premium-head">
       <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Lynk Premium</span>
       <h2 class="sec-title">L'information reste gratuite.<br>Le confort, lui, se mérite… ou s'offre.</h2>
+      <span class="premium-current"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Tu es abonné <strong>&nbsp;Légende&nbsp;</strong>: tu profites déjà de tous les avantages ci-dessous.</span>
     </div>
 
     <div class="pricing">
@@ -1388,7 +1407,8 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Support prioritaire</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Vote pour influencer les prochains contenus</li>
         </ul>
-        <a class="btn btn--outline btn--block" href="premium.html">Choisir Légende</a>
+        <div class="auth-guest"><a class="btn btn--outline btn--block" href="premium.html">Choisir Légende</a></div>
+        <div class="auth-only"><a class="btn btn--premium btn--block" href="premium.html">Gérer mon abonnement</a></div>
       </article>
     </div>
   </div>
@@ -1838,7 +1858,8 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
     <div class="mdrawer__cta">
       <a class="btn btn--primary btn--block only-guest" href="inscription.html">S'inscrire</a>
       <a class="btn btn--outline btn--block only-guest" href="connexion.html">Connexion</a>
-      <a class="btn btn--premium btn--block" href="premium.html">Découvrir Premium</a>
+      <a class="btn btn--premium btn--block only-guest" href="premium.html">Découvrir Premium</a>
+      <a class="btn btn--premium btn--block only-auth" href="premium.html">Gérer mon abonnement Légende</a>
     </div>
   </div>
 </div>
