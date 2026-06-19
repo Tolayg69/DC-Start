@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Inscription — Lynk</title>
+<title>Inscription · Lynk</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
@@ -886,27 +886,38 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
 .authtab.is-active{background:#fff; color:var(--magenta); box-shadow:var(--sh-xs);}
 .authcard__title{font-family:var(--serif); font-weight:800; font-size:23px; text-align:center; margin-bottom:6px;}
 .authcard__sub{text-align:center; color:var(--ink-500); font-size:14px; line-height:1.5; margin-bottom:22px;}
-.sso{display:flex; flex-direction:column; gap:10px; margin-bottom:18px;}
+.sso{display:flex; flex-direction:column; gap:10px;}
 .ssobtn{display:flex; align-items:center; justify-content:center; gap:10px; width:100%; padding:11px 16px; border:1.5px solid var(--line-2); border-radius:var(--r-pill); background:#fff; font-family:var(--sans); font-weight:700; font-size:14.5px; color:var(--noir); cursor:pointer; transition:border-color .14s, background .14s;}
 .ssobtn:hover{border-color:var(--ink-400); background:var(--surface-2);}
 .ssobtn svg{width:19px; height:19px; flex:none;}
-.authdiv{display:flex; align-items:center; gap:12px; color:var(--ink-400); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; margin:4px 0 18px;}
+.authdiv{display:flex; align-items:center; gap:12px; color:var(--ink-400); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; margin:18px 0;}
 .authdiv::before, .authdiv::after{content:""; flex:1; height:1px; background:var(--line);}
 .afield{margin-bottom:14px;}
 .afield label{display:block; font-size:13px; font-weight:700; color:var(--ink-700); margin-bottom:6px;}
-.afield input{width:100%; padding:11px 14px; border:1.5px solid var(--line-2); border-radius:var(--r); font-family:var(--sans); font-size:14.5px; color:var(--noir); background:var(--surface-2); outline:none; transition:border-color .14s, background .14s;}
+.afield input[type=text], .afield input[type=email], .afield input[type=password]{width:100%; padding:11px 14px; border:1.5px solid var(--line-2); border-radius:var(--r); font-family:var(--sans); font-size:14.5px; color:var(--noir); background:var(--surface-2); outline:none; transition:border-color .14s, background .14s;}
 .afield input:focus{border-color:var(--magenta); background:#fff;}
 .afield__hint{display:flex; justify-content:flex-end; margin-top:7px;}
 .afield__hint a{font-size:12.5px; font-weight:700; color:var(--magenta);}
-.acheck{display:flex; gap:9px; align-items:flex-start; font-size:12.5px; color:var(--ink-500); line-height:1.5; margin-bottom:18px;}
+.afield__err{font-size:12px; color:#c0392b; font-weight:700; margin-top:6px;}
+.pwrules{background:var(--surface-2); border:1px solid var(--line-2); border-radius:var(--r); padding:11px 13px; margin-bottom:14px;}
+.pwrules__h{font-size:12.5px; font-weight:700; color:var(--ink-700); margin-bottom:8px;}
+.pwrule{display:flex; align-items:center; gap:8px; font-size:12.5px; font-weight:600; line-height:1.75;}
+.pwrule__dot{width:15px; height:15px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center;}
+.pwrule__dot svg{width:9px; height:9px; opacity:0; transition:opacity .12s;}
+.pwrule.ko{color:#c0392b;}
+.pwrule.ko .pwrule__dot{background:#fdecea; color:#c0392b;}
+.pwrule.ok{color:#1e8a4c;}
+.pwrule.ok .pwrule__dot{background:#e6f4ea; color:#1e8a4c;}
+.pwrule.ok .pwrule__dot svg{opacity:1;}
+.acheck{display:flex; gap:9px; align-items:flex-start; font-size:12.5px; color:var(--ink-500); line-height:1.5; margin-bottom:14px;}
 .acheck input{margin-top:2px; accent-color:var(--magenta); flex:none; width:16px; height:16px;}
 .acheck a{color:var(--magenta); font-weight:700;}
-.btn--block{width:100%; justify-content:center;}
+.btn[disabled]{opacity:.45; cursor:not-allowed; pointer-events:none;}
 .authcard__foot{text-align:center; font-size:13.5px; color:var(--ink-500); margin-top:18px;}
 .authcard__foot a{color:var(--magenta); font-weight:700;}
 .authnote{text-align:center; font-size:11.5px; color:var(--ink-400); line-height:1.5; margin-top:18px;}
 .authnote a{color:var(--ink-500); font-weight:700;}
-/* liaison de comptes */
+.btn--block{width:100%; justify-content:center;}
 .linklist{display:flex; flex-direction:column; gap:10px; margin-bottom:20px;}
 .linkrow{display:flex; align-items:center; gap:13px; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); padding:12px 14px;}
 .linkrow__ico{width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex:none; color:#fff;}
@@ -1046,30 +1057,47 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
         <a class="authtab is-active" href="inscription.html">Inscription</a>
       </div>
       <h1 class="authcard__title">Crée ton compte Lynk</h1>
-      <p class="authcard__sub">Rejoins Lynk pour suivre tes jeux, sauvegarder tes guides et débloquer la carte interactive.</p>
-      <div class="sso">
-        <button class="ssobtn" type="button" onclick="lynkAuthGo('lier-comptes.html', true)"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg> S'inscrire avec Google</button>
-        <button class="ssobtn" type="button" onclick="lynkAuthGo('lier-comptes.html', true)"><svg viewBox="0 0 24 24" fill="#111"><path d="M17.05 12.04c-.03-2.6 2.12-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.15-.46 7.8 1.3 10.35.86 1.25 1.88 2.65 3.21 2.6 1.29-.05 1.78-.83 3.34-.83 1.55 0 1.99.83 3.35.81 1.38-.03 2.26-1.27 3.11-2.53.98-1.45 1.38-2.85 1.4-2.93-.03-.01-2.69-1.03-2.72-4.09zM14.6 4.59c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-3 1.54-.66.76-1.24 1.98-1.08 3.15 1.14.09 2.31-.58 3.02-1.44z"/></svg> S'inscrire avec Apple</button>
-        <button class="ssobtn" type="button" onclick="lynkAuthGo('lier-comptes.html', true)"><svg viewBox="0 0 24 24" fill="#5865F2"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.2a18 18 0 0 0-5.4 0L8.7 3a19.8 19.8 0 0 0-5 1.5A20.3 20.3 0 0 0 .3 18.1a19.9 19.9 0 0 0 6 3l1.3-2a12.8 12.8 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12 0l.5.4a12.8 12.8 0 0 1-2 1l1.2 2a19.9 19.9 0 0 0 6.1-3 20.2 20.2 0 0 0-3.5-13.7ZM8.5 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg> S'inscrire avec Discord</button>
-      </div>
-      <div class="authdiv">ou par email</div>
+      <p class="authcard__sub">Crée ton compte pour suivre tes jeux, garder ta progression et rejoindre la communauté.</p>
       <div class="afield">
         <label for="sg-pseudo">Pseudo</label>
-        <input id="sg-pseudo" type="text" placeholder="Ton pseudo de joueur" autocomplete="nickname">
+        <input id="sg-pseudo" type="text" placeholder="Ton pseudo" autocomplete="nickname">
       </div>
       <div class="afield">
         <label for="sg-email">Adresse email</label>
         <input id="sg-email" type="email" placeholder="ton@email.fr" autocomplete="email">
+        <div class="afield__err" id="sg-email-err" style="display:none;">Adresse email invalide.</div>
       </div>
       <div class="afield">
         <label for="sg-pass">Mot de passe</label>
-        <input id="sg-pass" type="password" placeholder="8 caractères minimum" autocomplete="new-password">
+        <input id="sg-pass" type="password" placeholder="Ton mot de passe" autocomplete="new-password">
+      </div>
+      <div class="pwrules">
+        <div class="pwrules__h">Votre mot de passe doit contenir :</div>
+        <div class="pwrule ko" data-rule="len"><span class="pwrule__dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>8 caractères</div>
+        <div class="pwrule ko" data-rule="digit"><span class="pwrule__dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>1 chiffre</div>
+        <div class="pwrule ko" data-rule="upper"><span class="pwrule__dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>1 majuscule</div>
+        <div class="pwrule ko" data-rule="lower"><span class="pwrule__dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>1 minuscule</div>
+        <div class="pwrule ko" data-rule="special"><span class="pwrule__dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>1 caractère spécial</div>
+      </div>
+      <div class="afield">
+        <label for="sg-confirm">Confirmer le mot de passe</label>
+        <input id="sg-confirm" type="password" placeholder="Confirme ton mot de passe" autocomplete="new-password">
+        <div class="afield__err" id="sg-confirm-err" style="display:none;">Les mots de passe ne correspondent pas.</div>
       </div>
       <label class="acheck">
         <input type="checkbox" id="sg-cgu">
-        <span>J'accepte les <a href="cgu.html">conditions d'utilisation</a>, les <a href="regles.html">règles de la communauté</a> et la <a href="confidentialite.html">politique de confidentialité</a>.</span>
+        <span>J'accepte les <a href="cgu.html">conditions générales d'utilisation</a>, les <a href="regles.html">règles de la communauté</a> et la <a href="confidentialite.html">politique de confidentialité</a>.</span>
       </label>
-      <button class="btn btn--primary btn--block" type="button" onclick="lynkAuthGo('lier-comptes.html', true)">Créer mon compte</button>
+      <label class="acheck">
+        <input type="checkbox" id="sg-news">
+        <span>Je souhaite recevoir la newsletter de Lynk (actualités et nouveautés sur mes jeux).</span>
+      </label>
+      <button class="btn btn--primary btn--block" id="sg-submit" type="button" disabled onclick="lynkAuthGo('lier-comptes.html', true)">Créer mon compte</button>
+      <div class="authdiv">ou</div>
+      <div class="sso">
+        <button class="ssobtn" type="button" onclick="lynkAuthGo('lier-comptes.html', true)"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg> S'inscrire avec Google</button>
+        <button class="ssobtn" type="button" onclick="lynkAuthGo('lier-comptes.html', true)"><svg viewBox="0 0 24 24" fill="#111"><path d="M17.05 12.04c-.03-2.6 2.12-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.89-1.74.03-3.35 1.01-4.25 2.57-1.81 3.15-.46 7.8 1.3 10.35.86 1.25 1.88 2.65 3.21 2.6 1.29-.05 1.78-.83 3.34-.83 1.55 0 1.99.83 3.35.81 1.38-.03 2.26-1.27 3.11-2.53.98-1.45 1.38-2.85 1.4-2.93-.03-.01-2.69-1.03-2.72-4.09zM14.6 4.59c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-3 1.54-.66.76-1.24 1.98-1.08 3.15 1.14.09 2.31-.58 3.02-1.44z"/></svg> S'inscrire avec Apple</button>
+      </div>
       <p class="authcard__foot">Déjà un compte ? <a href="connexion.html">Se connecter</a></p>
     </div>
   </div>
@@ -1108,7 +1136,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
       </div>
       <div class="footer__news">
         <h5>Newsletter</h5>
-        <p>L'essentiel de tes jeux — les nouveautés à ne pas manquer, une fois par semaine.</p>
+        <p>L'essentiel de tes jeux : les nouveautés à ne pas manquer, une fois par semaine.</p>
         <div class="news-field">
           <input type="email" id="newsInput" placeholder="ton@email.fr" aria-label="Adresse email">
           <button class="btn btn--primary btn--sm" id="newsBtn" type="button">OK</button>
@@ -1126,7 +1154,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
         <a href="contact.html">Contact</a>
       </div>
     </div>
-    <p class="footer__aff">Transparence : certains liens vers des jeux ou du matériel sont affiliés — ils ne coûtent rien de plus et aident Lynk à prospérer et à continuer à vous offrir la meilleure expérience. Les contenus sponsorisés sont toujours signalés.</p>
+    <p class="footer__aff">Transparence : certains liens vers des jeux ou du matériel sont affiliés : ils ne coûtent rien de plus et aident Lynk à prospérer et à continuer à vous offrir la meilleure expérience. Les contenus sponsorisés sont toujours signalés.</p>
   </div>
 </footer>
 
@@ -1257,7 +1285,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
 </div>
 
 <script>
-/* LYNK — interactions : état auth, vue mobile, recherche, favoris, drawer */
+/* LYNK · interactions : état auth, vue mobile, recherche, favoris, drawer */
 (function(){
   var params = new URLSearchParams(location.search);
   var isEmbed = params.get('embed') === '1';
@@ -1362,10 +1390,10 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
     {t:'Zelda : Tears of the Kingdom', m:'186 guides · carte interactive', k:'jeu', c:'#0a5563'},
     {t:'Baldur’s Gate 3', m:'158 guides · builds', k:'jeu', c:'#7a4c00'},
     {t:'Genshin Impact', m:'142 guides · suivi d’événements', k:'jeu', c:'#5C1268'},
-    {t:'Battre Malenia — stratégie complète', m:'Guide · Elden Ring', k:'guide', c:'#a200bc'},
+    {t:'Battre Malenia : stratégie complète', m:'Guide · Elden Ring', k:'guide', c:'#a200bc'},
     {t:'Toutes les graines Korogu', m:'Carte interactive · Zelda TOTK', k:'carte', c:'#06b6d4'},
-    {t:'Build Moine — dégâts maximum', m:'Build · Baldur’s Gate 3', k:'build', c:'#f5a623'},
-    {t:'Platine Elden Ring — route optimisée', m:'Trophées · Elden Ring', k:'guide', c:'#6E5212'},
+    {t:'Build Moine : dégâts maximum', m:'Build · Baldur’s Gate 3', k:'build', c:'#f5a623'},
+    {t:'Platine Elden Ring : route optimisée', m:'Trophées · Elden Ring', k:'guide', c:'#6E5212'},
     {t:'Monter niveau 90 rapidement', m:'Astuce · Genshin Impact', k:'guide', c:'#a200bc'}
   ];
   function wireSearch(rootSel, acSel){
@@ -1383,7 +1411,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
       }
       var cols = grp('Jeux', games) + grp('Contenus', conts);
       ac.innerHTML = cols ? '<div class="ac__cols">'+cols+'</div>'
-        : '<div class="ac__group"><span class="ac__glabel">Aucun résultat — essaie un autre jeu</span></div>';
+        : '<div class="ac__group"><span class="ac__glabel">Aucun résultat, essaie un autre jeu</span></div>';
     }
     function row(s){
       return '<div class="ac__item"><span class="ac__ico" style="background:'+s.c+'">'+s.t.slice(0,1)+'</span>'+
@@ -1494,9 +1522,52 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
   };
   window.lynkLink = function(btn){
     if(btn.classList.contains('is-linked')) return;
-    btn.classList.add('is-linked');
-    btn.textContent = 'Lié';
+    btn.classList.add('is-linked'); btn.textContent = 'Lié';
   };
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function $(id){ return document.getElementById(id); }
+  function showErr(id, on){ var e=$(id); if(e) e.style.display = on ? 'block' : 'none'; }
+
+  // --- Connexion ---
+  var lgE=$('lg-email'), lgP=$('lg-pass'), lgB=$('lg-submit');
+  if(lgB){
+    function lgCheck(){
+      var v=(lgE.value||'').trim(), ev=EMAIL_RE.test(v);
+      showErr('lg-email-err', v.length>0 && !ev);
+      lgB.disabled = !(ev && lgP.value.length>0);
+    }
+    lgE.addEventListener('input', lgCheck); lgP.addEventListener('input', lgCheck); lgCheck();
+  }
+
+  // --- Mot de passe oublié ---
+  var fgE=$('fg-email'), fgB=$('fg-submit');
+  if(fgB){
+    function fgCheck(){ var v=(fgE.value||'').trim(), ev=EMAIL_RE.test(v); showErr('fg-email-err', v.length>0 && !ev); fgB.disabled = !ev; }
+    fgE.addEventListener('input', fgCheck); fgCheck();
+  }
+
+  // --- Inscription ---
+  var sgU=$('sg-pseudo'), sgE=$('sg-email'), sgP=$('sg-pass'), sgC=$('sg-confirm'), sgCgu=$('sg-cgu'), sgB=$('sg-submit');
+  if(sgB){
+    var rules = { len:function(v){return v.length>=8;}, digit:function(v){return /[0-9]/.test(v);},
+      upper:function(v){return /[A-Z]/.test(v);}, lower:function(v){return /[a-z]/.test(v);},
+      special:function(v){return /[^A-Za-z0-9]/.test(v);} };
+    function sgCheck(){
+      var v=sgP.value, all=true;
+      Object.keys(rules).forEach(function(k){
+        var ok=rules[k](v), el=document.querySelector('.pwrule[data-rule="'+k+'"]');
+        if(el){ el.classList.toggle('ok', ok); el.classList.toggle('ko', !ok); }
+        if(!ok) all=false;
+      });
+      var em=(sgE.value||'').trim(), ev=EMAIL_RE.test(em);
+      showErr('sg-email-err', em.length>0 && !ev);
+      var match = sgC.value.length>0 && sgC.value===v;
+      showErr('sg-confirm-err', sgC.value.length>0 && !match);
+      sgB.disabled = !(sgU.value.trim().length>0 && ev && all && match && sgCgu.checked);
+    }
+    [sgU,sgE,sgP,sgC].forEach(function(el){ el.addEventListener('input', sgCheck); });
+    sgCgu.addEventListener('change', sgCheck); sgCheck();
+  }
 })();
 </script>
 </body>
