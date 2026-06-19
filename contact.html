@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Contact · Lynk</title>
+<title>Gestion des cookies · Lynk</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
@@ -193,6 +193,7 @@ p{margin:0;}
 .iconbtn__dot{position:absolute; top:9px; right:10px; width:8px; height:8px; border-radius:50%; background:var(--magenta); border:2px solid var(--blanc);}
 .points{display:inline-flex; align-items:center; gap:7px; background:var(--or-pale); color:var(--or-ink); font-weight:800; font-size:14px; padding:8px 13px; border-radius:var(--r-pill); font-family:var(--serif); white-space:nowrap;}
 .points svg{width:15px; height:15px;}
+.points--drawer{width:100%; justify-content:center; padding:12px 16px; font-size:15px;}
 .avatar{width:44px; height:44px; border-radius:var(--r-pill); background:var(--noir); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:16px; border:2px solid var(--magenta);}
 
 /* show/hide by auth state */
@@ -972,7 +973,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
 
     <div class="nav__right">
       <!-- état visiteur -->
-      <a class="btn btn--ghost btn--sm only-guest hide-mobile" href="premium.html" style="color:var(--or-ink);">
+      <a class="btn btn--premium btn--sm only-guest hide-mobile" href="premium.html">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>
         Premium</a>
       <a class="btn btn--outline btn--sm only-guest hide-mobile" href="connexion.html">Connexion</a>
@@ -995,60 +996,52 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
 
 <section class="phero">
   <div class="wrap">
-    <span class="kicker"><span class="dots"><i></i><i></i></span> Nous contacter</span>
-    <h1>Contact</h1>
-    <p class="phero__sub">Une question, un partenariat, un souci sur ton compte ? Choisis le bon canal ou écris-nous directement.</p>
+    <span class="kicker"><span class="dots"><i></i><i></i></span> Cookies & traceurs</span>
+    <h1>Gestion des cookies</h1>
+    <p class="phero__sub">Les cookies utilisés par Lynk, leur finalité, et comment gérer votre consentement à tout moment.</p>
+      <span class="phero__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Dernière mise à jour : 3 juillet 2026</span>
   </div>
 </section>
 
 <main class="page">
   <div class="wrap">
-  <div class="cgrid">
-    <div class="ccards">
-      <div class="ccard">
-        <span class="ccard__ico" style="background:var(--magenta-pale); color:var(--magenta);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
-        <div><div class="ccard__t">Contact général</div><div class="ccard__m">Questions, retours, suggestions sur la plateforme.</div><span class="ccard__v">contact@lynk.gg</span></div>
-      </div>
-      <div class="ccard">
-        <span class="ccard__ico" style="background:var(--or-pale); color:var(--or-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18a4 4 0 0 0-8 0"/><circle cx="12" cy="11" r="3"/><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="8" x2="8" y1="2" y2="4"/><line x1="16" x2="16" y1="2" y2="4"/></svg></span>
-        <div><div class="ccard__t">Presse &amp; partenariats</div><div class="ccard__m">Collaborations, médias, opportunités B2B.</div><span class="ccard__v">partners@lynk.gg</span></div>
-      </div>
-      <div class="ccard">
-        <span class="ccard__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" x2="9.17" y1="4.93" y2="9.17"/><line x1="14.83" x2="19.07" y1="14.83" y2="19.07"/><line x1="14.83" x2="19.07" y1="9.17" y2="4.93"/><line x1="4.93" x2="9.17" y1="19.07" y2="14.83"/></svg></span>
-        <div><div class="ccard__t">Support &amp; compte</div><div class="ccard__m">Aide sur ton compte, abonnement Premium ou un bug.</div><span class="ccard__v">support@lynk.gg</span></div>
-      </div>
-      <div class="ccard">
-        <span class="ccard__ico" style="background:var(--surface-3); color:var(--ink-700);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
-        <div><div class="ccard__t">Données personnelles</div><div class="ccard__m">Exercer tes droits RGPD, questions sur tes données.</div><span class="ccard__v">privacy@lynk.gg</span></div>
-      </div>
-      <div class="ccard">
-        <span class="ccard__ico" style="background:var(--magenta-pale); color:var(--magenta);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/></svg></span>
-        <div><div class="ccard__t">Modération &amp; signalement</div><div class="ccard__m">Signaler un contenu, contester une décision de modération.</div><span class="ccard__v">moderation@lynk.gg</span></div>
-      </div>
-      <div class="ccard">
-        <span class="ccard__ico" style="background:#e7e9ff; color:#5865F2;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.2a18 18 0 0 0-5.4 0L8.7 3a19.8 19.8 0 0 0-5 1.5A20.3 20.3 0 0 0 .3 18.1a19.9 19.9 0 0 0 6 3l1.3-2a12.8 12.8 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12 0l.5.4a12.8 12.8 0 0 1-2 1l1.2 2a19.9 19.9 0 0 0 6.1-3 20.2 20.2 0 0 0-3.5-13.7ZM8.5 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg></span>
-        <div><div class="ccard__t">Communauté Discord</div><div class="ccard__m">Échange en direct avec la communauté et l'équipe.</div><a class="ccard__v" href="#" onclick="return false;">Rejoindre le serveur →</a></div>
-      </div>
-    </div>
+  <div class="legal">
+  <nav class="toc" aria-label="Sommaire">
+    <div class="toc__t">Sommaire</div>
+    <a href="#def">Qu'est-ce qu'un cookie ?</a>
+    <a href="#types">Catégories utilisées</a>
+    <a href="#gestion">Gérer vos préférences</a>
+    <a href="#duree">Durée de vie</a>
+  </nav>
+    <div class="prose">
+      <p class="lead">Lynk utilise des cookies et traceurs pour faire fonctionner le site, mesurer son audience, améliorer votre expérience et afficher des publicités aux comptes gratuits. Vous gardez le contrôle : seuls les cookies essentiels sont déposés sans votre consentement.</p>
 
-    <div class="cform">
-      <h2>Écris-nous</h2>
-      <p class="cform__sub">Une question précise ? Remplis le formulaire, nous répondons généralement sous 48 h ouvrées.</p>
-      <div class="field"><label for="cf-name">Nom / pseudo</label><input id="cf-name" type="text" placeholder="Ton nom ou pseudo"></div>
-      <div class="field"><label for="cf-email">Email</label><input id="cf-email" type="email" placeholder="ton@email.fr"></div>
-      <div class="field"><label for="cf-subject">Sujet</label>
-        <select id="cf-subject">
-          <option>Question générale</option>
-          <option>Support / compte</option>
-          <option>Premium &amp; facturation</option>
-          <option>Presse &amp; partenariats</option>
-          <option>Signaler un contenu</option>
-          <option>Données personnelles (RGPD)</option>
-        </select>
-      </div>
-      <div class="field"><label for="cf-msg">Message</label><textarea id="cf-msg" placeholder="Décris ta demande…"></textarea></div>
-      <button class="btn btn--primary btn--block" id="cf-send" type="button">Envoyer le message</button>
-      <p class="cform__msg" id="cf-msg-out" role="status" aria-live="polite"></p>
+      <h2 id="def">Qu'est-ce qu'un cookie ?</h2>
+      <p>Un cookie est un petit fichier déposé sur votre appareil lors de la visite d'un site. Il permet notamment de mémoriser votre session, vos préférences, ou de mesurer la fréquentation du site. Certains sont indispensables au fonctionnement, d'autres sont facultatifs et soumis à votre accord.</p>
+
+      <h2 id="types">Catégories utilisées</h2>
+      <table class="ctable">
+        <thead><tr><th>Catégorie</th><th>Finalité</th><th>Statut</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Essentiels</strong></td><td>Session, authentification, sécurité, mémorisation du consentement. Indispensables au fonctionnement.</td><td><span class="ctag ctag--ess">Toujours actif</span></td></tr>
+          <tr><td><strong>Préférences</strong></td><td>Mémorisation de vos réglages (jeux suivis, affichage, marqueurs de carte).</td><td><span class="ctag ctag--opt">Sur consentement</span></td></tr>
+          <tr><td><strong>Mesure d'audience</strong></td><td>Statistiques de fréquentation anonymisées pour améliorer la plateforme.</td><td><span class="ctag ctag--opt">Sur consentement</span></td></tr>
+          <tr><td><strong>Affiliation / partenaires</strong></td><td>Attribution des visites vers les liens affiliés, sans revente de vos données.</td><td><span class="ctag ctag--opt">Sur consentement</span></td></tr>
+          <tr><td><strong>Publicité</strong></td><td>Affichage de publicités pour les comptes gratuits et mesure de leur performance, sans suivi entre sites tiers. Fortement réduites ou absentes selon le niveau d'abonnement Premium.</td><td><span class="ctag ctag--opt">Sur consentement</span></td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="gestion">Gérer vos préférences</h2>
+      <p>Vous pouvez accepter, refuser ou personnaliser les cookies facultatifs à tout moment. Votre choix est conservé et peut être modifié quand vous le souhaitez.</p>
+      <p style="margin-bottom:18px;"><button class="btn btn--outline" id="ckPrefs" type="button">Gérer mes préférences cookies</button></p>
+      <div class="callout callout--or"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><p>Vous pouvez également configurer votre navigateur pour bloquer ou supprimer les cookies. Le blocage des cookies essentiels peut toutefois dégrader le fonctionnement du site.</p></div>
+
+      <h2 id="duree">Durée de vie</h2>
+      <ul>
+        <li>Cookies de session : supprimés à la fermeture du navigateur.</li>
+        <li>Cookies persistants : durée maximale de 13 mois, conformément aux recommandations de la CNIL.</li>
+        <li>Consentement : conservé 6 mois, après quoi votre choix vous est redemandé.</li>
+      </ul>
     </div>
   </div>
   </div>
@@ -1099,9 +1092,9 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
         <span>© 2026 Lynk</span>
         <a href="mentions-legales.html">Mentions légales</a>
         <a href="confidentialite.html">Confidentialité (RGPD)</a>
-        <a href="cookies.html">Cookies</a>
+        <a href="cookies.html" aria-current="page">Cookies</a>
         <a href="cgu.html">CGU</a>
-        <a href="contact.html" aria-current="page">Contact</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
     <p class="footer__aff">Transparence : certains liens vers des jeux ou du matériel sont affiliés : ils ne coûtent rien de plus et aident Lynk à prospérer et à continuer à vous offrir la meilleure expérience. Les contenus sponsorisés sont toujours signalés.</p>
@@ -1168,7 +1161,8 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
     <div class="mdrawer__cta">
       <a class="btn btn--primary btn--block only-guest" href="inscription.html">S'inscrire</a>
       <a class="btn btn--outline btn--block only-guest" href="connexion.html">Connexion</a>
-      <a class="btn btn--premium btn--block" href="premium.html">Découvrir Premium</a>
+      <a class="btn btn--premium btn--block only-guest" href="premium.html">Découvrir Premium</a>
+      <span class="points points--drawer only-auth" title="11 540 points"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 11 540 pts</span>
     </div>
   </div>
 </div>
@@ -1262,6 +1256,9 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
       e.preventDefault();
       try{ window.top.location.href = href; }catch(err){ window.location.href = href; }
     }, true);
+    window.addEventListener('message', function(ev){
+      if(ev.data && typeof ev.data.lynkAuth !== 'undefined'){ state.auth = !!ev.data.lynkAuth; applyAuth(); }
+    });
   }
   function persist(){
     if(isEmbed) return;
@@ -1296,7 +1293,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
     document.querySelectorAll('[data-sw="guest"]').forEach(function(b){ b.classList.toggle('active', !state.auth); });
     document.querySelectorAll('[data-sw="auth"]').forEach(function(b){ b.classList.toggle('active', state.auth); });
     var fr = document.getElementById('mobileFrame');
-    if(fr) fr.src = location.pathname + '?embed=1&auth=' + (state.auth ? '1':'0');
+    if(fr && fr.contentWindow){ try{ fr.contentWindow.postMessage({lynkAuth: state.auth}, '*'); }catch(e){} }
   }
   function applyView(){
     var mob = state.view === 'mobile';
@@ -1465,14 +1462,11 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
 </script>
 <script>
   (function(){
-    var b=document.getElementById('cf-send'),out=document.getElementById('cf-msg-out');
-    var n=document.getElementById('cf-name'),e=document.getElementById('cf-email'),m=document.getElementById('cf-msg');
-    if(!b)return;
-    b.addEventListener('click',function(){
-      if(!n.value.trim()||!e.value.trim()||!m.value.trim()){out.style.color='var(--err)';out.textContent='Merci de remplir le nom, l\u2019email et le message.';return;}
-      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e.value.trim())){out.style.color='var(--err)';out.textContent='Adresse email invalide.';return;}
-      out.style.color='var(--ok)';out.textContent='Message envoyé ! Merci, nous revenons vers toi rapidement.';
-      n.value='';e.value='';m.value='';
+    var b=document.getElementById('ckPrefs');
+    if(b)b.addEventListener('click',function(){
+      b.textContent='Préférences enregistrées \u2713';
+      b.style.borderColor='var(--ok)';b.style.color='var(--ok)';
+      setTimeout(function(){b.textContent='Gérer mes préférences cookies';b.style.borderColor='';b.style.color='';},2200);
     });
   })();
 </script>
