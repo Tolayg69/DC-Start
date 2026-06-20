@@ -769,8 +769,8 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
 .nitem__txt span{font-size:12px; color:var(--ink-400); font-weight:700; margin-top:2px;}
 .nitem__dot{width:8px; height:8px; border-radius:50%; background:var(--magenta); margin-top:6px; flex:none;}
 .nitem--read .nitem__dot{background:transparent;}
-.ndrawer__actions{display:flex; justify-content:flex-start; padding:0 10px 6px;}
-.ndrawer__readall{background:none; border:none; color:var(--magenta); font-family:var(--sans); font-weight:700; font-size:13px; cursor:pointer; padding:4px 4px;}
+.ndrawer__actions{display:flex; justify-content:flex-start; padding:0 0 6px;}
+.ndrawer__readall{background:none; border:none; color:var(--magenta); font-family:var(--sans); font-weight:700; font-size:13px; cursor:pointer; padding:4px 0;}
 .ndrawer__readall:hover{text-decoration:underline;}
 .ndrawer__readall:disabled{color:var(--ink-400); cursor:default; text-decoration:none;}
 
@@ -786,8 +786,10 @@ body.drawer-open{overflow:hidden;}
 /* === espace en haut sur mobile : zone OPAQUE intégrée à la nav (rien ne défile dessous) === */
 @media (max-width:880px){
   .nav{ padding-top: env(safe-area-inset-top, 0px); background: var(--blanc); }
+  .mdrawer__panel{ padding-top: calc(20px + env(safe-area-inset-top, 0px)); }
 }
 body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
+body.is-embed .mdrawer__panel{ padding-top: 44px; }
 
 
 /* ============ PAGES LÉGALES & CONTACT (styles additionnels) ============ */
