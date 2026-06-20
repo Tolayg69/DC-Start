@@ -772,6 +772,7 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
 .ndrawer__actions{display:flex; justify-content:flex-end; padding:0 10px 6px;}
 .ndrawer__readall{background:none; border:none; color:var(--magenta); font-family:var(--sans); font-weight:700; font-size:13px; cursor:pointer; padding:4px 4px;}
 .ndrawer__readall:hover{text-decoration:underline;}
+.ndrawer__readall:disabled{color:var(--ink-400); cursor:default; text-decoration:none;}
 
 /* verrou du scroll d'arrière-plan quand un drawer est ouvert */
 body.drawer-open{overflow:hidden;}
@@ -905,7 +906,7 @@ body.is-auth .subbanner{display:flex;}
 .billtoggle__hint{font-size:12.5px; font-weight:700; color:var(--or-ink); background:var(--or-pale); padding:5px 13px; border-radius:var(--r-pill);}
 .by{display:none;}
 body.is-annual .bm{display:none;} body.is-annual .by{display:inline;}
-.ptier__save{display:none; font-size:12px; font-weight:700; color:#1e8a4c; margin-top:5px;}
+.ptier__save{display:none; font-size:12px; font-weight:700; color:var(--magenta); margin-top:5px;}
 body.is-annual .ptier__save{display:block;}
 .btn--current{background:var(--surface-2); color:var(--ink-400); border:1.5px solid var(--line-2); cursor:default; pointer-events:none;}
 .cmp{overflow-x:auto; border-radius:var(--r-lg);}
@@ -1057,8 +1058,8 @@ body.is-annual .ptier__save{display:block;}
 <section class="phero">
   <div class="wrap">
     <span class="kicker"><span class="dots"><i></i><i></i></span> Lynk Premium</span>
-    <h1>Avance plus vite, sans publicité, sur tous tes jeux.</h1>
-    <p class="phero__sub">Débloque toutes les cartes interactives, garde ta progression synchronisée partout et profite du suivi automatique de tes succès. Premium réunit les outils qui te font gagner du temps sur chaque partie.</p>
+    <h1>Avance mieux et plus vite, sans publicité.</h1>
+    <p class="phero__sub">Débloque toutes les cartes interactives, garde ta progression synchronisée partout et profite du suivi automatique de tes succès. Premium te donne une expérience plus fluide et personnalisée, qui s'adapte à ta façon de jouer.</p>
     <div class="pcta">
       <a class="btn btn--primary only-guest" href="inscription.html">Créer mon compte gratuit</a>
       <a class="btn btn--primary only-auth" href="#offres">Gérer mon abonnement</a>
@@ -1073,7 +1074,7 @@ body.is-annual .ptier__save{display:block;}
     <div class="pmhead">
       <span class="kicker"><span class="dots"><i></i><i></i></span> Pourquoi Premium</span>
       <h2>Ce que Premium change concrètement</h2>
-      <p>Des outils pensés pour te faire gagner du temps et profiter pleinement de chaque partie.</p>
+      <p>Des outils pensés pour te faire gagner du temps et rendre ton expérience plus fluide et personnalisée.</p>
     </div>
     <div class="vgrid">
       <div class="vcard">
@@ -1197,7 +1198,7 @@ body.is-annual .ptier__save{display:block;}
     <div class="faq">
       <details class="faqi"><summary>Qu'est-ce que je débloque dès mon abonnement ?</summary><p>Dès l'activation, tu navigues sans publicité, toutes les cartes interactives s'ouvrent et le suivi automatique de tes succès et trophées se met en place. Avec Légende, tu accèdes en plus aux contenus exclusifs et aux avantages partenaires.</p></details>
       <details class="faqi"><summary>Puis-je changer d'offre ou résilier à tout moment ?</summary><p>Oui. Tu peux passer d'une offre à l'autre ou résilier quand tu le souhaites depuis ton compte, sans engagement. La résiliation prend effet à la fin de la période déjà réglée.</p></details>
-      <details class="faqi"><summary>Comment fonctionne le paiement ?</summary><p>L'abonnement se règle au mois ou à l'année, avec deux mois offerts sur la formule annuelle, et se renouvelle automatiquement. Le paiement se fait par carte ou via PayPal, de façon sécurisée, et une facture est disponible pour chaque échéance.</p></details>
+      <details class="faqi"><summary>Comment fonctionne le paiement ?</summary><p>L'abonnement se règle au mois ou à l'année, avec deux mois offerts sur la formule annuelle, et se renouvelle automatiquement. Le paiement se fait par carte ou via PayPal, sécurisé par l'authentification 3-D Secure conforme à la DSP2, et une facture est disponible pour chaque échéance.</p></details>
       <details class="faqi"><summary>Quelle est la différence entre Essentiel, Premium et Légende ?</summary><p>Essentiel réduit la publicité et débloque le suivi de progression. Premium retire toute la publicité et ouvre l'ensemble des cartes interactives ainsi que le suivi automatique. Légende reprend tout Premium et ajoute les contenus exclusifs, les avantages partenaires renforcés et le support prioritaire.</p></details>
       <details class="faqi"><summary>Premium fonctionne-t-il sur mobile et sur ordinateur ?</summary><p>Oui. Ton abonnement est lié à ton compte Lynk : tu profites des mêmes avantages sur mobile, sur tablette et sur ordinateur, avec la même progression synchronisée.</p></details>
     </div>
@@ -1352,7 +1353,7 @@ body.is-annual .ptier__save{display:block;}
         <span class="nitem__txt"><b>Patch 1.12.3 déployé</b><span>Elden Ring · il y a 2 h</span></span>
         <span class="nitem__dot"></span>
       </div>
-      <a class="nitem" href="jeu.html">
+      <a class="nitem" href="guide.html">
         <span class="nitem__ico" style="background:var(--magenta-pale); color:var(--magenta-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg></span>
         <span class="nitem__txt"><b>Guide mis à jour : « Battre Malenia »</b><span>Elden Ring · il y a 3 h</span></span>
         <span class="nitem__dot"></span>
@@ -1576,7 +1577,9 @@ body.is-annual .ptier__save{display:block;}
     var nclose = document.getElementById('ndrawerClose');
     if(nclose) nclose.addEventListener('click', function(){ ndrawer.classList.remove('open'); lockScroll(false); });
     var nreadall = document.getElementById('ndrawerReadAll');
-    if(nreadall) nreadall.addEventListener('click', function(){ ndrawer.querySelectorAll('.nitem').forEach(function(it){ it.classList.add('nitem--read'); }); });
+    function ndUpdateReadAll(){ if(nreadall){ nreadall.disabled = !ndrawer.querySelector('.nitem:not(.nitem--read)'); } }
+    if(nreadall) nreadall.addEventListener('click', function(){ ndrawer.querySelectorAll('.nitem').forEach(function(it){ it.classList.add('nitem--read'); }); ndUpdateReadAll(); });
+    ndUpdateReadAll();
   }
 
   /* ---------- filtres (démo visuelle) ---------- */
