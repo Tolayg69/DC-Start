@@ -1747,7 +1747,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   <path class="cls-1" d="M727.51,386.14c-17.11.09-30.87-13.6-30.75-30.58.12-16.81,13.65-30.2,30.51-30.19,16.87.02,30.57,13.6,30.49,30.21-.08,16.72-13.7,30.48-30.25,30.56Z"/>
   <path class="cls-1" d="M422.25,6.7c16.72.05,30.28,13.52,30.44,30.25.16,16.72-13.93,30.65-30.88,30.52-16.43-.12-29.91-13.62-29.98-30.02-.07-17.38,13.2-30.8,30.41-30.75Z"/>
 </svg></a>
-        <p>Toute l'aide dont vous avez besoin, centralisée, fiable et sans publicité intrusive.</p>
+        <p>Toute l'aide dont tu as besoin, centralisée, fiable et sans publicité intrusive.</p>
         <div class="footer__social">
           <a class="fsoc" href="#" onclick="return false;" aria-label="Discord"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.2a18 18 0 0 0-5.4 0L8.7 3a19.8 19.8 0 0 0-5 1.5A20.3 20.3 0 0 0 .3 18.1a19.9 19.9 0 0 0 6 3l1.3-2a12.8 12.8 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12 0l.5.4a12.8 12.8 0 0 1-2 1l1.2 2a19.9 19.9 0 0 0 6.1-3 20.2 20.2 0 0 0-3.5-13.7ZM8.5 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"></path></svg></a>
           <a class="fsoc" href="#" onclick="return false;" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14C17.17 2.1 16 2 14.8 2 12.2 2 10.5 3.66 10.5 6.7v2.8H8v4h2.5V22h3.5v-8.5Z"></path></svg></a>
@@ -1792,7 +1792,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
         <a href="contact.html">Contact</a>
       </div>
     </div>
-    <p class="footer__aff">Transparence : certains liens vers des jeux ou du matériel sont affiliés : ils ne coûtent rien de plus et aident Lynk à prospérer et à continuer à vous offrir la meilleure expérience. Les contenus sponsorisés sont toujours signalés.</p>
+    <p class="footer__aff">Transparence : certains liens vers des jeux ou du matériel sont affiliés : ils ne coûtent rien de plus et aident Lynk à prospérer et à continuer à offrir la meilleure expérience. Les contenus sponsorisés sont toujours signalés.</p>
   </div>
 </footer>
 
@@ -1975,6 +1975,9 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   function applyView(){
     var mob = state.view === 'mobile';
     document.body.classList.toggle('view-mobile', mob);
+    var _nd=document.getElementById('ndrawer'); if(_nd) _nd.classList.remove('open');
+    var _md=document.getElementById('mdrawer'); if(_md) _md.classList.remove('open');
+    document.body.classList.remove('drawer-open');
     document.querySelectorAll('[data-sw="desktop"]').forEach(function(b){ b.classList.toggle('active', !mob); });
     document.querySelectorAll('[data-sw="mobile"]').forEach(function(b){ b.classList.toggle('active', mob); });
     var host = document.getElementById('deviceHost');
