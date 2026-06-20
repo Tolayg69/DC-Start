@@ -220,7 +220,7 @@ body.is-auth .premium-current{display:inline-flex;}
 .billtoggle__hint{font-size:12.5px; font-weight:700; color:var(--or-ink); background:var(--or-pale); padding:5px 13px; border-radius:var(--r-pill);}
 .by{display:none;}
 body.is-annual .bm{display:none;} body.is-annual .by{display:inline;}
-.ptier__save{display:none; font-size:12px; font-weight:700; color:#1e8a4c; margin-top:5px;}
+.ptier__save{display:none; font-size:12px; font-weight:700; color:var(--magenta); margin-top:5px;}
 body.is-annual .ptier__save{display:block;}
 
 /* ===================================================================
@@ -241,7 +241,7 @@ body.is-annual .ptier__save{display:block;}
 /* ---- hero gaming : 2 colonnes ---- */
 .hero__grid{display:grid; grid-template-columns:1.04fr .96fr; gap:54px; align-items:center; max-width:1180px; text-align:left; padding:58px var(--gut) 54px;}
 .hero__grid .hero__eyebrow{margin-bottom:20px;}
-.hero__grid h1{font-size:52px; margin-left:-2px;}
+.hero__grid h1{font-size:52px; margin-left:-0.08em;}
 .hero__grid .hero__sub{margin:18px 0 0; max-width:54ch;}
 .hero__cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:28px;}
 .hero__grid .quick{justify-content:flex-start; margin-top:22px;}
@@ -792,6 +792,10 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
 .nitem__txt span{font-size:12px; color:var(--ink-400); font-weight:700; margin-top:2px;}
 .nitem__dot{width:8px; height:8px; border-radius:50%; background:var(--magenta); margin-top:6px; flex:none;}
 .nitem--read .nitem__dot{background:transparent;}
+.ndrawer__actions{display:flex; justify-content:flex-end; padding:0 10px 6px;}
+.ndrawer__readall{background:none; border:none; color:var(--magenta); font-family:var(--sans); font-weight:700; font-size:13px; cursor:pointer; padding:4px 4px;}
+.ndrawer__readall:hover{text-decoration:underline;}
+.ndrawer__readall:disabled{color:var(--ink-400); cursor:default; text-decoration:none;}
 
 /* verrou du scroll d'arrière-plan quand un drawer est ouvert */
 body.drawer-open{overflow:hidden;}
@@ -1687,7 +1691,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
         <span class="nitem__txt"><b>Patch 1.12.3 déployé</b><span>Elden Ring · il y a 2 h</span></span>
         <span class="nitem__dot"></span>
       </div>
-      <a class="nitem" href="jeu.html">
+      <a class="nitem" href="guide.html">
         <span class="nitem__ico" style="background:var(--magenta-pale); color:var(--magenta-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg></span>
         <span class="nitem__txt"><b>Guide mis à jour : « Battre Malenia »</b><span>Elden Ring · il y a 3 h</span></span>
         <span class="nitem__dot"></span>
@@ -2083,7 +2087,9 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
     var nclose = document.getElementById('ndrawerClose');
     if(nclose) nclose.addEventListener('click', function(){ ndrawer.classList.remove('open'); lockScroll(false); });
     var nreadall = document.getElementById('ndrawerReadAll');
-    if(nreadall) nreadall.addEventListener('click', function(){ ndrawer.querySelectorAll('.nitem').forEach(function(it){ it.classList.add('nitem--read'); }); });
+    function ndUpdateReadAll(){ if(nreadall){ nreadall.disabled = !ndrawer.querySelector('.nitem:not(.nitem--read)'); } }
+    if(nreadall) nreadall.addEventListener('click', function(){ ndrawer.querySelectorAll('.nitem').forEach(function(it){ it.classList.add('nitem--read'); }); ndUpdateReadAll(); });
+    ndUpdateReadAll();
   }
 
   /* ---------- filtres (démo visuelle) ---------- */
