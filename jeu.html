@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
 <style>
 /* =====================================================================
-   LYNK — DESIGN SYSTEM  ·  tokens + bibliothèque de composants
+   LYNK · DESIGN SYSTEM  ·  tokens + bibliothèque de composants
    Light mode · Sora (titres) / Lato (corps) · signature : 2 points magenta
    ===================================================================== */
 
@@ -440,7 +440,7 @@ body.is-auth .nav__right .only-auth{display:flex;}
 .ncard__m{font-size:12.5px; color:var(--ink-400);}
 
 /* ===================================================================
-   COMMUNAUTÉ — lignes de sujet
+   COMMUNAUTÉ · lignes de sujet
    =================================================================== */
 .community{display:grid; grid-template-columns:1.6fr 1fr; gap:28px; align-items:start;}
 .threads{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); overflow:hidden;}
@@ -685,7 +685,6 @@ body.is-embed #deviceHost{display:none !important;}
   .gamif__grid{grid-template-columns:1fr; gap:30px;}
   .gamif{padding:28px;}
   .pricing{grid-template-columns:1fr; gap:26px;}
-  .ptier--feat{order:-1;}
   .why{grid-template-columns:1fr 1fr; gap:24px;}
   .footer__top{grid-template-columns:1fr 1fr; gap:28px;}
   .footer__brand{grid-column:1/-1;}
@@ -770,6 +769,11 @@ body:not(.is-auth) .scope.only-auth{display:none !important;}
 .nitem__txt span{font-size:12px; color:var(--ink-400); font-weight:700; margin-top:2px;}
 .nitem__dot{width:8px; height:8px; border-radius:50%; background:var(--magenta); margin-top:6px; flex:none;}
 .nitem--read .nitem__dot{background:transparent;}
+.ndrawer__actions{display:flex; justify-content:flex-start; padding:0 10px 6px;}
+.ndrawer__readall{background:none; border:none; color:var(--magenta); font-family:var(--sans); font-weight:700; font-size:13px; cursor:pointer; padding:4px 0;}
+.ndrawer__readall:hover{text-decoration:underline;}
+.ndrawer__readall:disabled{color:var(--ink-400); cursor:default; text-decoration:none;}
+#ndrawer .mdrawer__head{padding-left:10px; margin-bottom:2px;}
 
 /* verrou du scroll d'arrière-plan quand un drawer est ouvert */
 body.drawer-open{overflow:hidden;}
@@ -783,8 +787,10 @@ body.drawer-open{overflow:hidden;}
 /* === espace en haut sur mobile : zone OPAQUE intégrée à la nav (rien ne défile dessous) === */
 @media (max-width:880px){
   .nav{ padding-top: env(safe-area-inset-top, 0px); background: var(--blanc); }
+  .mdrawer__panel{ padding-top: calc(20px + env(safe-area-inset-top, 0px)); }
 }
 body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
+body.is-embed .mdrawer__panel{ padding-top: 44px; }
 
 
 /* ============ PAGES LÉGALES & CONTACT (styles additionnels) ============ */
@@ -1356,7 +1362,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
     <div class="footer__top">
       <div class="footer__brand">
         <a href="index.html" class="logo"><svg style="height:20px;width:auto;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1068.57 386.6" role="img" aria-label="Lynk"><defs><style>.lk-w{fill:#fff;}.lk-d{fill:#9520b3;}</style></defs><path class="lk-w" d="M812.55,196.86c0-60.73.07-121.46-.12-182.18-.02-5.65,1.45-7.36,7.2-7.21,15.73.4,31.48.41,47.21,0,5.71-.15,6.8,1.75,6.78,7.01-.2,44.41-.02,88.82-.22,133.23-.02,5.49,1.22,7.49,7.14,7.36,21.32-.47,42.73.78,63.95-.75,34.45-2.49,60.35-29.79,62.83-64.91,1.73-24.53.4-49.14.67-73.71.09-8.07.02-8.08,8.05-8.08,15.53,0,31.06.01,46.6,0,3.02,0,5.79-.25,5.68,4.27-.76,31.16,1.9,62.42-1.63,93.48-3.42,30.05-14.83,56.53-37.93,77.13-2.02,1.8-4.29,3.03-.74,6.09,24.22,20.83,35.38,48.21,39.01,79.16,2.3,19.55,1.02,39.2,1.21,58.81.17,17.76-.15,35.53.15,53.29.09,5.27-1.66,6.62-6.72,6.53-15.94-.29-31.89-.27-47.84,0-4.72.08-5.92-1.5-5.93-6.04-.11-32.42,1.17-64.88-.52-97.26-1.72-33.06-24.09-58.93-55.73-66.08-4.07-.92-8.19-1.17-12.34-1.17-19.67,0-39.35.2-59.02-.13-5.55-.09-6.93,1.57-6.91,6.98.2,52.05.02,104.11.25,156.16.03,5.89-1.41,7.77-7.5,7.61-15.73-.43-31.48-.37-47.21-.02-5.36.12-6.49-1.72-6.48-6.71.15-60.93.1-121.87.1-182.8Z"/><path class="lk-w" d="M545.52,256.7c0,40.9-.11,81.81.13,122.71.03,5.6-1.65,6.94-7.02,6.82-15.73-.35-31.48-.2-47.22-.07-3.68.03-5.66-.53-5.64-4.97.45-80.35-1.08-160.72.87-241.06.73-29.82,7.83-58.55,24.04-84.24,21.4-33.91,53.1-50.94,92.42-54.9,27.46-2.77,54.25.02,79.59,11.47,34.74,15.7,55.41,43.36,66.2,79.13,6.13,20.34,8.63,41.23,8.72,62.38.19,45.65-.04,91.31.18,136.97.03,5.7-1.52,7.4-7.28,7.26-15.52-.39-31.07-.33-46.6-.02-5.12.1-6.67-1.35-6.65-6.56.19-47.72.21-95.44.05-143.16-.05-16.13-1.32-32.1-7.28-47.45-9.04-23.29-25.77-36.87-50.35-40.75-18.26-2.88-36.5-2.68-53.75,4.72-24.77,10.63-34.44,31.93-38.57,56.74-1.56,9.4-1.83,18.91-1.85,28.4-.05,35.53-.02,71.07-.02,106.6Z"/><path class="lk-w" d="M285.8,299.77c0-26.64-.02-53.28.02-79.92,0-3.26-.03-5.84-4.28-6.81-55.73-12.73-85.37-49.84-97.02-103.66-3.51-16.2-4.84-32.65-5.01-49.18-.16-15.49.12-30.98-.13-46.47-.07-4.51,1.04-6.1,5.83-6.02,16.56.28,33.13.25,49.69.02,4.35-.06,5.61,1.24,5.58,5.57-.13,21.06-.19,42.13.23,63.19.32,16.18,2.83,31.95,10.24,46.74,7.63,15.23,19.3,25.73,35.51,30.58,20.94,6.28,42.05,6.38,62.76-1.26,18.79-6.93,30.08-21.06,36.5-39.48,1.22-3.5,2.48-7.07,2.98-10.71.66-4.76,2.67-6.43,7.66-6.33,15.94.33,31.89.15,47.83.11,3.14,0,5.81-.12,5.04,4.52-5.94,35.69-19.32,67.37-48.94,90.21-14.12,10.89-30.15,18-47.55,21.74-4.91,1.06-6.1,3.1-6.09,7.83.16,52.87.01,105.74.23,158.61.02,5.72-1.56,7.35-7.27,7.21-15.73-.38-31.47-.32-47.2-.02-5.09.1-6.74-1.29-6.7-6.54.25-26.64.11-53.28.11-79.92Z"/><path class="lk-w" d="M61.27,133.2c0,37.79-.2,75.58.09,113.37.13,16.2,2.85,32.02,10.59,46.63,8.82,16.64,22.71,26.32,40.97,30.03,6.7,1.36,13.48,2.02,20.35,2,28.57-.08,57.15.14,85.72-.17,5.87-.06,7.28,1.79,7.16,7.35-.34,16.1-.15,32.21-.1,48.32.01,3.15-.05,5.64-4.43,5.56-34.56-.66-69.2,1.84-103.66-1.36-31.04-2.88-58.4-14.76-79.97-38.02-17.82-19.21-27.44-42.45-32.81-67.69C1.52,261.99.15,244.53.14,226.95.12,156.32.21,85.69,0,15.07c-.02-5.9,1.34-7.76,7.46-7.58,15.52.46,31.06.43,46.58.01,5.91-.16,7.16,1.84,7.13,7.37-.23,39.44-.12,78.89-.12,118.33.08,0,.15,0,.23,0Z"/><path class="lk-d" d="M727.51,386.14c-17.11.09-30.87-13.6-30.75-30.58.12-16.81,13.65-30.2,30.51-30.19,16.87.02,30.57,13.6,30.49,30.21-.08,16.72-13.7,30.48-30.25,30.56Z"/><path class="lk-d" d="M422.25,6.7c16.72.05,30.28,13.52,30.44,30.25.16,16.72-13.93,30.65-30.88,30.52-16.43-.12-29.91-13.62-29.98-30.02-.07-17.38,13.2-30.8,30.41-30.75Z"/></svg></a>
-        <p>Toute l'aide dont vous avez besoin, centralisée, fiable et sans publicité intrusive.</p>
+        <p>Toute l'aide dont tu as besoin, centralisée, fiable et sans publicité intrusive.</p>
         <div class="footer__social">
           <a class="fsoc" href="#" onclick="return false;" aria-label="Discord"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.2a18 18 0 0 0-5.4 0L8.7 3a19.8 19.8 0 0 0-5 1.5A20.3 20.3 0 0 0 .3 18.1a19.9 19.9 0 0 0 6 3l1.3-2a12.8 12.8 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12 0l.5.4a12.8 12.8 0 0 1-2 1l1.2 2a19.9 19.9 0 0 0 6.1-3 20.2 20.2 0 0 0-3.5-13.7ZM8.5 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg></a>
 <a class="fsoc" href="#" onclick="return false;" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14C17.17 2.1 16 2 14.8 2 12.2 2 10.5 3.66 10.5 6.7v2.8H8v4h2.5V22h3.5v-8.5Z"/></svg></a>
@@ -1401,7 +1407,7 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
         <a href="contact.html">Contact</a>
       </div>
     </div>
-    <p class="footer__aff">Transparence : certains liens vers des jeux ou du matériel sont affiliés : ils ne coûtent rien de plus et aident Lynk à prospérer et à continuer à vous offrir la meilleure expérience. Les contenus sponsorisés sont toujours signalés.</p>
+    <p class="footer__aff">Transparence : certains liens vers des jeux ou du matériel sont affiliés : ils ne coûtent rien de plus et aident Lynk à prospérer et à continuer à offrir la meilleure expérience. Les contenus sponsorisés sont toujours signalés.</p>
   </div>
 </footer>
 
@@ -1479,37 +1485,38 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
       <span style="font-family:var(--serif); font-weight:800; font-size:16px;">Notifications</span>
       <button class="iconbtn" id="ndrawerClose" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg></button>
     </div>
+    <div class="ndrawer__actions"><button class="ndrawer__readall" id="ndrawerReadAll" type="button">Tout marquer comme lu</button></div>
     <div class="ndrawer__list">
-      <a class="nitem" href="notifications.html">
+      <div class="nitem">
         <span class="nitem__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span>
         <span class="nitem__txt"><b>Patch 1.12.3 déployé</b><span>Elden Ring · il y a 2 h</span></span>
         <span class="nitem__dot"></span>
-      </a>
-      <a class="nitem" href="notifications.html">
+      </div>
+      <a class="nitem" href="guide.html">
         <span class="nitem__ico" style="background:var(--magenta-pale); color:var(--magenta-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg></span>
         <span class="nitem__txt"><b>Guide mis à jour : « Battre Malenia »</b><span>Elden Ring · il y a 3 h</span></span>
         <span class="nitem__dot"></span>
       </a>
-      <a class="nitem" href="notifications.html">
+      <div class="nitem">
         <span class="nitem__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span>
         <span class="nitem__txt"><b>2 réponses à ta question sur l’Abîme</b><span>Forum Genshin Impact · il y a 40 min</span></span>
         <span class="nitem__dot"></span>
-      </a>
-      <a class="nitem nitem--read" href="notifications.html">
+      </div>
+      <div class="nitem nitem--read">
         <span class="nitem__ico" style="background:var(--magenta-pale); color:var(--magenta-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg></span>
         <span class="nitem__txt"><b>Nouvel article : sanctuaires du désert de Gerudo</b><span>Zelda TOTK · hier</span></span>
         <span class="nitem__dot"></span>
-      </a>
-      <a class="nitem nitem--read" href="notifications.html">
+      </div>
+      <div class="nitem nitem--read">
         <span class="nitem__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg></span>
         <span class="nitem__txt"><b>Événement 5.7 : bannières dès demain</b><span>Genshin Impact · hier</span></span>
         <span class="nitem__dot"></span>
-      </a>
-      <a class="nitem nitem--read" href="notifications.html">
+      </div>
+      <div class="nitem nitem--read">
         <span class="nitem__ico" style="background:var(--or-pale); color:var(--or-ink);"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg></span>
         <span class="nitem__txt"><b>Défi hebdo : +100 pts à gagner</b><span>Expire dans 2 jours</span></span>
         <span class="nitem__dot"></span>
-      </a>
+      </div>
     </div>
   </aside>
 </div>
@@ -1602,6 +1609,9 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
   function applyView(){
     var mob = state.view === 'mobile';
     document.body.classList.toggle('view-mobile', mob);
+    var _nd=document.getElementById('ndrawer'); if(_nd) _nd.classList.remove('open');
+    var _md=document.getElementById('mdrawer'); if(_md) _md.classList.remove('open');
+    document.body.classList.remove('drawer-open');
     document.querySelectorAll('[data-sw="desktop"]').forEach(function(b){ b.classList.toggle('active', !mob); });
     document.querySelectorAll('[data-sw="mobile"]').forEach(function(b){ b.classList.toggle('active', mob); });
     var host = document.getElementById('deviceHost');
@@ -1609,13 +1619,23 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
     if(mob){
       site.style.display = 'none';
       host.style.display = 'block';
-      if(!document.getElementById('mobileFrame')){
-        var fr = document.createElement('iframe');
+      var fr = document.getElementById('mobileFrame');
+      if(!fr){
+        fr = document.createElement('iframe');
         fr.id = 'mobileFrame';
         fr.setAttribute('title','Aperçu mobile');
         fr.style.cssText = 'width:100%;height:100%;border:none;display:block;';
         fr.src = location.pathname + '?embed=1&auth=' + (state.auth ? '1':'0');
         document.getElementById('deviceScreen').appendChild(fr);
+      } else {
+        try{
+          var _d = fr.contentDocument || (fr.contentWindow && fr.contentWindow.document);
+          if(_d){
+            var _a=_d.getElementById('ndrawer'); if(_a) _a.classList.remove('open');
+            var _b=_d.getElementById('mdrawer'); if(_b) _b.classList.remove('open');
+            if(_d.body) _d.body.classList.remove('drawer-open');
+          }
+        }catch(e){}
       }
     }else{
       site.style.display = '';
@@ -1708,6 +1728,10 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
     ndrawer.querySelector('.mdrawer__scrim').addEventListener('click', function(){ ndrawer.classList.remove('open'); lockScroll(false); });
     var nclose = document.getElementById('ndrawerClose');
     if(nclose) nclose.addEventListener('click', function(){ ndrawer.classList.remove('open'); lockScroll(false); });
+    var nreadall = document.getElementById('ndrawerReadAll');
+    function ndUpdateReadAll(){ if(nreadall){ nreadall.disabled = !ndrawer.querySelector('.nitem:not(.nitem--read)'); } }
+    if(nreadall) nreadall.addEventListener('click', function(){ ndrawer.querySelectorAll('.nitem').forEach(function(it){ it.classList.add('nitem--read'); }); ndUpdateReadAll(); });
+    ndUpdateReadAll();
   }
 
   /* ---------- filtres (démo visuelle) ---------- */
@@ -1758,6 +1782,15 @@ body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
     newsInput.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); newsSubmit(); } });
     newsInput.addEventListener('input', function(){ if(newsMsg){ newsMsg.classList.remove('ok','err'); } });
   }
+
+  /* ---------- bascule mensuel / annuel ---------- */
+  document.querySelectorAll('.billtoggle__btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var annual = btn.getAttribute('data-bill') === 'year';
+      document.body.classList.toggle('is-annual', annual);
+      document.querySelectorAll('.billtoggle__btn').forEach(function(b){ b.classList.toggle('is-active', b === btn); });
+    });
+  });
 
   applyAuth();
   if(!isEmbed) applyView();
