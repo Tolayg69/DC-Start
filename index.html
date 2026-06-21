@@ -195,6 +195,26 @@ p{margin:0;}
 .points svg{width:15px; height:15px;}
 .points--drawer{width:100%; justify-content:center; padding:12px 16px; font-size:15px;}
 .avatar{width:44px; height:44px; border-radius:var(--r-pill); background:var(--noir); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:16px; border:2px solid var(--magenta);}
+.nav__acc{position:relative; display:inline-flex;}
+button.avatar{cursor:pointer; padding:0; font-family:var(--serif);}
+.accmenu{position:absolute; top:calc(100% + 12px); right:0; width:288px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-lg); padding:8px; opacity:0; visibility:hidden; transform:translateY(6px); transition:opacity .14s, transform .14s, visibility 0s .14s; z-index:90;}
+.accmenu.open{opacity:1; visibility:visible; transform:translateY(0); transition:opacity .14s, transform .14s, visibility 0s;}
+.accmenu__head{display:flex; align-items:center; gap:11px; padding:9px 11px 12px; border-bottom:1px solid var(--line); margin-bottom:6px;}
+.accmenu__avatar{width:40px; height:40px; border-radius:50%; background:var(--noir); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:15px; border:2px solid var(--magenta); flex:none;}
+.accmenu__id{min-width:0;}
+.accmenu__name{display:block; font-family:var(--serif); font-weight:800; font-size:15px; line-height:1.1;}
+.accmenu__meta{display:inline-flex; align-items:center; gap:5px; font-size:12px; font-weight:700; color:var(--or-ink); margin-top:3px;}
+.accmenu__meta svg{width:12px; height:12px;}
+.accmenu__list{display:flex; flex-direction:column; gap:1px;}
+.accmenu__item{display:flex; align-items:center; gap:11px; padding:9px 11px; border-radius:var(--r-sm); font-size:13.5px; font-weight:700; color:var(--ink-700); text-decoration:none; cursor:pointer; transition:background .12s, color .12s; border:none; background:none; width:100%; text-align:left; font-family:var(--sans);}
+.accmenu__item svg{width:17px; height:17px; flex:none; color:var(--ink-400);}
+.accmenu__item:hover{background:var(--surface-3); color:var(--noir);}
+.accmenu__item:hover svg{color:var(--ink-700);}
+.accmenu__sep{height:1px; background:var(--line); margin:6px 8px;}
+.accmenu__item--logout{color:#c0392b;}
+.accmenu__item--logout svg{color:#c0392b;}
+.accmenu__item--logout:hover{background:#fdecea; color:#c0392b;}
+@media (max-width:520px){ .accmenu{position:fixed; top:64px; right:10px; left:10px; width:auto;} }
 
 /* show/hide by auth state */
 .only-guest{display:inline-flex;}
@@ -944,7 +964,29 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
         <span class="iconbtn__dot"></span>
       </button>
-      <a class="avatar only-auth" aria-label="Mon profil" href="profil.html">É</a>
+      <div class="nav__acc only-auth">
+        <button class="avatar" id="accBtn" type="button" aria-label="Mon compte" aria-haspopup="true" aria-expanded="false">É</button>
+        <div class="accmenu" id="accMenu" aria-hidden="true">
+          <div class="accmenu__head">
+            <span class="accmenu__avatar">É</span>
+            <span class="accmenu__id"><span class="accmenu__name">Élyo</span><span class="accmenu__meta"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg> Premium · Niveau 24</span></span>
+          </div>
+          <div class="accmenu__list">
+            <a class="accmenu__item" href="profil.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg> Voir mon profil</a>
+            <div class="accmenu__sep"></div>
+            <a class="accmenu__item" href="reglages-profil.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5.5 21a7 7 0 0 1 13 0"/></svg> Profil</a>
+            <a class="accmenu__item" href="reglages-compte.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M5.5 17a3.5 3.5 0 0 1 7 0M15 9h4M15 13h3"/></svg> Compte</a>
+            <a class="accmenu__item" href="reglages-securite.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg> Sécurité</a>
+            <a class="accmenu__item" href="reglages-notifications.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Notifications</a>
+            <a class="accmenu__item" href="reglages-confidentialite.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg> Confidentialité</a>
+            <a class="accmenu__item" href="reglages-comptes-lies.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15l6-6"/><path d="M11 6l1-1a4 4 0 0 1 6 6l-1 1"/><path d="M13 18l-1 1a4 4 0 0 1-6-6l1-1"/></svg> Comptes liés</a>
+            <a class="accmenu__item" href="reglages-abonnement.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg> Abonnement</a>
+            <a class="accmenu__item" href="reglages-jeux.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg> Préférences de jeu</a>
+            <div class="accmenu__sep"></div>
+            <button class="accmenu__item accmenu__item--logout" id="accLogout" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg> Se déconnecter</button>
+          </div>
+        </div>
+      </div>
       <button id="burgerBtn" class="iconbtn nav__burger" aria-label="Menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </button>
@@ -2108,6 +2150,27 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     function ndUpdateReadAll(){ if(nreadall){ nreadall.disabled = !ndrawer.querySelector('.nitem:not(.nitem--read)'); } }
     if(nreadall) nreadall.addEventListener('click', function(){ ndrawer.querySelectorAll('.nitem').forEach(function(it){ it.classList.add('nitem--read'); }); ndUpdateReadAll(); });
     ndUpdateReadAll();
+  }
+
+  /* ---------- menu compte (dropdown profil) ---------- */
+  var accBtn = document.getElementById('accBtn');
+  var accMenu = document.getElementById('accMenu');
+  if(accBtn && accMenu){
+    function accClose(){ accMenu.classList.remove('open'); accBtn.setAttribute('aria-expanded','false'); }
+    accBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open = accMenu.classList.toggle('open');
+      accBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if(open){ var nd=document.getElementById('ndrawer'); if(nd) nd.classList.remove('open'); }
+    });
+    accMenu.addEventListener('click', function(e){ e.stopPropagation(); });
+    document.addEventListener('click', accClose);
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') accClose(); });
+    var accLogout = document.getElementById('accLogout');
+    if(accLogout){ accLogout.addEventListener('click', function(){
+      try{ var s=JSON.parse(localStorage.getItem('lynk_proto_state')||'{}'); s.auth=false; localStorage.setItem('lynk_proto_state', JSON.stringify(s)); }catch(e){}
+      var w=(window.top!==window.self)?window.top:window; w.location.href='index.html';
+    }); }
   }
 
   /* ---------- filtres (démo visuelle) ---------- */
