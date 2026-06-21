@@ -1787,8 +1787,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     for(var g=0; g<groups.length && idx<d.length; g++){ out.push(d.substr(idx, groups[g])); idx+=groups[g]; }
     cardNum.value = out.join(' ');
     $('cardBrand').textContent = b;
-    var target = (b==='Amex') ? 15 : 16;
-    setErr(cardNum,'cardNumErr', d.length > target);
+    setErr(cardNum,'cardNumErr', d.length > 0 && !numOk());
     validate();
   });
   cardExp.addEventListener('input', function(){
