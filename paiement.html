@@ -1779,8 +1779,6 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     if(/^3[47]/.test(d)) return 'Amex';
     return '';
   }
-  function luhn(d){ var s=0, alt=false; for(var i=d.length-1;i>=0;i--){ var n=parseInt(d.charAt(i),10); if(alt){ n*=2; if(n>9)n-=9; } s+=n; alt=!alt; } return s%10===0; }
-
   cardNum.addEventListener('input', function(){
     var d = cardNum.value.replace(/\D/g,'').slice(0,19);
     var b = brandOf(d);
@@ -1789,46 +1787,47 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     for(var g=0; g<groups.length && idx<d.length; g++){ out.push(d.substr(idx, groups[g])); idx+=groups[g]; }
     cardNum.value = out.join(' ');
     $('cardBrand').textContent = b;
+    setErr(cardNum,'cardNumErr', false);
     validate();
   });
   cardExp.addEventListener('input', function(){
     var d = cardExp.value.replace(/\D/g,'').slice(0,4);
     if(d.length>=3) d = d.slice(0,2)+'/'+d.slice(2);
-    cardExp.value = d; validate();
+    cardExp.value = d; setErr(cardExp,'cardExpErr', false); validate();
   });
-  cardCvc.addEventListener('input', function(){ cardCvc.value = cardCvc.value.replace(/\D/g,'').slice(0,4); validate(); });
-  [cardName, payEmail].forEach(function(el){ el.addEventListener('input', validate); });
+  cardCvc.addEventListener('input', function(){ cardCvc.value = cardCvc.value.replace(/\D/g,'').slice(0,4); setErr(cardCvc,'cardCvcErr', false); validate(); });
+  cardName.addEventListener('input', validate);
+  payEmail.addEventListener('input', function(){ setErr(payEmail,'payEmailErr', false); validate(); });
   payCgu.addEventListener('change', validate);
 
   function setErr(input, errId, on){
     if(input) input.classList.toggle('is-err', on);
     var e=$(errId); if(e) e.classList.toggle('show', on);
   }
-  function cardValid(){
-    var d = cardNum.value.replace(/\D/g,'');
-    var b = brandOf(d);
-    var lenOk = (b==='Amex') ? d.length===15 : (d.length>=16 && d.length<=19);
-    var numOk = d.length>0 && lenOk && luhn(d);
-    setErr(cardNum,'cardNumErr', d.length>=12 && !numOk);
-    // expiration
-    var ex = cardExp.value, expOk=false;
+  function numOk(){
+    var d = cardNum.value.replace(/\D/g,''), b = brandOf(d);
+    return (b==='Amex') ? d.length===15 : (d.length>=16 && d.length<=19);
+  }
+  function expOk(){
+    var ex = cardExp.value;
+    if(!/^\d{2}\/\d{2}$/.test(ex)) return false;
     var mm = parseInt(ex.slice(0,2),10), yy = parseInt(ex.slice(3,5),10);
-    if(/^\d{2}\/\d{2}$/.test(ex) && mm>=1 && mm<=12){
-      var now=new Date(), curY=now.getFullYear()%100, curM=now.getMonth()+1;
-      expOk = (yy>curY) || (yy===curY && mm>=curM);
-    }
-    setErr(cardExp,'cardExpErr', ex.length===5 && !expOk);
-    // cvc
-    var cv = cardCvc.value, cvLen = (b==='Amex')?4:3, cvcOk = cv.length===cvLen;
-    setErr(cardCvc,'cardCvcErr', cv.length>=3 && !cvcOk);
-    var nameOk = cardName.value.trim().length>1;
-    return numOk && expOk && cvcOk && nameOk;
+    if(mm<1 || mm>12) return false;
+    var now=new Date(), curY=now.getFullYear()%100, curM=now.getMonth()+1;
+    return (yy>curY) || (yy===curY && mm>=curM);
   }
-  function emailValid(){
-    var ev = EMAIL_RE.test((payEmail.value||'').trim());
-    setErr(payEmail,'payEmailErr', payEmail.value.length>0 && !ev);
-    return ev;
+  function cvcOk(){
+    var b = brandOf(cardNum.value.replace(/\D/g,'')), need = (b==='Amex') ? 4 : 3;
+    return cardCvc.value.length===need;
   }
+  function nameOk(){ return cardName.value.trim().length>1; }
+  function cardValid(){ return numOk() && expOk() && cvcOk() && nameOk(); }
+  function emailValid(){ return EMAIL_RE.test((payEmail.value||'').trim()); }
+
+  cardNum.addEventListener('blur', function(){ setErr(cardNum,'cardNumErr', cardNum.value.replace(/\D/g,'').length>0 && !numOk()); });
+  cardExp.addEventListener('blur', function(){ setErr(cardExp,'cardExpErr', cardExp.value.length>0 && !expOk()); });
+  cardCvc.addEventListener('blur', function(){ setErr(cardCvc,'cardCvcErr', cardCvc.value.length>0 && !cvcOk()); });
+  payEmail.addEventListener('blur', function(){ setErr(payEmail,'payEmailErr', payEmail.value.length>0 && !emailValid()); });
   function validate(){
     var ok = emailValid() && payCgu.checked && (method==='paypal' ? true : cardValid());
     payBtn.disabled = !ok;
