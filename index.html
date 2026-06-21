@@ -1398,7 +1398,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Marqueurs personnels sur les cartes</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Alertes sur tes jeux favoris</li>
         </ul>
-        <div class="auth-guest"><a class="btn btn--outline btn--block" href="inscription.html">Choisir Essentiel</a></div>
+        <div class="auth-guest"><a class="btn btn--outline btn--block plan-cta" data-offre="essentiel" data-flow="inscription" href="inscription.html?offre=essentiel">Choisir Essentiel</a></div>
         <div class="auth-only"><span class="btn btn--current btn--block">Inclus dans Premium</span></div>
       </article>
 
@@ -1413,7 +1413,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Suivi automatique des succès &amp; trophées</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Statistiques détaillées par jeu</li>
         </ul>
-        <div class="auth-guest"><a class="btn btn--primary btn--block" href="inscription.html">Passer Premium</a></div>
+        <div class="auth-guest"><a class="btn btn--primary btn--block plan-cta" data-offre="premium" data-flow="inscription" href="inscription.html?offre=premium">Passer Premium</a></div>
         <div class="auth-only"><a class="btn btn--primary btn--block" href="premium.html">Gérer mon abonnement</a></div>
       </article>
 
@@ -1428,8 +1428,8 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Support prioritaire</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Vote pour influencer les prochains contenus</li>
         </ul>
-        <div class="auth-guest"><a class="btn btn--outline btn--block" href="inscription.html">Choisir Légende</a></div>
-        <div class="auth-only"><a class="btn btn--premium btn--block" href="premium.html">Passer à Légende</a></div>
+        <div class="auth-guest"><a class="btn btn--outline btn--block plan-cta" data-offre="legende" data-flow="inscription" href="inscription.html?offre=legende">Choisir Légende</a></div>
+        <div class="auth-only"><a class="btn btn--premium btn--block plan-cta" data-offre="legende" data-flow="paiement" href="paiement.html?offre=legende">Passer à Légende</a></div>
       </article>
     </div>
     <div class="pricing-more"><a class="btn btn--outline" href="premium.html">En savoir plus</a></div>
@@ -2159,12 +2159,24 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     newsInput.addEventListener('input', function(){ if(newsMsg){ newsMsg.classList.remove('ok','err'); } });
   }
 
+  /* ---------- liens d'offre : report du cycle choisi ---------- */
+  function updatePlanLinks(){
+    var cycle = document.body.classList.contains('is-annual') ? 'annuel' : 'mensuel';
+    document.querySelectorAll('.plan-cta').forEach(function(a){
+      var offre = a.getAttribute('data-offre'), flow = a.getAttribute('data-flow');
+      var base = (flow === 'paiement') ? 'paiement.html' : 'inscription.html';
+      a.setAttribute('href', base + '?offre=' + offre + '&cycle=' + cycle);
+    });
+  }
+  updatePlanLinks();
+
   /* ---------- bascule mensuel / annuel ---------- */
   document.querySelectorAll('.billtoggle__btn').forEach(function(btn){
     btn.addEventListener('click', function(){
       var annual = btn.getAttribute('data-bill') === 'year';
       document.body.classList.toggle('is-annual', annual);
       document.querySelectorAll('.billtoggle__btn').forEach(function(b){ b.classList.toggle('is-active', b === btn); });
+      updatePlanLinks();
     });
   });
 
