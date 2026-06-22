@@ -946,8 +946,9 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .chip{font-family:var(--sans); font-size:13px; font-weight:700; color:var(--ink-700); padding:8px 15px; border-radius:var(--r-pill); border:1.5px solid var(--line-2); background:#fff; cursor:pointer; transition:all .14s; display:inline-flex; align-items:center;}
 .chip:hover{border-color:var(--ink-400);}
 .chip.is-active{border-color:var(--magenta); color:var(--magenta); background:var(--magenta-pale);}
-.chip__x{width:0; height:14px; opacity:0; overflow:hidden; transition:opacity .12s, width .12s, margin .12s;}
-.chip.is-active .chip__x{opacity:1; width:14px; margin-left:7px;}
+.chip__x{display:none;}
+.chip__x svg{width:14px; height:14px; display:block;}
+.chip.is-active .chip__x{display:inline-flex; align-items:center; margin-left:7px;}
 
 .savebar{display:flex; align-items:center; justify-content:flex-end; gap:16px; margin-top:4px;}
 .savebar__msg{display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:700; color:#1e8a4c; opacity:0; transition:opacity .2s;}
@@ -1013,7 +1014,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .linkrow__btn:hover{background:var(--magenta); color:#fff;}
 .linkrow__btn.is-linked{border-color:var(--line-2); color:var(--ink-400); background:var(--surface-2); cursor:default;}
 
-.uploadzone{border:1.5px dashed var(--line-2); border-radius:var(--r); padding:22px 18px; text-align:center; cursor:pointer; transition:border-color .14s, background .14s; background:var(--surface-2);}
+.uploadzone{display:flex; flex-direction:column; align-items:center; text-align:center; border:1.5px dashed var(--line-2); border-radius:var(--r); padding:24px 18px; cursor:pointer; transition:border-color .14s, background .14s; background:var(--surface-2);}
 .uploadzone:hover{border-color:var(--magenta); background:var(--magenta-pale);}
 .uploadzone svg{width:26px; height:26px; color:var(--ink-400); margin-bottom:6px;}
 .uploadzone__t{display:block; font-size:13.5px; font-weight:700; color:var(--ink-700);}
@@ -1791,14 +1792,18 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
       if(peOk){ peOk.classList.add('show'); setTimeout(function(){ peOk.classList.remove('show'); }, 4500); }
     });
   }
-  // résiliation
-  var rsBtn=document.getElementById('resilBtn'), rsBox=document.getElementById('resilConfirm'),
-      rsYes=document.getElementById('resilYes'), rsNo=document.getElementById('resilNo'), rsDone=document.getElementById('resilDone');
-  if(rsBtn && rsBox){
-    rsBtn.addEventListener('click', function(){ rsBox.classList.add('show'); rsBtn.style.display='none'; if(rsDone) rsDone.classList.remove('show'); });
-    if(rsNo) rsNo.addEventListener('click', function(){ rsBox.classList.remove('show'); rsBtn.style.display=''; });
-    if(rsYes) rsYes.addEventListener('click', function(){ rsBox.classList.remove('show'); if(rsDone) rsDone.classList.add('show'); });
+  // confirmations (résiliation, désactivation, suppression)
+  function wireConfirm(btnId, boxId, yesId, noId, doneId){
+    var btn=document.getElementById(btnId), box=document.getElementById(boxId),
+        yes=document.getElementById(yesId), no=document.getElementById(noId), done=document.getElementById(doneId);
+    if(!btn || !box) return;
+    btn.addEventListener('click', function(){ box.classList.add('show'); btn.style.display='none'; if(done) done.classList.remove('show'); });
+    if(no) no.addEventListener('click', function(){ box.classList.remove('show'); btn.style.display=''; });
+    if(yes) yes.addEventListener('click', function(){ box.classList.remove('show'); if(done) done.classList.add('show'); });
   }
+  wireConfirm('resilBtn','resilConfirm','resilYes','resilNo','resilDone');
+  wireConfirm('deacBtn','deacConfirm','deacYes','deacNo','deacDone');
+  wireConfirm('delBtn','delConfirm','delYes','delNo','delDone');
   // mot de passe (page sécurité)
   var np=document.getElementById('rgNewPass');
   if(np){
