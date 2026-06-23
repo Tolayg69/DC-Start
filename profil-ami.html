@@ -885,7 +885,8 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 }
 
 .pf-wrap{max-width:920px; margin:0 auto;}
-.pf-head{display:flex; align-items:flex-start; gap:22px; background:#fff; border:1px solid var(--line); border-radius:var(--r-xl); box-shadow:var(--sh-sm); padding:28px; margin-bottom:22px; flex-wrap:wrap;}
+.pf-head{background:#fff; border:1px solid var(--line); border-radius:var(--r-xl); box-shadow:var(--sh-sm); padding:28px; margin-bottom:22px;}
+.pf-head__main{display:flex; align-items:flex-start; gap:22px; flex-wrap:wrap;}
 .pf-av{position:relative; width:88px; height:88px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center; color:#fff; font-family:var(--serif); font-weight:800; font-size:36px;}
 .pf-av--premium{box-shadow:0 0 0 3px var(--or), 0 0 0 6px var(--or-pale);}
 .pf-av__on{position:absolute; bottom:5px; right:5px; width:16px; height:16px; border-radius:50%; background:#2bbf5e; border:3px solid #fff;}
@@ -903,6 +904,11 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .pf-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; align-items:center;}
 .pf-friend{display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:700; color:#1e8a4c; background:#e6f4ea; padding:8px 14px; border-radius:var(--r-pill);}
 .pf-friend svg{width:14px; height:14px;}
+.pf-perso{display:flex; flex-wrap:wrap; margin-top:22px; padding-top:20px; border-top:1px solid var(--line);}
+.pf-perso__i{margin-right:44px; margin-bottom:10px;}
+.pf-perso__i:last-child{margin-right:0;}
+.pf-perso__i span{display:block; font-size:12px; color:var(--ink-400); margin-bottom:2px;}
+.pf-perso__i b{font-size:14.5px; color:var(--noir); font-weight:700;}
 
 .pf-card{background:#fff; border:1px solid var(--line); border-radius:var(--r-xl); box-shadow:var(--sh-sm); padding:22px 24px; margin-bottom:20px;}
 .pf-card__h{font-family:var(--serif); font-weight:800; font-size:17px; margin:0 0 15px;}
@@ -911,7 +917,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .pf-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
 .pf-stat{background:var(--surface-2); border:1px solid var(--line); border-radius:var(--r-lg); padding:16px 14px; text-align:center;}
 .pf-stat svg{width:20px; height:20px; color:var(--magenta); margin-bottom:6px;}
-.pf-stat__n{font-family:var(--serif); font-weight:800; font-size:23px; color:var(--noir);}
+.pf-stat__n{font-family:var(--serif); font-weight:800; font-size:22px; color:var(--noir);}
 .pf-stat__l{font-size:12px; color:var(--ink-500); margin-top:2px;}
 
 .pf-badges{display:flex; flex-wrap:wrap; gap:9px;}
@@ -931,26 +937,27 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .pf-ev:first-child{border-top:none;}
 .pf-ev__ico{width:36px; height:36px; border-radius:9px; flex:none; display:flex; align-items:center; justify-content:center; background:var(--magenta-pale); color:var(--magenta);}
 .pf-ev__ico svg{width:18px; height:18px;}
-.pf-ev__t{font-size:14px; font-weight:600; line-height:1.4;}
+.pf-ev__t{font-size:14px; font-weight:600; line-height:1.4; color:var(--noir);}
 .pf-ev__t b{font-weight:800;}
 .pf-ev__d{font-size:12px; color:var(--ink-400); margin-top:2px;}
 
-.pf-mutual{display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
-.pf-mav{width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-family:var(--serif); font-weight:800; font-size:15px;}
-.pf-mutual__txt{font-size:13.5px; color:var(--ink-600); font-weight:600;}
+.pf-mfriends{display:flex; flex-wrap:wrap; gap:10px;}
+.pf-mf{display:inline-flex; align-items:center; gap:9px; padding:6px 14px 6px 6px; border:1px solid var(--line); border-radius:var(--r-pill); background:var(--surface-2); font-size:13.5px; font-weight:700; color:var(--ink-700); text-decoration:none; transition:border-color .14s, color .14s;}
+.pf-mf:hover{border-color:var(--magenta); color:var(--magenta);}
+.pf-mav{width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-family:var(--serif); font-weight:800; font-size:12px; flex:none;}
 
 .pf-plat{display:flex; gap:10px; flex-wrap:wrap;}
-.pf-pchip{display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border:1px solid var(--line); border-radius:var(--r-pill); font-size:13px; font-weight:700; background:var(--surface-2);}
+.pf-pchip{display:inline-flex; align-items:center; gap:8px; padding:8px 15px; border:1px solid var(--line); border-radius:var(--r-pill); font-size:13px; font-weight:700; background:var(--surface-2); color:var(--ink-700); text-decoration:none; transition:border-color .14s, color .14s;}
+.pf-pchip:hover{border-color:var(--magenta); color:var(--magenta);}
 .pf-pchip__d{width:22px; height:22px; border-radius:6px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; font-family:var(--serif); font-weight:800;}
 
-.pf-locked{display:flex; flex-direction:column; align-items:center; text-align:center; gap:9px; padding:28px 20px; background:var(--surface-2); border:1.5px dashed var(--line-2); border-radius:var(--r-lg);}
-.pf-locked svg{width:28px; height:28px; color:var(--ink-400);}
-.pf-locked__t{font-weight:700; font-size:14px; color:var(--ink-700);}
-.pf-locked__m{font-size:13px; color:var(--ink-500); max-width:380px; line-height:1.5;}
-.pf-notice{display:flex; align-items:flex-start; gap:12px; background:var(--cyan-pale); border:1px solid var(--cyan); border-radius:var(--r-lg); padding:16px 18px; margin-bottom:22px;}
-.pf-notice svg{width:20px; height:20px; color:var(--cyan-ink); flex:none; margin-top:1px;}
+.pf-locked{display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; padding:26px 20px; background:var(--surface-2); border:1.5px dashed var(--line-2); border-radius:var(--r-lg);}
+.pf-locked svg{width:26px; height:26px; color:var(--ink-400);}
+.pf-locked__m{font-size:13.5px; color:var(--ink-500); max-width:380px; line-height:1.5;}
+.pf-notice{display:flex; align-items:flex-start; gap:12px; background:var(--magenta-pale); border:1px solid var(--magenta); border-radius:var(--r-lg); padding:16px 18px; margin-bottom:22px;}
+.pf-notice svg{width:20px; height:20px; color:var(--magenta); flex:none; margin-top:1px;}
 .pf-notice__t{font-size:13.5px; line-height:1.55; color:var(--ink-700);}
-.pf-notice__t b{color:var(--cyan-ink);}
+.pf-notice__t b{color:var(--magenta-ink);}
 
 @media (max-width:680px){
   .pf-head{padding:22px;}
@@ -1080,29 +1087,37 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   <div class="wrap">
   <div class="pf-wrap">
     <div class="pf-head">
-      <div class="pf-av pf-av--premium" style="background:#1b2838;">S<span class="pf-av__on"></span></div>
-      <div class="pf-id">
-        <div class="pf-name">Sylvaroth <span class="pf-prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg> Premium</span></div>
-        <div class="pf-status">En ligne, <b>joue à Elden Ring</b></div>
-        <div class="pf-meta">
-          <div class="pf-meta__i"><b>Niveau 31</b><span>18 200 points</span></div>
-          <div class="pf-meta__i"><b>47</b><span>jeux suivis</span></div>
-          <div class="pf-meta__i"><b>1 540</b><span>trophées</span></div>
+      <div class="pf-head__main">
+        <div class="pf-av pf-av--premium" style="background:#1b2838;">S<span class="pf-av__on"></span></div>
+        <div class="pf-id">
+          <div class="pf-name">Sylvaroth <span class="pf-prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg> Premium</span></div>
+          <div class="pf-status">En ligne, <b>joue à Elden Ring</b></div>
+          <div class="pf-meta">
+            <div class="pf-meta__i"><b>18 200</b><span>points</span></div>
+            <div class="pf-meta__i"><b>47</b><span>jeux suivis</span></div>
+            <div class="pf-meta__i"><b>1 540</b><span>trophées</span></div>
+          </div>
+          <div class="pf-actions">
+            <span class="pf-friend"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Ami</span>
+            <button class="btn btn--outline btn--sm" type="button" data-pf="remove">Retirer l'ami</button>
+            <button class="btn btn--outline btn--sm" type="button" data-pf="block">Bloquer</button>
+          </div>
         </div>
-        <div class="pf-actions">
-          <span class="pf-friend"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Ami</span>
-          <button class="btn btn--outline btn--sm" type="button" data-pf="remove">Retirer l'ami</button>
-          <button class="btn btn--outline btn--sm" type="button" data-pf="block">Bloquer</button>
-        </div>
+      </div>
+      <div class="pf-perso">
+        <div class="pf-perso__i"><span>Nom</span><b>Marc Lefèvre</b></div>
+        <div class="pf-perso__i"><span>Âge</span><b>28 ans</b></div>
+        <div class="pf-perso__i"><span>Localisation</span><b>Lyon, France</b></div>
+        <div class="pf-perso__i"><span>Membre depuis</span><b>Mars 2023</b></div>
       </div>
     </div>
     <section class="pf-card"><h2 class="pf-card__h">À propos</h2><p class="pf-bio">Vétéran des Souls-like et explorateur compulsif de mondes ouverts. Toujours partant pour un coop ou pour cartographier le moindre recoin. Si tu cherches un secret, demande-moi.</p></section>
-    <section class="pf-card"><h2 class="pf-card__h">Statistiques</h2><div class="pf-stats"><div class="pf-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg><div class="pf-stat__n">47</div><div class="pf-stat__l">Jeux suivis</div></div><div class="pf-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M19 17H6"/></svg><div class="pf-stat__n">128</div><div class="pf-stat__l">Guides complétés</div></div><div class="pf-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg><div class="pf-stat__n">1 540</div><div class="pf-stat__l">Trophées</div></div><div class="pf-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg><div class="pf-stat__n">23</div><div class="pf-stat__l">Cartes explorées</div></div><div class="pf-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg><div class="pf-stat__n">Niveau 31</div><div class="pf-stat__l">Progression</div></div><div class="pf-stat"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg><div class="pf-stat__n">2 300 h</div><div class="pf-stat__l">Temps de jeu</div></div></div></section>
     <section class="pf-card"><h2 class="pf-card__h">Badges</h2><div class="pf-badges"><span class="pbadge pbadge--premium"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg>Cercle d'Or</span><span class="pbadge">Vétéran</span><span class="pbadge">Cartographe</span><span class="pbadge">100 % Dark Souls III</span><span class="pbadge">Mentor</span></div></section>
-    <section class="pf-card"><h2 class="pf-card__h">Jeux mis en avant</h2><div class="pf-games"><div class="pf-game"><span class="pf-game__ico" style="background:#f5a623;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span><div><div class="pf-game__t">Elden Ring</div><div class="pf-game__m">98 % complété, 3 200 trophées</div></div></div><div class="pf-game"><span class="pf-game__ico" style="background:#6b1f1f;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span><div><div class="pf-game__t">Bloodborne</div><div class="pf-game__m">100 % complété</div></div></div><div class="pf-game"><span class="pf-game__ico" style="background:#1b2838;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span><div><div class="pf-game__t">Dark Souls III</div><div class="pf-game__m">100 % complété, platiné</div></div></div></div></section>
-    <section class="pf-card"><h2 class="pf-card__h">Activité récente</h2><div class="pf-feed"><div class="pf-ev"><span class="pf-ev__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span><div><div class="pf-ev__t">A débloqué le trophée <b>Seigneur sans Étoile</b> sur Elden Ring</div><div class="pf-ev__d">Il y a 2 heures</div></div></div><div class="pf-ev"><span class="pf-ev__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M19 17H6"/></svg></span><div><div class="pf-ev__t">A terminé le guide <b>Boss optionnels du DLC</b></div><div class="pf-ev__d">Hier</div></div></div><div class="pf-ev"><span class="pf-ev__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span><div><div class="pf-ev__t">A atteint le <b>niveau 31</b></div><div class="pf-ev__d">Il y a 2 jours</div></div></div><div class="pf-ev"><span class="pf-ev__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg></span><div><div class="pf-ev__t">A complété la carte <b>Terres Ombragées</b> à 100 %</div><div class="pf-ev__d">Il y a 4 jours</div></div></div></div></section>
-    <section class="pf-card"><h2 class="pf-card__h">Amis en commun</h2><div class="pf-mutual"><span class="pf-mav" style="background:#a200bc;">M</span><span class="pf-mav" style="background:#06b6d4;">D</span><span class="pf-mav" style="background:#1e8a4c;">P</span><span class="pf-mutual__txt">et 5 autres amis en commun</span></div></section>
-    <section class="pf-card"><h2 class="pf-card__h">Plateformes</h2><div class="pf-plat"><span class="pf-pchip"><span class="pf-pchip__d" style="background:#1b2838;">S</span>Steam</span><span class="pf-pchip"><span class="pf-pchip__d" style="background:#003791;">P</span>PlayStation Network</span></div></section>
+    <section class="pf-card"><h2 class="pf-card__h">Statistiques</h2><div class="pf-stats"><div class="pf-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6 4.6.4-3.5 3 1.1 4.5L12 13.6 7.9 15.5 9 11 5.5 8l4.6-.4z"/></svg><div class="pf-stat__n">18 200</div><div class="pf-stat__l">Points</div></div><div class="pf-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg><div class="pf-stat__n">47</div><div class="pf-stat__l">Jeux suivis</div></div><div class="pf-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M19 17H6"/></svg><div class="pf-stat__n">128</div><div class="pf-stat__l">Guides complétés</div></div><div class="pf-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg><div class="pf-stat__n">1 540</div><div class="pf-stat__l">Trophées</div></div><div class="pf-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg><div class="pf-stat__n">23</div><div class="pf-stat__l">Cartes explorées</div></div><div class="pf-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div class="pf-stat__n">2 300 h</div><div class="pf-stat__l">Temps de jeu</div></div></div></section>
+    <section class="pf-card"><h2 class="pf-card__h">Jeux mis en avant</h2><div class="pf-games"><div class="pf-game"><span class="pf-game__ico" style="background:#f5a623;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span><div><div class="pf-game__t">Elden Ring</div><div class="pf-game__m">98 % complété</div></div></div><div class="pf-game"><span class="pf-game__ico" style="background:#6b1f1f;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span><div><div class="pf-game__t">Bloodborne</div><div class="pf-game__m">100 % complété</div></div></div><div class="pf-game"><span class="pf-game__ico" style="background:#1b2838;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span><div><div class="pf-game__t">Dark Souls III</div><div class="pf-game__m">100 % complété, platiné</div></div></div></div></section>
+    <section class="pf-card"><h2 class="pf-card__h">Activité récente</h2><div class="pf-feed"><div class="pf-ev"><span class="pf-ev__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span><div><div class="pf-ev__t">A débloqué le trophée <b>Seigneur sans Étoile</b> sur Elden Ring</div><div class="pf-ev__d">Il y a 2 heures</div></div></div><div class="pf-ev"><span class="pf-ev__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M19 17H6"/></svg></span><div><div class="pf-ev__t">A terminé le guide <b>Boss optionnels du DLC</b></div><div class="pf-ev__d">Hier</div></div></div><div class="pf-ev"><span class="pf-ev__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span><div><div class="pf-ev__t">A ajouté <b>Bloodborne</b> à ses jeux suivis</div><div class="pf-ev__d">Il y a 3 jours</div></div></div><div class="pf-ev"><span class="pf-ev__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg></span><div><div class="pf-ev__t">A complété la carte <b>Terres Ombragées</b> à 100 %</div><div class="pf-ev__d">Il y a 4 jours</div></div></div></div></section>
+    <section class="pf-card"><h2 class="pf-card__h">Amis en commun</h2><div class="pf-mfriends"><a class="pf-mf" href="profil-ami.html"><span class="pf-mav" style="background:#d13639;">M</span>MeiLune</a><a class="pf-mf" href="profil-ami.html"><span class="pf-mav" style="background:#107c10;">D</span>Drak0n</a><a class="pf-mf" href="profil-ami.html"><span class="pf-mav" style="background:#f5a623;">P</span>PixelSara</a><a class="pf-mf" href="profil-ami.html"><span class="pf-mav" style="background:#a200bc;">K</span>Kaelra</a><a class="pf-mf" href="profil-ami.html"><span class="pf-mav" style="background:#06b6d4;">N</span>NoxPlay</a><a class="pf-mf" href="profil-ami.html"><span class="pf-mav" style="background:#1e8a4c;">R</span>RngJesus</a><a class="pf-mf" href="profil-ami.html"><span class="pf-mav" style="background:#5C1268;">Z</span>ZeldaFan94</a><a class="pf-mf" href="profil-ami.html"><span class="pf-mav" style="background:#1b2838;">L</span>LunaRift</a></div></section>
+    <section class="pf-card"><h2 class="pf-card__h">Plateformes</h2><div class="pf-plat"><a class="pf-pchip" href="#" onclick="return false;"><span class="pf-pchip__d" style="background:#1b2838;">S</span>Steam</a><a class="pf-pchip" href="#" onclick="return false;"><span class="pf-pchip__d" style="background:#003791;">P</span>PlayStation Network</a></div></section>
   </div>
   </div>
 </main>
@@ -1564,9 +1579,20 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   Array.prototype.forEach.call(document.querySelectorAll('[data-pf]'), function(b){
     b.addEventListener('click', function(){
       var a=b.getAttribute('data-pf');
-      if(a==='add'){ b.textContent='Demande envoyée'; b.disabled=true; b.classList.remove('btn--primary'); b.classList.add('btn--outline'); b.style.opacity='.65'; }
-      else if(a==='remove'){ b.textContent='Ami retiré'; b.disabled=true; b.style.opacity='.65'; var f=document.querySelector('.pf-friend'); if(f) f.style.display='none'; }
-      else if(a==='block'){ b.textContent='Bloqué'; b.disabled=true; b.style.opacity='.65'; }
+      if(a==='add'){
+        if(b.getAttribute('data-sent')==='1'){
+          b.setAttribute('data-sent','0'); b.textContent='Ajouter en ami';
+          b.classList.add('btn--primary'); b.classList.remove('btn--outline');
+        } else {
+          b.setAttribute('data-sent','1'); b.textContent='Annuler la demande';
+          b.classList.remove('btn--primary'); b.classList.add('btn--outline');
+        }
+      } else if(a==='remove'){
+        b.textContent='Ami retiré'; b.disabled=true; b.style.opacity='.65';
+        var f=document.querySelector('.pf-friend'); if(f) f.style.display='none';
+      } else if(a==='block'){
+        b.textContent='Bloqué'; b.disabled=true; b.style.opacity='.65';
+      }
     });
   });
 })();
