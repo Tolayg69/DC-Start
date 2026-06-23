@@ -958,6 +958,9 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .pf-notice svg{width:20px; height:20px; color:var(--magenta); flex:none; margin-top:1px;}
 .pf-notice__t{font-size:13.5px; line-height:1.55; color:var(--ink-700);}
 .pf-notice__t b{color:var(--magenta-ink);}
+.pf-notice--block{background:var(--surface-3); border-color:var(--line-2);}
+.pf-notice--block svg{color:var(--ink-500);}
+.pf-notice--block .pf-notice__t b{color:var(--ink-700);}
 
 @media (max-width:680px){
   .pf-head{padding:22px;}
@@ -1099,7 +1102,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
           </div>
           <div class="pf-actions">
             <span class="pf-friend"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Ami</span>
-            <button class="btn btn--outline btn--sm" type="button" data-pf="remove">Retirer l'ami</button>
+            <button class="btn btn--outline btn--sm js-friendbtn" type="button" data-pf="remove">Retirer l'ami</button>
             <button class="btn btn--outline btn--sm" type="button" data-pf="block">Bloquer</button>
           </div>
         </div>
@@ -1591,8 +1594,15 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
         b.textContent='Ajouter en ami'; b.classList.add('btn--primary'); b.classList.remove('btn--outline');
         var f=document.querySelector('.pf-friend'); if(f) f.style.display='none';
       } else if(a==='block'){
-        if(b.getAttribute('data-blocked')==='1'){ b.setAttribute('data-blocked','0'); b.textContent='Bloquer'; }
-        else { b.setAttribute('data-blocked','1'); b.textContent='Débloquer'; }
+        var fb=document.querySelector('.js-friendbtn');
+        if(b.getAttribute('data-blocked')==='1'){
+          b.setAttribute('data-blocked','0'); b.textContent='Bloquer';
+          if(fb){ fb.disabled=false; fb.style.opacity=''; }
+        } else {
+          b.setAttribute('data-blocked','1'); b.textContent='Débloquer';
+          var f=document.querySelector('.pf-friend'); if(f) f.style.display='none';
+          if(fb){ fb.setAttribute('data-pf','add'); fb.setAttribute('data-sent','0'); fb.textContent='Ajouter en ami'; fb.classList.add('btn--primary'); fb.classList.remove('btn--outline'); fb.disabled=true; fb.style.opacity='.5'; }
+        }
       }
     });
   });
