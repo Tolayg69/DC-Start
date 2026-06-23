@@ -948,7 +948,16 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .chip.is-active{border-color:var(--magenta); color:var(--magenta); background:var(--magenta-pale);}
 .chip__x{display:none;}
 .chip__x svg{width:14px; height:14px; display:block;}
-.chip.is-active .chip__x{display:inline-flex; align-items:center; margin-left:7px;}
+".chip.is-active .chip__x{display:inline-flex; align-items:center; margin-left:7px;}
+.chip--premium{border:1.5px solid var(--or); color:var(--or-ink); background:linear-gradient(135deg, var(--or-pale), var(--or)); font-weight:800;}
+.chip--premium:hover{filter:brightness(1.04);}
+.chip--premium.is-active{box-shadow:0 0 0 2px var(--or-ink);}
+.chip.is-limit{opacity:.4; cursor:not-allowed;}
+.chip__star{display:inline-flex; width:13px; height:13px; margin-right:6px;}
+.chip__star svg{width:13px; height:13px; display:block; color:var(--or-ink);}
+.chip--premium .chip__x svg{color:var(--or-ink);}
+.pbadge-head{display:flex; align-items:center; gap:6px; font-size:12.5px; font-weight:800; color:var(--or-ink); margin:16px 0 9px;}
+.pbadge-head svg{width:14px; height:14px; color:var(--or);}
 
 .savebar{display:flex; align-items:center; justify-content:flex-end; gap:16px; margin-top:4px;}
 .savebar__msg{display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:700; color:#1e8a4c; opacity:0; transition:opacity .2s;}
@@ -1039,6 +1048,9 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .pbtn--primary:hover{background:var(--magenta-ink); border-color:var(--magenta-ink);}
 .pbtn--danger{border-color:#e8a9a3; color:#c0392b;}
 .pbtn--danger:hover{background:#c0392b; color:#fff; border-color:#c0392b;}
+.prow__lk{text-decoration:none; color:inherit; display:inline-flex;}
+.prow__lk:hover .prow__n{color:var(--magenta);}
+.prow__lk:hover .prow__av{filter:brightness(.9);}
 
 .editform{margin-top:18px; padding-top:18px; border-top:1px solid var(--line); display:none;}
 .editform.show{display:block;}
@@ -1050,6 +1062,31 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .okbox.show{display:flex;}
 .okbox svg{width:16px; height:16px; flex:none;}
 
+.pts-hero{background:linear-gradient(135deg, var(--magenta-ink), var(--magenta)); border-radius:var(--r-xl); padding:26px; color:#fff; margin-bottom:20px; box-shadow:var(--sh-sm);}
+.pts-hero__top{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+.pts-hero__lbl{font-size:13px; opacity:.85; font-weight:700; margin-bottom:7px;}
+.pts-num{font-family:var(--serif); font-weight:800; font-size:38px; line-height:1; display:flex; align-items:baseline; gap:8px;}
+.pts-num small{font-size:16px; font-weight:700; opacity:.85;}
+.pts-lvl{display:inline-flex; align-items:center; gap:7px; background:rgba(255,255,255,.18); padding:8px 14px; border-radius:var(--r-pill); font-weight:800; font-size:14px;}
+.pts-lvl svg{width:15px; height:15px; color:var(--or);}
+.pts-bar{height:9px; border-radius:5px; background:rgba(255,255,255,.22); margin-top:20px; overflow:hidden;}
+.pts-bar__fill{height:100%; border-radius:5px; background:var(--or);}
+.pts-prog{display:flex; justify-content:space-between; font-size:12.5px; margin-top:9px; opacity:.92;}
+.earn{display:flex; align-items:center; gap:13px; padding:13px 0; border-top:1px solid var(--line);}
+.earn:first-child{border-top:none;}
+.earn__ico{width:38px; height:38px; border-radius:10px; background:var(--magenta-pale); color:var(--magenta); display:flex; align-items:center; justify-content:center; flex:none;}
+.earn__ico svg{width:19px; height:19px;}
+.earn__b{flex:1; min-width:0;}
+.earn__t{font-weight:700; font-size:14px;}
+.earn__m{font-size:12.5px; color:var(--ink-400); margin-top:2px;}
+.earn__pts{flex:none; font-weight:800; font-size:13.5px; color:var(--or-ink); background:var(--or-pale); padding:5px 11px; border-radius:var(--r-pill); white-space:nowrap;}
+.ptx{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0; border-top:1px solid var(--line);}
+.ptx:first-child{border-top:none;}
+.ptx__t{font-weight:700; font-size:14px;}
+.ptx__d{font-size:12px; color:var(--ink-400); margin-top:2px;}
+.ptx__v{font-weight:800; font-size:14px; white-space:nowrap;}
+.ptx__v.plus{color:#1e8a4c;}
+.ptx__v.minus{color:#c0392b;}
 @media (max-width:880px){
   .settings{grid-template-columns:1fr; gap:16px;}
   .snav{position:static;}
@@ -1205,11 +1242,12 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     <aside class="snav">
     <div class="snav__head">
       <span class="snav__avatar">É</span>
-      <span class="snav__id"><span class="snav__name">Élyo</span><span class="snav__meta"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg> Premium</span></span>
+      <span class="snav__id"><span class="snav__name">Élyo</span><span class="snav__meta"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg> Premium · 11 540 points</span></span>
     </div>
     <nav class="snav__list">
       <a class="snav__link" href="reglages-profil.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5.5 21a7 7 0 0 1 13 0"/></svg> Profil</a>
       <a class="snav__link is-active" href="reglages-amis.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg> Amis</a>
+      <a class="snav__link" href="reglages-points.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6 4.6.4-3.5 3 1.1 4.5L12 13.6 7.9 15.5 9 11 5.5 8l4.6-.4z"/><path d="M18.5 15l.6 1.6 1.6.6-1.6.6-.6 1.6-.6-1.6-1.6-.6 1.6-.6z"/></svg> Mes points</a>
       <a class="snav__link" href="reglages-compte.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M5.5 17a3.5 3.5 0 0 1 7 0M15 9h4M15 13h3"/></svg> Compte</a>
       <a class="snav__link" href="reglages-securite.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg> Sécurité</a>
       <a class="snav__link" href="reglages-notifications.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Notifications</a>
@@ -1225,19 +1263,19 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
       <div class="settings__head"><h1>Amis</h1><p>Gère tes amis, tes demandes et les joueurs croisés dans les différents forums.</p></div>
       <section class="scard">
       <h2 class="scard__h">Demandes reçues</h2><p class="scard__sub">Des joueurs souhaitent t'ajouter en ami.</p>
-      <div class="scard__body"><div class="prow"><span class="prow__av" style="background:#a200bc;">K</span><div class="prow__b"><div class="prow__n">Kaelra</div><div class="prow__m">3 amis en commun</div></div><div class="prow__a"><button class="pbtn pbtn--primary" type="button" data-act="accept">Accepter</button><button class="pbtn" type="button" data-act="remove">Refuser</button></div></div><div class="prow"><span class="prow__av" style="background:#06b6d4;">N</span><div class="prow__b"><div class="prow__n">NoxPlay</div><div class="prow__m">Croisé sur le forum Cyberpunk 2077</div></div><div class="prow__a"><button class="pbtn pbtn--primary" type="button" data-act="accept">Accepter</button><button class="pbtn" type="button" data-act="remove">Refuser</button></div></div></div>
+      <div class="scard__body"><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de Kaelra"><span class="prow__av" style="background:#a200bc;">K</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">Kaelra</div></a><div class="prow__m">3 amis en commun</div></div><div class="prow__a"><button class="pbtn pbtn--primary" type="button" data-act="accept">Accepter</button><button class="pbtn" type="button" data-act="remove">Refuser</button></div></div><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de NoxPlay"><span class="prow__av" style="background:#06b6d4;">N</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">NoxPlay</div></a><div class="prow__m">Croisé sur le forum Cyberpunk 2077</div></div><div class="prow__a"><button class="pbtn pbtn--primary" type="button" data-act="accept">Accepter</button><button class="pbtn" type="button" data-act="remove">Refuser</button></div></div></div>
     </section><section class="scard">
       <h2 class="scard__h">Demandes en attente</h2><p class="scard__sub">Tes demandes envoyées, en attente d'une réponse.</p>
-      <div class="scard__body"><div class="prow"><span class="prow__av" style="background:#1b2838;">V</span><div class="prow__b"><div class="prow__n">Vorthak</div><div class="prow__m">Demande envoyée il y a 2 jours</div></div><div class="prow__a"><button class="pbtn" type="button" data-act="remove">Annuler</button></div></div><div class="prow"><span class="prow__av" style="background:#5C1268;">L</span><div class="prow__b"><div class="prow__n">LunaRift</div><div class="prow__m">Demande envoyée hier</div></div><div class="prow__a"><button class="pbtn" type="button" data-act="remove">Annuler</button></div></div></div>
+      <div class="scard__body"><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de Vorthak"><span class="prow__av" style="background:#1b2838;">V</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">Vorthak</div></a><div class="prow__m">Demande envoyée il y a 2 jours</div></div><div class="prow__a"><button class="pbtn" type="button" data-act="remove">Annuler</button></div></div><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de LunaRift"><span class="prow__av" style="background:#5C1268;">L</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">LunaRift</div></a><div class="prow__m">Demande envoyée hier</div></div><div class="prow__a"><button class="pbtn" type="button" data-act="remove">Annuler</button></div></div></div>
     </section><section class="scard">
       <h2 class="scard__h">Mes amis</h2><p class="scard__sub">Tu as 4 amis sur Lynk.</p>
-      <div class="scard__body"><div class="prow"><span class="prow__av" style="background:#1b2838;">S<span class="prow__on"></span></span><div class="prow__b"><div class="prow__n">Sylvaroth</div><div class="prow__m">En ligne, joue à Elden Ring</div></div><div class="prow__a"><button class="pbtn pbtn--danger" type="button" data-act="remove">Retirer</button></div></div><div class="prow"><span class="prow__av" style="background:#d13639;">M</span><div class="prow__b"><div class="prow__n">MeiLune</div><div class="prow__m">Hors ligne, vu il y a 2 heures</div></div><div class="prow__a"><button class="pbtn pbtn--danger" type="button" data-act="remove">Retirer</button></div></div><div class="prow"><span class="prow__av" style="background:#107c10;">D<span class="prow__on"></span></span><div class="prow__b"><div class="prow__n">Drak0n</div><div class="prow__m">En ligne</div></div><div class="prow__a"><button class="pbtn pbtn--danger" type="button" data-act="remove">Retirer</button></div></div><div class="prow"><span class="prow__av" style="background:#f5a623;">P</span><div class="prow__b"><div class="prow__n">PixelSara</div><div class="prow__m">Hors ligne, vu hier</div></div><div class="prow__a"><button class="pbtn pbtn--danger" type="button" data-act="remove">Retirer</button></div></div></div>
+      <div class="scard__body"><div class="prow"><a class="prow__lk" href="profil-ami.html" aria-label="Voir le profil de Sylvaroth"><span class="prow__av" style="background:#1b2838;">S<span class="prow__on"></span></span></a><div class="prow__b"><a class="prow__lk" href="profil-ami.html"><div class="prow__n">Sylvaroth</div></a><div class="prow__m">En ligne, joue à Elden Ring</div></div><div class="prow__a"><button class="pbtn pbtn--danger" type="button" data-act="remove">Retirer</button></div></div><div class="prow"><a class="prow__lk" href="profil-ami.html" aria-label="Voir le profil de MeiLune"><span class="prow__av" style="background:#d13639;">M</span></a><div class="prow__b"><a class="prow__lk" href="profil-ami.html"><div class="prow__n">MeiLune</div></a><div class="prow__m">Hors ligne, vu il y a 2 heures</div></div><div class="prow__a"><button class="pbtn pbtn--danger" type="button" data-act="remove">Retirer</button></div></div><div class="prow"><a class="prow__lk" href="profil-ami.html" aria-label="Voir le profil de Drak0n"><span class="prow__av" style="background:#107c10;">D<span class="prow__on"></span></span></a><div class="prow__b"><a class="prow__lk" href="profil-ami.html"><div class="prow__n">Drak0n</div></a><div class="prow__m">En ligne</div></div><div class="prow__a"><button class="pbtn pbtn--danger" type="button" data-act="remove">Retirer</button></div></div><div class="prow"><a class="prow__lk" href="profil-ami.html" aria-label="Voir le profil de PixelSara"><span class="prow__av" style="background:#f5a623;">P</span></a><div class="prow__b"><a class="prow__lk" href="profil-ami.html"><div class="prow__n">PixelSara</div></a><div class="prow__m">Hors ligne, vu hier</div></div><div class="prow__a"><button class="pbtn pbtn--danger" type="button" data-act="remove">Retirer</button></div></div></div>
     </section><section class="scard">
       <h2 class="scard__h">Suggestions</h2><p class="scard__sub">Des joueurs croisés dans les forums et communautés que tu fréquentes.</p>
-      <div class="scard__body"><div class="prow"><span class="prow__av" style="background:#5C1268;">G</span><div class="prow__b"><div class="prow__n">GwynBearer</div><div class="prow__m">Croisé dans le forum Elden Ring</div></div><div class="prow__a"><button class="pbtn pbtn--primary" type="button" data-act="sent">Ajouter</button></div></div><div class="prow"><span class="prow__av" style="background:#1e8a4c;">Z</span><div class="prow__b"><div class="prow__n">ZeldaFan94</div><div class="prow__m">Croisé dans le forum Zelda : TOTK</div></div><div class="prow__a"><button class="pbtn pbtn--primary" type="button" data-act="sent">Ajouter</button></div></div><div class="prow"><span class="prow__av" style="background:#f5a623;">R</span><div class="prow__b"><div class="prow__n">RngJesus</div><div class="prow__m">Actif dans la communauté Diablo IV</div></div><div class="prow__a"><button class="pbtn pbtn--primary" type="button" data-act="sent">Ajouter</button></div></div></div>
+      <div class="scard__body"><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de GwynBearer"><span class="prow__av" style="background:#5C1268;">G</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">GwynBearer</div></a><div class="prow__m">Croisé dans le forum Elden Ring</div></div><div class="prow__a"><button class="pbtn pbtn--primary" type="button" data-act="sent">Ajouter</button></div></div><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de ZeldaFan94"><span class="prow__av" style="background:#1e8a4c;">Z</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">ZeldaFan94</div></a><div class="prow__m">Croisé dans le forum Zelda : TOTK</div></div><div class="prow__a"><button class="pbtn pbtn--primary" type="button" data-act="sent">Ajouter</button></div></div><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de RngJesus"><span class="prow__av" style="background:#f5a623;">R</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">RngJesus</div></a><div class="prow__m">Actif dans la communauté Diablo IV</div></div><div class="prow__a"><button class="pbtn pbtn--primary" type="button" data-act="sent">Ajouter</button></div></div></div>
     </section><section class="scard">
       <h2 class="scard__h">Comptes bloqués</h2><p class="scard__sub">Ces personnes ne peuvent pas te contacter ni voir ton activité.</p>
-      <div class="scard__body"><div class="prow"><span class="prow__av" style="background:#6b7280;">T</span><div class="prow__b"><div class="prow__n">Troll_Andy</div><div class="prow__m">Bloqué le 2 mai 2026</div></div><div class="prow__a"><button class="pbtn" type="button" data-act="remove">Débloquer</button></div></div></div>
+      <div class="scard__body"><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de Troll_Andy"><span class="prow__av" style="background:#6b7280;">T</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">Troll_Andy</div></a><div class="prow__m">Bloqué le 2 mai 2026</div></div><div class="prow__a"><button class="pbtn" type="button" data-act="remove">Débloquer</button></div></div></div>
     </section>
     </div>
   </div>
@@ -1714,9 +1752,26 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
       });
     });
   });
-  // chips
+  // chips (avec limite de sélection par groupe)
+  function chipCount(grp){ return document.querySelectorAll('.chips[data-group="'+grp+'"] .chip.is-active').length; }
+  function chipRefresh(grp, max){
+    var full = chipCount(grp) >= max;
+    Array.prototype.forEach.call(document.querySelectorAll('.chips[data-group="'+grp+'"] .chip'), function(c){
+      c.classList.toggle('is-limit', full && !c.classList.contains('is-active'));
+    });
+  }
   Array.prototype.forEach.call(document.querySelectorAll('.chip'), function(c){
-    c.addEventListener('click', function(){ c.classList.toggle('is-active'); });
+    c.addEventListener('click', function(){
+      var box=c.closest('.chips'), grp=box&&box.getAttribute('data-group'), max=box?parseInt(box.getAttribute('data-max'),10):0;
+      if(grp && max && !c.classList.contains('is-active') && chipCount(grp)>=max) return;
+      c.classList.toggle('is-active');
+      if(grp && max) chipRefresh(grp, max);
+    });
+  });
+  var seenGrp={};
+  Array.prototype.forEach.call(document.querySelectorAll('.chips[data-group][data-max]'), function(box){
+    var g=box.getAttribute('data-group'), m=parseInt(box.getAttribute('data-max'),10);
+    if(!seenGrp[g]){ seenGrp[g]=1; chipRefresh(g, m); }
   });
   // âge calculé (page compte)
   var bI=document.getElementById('rgBirth'), aI=document.getElementById('rgAge');
