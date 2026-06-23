@@ -951,11 +951,12 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 ".chip.is-active .chip__x{display:inline-flex; align-items:center; margin-left:7px;}
 .chip--premium{border:1.5px solid var(--or); color:var(--or-ink); background:linear-gradient(135deg, var(--or-pale), var(--or)); font-weight:800;}
 .chip--premium:hover{filter:brightness(1.04);}
-.chip--premium.is-active{box-shadow:0 0 0 2px var(--or-ink);}
+.chip--premium.is-active{color:var(--or); background:var(--or-pale); box-shadow:0 0 0 2px var(--or);}
+.chip--premium.is-active .chip__star svg{color:var(--or);}
 .chip.is-limit{opacity:.4; cursor:not-allowed;}
 .chip__star{display:inline-flex; width:13px; height:13px; margin-right:6px;}
 .chip__star svg{width:13px; height:13px; display:block; color:var(--or-ink);}
-.chip--premium .chip__x svg{color:var(--or-ink);}
+.chip--premium .chip__x svg{color:var(--or);}
 .pbadge-head{display:flex; align-items:center; gap:6px; font-size:12.5px; font-weight:800; color:var(--or-ink); margin:16px 0 9px;}
 .pbadge-head svg{width:14px; height:14px; color:var(--or);}
 
@@ -1050,7 +1051,10 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .pbtn--danger:hover{background:#c0392b; color:#fff; border-color:#c0392b;}
 .prow__lk{text-decoration:none; color:inherit; display:inline-flex;}
 .prow__lk:hover .prow__n{color:var(--magenta);}
-.prow__lk:hover .prow__av{filter:brightness(.9);}
+".prow__lk:hover .prow__av{filter:brightness(.9);}
+.list-empty{display:none; padding:16px 4px; font-size:13.5px; color:var(--ink-400); text-align:center;}
+.scard[data-list].is-empty .list-rows{display:none;}
+.scard[data-list].is-empty .list-empty{display:block;}
 
 .editform{margin-top:18px; padding-top:18px; border-top:1px solid var(--line); display:none;}
 .editform.show{display:block;}
@@ -1067,19 +1071,20 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .pts-hero__lbl{font-size:13px; opacity:.85; font-weight:700; margin-bottom:7px;}
 .pts-num{font-family:var(--serif); font-weight:800; font-size:38px; line-height:1; display:flex; align-items:baseline; gap:8px;}
 .pts-num small{font-size:16px; font-weight:700; opacity:.85;}
+.pts-hero__sub{font-size:13.5px; opacity:.9; margin-top:10px;}
 .pts-lvl{display:inline-flex; align-items:center; gap:7px; background:rgba(255,255,255,.18); padding:8px 14px; border-radius:var(--r-pill); font-weight:800; font-size:14px;}
 .pts-lvl svg{width:15px; height:15px; color:var(--or);}
 .pts-bar{height:9px; border-radius:5px; background:rgba(255,255,255,.22); margin-top:20px; overflow:hidden;}
 .pts-bar__fill{height:100%; border-radius:5px; background:var(--or);}
 .pts-prog{display:flex; justify-content:space-between; font-size:12.5px; margin-top:9px; opacity:.92;}
-.earn{display:flex; align-items:center; gap:13px; padding:13px 0; border-top:1px solid var(--line);}
-.earn:first-child{border-top:none;}
-.earn__ico{width:38px; height:38px; border-radius:10px; background:var(--magenta-pale); color:var(--magenta); display:flex; align-items:center; justify-content:center; flex:none;}
-.earn__ico svg{width:19px; height:19px;}
-.earn__b{flex:1; min-width:0;}
-.earn__t{font-weight:700; font-size:14px;}
-.earn__m{font-size:12.5px; color:var(--ink-400); margin-top:2px;}
-.earn__pts{flex:none; font-weight:800; font-size:13.5px; color:var(--or-ink); background:var(--or-pale); padding:5px 11px; border-radius:var(--r-pill); white-space:nowrap;}
+.pte{display:flex; align-items:center; gap:13px; padding:14px 0; border-top:1px solid var(--line);}
+.pte:first-child{border-top:none;}
+.pte__ico{width:40px; height:40px; border-radius:11px; background:var(--magenta-pale); color:var(--magenta); display:flex; align-items:center; justify-content:center; flex:none;}
+.pte__ico svg{width:20px; height:20px;}
+.pte__b{flex:1; min-width:0;}
+.pte__t{font-weight:700; font-size:14.5px; color:var(--noir);}
+.pte__m{font-size:12.5px; color:var(--ink-500); margin-top:2px; line-height:1.4;}
+.pte__pts{flex:none; font-weight:800; font-size:13.5px; color:var(--or-ink); background:var(--or-pale); padding:6px 12px; border-radius:var(--r-pill); white-space:nowrap;}
 .ptx{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0; border-top:1px solid var(--line);}
 .ptx:first-child{border-top:none;}
 .ptx__t{font-weight:700; font-size:14px;}
@@ -1090,7 +1095,6 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 @media (max-width:880px){
   .settings{grid-template-columns:1fr; gap:16px;}
   .snav{position:static;}
-  .snav__head{display:none;}
   .snav__list{flex-direction:row; flex-wrap:wrap; gap:8px;}
   .snav__link{white-space:nowrap; width:auto; padding:9px 14px; background:var(--surface-2); border:1px solid var(--line-2);}
   .snav__link svg{display:none;}
@@ -1261,16 +1265,13 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   </aside>
     <div class="settings__main">
       <div class="settings__head"><h1>Mes points</h1><p>Suis ton solde, gagne des points et débloque des récompenses.</p></div>
-      <div class="pts-hero"><div class="pts-hero__top"><div><div class="pts-hero__lbl">Mon solde de points</div><div class="pts-num">11 540 <small>points</small></div></div><span class="pts-lvl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg> Niveau 24</span></div><div class="pts-bar"><div class="pts-bar__fill" style="width:79%;"></div></div><div class="pts-prog"><span>Niveau 24</span><span>Plus que 460 points avant le niveau 25</span></div></div><section class="scard">
+      <div class="pts-hero"><div class="pts-hero__lbl">Mon solde de points</div><div class="pts-num">11 540 <small>points</small></div><div class="pts-hero__sub">Gagne des points en jouant et échange-les contre des récompenses.</div></div><section class="scard">
       <h2 class="scard__h">Échanger mes points</h2><p class="scard__sub">Utilise tes points pour débloquer des récompenses, des avantages et du contenu exclusif.</p>
-      <div class="scard__body"><div class="btnrow"><a class="btn btn--primary" href="recompenses.html">Voir les récompenses</a><a class="btn btn--outline" href="recompenses.html">Historique des échanges</a></div></div>
+      <div class="scard__body"><div class="btnrow"><a class="btn btn--primary" href="recompenses.html">Voir les récompenses</a><a class="btn btn--outline" href="#historique">Voir mon historique</a></div></div>
     </section><section class="scard">
-      <h2 class="scard__h">Comment gagner des points</h2><p class="scard__sub">Chaque action sur Lynk te rapproche du niveau suivant.</p>
-      <div class="scard__body"><div class="earn"><span class="earn__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div class="earn__b"><div class="earn__t">Terminer un guide ou une checklist</div><div class="earn__m">Pour chaque guide complété sur un jeu suivi.</div></div><span class="earn__pts">+50</span></div><div class="earn"><span class="earn__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg></span><div class="earn__b"><div class="earn__t">Débloquer un trophée</div><div class="earn__m">Quand tu valides un trophée ou un succès.</div></div><span class="earn__pts">+30</span></div><div class="earn"><span class="earn__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div class="earn__b"><div class="earn__t">Aider la communauté</div><div class="earn__m">Réponse utile ou contribution validée sur un forum.</div></div><span class="earn__pts">+40</span></div><div class="earn"><span class="earn__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span><div class="earn__b"><div class="earn__t">Compléter un jeu à 100 %</div><div class="earn__m">La progression totale d'un jeu suivi.</div></div><span class="earn__pts">+500</span></div><div class="earn"><span class="earn__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span><div class="earn__b"><div class="earn__t">Série de connexion</div><div class="earn__m">Reviens chaque jour pour entretenir ta série.</div></div><span class="earn__pts">+20/jour</span></div></div>
-    </section><section class="scard">
-      <h2 class="scard__h">Historique récent</h2>
-      <div class="scard__body"><div class="ptx"><div><div class="ptx__t">Guide complété : Boss de Stormveil</div><div class="ptx__d">Aujourd'hui, 14:32</div></div><span class="ptx__v plus">+50</span></div><div class="ptx"><div><div class="ptx__t">Série de connexion (7 jours)</div><div class="ptx__d">Hier</div></div><span class="ptx__v plus">+100</span></div><div class="ptx"><div><div class="ptx__t">Récompense échangée : avatar animé</div><div class="ptx__d">Il y a 3 jours</div></div><span class="ptx__v minus">-800</span></div><div class="ptx"><div><div class="ptx__t">Trophée débloqué : Maître des arcanes</div><div class="ptx__d">Il y a 5 jours</div></div><span class="ptx__v plus">+30</span></div><div class="ptx"><div><div class="ptx__t">Jeu complété à 100 % : Hollow Knight</div><div class="ptx__d">Il y a 1 semaine</div></div><span class="ptx__v plus">+500</span></div></div>
-    </section>
+      <h2 class="scard__h">Comment gagner des points</h2>
+      <div class="scard__body"><div class="pte"><span class="pte__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div class="pte__b"><div class="pte__t">Terminer un guide ou une checklist</div><div class="pte__m">Pour chaque guide complété sur un jeu suivi.</div></div><span class="pte__pts">+50</span></div><div class="pte"><span class="pte__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg></span><div class="pte__b"><div class="pte__t">Débloquer un trophée</div><div class="pte__m">Quand tu valides un trophée ou un succès.</div></div><span class="pte__pts">+10</span></div><div class="pte"><span class="pte__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div class="pte__b"><div class="pte__t">Aider la communauté</div><div class="pte__m">Réponse utile ou contribution validée sur un forum.</div></div><span class="pte__pts">+40</span></div><div class="pte"><span class="pte__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span><div class="pte__b"><div class="pte__t">Compléter un jeu à 100 %</div><div class="pte__m">La progression totale d'un jeu suivi.</div></div><span class="pte__pts">+150</span></div><div class="pte"><span class="pte__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span><div class="pte__b"><div class="pte__t">Série de connexion</div><div class="pte__m">Reviens chaque jour pour entretenir ta série.</div></div><span class="pte__pts">+5/jour</span></div></div>
+    </section><section class="scard" id="historique"><h2 class="scard__h">Historique</h2><div class="scard__body"><div class="ptx"><div><div class="ptx__t">Guide complété : Boss de Stormveil</div><div class="ptx__d">Aujourd'hui, 14:32</div></div><span class="ptx__v plus">+50</span></div><div class="ptx"><div><div class="ptx__t">Série de connexion (7 jours)</div><div class="ptx__d">Hier</div></div><span class="ptx__v plus">+35</span></div><div class="ptx"><div><div class="ptx__t">Récompense échangée : avatar animé</div><div class="ptx__d">Il y a 3 jours</div></div><span class="ptx__v minus">-800</span></div><div class="ptx"><div><div class="ptx__t">Trophée débloqué : Maître des arcanes</div><div class="ptx__d">Il y a 5 jours</div></div><span class="ptx__v plus">+10</span></div><div class="ptx"><div><div class="ptx__t">Jeu complété à 100 % : Hollow Knight</div><div class="ptx__d">Il y a 1 semaine</div></div><span class="ptx__v plus">+150</span></div></div></section>
     </div>
   </div>
   </div>
@@ -1785,15 +1786,24 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
       if(big) big.style.boxShadow = '0 0 0 3px '+ (o.style.getPropertyValue('--bc')||'transparent');
     });
   });
-  // amis : actions
+  // amis : actions + états vides + compteur dynamique
+  function refreshList(card){
+    if(!card) return;
+    var rows = card.querySelectorAll('.list-rows .prow').length;
+    card.classList.toggle('is-empty', rows===0);
+    if(card.getAttribute('data-list')==='amis'){
+      var cnt=card.querySelector('.amis-count'); if(cnt) cnt.textContent=rows;
+      var sub=card.querySelector('.scard__sub'); if(sub) sub.style.display = (rows===0?'none':'');
+    }
+  }
   Array.prototype.forEach.call(document.querySelectorAll('[data-act]'), function(b){
     b.addEventListener('click', function(){
-      var act=b.getAttribute('data-act'), row=b.closest('.prow');
-      if(act==='remove'){ if(row) row.parentNode.removeChild(row); }
+      var act=b.getAttribute('data-act'), row=b.closest('.prow'), card=b.closest('[data-list]');
+      if(act==='remove' || act==='accept'){ if(row) row.parentNode.removeChild(row); refreshList(card); }
       else if(act==='sent'){ b.textContent='Demande envoyée'; b.disabled=true; b.classList.remove('pbtn--primary'); b.style.opacity='.6'; b.style.cursor='default'; }
-      else if(act==='accept'){ var a=b.closest('.prow__a'); if(a) a.innerHTML='<span style="font-size:13px; font-weight:700; color:#1e8a4c;">Demande acceptée</span>'; }
     });
   });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-list]'), function(card){ refreshList(card); });
   // avatar picker
   Array.prototype.forEach.call(document.querySelectorAll('.avopt'), function(o){
     o.addEventListener('click', function(){
