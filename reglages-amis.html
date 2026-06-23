@@ -951,11 +951,12 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 ".chip.is-active .chip__x{display:inline-flex; align-items:center; margin-left:7px;}
 .chip--premium{border:1.5px solid var(--or); color:var(--or-ink); background:linear-gradient(135deg, var(--or-pale), var(--or)); font-weight:800;}
 .chip--premium:hover{filter:brightness(1.04);}
-.chip--premium.is-active{box-shadow:0 0 0 2px var(--or-ink);}
+.chip--premium.is-active{color:var(--or); background:var(--or-pale); box-shadow:0 0 0 2px var(--or);}
+.chip--premium.is-active .chip__star svg{color:var(--or);}
 .chip.is-limit{opacity:.4; cursor:not-allowed;}
 .chip__star{display:inline-flex; width:13px; height:13px; margin-right:6px;}
 .chip__star svg{width:13px; height:13px; display:block; color:var(--or-ink);}
-.chip--premium .chip__x svg{color:var(--or-ink);}
+.chip--premium .chip__x svg{color:var(--or);}
 .pbadge-head{display:flex; align-items:center; gap:6px; font-size:12.5px; font-weight:800; color:var(--or-ink); margin:16px 0 9px;}
 .pbadge-head svg{width:14px; height:14px; color:var(--or);}
 
@@ -1050,7 +1051,10 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .pbtn--danger:hover{background:#c0392b; color:#fff; border-color:#c0392b;}
 .prow__lk{text-decoration:none; color:inherit; display:inline-flex;}
 .prow__lk:hover .prow__n{color:var(--magenta);}
-.prow__lk:hover .prow__av{filter:brightness(.9);}
+".prow__lk:hover .prow__av{filter:brightness(.9);}
+.list-empty{display:none; padding:16px 4px; font-size:13.5px; color:var(--ink-400); text-align:center;}
+.scard[data-list].is-empty .list-rows{display:none;}
+.scard[data-list].is-empty .list-empty{display:block;}
 
 .editform{margin-top:18px; padding-top:18px; border-top:1px solid var(--line); display:none;}
 .editform.show{display:block;}
@@ -1067,19 +1071,20 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .pts-hero__lbl{font-size:13px; opacity:.85; font-weight:700; margin-bottom:7px;}
 .pts-num{font-family:var(--serif); font-weight:800; font-size:38px; line-height:1; display:flex; align-items:baseline; gap:8px;}
 .pts-num small{font-size:16px; font-weight:700; opacity:.85;}
+.pts-hero__sub{font-size:13.5px; opacity:.9; margin-top:10px;}
 .pts-lvl{display:inline-flex; align-items:center; gap:7px; background:rgba(255,255,255,.18); padding:8px 14px; border-radius:var(--r-pill); font-weight:800; font-size:14px;}
 .pts-lvl svg{width:15px; height:15px; color:var(--or);}
 .pts-bar{height:9px; border-radius:5px; background:rgba(255,255,255,.22); margin-top:20px; overflow:hidden;}
 .pts-bar__fill{height:100%; border-radius:5px; background:var(--or);}
 .pts-prog{display:flex; justify-content:space-between; font-size:12.5px; margin-top:9px; opacity:.92;}
-.earn{display:flex; align-items:center; gap:13px; padding:13px 0; border-top:1px solid var(--line);}
-.earn:first-child{border-top:none;}
-.earn__ico{width:38px; height:38px; border-radius:10px; background:var(--magenta-pale); color:var(--magenta); display:flex; align-items:center; justify-content:center; flex:none;}
-.earn__ico svg{width:19px; height:19px;}
-.earn__b{flex:1; min-width:0;}
-.earn__t{font-weight:700; font-size:14px;}
-.earn__m{font-size:12.5px; color:var(--ink-400); margin-top:2px;}
-.earn__pts{flex:none; font-weight:800; font-size:13.5px; color:var(--or-ink); background:var(--or-pale); padding:5px 11px; border-radius:var(--r-pill); white-space:nowrap;}
+.pte{display:flex; align-items:center; gap:13px; padding:14px 0; border-top:1px solid var(--line);}
+.pte:first-child{border-top:none;}
+.pte__ico{width:40px; height:40px; border-radius:11px; background:var(--magenta-pale); color:var(--magenta); display:flex; align-items:center; justify-content:center; flex:none;}
+.pte__ico svg{width:20px; height:20px;}
+.pte__b{flex:1; min-width:0;}
+.pte__t{font-weight:700; font-size:14.5px; color:var(--noir);}
+.pte__m{font-size:12.5px; color:var(--ink-500); margin-top:2px; line-height:1.4;}
+.pte__pts{flex:none; font-weight:800; font-size:13.5px; color:var(--or-ink); background:var(--or-pale); padding:6px 12px; border-radius:var(--r-pill); white-space:nowrap;}
 .ptx{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0; border-top:1px solid var(--line);}
 .ptx:first-child{border-top:none;}
 .ptx__t{font-weight:700; font-size:14px;}
@@ -1090,7 +1095,6 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 @media (max-width:880px){
   .settings{grid-template-columns:1fr; gap:16px;}
   .snav{position:static;}
-  .snav__head{display:none;}
   .snav__list{flex-direction:row; flex-wrap:wrap; gap:8px;}
   .snav__link{white-space:nowrap; width:auto; padding:9px 14px; background:var(--surface-2); border:1px solid var(--line-2);}
   .snav__link svg{display:none;}
@@ -1261,22 +1265,10 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   </aside>
     <div class="settings__main">
       <div class="settings__head"><h1>Amis</h1><p>Gère tes amis, tes demandes et les joueurs croisés dans les différents forums.</p></div>
-      <section class="scard">
-      <h2 class="scard__h">Demandes reçues</h2><p class="scard__sub">Des joueurs souhaitent t'ajouter en ami.</p>
-      <div class="scard__body"><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de Kaelra"><span class="prow__av" style="background:#a200bc;">K</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">Kaelra</div></a><div class="prow__m">3 amis en commun</div></div><div class="prow__a"><button class="pbtn pbtn--primary" type="button" data-act="accept">Accepter</button><button class="pbtn" type="button" data-act="remove">Refuser</button></div></div><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de NoxPlay"><span class="prow__av" style="background:#06b6d4;">N</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">NoxPlay</div></a><div class="prow__m">Croisé sur le forum Cyberpunk 2077</div></div><div class="prow__a"><button class="pbtn pbtn--primary" type="button" data-act="accept">Accepter</button><button class="pbtn" type="button" data-act="remove">Refuser</button></div></div></div>
-    </section><section class="scard">
-      <h2 class="scard__h">Demandes en attente</h2><p class="scard__sub">Tes demandes envoyées, en attente d'une réponse.</p>
-      <div class="scard__body"><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de Vorthak"><span class="prow__av" style="background:#1b2838;">V</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">Vorthak</div></a><div class="prow__m">Demande envoyée il y a 2 jours</div></div><div class="prow__a"><button class="pbtn" type="button" data-act="remove">Annuler</button></div></div><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de LunaRift"><span class="prow__av" style="background:#5C1268;">L</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">LunaRift</div></a><div class="prow__m">Demande envoyée hier</div></div><div class="prow__a"><button class="pbtn" type="button" data-act="remove">Annuler</button></div></div></div>
-    </section><section class="scard">
-      <h2 class="scard__h">Mes amis</h2><p class="scard__sub">Tu as 4 amis sur Lynk.</p>
-      <div class="scard__body"><div class="prow"><a class="prow__lk" href="profil-ami.html" aria-label="Voir le profil de Sylvaroth"><span class="prow__av" style="background:#1b2838;">S<span class="prow__on"></span></span></a><div class="prow__b"><a class="prow__lk" href="profil-ami.html"><div class="prow__n">Sylvaroth</div></a><div class="prow__m">En ligne, joue à Elden Ring</div></div><div class="prow__a"><button class="pbtn pbtn--danger" type="button" data-act="remove">Retirer</button></div></div><div class="prow"><a class="prow__lk" href="profil-ami.html" aria-label="Voir le profil de MeiLune"><span class="prow__av" style="background:#d13639;">M</span></a><div class="prow__b"><a class="prow__lk" href="profil-ami.html"><div class="prow__n">MeiLune</div></a><div class="prow__m">Hors ligne, vu il y a 2 heures</div></div><div class="prow__a"><button class="pbtn pbtn--danger" type="button" data-act="remove">Retirer</button></div></div><div class="prow"><a class="prow__lk" href="profil-ami.html" aria-label="Voir le profil de Drak0n"><span class="prow__av" style="background:#107c10;">D<span class="prow__on"></span></span></a><div class="prow__b"><a class="prow__lk" href="profil-ami.html"><div class="prow__n">Drak0n</div></a><div class="prow__m">En ligne</div></div><div class="prow__a"><button class="pbtn pbtn--danger" type="button" data-act="remove">Retirer</button></div></div><div class="prow"><a class="prow__lk" href="profil-ami.html" aria-label="Voir le profil de PixelSara"><span class="prow__av" style="background:#f5a623;">P</span></a><div class="prow__b"><a class="prow__lk" href="profil-ami.html"><div class="prow__n">PixelSara</div></a><div class="prow__m">Hors ligne, vu hier</div></div><div class="prow__a"><button class="pbtn pbtn--danger" type="button" data-act="remove">Retirer</button></div></div></div>
-    </section><section class="scard">
+      <section class="scard" data-list="recues"><h2 class="scard__h">Demandes reçues</h2><p class="scard__sub">Des joueurs souhaitent t'ajouter en ami.</p><div class="scard__body"><div class="list-rows"><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de Kaelra"><span class="prow__av" style="background:#a200bc;">K</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">Kaelra</div></a><div class="prow__m">3 amis en commun</div></div><div class="prow__a"><button class="pbtn pbtn--primary" type="button" data-act="accept">Accepter</button><button class="pbtn" type="button" data-act="remove">Refuser</button></div></div><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de NoxPlay"><span class="prow__av" style="background:#06b6d4;">N</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">NoxPlay</div></a><div class="prow__m">Croisé sur le forum Cyberpunk 2077</div></div><div class="prow__a"><button class="pbtn pbtn--primary" type="button" data-act="accept">Accepter</button><button class="pbtn" type="button" data-act="remove">Refuser</button></div></div></div><div class="list-empty">Aucune demande reçue pour le moment.</div></div></section><section class="scard" data-list="attente"><h2 class="scard__h">Demandes en attente</h2><p class="scard__sub">Tes demandes envoyées, en attente d'une réponse.</p><div class="scard__body"><div class="list-rows"><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de Vorthak"><span class="prow__av" style="background:#1b2838;">V</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">Vorthak</div></a><div class="prow__m">Demande envoyée il y a 2 jours</div></div><div class="prow__a"><button class="pbtn" type="button" data-act="remove">Annuler</button></div></div><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de LunaRift"><span class="prow__av" style="background:#5C1268;">L</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">LunaRift</div></a><div class="prow__m">Demande envoyée hier</div></div><div class="prow__a"><button class="pbtn" type="button" data-act="remove">Annuler</button></div></div></div><div class="list-empty">Aucune demande en attente.</div></div></section><section class="scard" data-list="amis"><h2 class="scard__h">Mes amis</h2><p class="scard__sub">Tu as <span class="amis-count">4</span> amis sur Lynk.</p><div class="scard__body"><div class="list-rows"><div class="prow"><a class="prow__lk" href="profil-ami.html" aria-label="Voir le profil de Sylvaroth"><span class="prow__av" style="background:#1b2838;">S<span class="prow__on"></span></span></a><div class="prow__b"><a class="prow__lk" href="profil-ami.html"><div class="prow__n">Sylvaroth</div></a><div class="prow__m">En ligne, joue à Elden Ring</div></div><div class="prow__a"><button class="pbtn pbtn--danger" type="button" data-act="remove">Retirer</button></div></div><div class="prow"><a class="prow__lk" href="profil-ami.html" aria-label="Voir le profil de MeiLune"><span class="prow__av" style="background:#d13639;">M</span></a><div class="prow__b"><a class="prow__lk" href="profil-ami.html"><div class="prow__n">MeiLune</div></a><div class="prow__m">Hors ligne, vu il y a 2 heures</div></div><div class="prow__a"><button class="pbtn pbtn--danger" type="button" data-act="remove">Retirer</button></div></div><div class="prow"><a class="prow__lk" href="profil-ami.html" aria-label="Voir le profil de Drak0n"><span class="prow__av" style="background:#107c10;">D<span class="prow__on"></span></span></a><div class="prow__b"><a class="prow__lk" href="profil-ami.html"><div class="prow__n">Drak0n</div></a><div class="prow__m">En ligne</div></div><div class="prow__a"><button class="pbtn pbtn--danger" type="button" data-act="remove">Retirer</button></div></div><div class="prow"><a class="prow__lk" href="profil-ami.html" aria-label="Voir le profil de PixelSara"><span class="prow__av" style="background:#f5a623;">P</span></a><div class="prow__b"><a class="prow__lk" href="profil-ami.html"><div class="prow__n">PixelSara</div></a><div class="prow__m">Hors ligne, vu hier</div></div><div class="prow__a"><button class="pbtn pbtn--danger" type="button" data-act="remove">Retirer</button></div></div></div><div class="list-empty">Tu n'as aucun ami pour le moment. Ajoute des joueurs pour les retrouver ici.</div></div></section><section class="scard">
       <h2 class="scard__h">Suggestions</h2><p class="scard__sub">Des joueurs croisés dans les forums et communautés que tu fréquentes.</p>
       <div class="scard__body"><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de GwynBearer"><span class="prow__av" style="background:#5C1268;">G</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">GwynBearer</div></a><div class="prow__m">Croisé dans le forum Elden Ring</div></div><div class="prow__a"><button class="pbtn pbtn--primary" type="button" data-act="sent">Ajouter</button></div></div><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de ZeldaFan94"><span class="prow__av" style="background:#1e8a4c;">Z</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">ZeldaFan94</div></a><div class="prow__m">Croisé dans le forum Zelda : TOTK</div></div><div class="prow__a"><button class="pbtn pbtn--primary" type="button" data-act="sent">Ajouter</button></div></div><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de RngJesus"><span class="prow__av" style="background:#f5a623;">R</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">RngJesus</div></a><div class="prow__m">Actif dans la communauté Diablo IV</div></div><div class="prow__a"><button class="pbtn pbtn--primary" type="button" data-act="sent">Ajouter</button></div></div></div>
-    </section><section class="scard">
-      <h2 class="scard__h">Comptes bloqués</h2><p class="scard__sub">Ces personnes ne peuvent pas te contacter ni voir ton activité.</p>
-      <div class="scard__body"><div class="prow"><a class="prow__lk" href="profil-non-ami.html" aria-label="Voir le profil de Troll_Andy"><span class="prow__av" style="background:#6b7280;">T</span></a><div class="prow__b"><a class="prow__lk" href="profil-non-ami.html"><div class="prow__n">Troll_Andy</div></a><div class="prow__m">Bloqué le 2 mai 2026</div></div><div class="prow__a"><button class="pbtn" type="button" data-act="remove">Débloquer</button></div></div></div>
-    </section>
+    </section><section class="scard" data-list="bloques"><h2 class="scard__h">Comptes bloqués</h2><p class="scard__sub">Ces personnes ne peuvent pas te contacter ni voir ton activité.</p><div class="scard__body"><div class="list-rows"><div class="prow"><span class="prow__av" style="background:#6b7280;">T</span><div class="prow__b"><div class="prow__n">Troll_Andy</div><div class="prow__m">Bloqué le 2 mai 2026</div></div><div class="prow__a"><button class="pbtn" type="button" data-act="remove">Débloquer</button></div></div></div><div class="list-empty">Aucun compte bloqué.</div></div></section>
     </div>
   </div>
   </div>
@@ -1791,15 +1783,24 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
       if(big) big.style.boxShadow = '0 0 0 3px '+ (o.style.getPropertyValue('--bc')||'transparent');
     });
   });
-  // amis : actions
+  // amis : actions + états vides + compteur dynamique
+  function refreshList(card){
+    if(!card) return;
+    var rows = card.querySelectorAll('.list-rows .prow').length;
+    card.classList.toggle('is-empty', rows===0);
+    if(card.getAttribute('data-list')==='amis'){
+      var cnt=card.querySelector('.amis-count'); if(cnt) cnt.textContent=rows;
+      var sub=card.querySelector('.scard__sub'); if(sub) sub.style.display = (rows===0?'none':'');
+    }
+  }
   Array.prototype.forEach.call(document.querySelectorAll('[data-act]'), function(b){
     b.addEventListener('click', function(){
-      var act=b.getAttribute('data-act'), row=b.closest('.prow');
-      if(act==='remove'){ if(row) row.parentNode.removeChild(row); }
+      var act=b.getAttribute('data-act'), row=b.closest('.prow'), card=b.closest('[data-list]');
+      if(act==='remove' || act==='accept'){ if(row) row.parentNode.removeChild(row); refreshList(card); }
       else if(act==='sent'){ b.textContent='Demande envoyée'; b.disabled=true; b.classList.remove('pbtn--primary'); b.style.opacity='.6'; b.style.cursor='default'; }
-      else if(act==='accept'){ var a=b.closest('.prow__a'); if(a) a.innerHTML='<span style="font-size:13px; font-weight:700; color:#1e8a4c;">Demande acceptée</span>'; }
     });
   });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-list]'), function(card){ refreshList(card); });
   // avatar picker
   Array.prototype.forEach.call(document.querySelectorAll('.avopt'), function(o){
     o.addEventListener('click', function(){
