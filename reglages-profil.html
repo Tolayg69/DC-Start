@@ -1052,9 +1052,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .prow__lk{text-decoration:none; color:inherit; display:inline-flex;}
 .prow__lk:hover .prow__n{color:var(--magenta);}
 ".prow__lk:hover .prow__av{filter:brightness(.9);}
-.list-empty{display:none; padding:16px 4px; font-size:13.5px; color:var(--ink-400); text-align:center;}
-.scard[data-list].is-empty .list-rows{display:none;}
-.scard[data-list].is-empty .list-empty{display:block;}
+.list-empty{padding:16px 4px; font-size:13.5px; color:var(--ink-400); text-align:center;}
 
 .editform{margin-top:18px; padding-top:18px; border-top:1px solid var(--line); display:none;}
 .editform.show{display:block;}
@@ -1789,18 +1787,23 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   // amis : actions + états vides + compteur dynamique
   function refreshList(card){
     if(!card) return;
-    var rows = card.querySelectorAll('.list-rows .prow').length;
-    card.classList.toggle('is-empty', rows===0);
+    var rowsBox=card.querySelector('.list-rows'), empty=card.querySelector('.list-empty');
+    var rows = rowsBox ? rowsBox.querySelectorAll('.prow').length : 0;
+    if(rowsBox) rowsBox.style.display = (rows===0 ? 'none' : '');
+    if(empty) empty.style.display = (rows===0 ? 'block' : 'none');
     if(card.getAttribute('data-list')==='amis'){
       var cnt=card.querySelector('.amis-count'); if(cnt) cnt.textContent=rows;
-      var sub=card.querySelector('.scard__sub'); if(sub) sub.style.display = (rows===0?'none':'');
+      var sub=card.querySelector('.scard__sub'); if(sub) sub.style.display=(rows===0?'none':'');
     }
   }
   Array.prototype.forEach.call(document.querySelectorAll('[data-act]'), function(b){
     b.addEventListener('click', function(){
       var act=b.getAttribute('data-act'), row=b.closest('.prow'), card=b.closest('[data-list]');
       if(act==='remove' || act==='accept'){ if(row) row.parentNode.removeChild(row); refreshList(card); }
-      else if(act==='sent'){ b.textContent='Demande envoyée'; b.disabled=true; b.classList.remove('pbtn--primary'); b.style.opacity='.6'; b.style.cursor='default'; }
+      else if(act==='sent'){
+        if(b.getAttribute('data-sent')==='1'){ b.setAttribute('data-sent','0'); b.textContent='Ajouter'; b.classList.add('pbtn--primary'); }
+        else { b.setAttribute('data-sent','1'); b.textContent='Annuler la demande'; b.classList.remove('pbtn--primary'); }
+      }
     });
   });
   Array.prototype.forEach.call(document.querySelectorAll('[data-list]'), function(card){ refreshList(card); });
