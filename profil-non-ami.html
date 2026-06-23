@@ -1091,7 +1091,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
         <div class="pf-av" style="background:#5C1268;">G</div>
         <div class="pf-id">
           <div class="pf-name">GwynBearer</div>
-          <div class="pf-status">Membre depuis mars 2024</div>
+          <div class="pf-status">Membre depuis mars 2024 · Croisé dans le forum Elden Ring</div>
           <div class="pf-actions">
             <button class="btn btn--primary btn--sm" type="button" data-pf="add">Ajouter en ami</button>
             <button class="btn btn--outline btn--sm" type="button" data-pf="block">Bloquer</button>
@@ -1577,10 +1577,12 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
           b.classList.remove('btn--primary'); b.classList.add('btn--outline');
         }
       } else if(a==='remove'){
-        b.textContent='Ami retiré'; b.disabled=true; b.style.opacity='.65';
+        b.setAttribute('data-pf','add'); b.setAttribute('data-sent','0');
+        b.textContent='Ajouter en ami'; b.classList.add('btn--primary'); b.classList.remove('btn--outline');
         var f=document.querySelector('.pf-friend'); if(f) f.style.display='none';
       } else if(a==='block'){
-        b.textContent='Bloqué'; b.disabled=true; b.style.opacity='.65';
+        if(b.getAttribute('data-blocked')==='1'){ b.setAttribute('data-blocked','0'); b.textContent='Bloquer'; }
+        else { b.setAttribute('data-blocked','1'); b.textContent='Débloquer'; }
       }
     });
   });
