@@ -1015,10 +1015,11 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .pwrule.ok .pwrule__dot svg{opacity:1;}
 
 .linklist{display:flex; flex-direction:column; gap:10px;}
-.linkrow{display:flex; align-items:center; flex-wrap:wrap; gap:13px; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); padding:12px 14px;}
+.linkrow{display:flex; flex-direction:column; gap:0; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); padding:12px 14px;}
+.linkrow__head{display:flex; align-items:center; flex-wrap:nowrap; gap:13px; width:100%;}
 .linkrow.is-linked .linkrow__btn{border-color:var(--line-2); color:var(--ink-700);}
 .linkrow.is-confirming .linkrow__btn{display:none;}
-.linkrow__confirm{display:none; width:100%; align-items:center; justify-content:space-between; gap:10px 16px; flex-wrap:wrap; margin-top:2px; padding-top:13px; border-top:1px solid var(--line);}
+.linkrow__confirm{display:none; width:100%; align-items:center; justify-content:space-between; gap:10px 16px; flex-wrap:wrap; margin-top:13px; padding-top:13px; border-top:1px solid var(--line);}
 .linkrow.is-confirming .linkrow__confirm{display:flex;}
 .linkrow__cq{font-size:13px; font-weight:700; color:var(--ink-700); flex:1; min-width:170px;}
 .linkrow__cbtns{display:flex; gap:8px; flex:none;}
@@ -1030,7 +1031,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .linkrow__b{flex:1; min-width:0; display:flex; flex-direction:column;}
 .linkrow__t{display:block; font-weight:700; font-size:14.5px; color:var(--noir); line-height:1.3;}
 .linkrow__m{display:block; font-size:12px; color:var(--ink-400); margin-top:3px; line-height:1.35;}
-.linkrow__btn{flex:none; font-family:var(--sans); font-weight:700; font-size:13px; padding:8px 16px; border-radius:var(--r-pill); border:1.5px solid var(--magenta); color:var(--magenta); background:#fff; cursor:pointer; transition:all .14s;}
+.linkrow__btn{flex:none; white-space:nowrap; font-family:var(--sans); font-weight:700; font-size:13px; padding:8px 16px; border-radius:var(--r-pill); border:1.5px solid var(--magenta); color:var(--magenta); background:#fff; cursor:pointer; transition:all .14s;}
 .linkrow__btn:hover{background:var(--magenta); color:#fff;}
 .linkrow__btn.is-linked{border-color:var(--line-2); color:var(--ink-400); background:var(--surface-2); cursor:default;}
 
@@ -1063,9 +1064,6 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .prow__lk:hover .prow__n{color:var(--magenta);}
 ".prow__lk:hover .prow__av{filter:brightness(.9);}
 .list-empty{display:none; text-align:center; font-family:var(--sans); font-size:14.5px; font-weight:700; color:var(--magenta); background:var(--magenta-pale); border:1px solid var(--magenta); border-radius:var(--r-lg); padding:22px 20px; line-height:1.55;}
-.scard.is-empty{background:none; border:none; box-shadow:none; padding:0;}
-.scard.is-empty .scard__sub{display:none;}
-.scard.is-empty .scard__body{margin-top:12px;}
 
 .editform{margin-top:18px; padding-top:18px; border-top:1px solid var(--line); display:none;}
 .editform.show{display:block;}
@@ -1314,81 +1312,99 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
       <section class="scard">
       <h2 class="scard__h">Mes comptes connectés</h2><p class="scard__sub">Connecte tes plateformes pour synchroniser automatiquement ta bibliothèque, tes trophées et ta progression. Tu peux délier un compte à tout moment.</p>
       <div class="scard__body"><div class="linklist"><div class="linkrow">
-        <span class="linkrow__ico" style="background:#003791;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span>
-        <span class="linkrow__b"><span class="linkrow__t">PlayStation Network</span><span class="linkrow__m">Trophées et bibliothèque PSN</span></span>
-        <button class="linkrow__btn" type="button" onclick="lynkLink(this)">Lier</button>
+        <div class="linkrow__head">
+          <span class="linkrow__ico" style="background:#003791;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span>
+          <span class="linkrow__b"><span class="linkrow__t">PlayStation Network</span><span class="linkrow__m">Trophées et bibliothèque PSN</span></span>
+          <button class="linkrow__btn" type="button" onclick="lynkLink(this)">Lier</button>
+        </div>
         <div class="linkrow__confirm">
           <span class="linkrow__cq">Veux-tu vraiment délier ce compte ? La synchronisation sera interrompue.</span>
           <span class="linkrow__cbtns"><button class="linkrow__cbtn linkrow__cbtn--yes" type="button" onclick="lynkUnlinkYes(this)">Délier</button><button class="linkrow__cbtn linkrow__cbtn--no" type="button" onclick="lynkUnlinkNo(this)">Annuler</button></span>
         </div>
       </div>
       <div class="linkrow">
-        <span class="linkrow__ico" style="background:#107c10;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span>
-        <span class="linkrow__b"><span class="linkrow__t">Xbox / Microsoft</span><span class="linkrow__m">Succès et jeux Xbox &amp; PC</span></span>
-        <button class="linkrow__btn" type="button" onclick="lynkLink(this)">Lier</button>
+        <div class="linkrow__head">
+          <span class="linkrow__ico" style="background:#107c10;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span>
+          <span class="linkrow__b"><span class="linkrow__t">Xbox / Microsoft</span><span class="linkrow__m">Succès et jeux Xbox &amp; PC</span></span>
+          <button class="linkrow__btn" type="button" onclick="lynkLink(this)">Lier</button>
+        </div>
         <div class="linkrow__confirm">
           <span class="linkrow__cq">Veux-tu vraiment délier ce compte ? La synchronisation sera interrompue.</span>
           <span class="linkrow__cbtns"><button class="linkrow__cbtn linkrow__cbtn--yes" type="button" onclick="lynkUnlinkYes(this)">Délier</button><button class="linkrow__cbtn linkrow__cbtn--no" type="button" onclick="lynkUnlinkNo(this)">Annuler</button></span>
         </div>
       </div>
       <div class="linkrow">
-        <span class="linkrow__ico" style="background:#e60012;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span>
-        <span class="linkrow__b"><span class="linkrow__t">Nintendo</span><span class="linkrow__m">Compte Nintendo Switch</span></span>
-        <button class="linkrow__btn" type="button" onclick="lynkLink(this)">Lier</button>
+        <div class="linkrow__head">
+          <span class="linkrow__ico" style="background:#e60012;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span>
+          <span class="linkrow__b"><span class="linkrow__t">Nintendo</span><span class="linkrow__m">Compte Nintendo Switch</span></span>
+          <button class="linkrow__btn" type="button" onclick="lynkLink(this)">Lier</button>
+        </div>
         <div class="linkrow__confirm">
           <span class="linkrow__cq">Veux-tu vraiment délier ce compte ? La synchronisation sera interrompue.</span>
           <span class="linkrow__cbtns"><button class="linkrow__cbtn linkrow__cbtn--yes" type="button" onclick="lynkUnlinkYes(this)">Délier</button><button class="linkrow__cbtn linkrow__cbtn--no" type="button" onclick="lynkUnlinkNo(this)">Annuler</button></span>
         </div>
       </div>
       <div class="linkrow">
-        <span class="linkrow__ico" style="background:#1b2838;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span>
-        <span class="linkrow__b"><span class="linkrow__t">Steam</span><span class="linkrow__m">Bibliothèque et succès Steam</span></span>
-        <button class="linkrow__btn" type="button" onclick="lynkLink(this)">Lier</button>
+        <div class="linkrow__head">
+          <span class="linkrow__ico" style="background:#1b2838;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span>
+          <span class="linkrow__b"><span class="linkrow__t">Steam</span><span class="linkrow__m">Bibliothèque et succès Steam</span></span>
+          <button class="linkrow__btn" type="button" onclick="lynkLink(this)">Lier</button>
+        </div>
         <div class="linkrow__confirm">
           <span class="linkrow__cq">Veux-tu vraiment délier ce compte ? La synchronisation sera interrompue.</span>
           <span class="linkrow__cbtns"><button class="linkrow__cbtn linkrow__cbtn--yes" type="button" onclick="lynkUnlinkYes(this)">Délier</button><button class="linkrow__cbtn linkrow__cbtn--no" type="button" onclick="lynkUnlinkNo(this)">Annuler</button></span>
         </div>
       </div>
       <div class="linkrow">
-        <span class="linkrow__ico" style="background:#313131;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span>
-        <span class="linkrow__b"><span class="linkrow__t">Epic Games</span><span class="linkrow__m">Bibliothèque Epic Games Store</span></span>
-        <button class="linkrow__btn" type="button" onclick="lynkLink(this)">Lier</button>
+        <div class="linkrow__head">
+          <span class="linkrow__ico" style="background:#313131;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span>
+          <span class="linkrow__b"><span class="linkrow__t">Epic Games</span><span class="linkrow__m">Bibliothèque Epic Games Store</span></span>
+          <button class="linkrow__btn" type="button" onclick="lynkLink(this)">Lier</button>
+        </div>
         <div class="linkrow__confirm">
           <span class="linkrow__cq">Veux-tu vraiment délier ce compte ? La synchronisation sera interrompue.</span>
           <span class="linkrow__cbtns"><button class="linkrow__cbtn linkrow__cbtn--yes" type="button" onclick="lynkUnlinkYes(this)">Délier</button><button class="linkrow__cbtn linkrow__cbtn--no" type="button" onclick="lynkUnlinkNo(this)">Annuler</button></span>
         </div>
       </div>
       <div class="linkrow">
-        <span class="linkrow__ico" style="background:#5865f2;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.2a18 18 0 0 0-5.4 0L8.7 3a19.8 19.8 0 0 0-5 1.5A20.3 20.3 0 0 0 .3 18.1a19.9 19.9 0 0 0 6 3l1.3-2a12.8 12.8 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12 0l.5.4a12.8 12.8 0 0 1-2 1l1.2 2a19.9 19.9 0 0 0 6.1-3 20.2 20.2 0 0 0-3.5-13.7ZM8.5 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg></span>
-        <span class="linkrow__b"><span class="linkrow__t">Discord</span><span class="linkrow__m">Rôles et présence communautaire</span></span>
-        <button class="linkrow__btn" type="button" onclick="lynkLink(this)">Lier</button>
+        <div class="linkrow__head">
+          <span class="linkrow__ico" style="background:#5865f2;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.2a18 18 0 0 0-5.4 0L8.7 3a19.8 19.8 0 0 0-5 1.5A20.3 20.3 0 0 0 .3 18.1a19.9 19.9 0 0 0 6 3l1.3-2a12.8 12.8 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12 0l.5.4a12.8 12.8 0 0 1-2 1l1.2 2a19.9 19.9 0 0 0 6.1-3 20.2 20.2 0 0 0-3.5-13.7ZM8.5 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg></span>
+          <span class="linkrow__b"><span class="linkrow__t">Discord</span><span class="linkrow__m">Rôles et présence communautaire</span></span>
+          <button class="linkrow__btn" type="button" onclick="lynkLink(this)">Lier</button>
+        </div>
         <div class="linkrow__confirm">
           <span class="linkrow__cq">Veux-tu vraiment délier ce compte ? La synchronisation sera interrompue.</span>
           <span class="linkrow__cbtns"><button class="linkrow__cbtn linkrow__cbtn--yes" type="button" onclick="lynkUnlinkYes(this)">Délier</button><button class="linkrow__cbtn linkrow__cbtn--no" type="button" onclick="lynkUnlinkNo(this)">Annuler</button></span>
         </div>
       </div>
       <div class="linkrow">
-        <span class="linkrow__ico" style="background:#ff4500;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span>
-        <span class="linkrow__b"><span class="linkrow__t">Reddit</span><span class="linkrow__m">Communautés et discussions</span></span>
-        <button class="linkrow__btn" type="button" onclick="lynkLink(this)">Lier</button>
+        <div class="linkrow__head">
+          <span class="linkrow__ico" style="background:#ff4500;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span>
+          <span class="linkrow__b"><span class="linkrow__t">Reddit</span><span class="linkrow__m">Communautés et discussions</span></span>
+          <button class="linkrow__btn" type="button" onclick="lynkLink(this)">Lier</button>
+        </div>
         <div class="linkrow__confirm">
           <span class="linkrow__cq">Veux-tu vraiment délier ce compte ? La synchronisation sera interrompue.</span>
           <span class="linkrow__cbtns"><button class="linkrow__cbtn linkrow__cbtn--yes" type="button" onclick="lynkUnlinkYes(this)">Délier</button><button class="linkrow__cbtn linkrow__cbtn--no" type="button" onclick="lynkUnlinkNo(this)">Annuler</button></span>
         </div>
       </div>
       <div class="linkrow">
-        <span class="linkrow__ico" style="background:#d13639;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span>
-        <span class="linkrow__b"><span class="linkrow__t">Riot Games</span><span class="linkrow__m">Valorant, LoL, TFT…</span></span>
-        <button class="linkrow__btn" type="button" onclick="lynkLink(this)">Lier</button>
+        <div class="linkrow__head">
+          <span class="linkrow__ico" style="background:#d13639;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span>
+          <span class="linkrow__b"><span class="linkrow__t">Riot Games</span><span class="linkrow__m">Valorant, LoL, TFT…</span></span>
+          <button class="linkrow__btn" type="button" onclick="lynkLink(this)">Lier</button>
+        </div>
         <div class="linkrow__confirm">
           <span class="linkrow__cq">Veux-tu vraiment délier ce compte ? La synchronisation sera interrompue.</span>
           <span class="linkrow__cbtns"><button class="linkrow__cbtn linkrow__cbtn--yes" type="button" onclick="lynkUnlinkYes(this)">Délier</button><button class="linkrow__cbtn linkrow__cbtn--no" type="button" onclick="lynkUnlinkNo(this)">Annuler</button></span>
         </div>
       </div>
       <div class="linkrow">
-        <span class="linkrow__ico" style="background:#148eff;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span>
-        <span class="linkrow__b"><span class="linkrow__t">Battle.net</span><span class="linkrow__m">Blizzard &amp; Activision</span></span>
-        <button class="linkrow__btn" type="button" onclick="lynkLink(this)">Lier</button>
+        <div class="linkrow__head">
+          <span class="linkrow__ico" style="background:#148eff;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg></span>
+          <span class="linkrow__b"><span class="linkrow__t">Battle.net</span><span class="linkrow__m">Blizzard &amp; Activision</span></span>
+          <button class="linkrow__btn" type="button" onclick="lynkLink(this)">Lier</button>
+        </div>
         <div class="linkrow__confirm">
           <span class="linkrow__cq">Veux-tu vraiment délier ce compte ? La synchronisation sera interrompue.</span>
           <span class="linkrow__cbtns"><button class="linkrow__cbtn linkrow__cbtn--yes" type="button" onclick="lynkUnlinkYes(this)">Délier</button><button class="linkrow__cbtn linkrow__cbtn--no" type="button" onclick="lynkUnlinkNo(this)">Annuler</button></span>
@@ -1911,7 +1927,6 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     var rows = rowsBox ? rowsBox.querySelectorAll('.prow').length : 0;
     if(rowsBox) rowsBox.style.display = (rows===0 ? 'none' : '');
     if(empty) empty.style.display = (rows===0 ? 'block' : 'none');
-    if(rows===0){ card.classList.add('is-empty'); } else { card.classList.remove('is-empty'); }
     if(card.getAttribute('data-list')==='amis'){
       var cnt=card.querySelector('.amis-count'); if(cnt) cnt.textContent=rows;
       var sub=card.querySelector('.scard__sub'); if(sub) sub.style.display=(rows===0?'none':'');
@@ -1919,7 +1934,9 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   }
   Array.prototype.forEach.call(document.querySelectorAll('[data-act]'), function(b){
     b.addEventListener('click', function(){
-      var act=b.getAttribute('data-act'), row=b.closest('.prow'), card=b.closest('[data-list]');
+      var act=b.getAttribute('data-act');
+      var row=b; while(row && !(row.className && (' '+row.className+' ').indexOf(' prow ')>=0)) row=row.parentNode;
+      var card=b; while(card && !(card.getAttribute && card.getAttribute('data-list'))) card=card.parentNode;
       if(act==='remove' || act==='accept'){ if(row) row.parentNode.removeChild(row); refreshList(card); }
       else if(act==='sent'){
         if(b.getAttribute('data-sent')==='1'){ b.setAttribute('data-sent','0'); b.textContent='Ajouter'; b.classList.add('pbtn--primary'); }
