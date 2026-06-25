@@ -1063,9 +1063,6 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .prow__lk:hover .prow__n{color:var(--magenta);}
 ".prow__lk:hover .prow__av{filter:brightness(.9);}
 .list-empty{display:none; text-align:center; font-family:var(--sans); font-size:14.5px; font-weight:700; color:var(--magenta); background:var(--magenta-pale); border:1px solid var(--magenta); border-radius:var(--r-lg); padding:22px 20px; line-height:1.55;}
-.scard.is-empty{background:none; border:none; box-shadow:none; padding:0;}
-.scard.is-empty .scard__sub{display:none;}
-.scard.is-empty .scard__body{margin-top:12px;}
 
 .editform{margin-top:18px; padding-top:18px; border-top:1px solid var(--line); display:none;}
 .editform.show{display:block;}
@@ -1831,7 +1828,6 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     var rows = rowsBox ? rowsBox.querySelectorAll('.prow').length : 0;
     if(rowsBox) rowsBox.style.display = (rows===0 ? 'none' : '');
     if(empty) empty.style.display = (rows===0 ? 'block' : 'none');
-    if(rows===0){ card.classList.add('is-empty'); } else { card.classList.remove('is-empty'); }
     if(card.getAttribute('data-list')==='amis'){
       var cnt=card.querySelector('.amis-count'); if(cnt) cnt.textContent=rows;
       var sub=card.querySelector('.scard__sub'); if(sub) sub.style.display=(rows===0?'none':'');
