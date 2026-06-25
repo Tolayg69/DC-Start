@@ -1015,7 +1015,16 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .pwrule.ok .pwrule__dot svg{opacity:1;}
 
 .linklist{display:flex; flex-direction:column; gap:10px;}
-.linkrow{display:flex; align-items:center; gap:13px; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); padding:12px 14px;}
+.linkrow{display:flex; align-items:center; flex-wrap:wrap; gap:13px; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); padding:12px 14px;}
+.linkrow.is-linked .linkrow__btn{border-color:var(--line-2); color:var(--ink-700);}
+.linkrow.is-confirming .linkrow__btn{display:none;}
+.linkrow__confirm{display:none; width:100%; align-items:center; justify-content:space-between; gap:10px 16px; flex-wrap:wrap; margin-top:2px; padding-top:13px; border-top:1px solid var(--line);}
+.linkrow.is-confirming .linkrow__confirm{display:flex;}
+.linkrow__cq{font-size:13px; font-weight:700; color:var(--ink-700); flex:1; min-width:170px;}
+.linkrow__cbtns{display:flex; gap:8px; flex:none;}
+.linkrow__cbtn{font-family:var(--sans); font-weight:700; font-size:13px; padding:7px 15px; border-radius:var(--r-pill); cursor:pointer; border:1.5px solid; transition:all .14s;}
+.linkrow__cbtn--yes{border-color:var(--magenta); background:var(--magenta); color:#fff;}
+.linkrow__cbtn--no{border-color:var(--line-2); background:#fff; color:var(--ink-700);}
 .linkrow__ico{width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; flex:none; color:#fff;}
 .linkrow__ico svg{width:21px; height:21px;}
 .linkrow__b{flex:1; min-width:0; display:flex; flex-direction:column;}
@@ -1054,6 +1063,9 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .prow__lk:hover .prow__n{color:var(--magenta);}
 ".prow__lk:hover .prow__av{filter:brightness(.9);}
 .list-empty{display:none; text-align:center; font-family:var(--sans); font-size:14.5px; font-weight:700; color:var(--magenta); background:var(--magenta-pale); border:1px solid var(--magenta); border-radius:var(--r-lg); padding:22px 20px; line-height:1.55;}
+.scard.is-empty{background:none; border:none; box-shadow:none; padding:0;}
+.scard.is-empty .scard__sub{display:none;}
+.scard.is-empty .scard__body{margin-top:12px;}
 
 .editform{margin-top:18px; padding-top:18px; border-top:1px solid var(--line); display:none;}
 .editform.show{display:block;}
@@ -1816,6 +1828,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     var rows = rowsBox ? rowsBox.querySelectorAll('.prow').length : 0;
     if(rowsBox) rowsBox.style.display = (rows===0 ? 'none' : '');
     if(empty) empty.style.display = (rows===0 ? 'block' : 'none');
+    if(rows===0){ card.classList.add('is-empty'); } else { card.classList.remove('is-empty'); }
     if(card.getAttribute('data-list')==='amis'){
       var cnt=card.querySelector('.amis-count'); if(cnt) cnt.textContent=rows;
       var sub=card.querySelector('.scard__sub'); if(sub) sub.style.display=(rows===0?'none':'');
@@ -1863,9 +1876,23 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     var w=(window.top!==window.self)?window.top:window; w.location.href='index.html';
   }); }
   // lier / délier (comptes liés, identique à lier-comptes)
+  function lynkRowOf(el){ while(el){ if(el.className && (' '+el.className+' ').indexOf(' linkrow ')>=0) return el; el=el.parentNode; } return null; }
   window.lynkLink = function(btn){
-    if(btn.classList.contains('is-linked')) return;
-    btn.classList.add('is-linked'); btn.textContent = 'Lié';
+    var row = lynkRowOf(btn); if(!row) return;
+    if(!row.classList.contains('is-linked')){
+      row.classList.add('is-linked'); btn.textContent = 'Délier';
+    } else {
+      row.classList.add('is-confirming');
+    }
+  };
+  window.lynkUnlinkYes = function(b){
+    var row = lynkRowOf(b); if(!row) return;
+    row.classList.remove('is-confirming'); row.classList.remove('is-linked');
+    var bt = row.querySelector('.linkrow__btn'); if(bt) bt.textContent = 'Lier';
+  };
+  window.lynkUnlinkNo = function(b){
+    var row = lynkRowOf(b); if(!row) return;
+    row.classList.remove('is-confirming');
   };
   // déconnecter une session
   Array.prototype.forEach.call(document.querySelectorAll('.sesout'), function(b){
