@@ -1835,18 +1835,50 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
       var cnt=card.querySelector('.amis-count'); if(cnt) cnt.textContent=rows;
     }
   }
-  Array.prototype.forEach.call(document.querySelectorAll('[data-act]'), function(b){
+  // remontées manuelles (closest() peu fiable sous le moteur de rendu)
+  function prowOf(el){ while(el){ if(el.className && (' '+el.className+' ').indexOf(' prow ')>=0) return el; el=el.parentNode; } return null; }
+  function cardOf(el){ while(el){ if(el.getAttribute && el.getAttribute('data-list')) return el; el=el.parentNode; } return null; }
+  // accepter une demande : transformer la rangée en ami puis la déplacer dans « Mes amis »
+  function acceptRow(row){
+    if(!row) return null;
+    // les liens (avatar + nom) pointent désormais vers le profil ami
+    Array.prototype.forEach.call(row.querySelectorAll('.prow__lk'), function(a){ a.setAttribute('href','profil-ami.html'); });
+    // information secondaire : statut de présence, comme les amis déjà présents
+    var m=row.querySelector('.prow__m'); if(m) m.textContent='En ligne';
+    // pastille de présence verte sur l'avatar
+    var av=row.querySelector('.prow__av');
+    if(av && !av.querySelector('.prow__on')){ var dot=document.createElement('span'); dot.className='prow__on'; av.appendChild(dot); }
+    // actions : un seul bouton « Retirer », identique aux autres amis
+    var actions=row.querySelector('.prow__a');
+    if(actions){
+      actions.innerHTML='';
+      var rb=document.createElement('button');
+      rb.className='pbtn pbtn--danger'; rb.type='button'; rb.setAttribute('data-act','remove'); rb.textContent='Retirer';
+      actions.appendChild(rb); bindAction(rb);
+    }
+    // déplacer la rangée à la fin de la liste « Mes amis »
+    var amis=document.querySelector('[data-list="amis"]');
+    var dest=amis ? amis.querySelector('.list-rows') : null;
+    if(dest) dest.appendChild(row);
+    return amis;
+  }
+  function bindAction(b){
     b.addEventListener('click', function(){
       var act=b.getAttribute('data-act');
-      var row=b; while(row && !(row.className && (' '+row.className+' ').indexOf(' prow ')>=0)) row=row.parentNode;
-      var card=b; while(card && !(card.getAttribute && card.getAttribute('data-list'))) card=card.parentNode;
-      if(act==='remove' || act==='accept'){ if(row) row.parentNode.removeChild(row); refreshList(card); }
+      var row=prowOf(b), card=cardOf(b);
+      if(act==='accept'){
+        var amis=acceptRow(row);
+        refreshList(card);   // « Demandes reçues » : compteur / état vide
+        refreshList(amis);   // « Mes amis » : compteur (Tu as X amis sur Lynk)
+      }
+      else if(act==='remove'){ if(row) row.parentNode.removeChild(row); refreshList(card); }
       else if(act==='sent'){
         if(b.getAttribute('data-sent')==='1'){ b.setAttribute('data-sent','0'); b.textContent='Ajouter'; b.classList.add('pbtn--primary'); }
         else { b.setAttribute('data-sent','1'); b.textContent='Annuler la demande'; b.classList.remove('pbtn--primary'); }
       }
     });
-  });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-act]'), function(b){ bindAction(b); });
   Array.prototype.forEach.call(document.querySelectorAll('[data-list]'), function(card){ refreshList(card); });
   // avatar picker
   Array.prototype.forEach.call(document.querySelectorAll('.avopt'), function(o){
