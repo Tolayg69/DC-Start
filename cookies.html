@@ -883,6 +883,25 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   .idrow{flex-direction:column; gap:3px;}
   .idrow__k{width:auto;}
 }
+.nav__acc{position:relative; display:inline-flex;}
+button.avatar{cursor:pointer; padding:0; font-family:var(--serif);}
+.accmenu{position:absolute; top:calc(100% + 12px); right:0; width:288px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-lg); padding:8px; opacity:0; visibility:hidden; transform:translateY(6px); transition:opacity .14s, transform .14s, visibility 0s .14s; z-index:90;}
+.accmenu.open{opacity:1; visibility:visible; transform:translateY(0); transition:opacity .14s, transform .14s, visibility 0s;}
+.accmenu__head{display:flex; align-items:center; gap:11px; padding:9px 11px 12px; border-bottom:1px solid var(--line); margin-bottom:6px;}
+.accmenu__avatar{width:40px; height:40px; border-radius:50%; background:var(--noir); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:15px; border:2px solid var(--magenta); flex:none;}
+.accmenu__id{min-width:0;}
+.accmenu__name{display:block; font-family:var(--serif); font-weight:800; font-size:15px; line-height:1.1;}
+.accmenu__meta{display:inline-flex; align-items:center; gap:5px; font-size:12px; font-weight:700; color:var(--or-ink); margin-top:3px;}
+.accmenu__meta svg{width:12px; height:12px;}
+.accmenu__list{display:flex; flex-direction:column; gap:1px;}
+.accmenu__item{display:flex; align-items:center; gap:11px; padding:9px 11px; border-radius:var(--r-sm); font-size:13.5px; font-weight:700; color:var(--ink-700); text-decoration:none; cursor:pointer; transition:background .12s, color .12s; border:none; background:none; width:100%; text-align:left; font-family:var(--sans);}
+.accmenu__item svg{width:17px; height:17px; flex:none; color:var(--ink-400);}
+.accmenu__item:hover{background:var(--surface-3); color:var(--noir);}
+.accmenu__item:hover svg{color:var(--ink-700);}
+.accmenu__sep{height:1px; background:var(--line); margin:6px 8px;}
+.accmenu__item--logout{color:#c0392b;}
+.accmenu__item--logout svg{color:#c0392b;}
+.accmenu__item--logout:hover{background:#fdecea; color:#c0392b;}
 </style>
 </head>
 <body>
@@ -891,7 +910,26 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 
 <nav class="nav">
   <div class="nav__inner">
-    <a href="index.html" class="logo" aria-label="Lynk, accueil"><svg style="height:18px;width:auto;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1068.57 386.6" role="img" aria-label="Lynk"><defs><style>.lk-w{fill:#fff;}.lk-d{fill:#9520b3;}</style></defs><path class="lk-w" d="M812.55,196.86c0-60.73.07-121.46-.12-182.18-.02-5.65,1.45-7.36,7.2-7.21,15.73.4,31.48.41,47.21,0,5.71-.15,6.8,1.75,6.78,7.01-.2,44.41-.02,88.82-.22,133.23-.02,5.49,1.22,7.49,7.14,7.36,21.32-.47,42.73.78,63.95-.75,34.45-2.49,60.35-29.79,62.83-64.91,1.73-24.53.4-49.14.67-73.71.09-8.07.02-8.08,8.05-8.08,15.53,0,31.06.01,46.6,0,3.02,0,5.79-.25,5.68,4.27-.76,31.16,1.9,62.42-1.63,93.48-3.42,30.05-14.83,56.53-37.93,77.13-2.02,1.8-4.29,3.03-.74,6.09,24.22,20.83,35.38,48.21,39.01,79.16,2.3,19.55,1.02,39.2,1.21,58.81.17,17.76-.15,35.53.15,53.29.09,5.27-1.66,6.62-6.72,6.53-15.94-.29-31.89-.27-47.84,0-4.72.08-5.92-1.5-5.93-6.04-.11-32.42,1.17-64.88-.52-97.26-1.72-33.06-24.09-58.93-55.73-66.08-4.07-.92-8.19-1.17-12.34-1.17-19.67,0-39.35.2-59.02-.13-5.55-.09-6.93,1.57-6.91,6.98.2,52.05.02,104.11.25,156.16.03,5.89-1.41,7.77-7.5,7.61-15.73-.43-31.48-.37-47.21-.02-5.36.12-6.49-1.72-6.48-6.71.15-60.93.1-121.87.1-182.8Z"/><path class="lk-w" d="M545.52,256.7c0,40.9-.11,81.81.13,122.71.03,5.6-1.65,6.94-7.02,6.82-15.73-.35-31.48-.2-47.22-.07-3.68.03-5.66-.53-5.64-4.97.45-80.35-1.08-160.72.87-241.06.73-29.82,7.83-58.55,24.04-84.24,21.4-33.91,53.1-50.94,92.42-54.9,27.46-2.77,54.25.02,79.59,11.47,34.74,15.7,55.41,43.36,66.2,79.13,6.13,20.34,8.63,41.23,8.72,62.38.19,45.65-.04,91.31.18,136.97.03,5.7-1.52,7.4-7.28,7.26-15.52-.39-31.07-.33-46.6-.02-5.12.1-6.67-1.35-6.65-6.56.19-47.72.21-95.44.05-143.16-.05-16.13-1.32-32.1-7.28-47.45-9.04-23.29-25.77-36.87-50.35-40.75-18.26-2.88-36.5-2.68-53.75,4.72-24.77,10.63-34.44,31.93-38.57,56.74-1.56,9.4-1.83,18.91-1.85,28.4-.05,35.53-.02,71.07-.02,106.6Z"/><path class="lk-w" d="M285.8,299.77c0-26.64-.02-53.28.02-79.92,0-3.26-.03-5.84-4.28-6.81-55.73-12.73-85.37-49.84-97.02-103.66-3.51-16.2-4.84-32.65-5.01-49.18-.16-15.49.12-30.98-.13-46.47-.07-4.51,1.04-6.1,5.83-6.02,16.56.28,33.13.25,49.69.02,4.35-.06,5.61,1.24,5.58,5.57-.13,21.06-.19,42.13.23,63.19.32,16.18,2.83,31.95,10.24,46.74,7.63,15.23,19.3,25.73,35.51,30.58,20.94,6.28,42.05,6.38,62.76-1.26,18.79-6.93,30.08-21.06,36.5-39.48,1.22-3.5,2.48-7.07,2.98-10.71.66-4.76,2.67-6.43,7.66-6.33,15.94.33,31.89.15,47.83.11,3.14,0,5.81-.12,5.04,4.52-5.94,35.69-19.32,67.37-48.94,90.21-14.12,10.89-30.15,18-47.55,21.74-4.91,1.06-6.1,3.1-6.09,7.83.16,52.87.01,105.74.23,158.61.02,5.72-1.56,7.35-7.27,7.21-15.73-.38-31.47-.32-47.2-.02-5.09.1-6.74-1.29-6.7-6.54.25-26.64.11-53.28.11-79.92Z"/><path class="lk-w" d="M61.27,133.2c0,37.79-.2,75.58.09,113.37.13,16.2,2.85,32.02,10.59,46.63,8.82,16.64,22.71,26.32,40.97,30.03,6.7,1.36,13.48,2.02,20.35,2,28.57-.08,57.15.14,85.72-.17,5.87-.06,7.28,1.79,7.16,7.35-.34,16.1-.15,32.21-.1,48.32.01,3.15-.05,5.64-4.43,5.56-34.56-.66-69.2,1.84-103.66-1.36-31.04-2.88-58.4-14.76-79.97-38.02-17.82-19.21-27.44-42.45-32.81-67.69C1.52,261.99.15,244.53.14,226.95.12,156.32.21,85.69,0,15.07c-.02-5.9,1.34-7.76,7.46-7.58,15.52.46,31.06.43,46.58.01,5.91-.16,7.16,1.84,7.13,7.37-.23,39.44-.12,78.89-.12,118.33.08,0,.15,0,.23,0Z"/><path class="lk-d" d="M727.51,386.14c-17.11.09-30.87-13.6-30.75-30.58.12-16.81,13.65-30.2,30.51-30.19,16.87.02,30.57,13.6,30.49,30.21-.08,16.72-13.7,30.48-30.25,30.56Z"/><path class="lk-d" d="M422.25,6.7c16.72.05,30.28,13.52,30.44,30.25.16,16.72-13.93,30.65-30.88,30.52-16.43-.12-29.91-13.62-29.98-30.02-.07-17.38,13.2-30.8,30.41-30.75Z"/></svg></a>
+    <a href="index.html" class="logo" aria-label="Lynk, accueil"><svg style="height:18px;width:auto;display:block" id="Calque_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1068.57 386.6">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #9520b3;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <path class="cls-2" d="M812.55,196.86c0-60.73.07-121.46-.12-182.18-.02-5.65,1.45-7.36,7.2-7.21,15.73.4,31.48.41,47.21,0,5.71-.15,6.8,1.75,6.78,7.01-.2,44.41-.02,88.82-.22,133.23-.02,5.49,1.22,7.49,7.14,7.36,21.32-.47,42.73.78,63.95-.75,34.45-2.49,60.35-29.79,62.83-64.91,1.73-24.53.4-49.14.67-73.71.09-8.07.02-8.08,8.05-8.08,15.53,0,31.06.01,46.6,0,3.02,0,5.79-.25,5.68,4.27-.76,31.16,1.9,62.42-1.63,93.48-3.42,30.05-14.83,56.53-37.93,77.13-2.02,1.8-4.29,3.03-.74,6.09,24.22,20.83,35.38,48.21,39.01,79.16,2.3,19.55,1.02,39.2,1.21,58.81.17,17.76-.15,35.53.15,53.29.09,5.27-1.66,6.62-6.72,6.53-15.94-.29-31.89-.27-47.84,0-4.72.08-5.92-1.5-5.93-6.04-.11-32.42,1.17-64.88-.52-97.26-1.72-33.06-24.09-58.93-55.73-66.08-4.07-.92-8.19-1.17-12.34-1.17-19.67,0-39.35.2-59.02-.13-5.55-.09-6.93,1.57-6.91,6.98.2,52.05.02,104.11.25,156.16.03,5.89-1.41,7.77-7.5,7.61-15.73-.43-31.48-.37-47.21-.02-5.36.12-6.49-1.72-6.48-6.71.15-60.93.1-121.87.1-182.8Z"/>
+  <path class="cls-2" d="M545.52,256.7c0,40.9-.11,81.81.13,122.71.03,5.6-1.65,6.94-7.02,6.82-15.73-.35-31.48-.2-47.22-.07-3.68.03-5.66-.53-5.64-4.97.45-80.35-1.08-160.72.87-241.06.73-29.82,7.83-58.55,24.04-84.24,21.4-33.91,53.1-50.94,92.42-54.9,27.46-2.77,54.25.02,79.59,11.47,34.74,15.7,55.41,43.36,66.2,79.13,6.13,20.34,8.63,41.23,8.72,62.38.19,45.65-.04,91.31.18,136.97.03,5.7-1.52,7.4-7.28,7.26-15.52-.39-31.07-.33-46.6-.02-5.12.1-6.67-1.35-6.65-6.56.19-47.72.21-95.44.05-143.16-.05-16.13-1.32-32.1-7.28-47.45-9.04-23.29-25.77-36.87-50.35-40.75-18.26-2.88-36.5-2.68-53.75,4.72-24.77,10.63-34.44,31.93-38.57,56.74-1.56,9.4-1.83,18.91-1.85,28.4-.05,35.53-.02,71.07-.02,106.6Z"/>
+  <path class="cls-2" d="M285.8,299.77c0-26.64-.02-53.28.02-79.92,0-3.26-.03-5.84-4.28-6.81-55.73-12.73-85.37-49.84-97.02-103.66-3.51-16.2-4.84-32.65-5.01-49.18-.16-15.49.12-30.98-.13-46.47-.07-4.51,1.04-6.1,5.83-6.02,16.56.28,33.13.25,49.69.02,4.35-.06,5.61,1.24,5.58,5.57-.13,21.06-.19,42.13.23,63.19.32,16.18,2.83,31.95,10.24,46.74,7.63,15.23,19.3,25.73,35.51,30.58,20.94,6.28,42.05,6.38,62.76-1.26,18.79-6.93,30.08-21.06,36.5-39.48,1.22-3.5,2.48-7.07,2.98-10.71.66-4.76,2.67-6.43,7.66-6.33,15.94.33,31.89.15,47.83.11,3.14,0,5.81-.12,5.04,4.52-5.94,35.69-19.32,67.37-48.94,90.21-14.12,10.89-30.15,18-47.55,21.74-4.91,1.06-6.1,3.1-6.09,7.83.16,52.87.01,105.74.23,158.61.02,5.72-1.56,7.35-7.27,7.21-15.73-.38-31.47-.32-47.2-.02-5.09.1-6.74-1.29-6.7-6.54.25-26.64.11-53.28.11-79.92Z"/>
+  <path class="cls-2" d="M61.27,133.2c0,37.79-.2,75.58.09,113.37.13,16.2,2.85,32.02,10.59,46.63,8.82,16.64,22.71,26.32,40.97,30.03,6.7,1.36,13.48,2.02,20.35,2,28.57-.08,57.15.14,85.72-.17,5.87-.06,7.28,1.79,7.16,7.35-.34,16.1-.15,32.21-.1,48.32.01,3.15-.05,5.64-4.43,5.56-34.56-.66-69.2,1.84-103.66-1.36-31.04-2.88-58.4-14.76-79.97-38.02-17.82-19.21-27.44-42.45-32.81-67.69C1.52,261.99.15,244.53.14,226.95.12,156.32.21,85.69,0,15.07c-.02-5.9,1.34-7.76,7.46-7.58,15.52.46,31.06.43,46.58.01,5.91-.16,7.16,1.84,7.13,7.37-.23,39.44-.12,78.89-.12,118.33.08,0,.15,0,.23,0Z"/>
+  <path class="cls-1" d="M727.51,386.14c-17.11.09-30.87-13.6-30.75-30.58.12-16.81,13.65-30.2,30.51-30.19,16.87.02,30.57,13.6,30.49,30.21-.08,16.72-13.7,30.48-30.25,30.56Z"/>
+  <path class="cls-1" d="M422.25,6.7c16.72.05,30.28,13.52,30.44,30.25.16,16.72-13.93,30.65-30.88,30.52-16.43-.12-29.91-13.62-29.98-30.02-.07-17.38,13.2-30.8,30.41-30.75Z"/>
+</svg></a>
+
     <div class="nav__links hide-mobile">
       <div class="nav__item">
         <a class="nav__link" href="jeux.html">Jeux
@@ -992,7 +1030,30 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
         <span class="iconbtn__dot"></span>
       </button>
-      <a class="avatar only-auth" aria-label="Mon profil" href="profil.html">É</a>
+      <div class="nav__acc only-auth">
+        <button class="avatar" id="accBtn" type="button" aria-label="Mon compte" aria-haspopup="true" aria-expanded="false">É</button>
+        <div class="accmenu" id="accMenu" aria-hidden="true">
+          <div class="accmenu__head">
+            <span class="accmenu__avatar">É</span>
+            <span class="accmenu__id"><span class="accmenu__name">Élyo</span><span class="accmenu__meta"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg> Premium · 11 540 points</span></span>
+          </div>
+          <div class="accmenu__list">
+            <a class="accmenu__item" href="reglages-profil.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5.5 21a7 7 0 0 1 13 0"/></svg> Mon profil</a>
+            <a class="accmenu__item" href="reglages-favoris.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> Mes favoris</a>
+            <a class="accmenu__item" href="reglages-amis.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg> Mes amis</a>
+            <a class="accmenu__item" href="reglages-points.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6 4.6.4-3.5 3 1.1 4.5L12 13.6 7.9 15.5 9 11 5.5 8l4.6-.4z"/><path d="M18.5 15l.6 1.6 1.6.6-1.6.6-.6 1.6-.6-1.6-1.6-.6 1.6-.6z"/></svg> Mes points et récompenses</a>
+            <a class="accmenu__item" href="reglages-compte.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M5.5 17a3.5 3.5 0 0 1 7 0M15 9h4M15 13h3"/></svg> Mon compte</a>
+            <a class="accmenu__item" href="reglages-securite.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg> Sécurité</a>
+            <a class="accmenu__item" href="reglages-notifications.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg> Notifications</a>
+            <a class="accmenu__item" href="reglages-confidentialite.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg> Confidentialité</a>
+            <a class="accmenu__item" href="reglages-comptes-lies.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15l6-6"/><path d="M11 6l1-1a4 4 0 0 1 6 6l-1 1"/><path d="M13 18l-1 1a4 4 0 0 1-6-6l1-1"/></svg> Comptes liés</a>
+            <a class="accmenu__item" href="reglages-abonnement.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg> Abonnement</a>
+            <a class="accmenu__item" href="reglages-jeux.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59c-.06.6-.45 4.12-.6 6.1a3 3 0 0 0 3 3.31c1 0 1.5-.5 2-1l1.07-1.07a2 2 0 0 1 1.41-.59h3.84a2 2 0 0 1 1.41.59L17 18.9c.5.5 1 1 2 1a3 3 0 0 0 3-3.31c-.15-1.98-.54-5.5-.6-6.1A4 4 0 0 0 17.32 5z"/></svg> Préférences de jeu</a>
+            <div class="accmenu__sep"></div>
+            <button class="accmenu__item accmenu__item--logout" id="accLogout" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg> Se déconnecter</button>
+          </div>
+        </div>
+      </div>
       <button id="burgerBtn" class="iconbtn nav__burger" aria-label="Menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </button>
@@ -1119,8 +1180,28 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   <div class="mdrawer__scrim"></div>
   <div class="mdrawer__panel">
     <div class="mdrawer__head">
-      <span class="logo"><svg style="height:14px;width:auto;display:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1068.57 386.6" role="img" aria-label="Lynk"><defs><style>.lk-w{fill:#fff;}.lk-d{fill:#9520b3;}</style></defs><path class="lk-w" d="M812.55,196.86c0-60.73.07-121.46-.12-182.18-.02-5.65,1.45-7.36,7.2-7.21,15.73.4,31.48.41,47.21,0,5.71-.15,6.8,1.75,6.78,7.01-.2,44.41-.02,88.82-.22,133.23-.02,5.49,1.22,7.49,7.14,7.36,21.32-.47,42.73.78,63.95-.75,34.45-2.49,60.35-29.79,62.83-64.91,1.73-24.53.4-49.14.67-73.71.09-8.07.02-8.08,8.05-8.08,15.53,0,31.06.01,46.6,0,3.02,0,5.79-.25,5.68,4.27-.76,31.16,1.9,62.42-1.63,93.48-3.42,30.05-14.83,56.53-37.93,77.13-2.02,1.8-4.29,3.03-.74,6.09,24.22,20.83,35.38,48.21,39.01,79.16,2.3,19.55,1.02,39.2,1.21,58.81.17,17.76-.15,35.53.15,53.29.09,5.27-1.66,6.62-6.72,6.53-15.94-.29-31.89-.27-47.84,0-4.72.08-5.92-1.5-5.93-6.04-.11-32.42,1.17-64.88-.52-97.26-1.72-33.06-24.09-58.93-55.73-66.08-4.07-.92-8.19-1.17-12.34-1.17-19.67,0-39.35.2-59.02-.13-5.55-.09-6.93,1.57-6.91,6.98.2,52.05.02,104.11.25,156.16.03,5.89-1.41,7.77-7.5,7.61-15.73-.43-31.48-.37-47.21-.02-5.36.12-6.49-1.72-6.48-6.71.15-60.93.1-121.87.1-182.8Z"/><path class="lk-w" d="M545.52,256.7c0,40.9-.11,81.81.13,122.71.03,5.6-1.65,6.94-7.02,6.82-15.73-.35-31.48-.2-47.22-.07-3.68.03-5.66-.53-5.64-4.97.45-80.35-1.08-160.72.87-241.06.73-29.82,7.83-58.55,24.04-84.24,21.4-33.91,53.1-50.94,92.42-54.9,27.46-2.77,54.25.02,79.59,11.47,34.74,15.7,55.41,43.36,66.2,79.13,6.13,20.34,8.63,41.23,8.72,62.38.19,45.65-.04,91.31.18,136.97.03,5.7-1.52,7.4-7.28,7.26-15.52-.39-31.07-.33-46.6-.02-5.12.1-6.67-1.35-6.65-6.56.19-47.72.21-95.44.05-143.16-.05-16.13-1.32-32.1-7.28-47.45-9.04-23.29-25.77-36.87-50.35-40.75-18.26-2.88-36.5-2.68-53.75,4.72-24.77,10.63-34.44,31.93-38.57,56.74-1.56,9.4-1.83,18.91-1.85,28.4-.05,35.53-.02,71.07-.02,106.6Z"/><path class="lk-w" d="M285.8,299.77c0-26.64-.02-53.28.02-79.92,0-3.26-.03-5.84-4.28-6.81-55.73-12.73-85.37-49.84-97.02-103.66-3.51-16.2-4.84-32.65-5.01-49.18-.16-15.49.12-30.98-.13-46.47-.07-4.51,1.04-6.1,5.83-6.02,16.56.28,33.13.25,49.69.02,4.35-.06,5.61,1.24,5.58,5.57-.13,21.06-.19,42.13.23,63.19.32,16.18,2.83,31.95,10.24,46.74,7.63,15.23,19.3,25.73,35.51,30.58,20.94,6.28,42.05,6.38,62.76-1.26,18.79-6.93,30.08-21.06,36.5-39.48,1.22-3.5,2.48-7.07,2.98-10.71.66-4.76,2.67-6.43,7.66-6.33,15.94.33,31.89.15,47.83.11,3.14,0,5.81-.12,5.04,4.52-5.94,35.69-19.32,67.37-48.94,90.21-14.12,10.89-30.15,18-47.55,21.74-4.91,1.06-6.1,3.1-6.09,7.83.16,52.87.01,105.74.23,158.61.02,5.72-1.56,7.35-7.27,7.21-15.73-.38-31.47-.32-47.2-.02-5.09.1-6.74-1.29-6.7-6.54.25-26.64.11-53.28.11-79.92Z"/><path class="lk-w" d="M61.27,133.2c0,37.79-.2,75.58.09,113.37.13,16.2,2.85,32.02,10.59,46.63,8.82,16.64,22.71,26.32,40.97,30.03,6.7,1.36,13.48,2.02,20.35,2,28.57-.08,57.15.14,85.72-.17,5.87-.06,7.28,1.79,7.16,7.35-.34,16.1-.15,32.21-.1,48.32.01,3.15-.05,5.64-4.43,5.56-34.56-.66-69.2,1.84-103.66-1.36-31.04-2.88-58.4-14.76-79.97-38.02-17.82-19.21-27.44-42.45-32.81-67.69C1.52,261.99.15,244.53.14,226.95.12,156.32.21,85.69,0,15.07c-.02-5.9,1.34-7.76,7.46-7.58,15.52.46,31.06.43,46.58.01,5.91-.16,7.16,1.84,7.13,7.37-.23,39.44-.12,78.89-.12,118.33.08,0,.15,0,.23,0Z"/><path class="lk-d" d="M727.51,386.14c-17.11.09-30.87-13.6-30.75-30.58.12-16.81,13.65-30.2,30.51-30.19,16.87.02,30.57,13.6,30.49,30.21-.08,16.72-13.7,30.48-30.25,30.56Z"/><path class="lk-d" d="M422.25,6.7c16.72.05,30.28,13.52,30.44,30.25.16,16.72-13.93,30.65-30.88,30.52-16.43-.12-29.91-13.62-29.98-30.02-.07-17.38,13.2-30.8,30.41-30.75Z"/></svg></span>
-      <button id="drawerClose" class="iconbtn" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+      <span class="logo"><svg style="height:14px;width:auto;display:block" id="Calque_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1068.57 386.6">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #9520b3;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <path class="cls-2" d="M812.55,196.86c0-60.73.07-121.46-.12-182.18-.02-5.65,1.45-7.36,7.2-7.21,15.73.4,31.48.41,47.21,0,5.71-.15,6.8,1.75,6.78,7.01-.2,44.41-.02,88.82-.22,133.23-.02,5.49,1.22,7.49,7.14,7.36,21.32-.47,42.73.78,63.95-.75,34.45-2.49,60.35-29.79,62.83-64.91,1.73-24.53.4-49.14.67-73.71.09-8.07.02-8.08,8.05-8.08,15.53,0,31.06.01,46.6,0,3.02,0,5.79-.25,5.68,4.27-.76,31.16,1.9,62.42-1.63,93.48-3.42,30.05-14.83,56.53-37.93,77.13-2.02,1.8-4.29,3.03-.74,6.09,24.22,20.83,35.38,48.21,39.01,79.16,2.3,19.55,1.02,39.2,1.21,58.81.17,17.76-.15,35.53.15,53.29.09,5.27-1.66,6.62-6.72,6.53-15.94-.29-31.89-.27-47.84,0-4.72.08-5.92-1.5-5.93-6.04-.11-32.42,1.17-64.88-.52-97.26-1.72-33.06-24.09-58.93-55.73-66.08-4.07-.92-8.19-1.17-12.34-1.17-19.67,0-39.35.2-59.02-.13-5.55-.09-6.93,1.57-6.91,6.98.2,52.05.02,104.11.25,156.16.03,5.89-1.41,7.77-7.5,7.61-15.73-.43-31.48-.37-47.21-.02-5.36.12-6.49-1.72-6.48-6.71.15-60.93.1-121.87.1-182.8Z"/>
+  <path class="cls-2" d="M545.52,256.7c0,40.9-.11,81.81.13,122.71.03,5.6-1.65,6.94-7.02,6.82-15.73-.35-31.48-.2-47.22-.07-3.68.03-5.66-.53-5.64-4.97.45-80.35-1.08-160.72.87-241.06.73-29.82,7.83-58.55,24.04-84.24,21.4-33.91,53.1-50.94,92.42-54.9,27.46-2.77,54.25.02,79.59,11.47,34.74,15.7,55.41,43.36,66.2,79.13,6.13,20.34,8.63,41.23,8.72,62.38.19,45.65-.04,91.31.18,136.97.03,5.7-1.52,7.4-7.28,7.26-15.52-.39-31.07-.33-46.6-.02-5.12.1-6.67-1.35-6.65-6.56.19-47.72.21-95.44.05-143.16-.05-16.13-1.32-32.1-7.28-47.45-9.04-23.29-25.77-36.87-50.35-40.75-18.26-2.88-36.5-2.68-53.75,4.72-24.77,10.63-34.44,31.93-38.57,56.74-1.56,9.4-1.83,18.91-1.85,28.4-.05,35.53-.02,71.07-.02,106.6Z"/>
+  <path class="cls-2" d="M285.8,299.77c0-26.64-.02-53.28.02-79.92,0-3.26-.03-5.84-4.28-6.81-55.73-12.73-85.37-49.84-97.02-103.66-3.51-16.2-4.84-32.65-5.01-49.18-.16-15.49.12-30.98-.13-46.47-.07-4.51,1.04-6.1,5.83-6.02,16.56.28,33.13.25,49.69.02,4.35-.06,5.61,1.24,5.58,5.57-.13,21.06-.19,42.13.23,63.19.32,16.18,2.83,31.95,10.24,46.74,7.63,15.23,19.3,25.73,35.51,30.58,20.94,6.28,42.05,6.38,62.76-1.26,18.79-6.93,30.08-21.06,36.5-39.48,1.22-3.5,2.48-7.07,2.98-10.71.66-4.76,2.67-6.43,7.66-6.33,15.94.33,31.89.15,47.83.11,3.14,0,5.81-.12,5.04,4.52-5.94,35.69-19.32,67.37-48.94,90.21-14.12,10.89-30.15,18-47.55,21.74-4.91,1.06-6.1,3.1-6.09,7.83.16,52.87.01,105.74.23,158.61.02,5.72-1.56,7.35-7.27,7.21-15.73-.38-31.47-.32-47.2-.02-5.09.1-6.74-1.29-6.7-6.54.25-26.64.11-53.28.11-79.92Z"/>
+  <path class="cls-2" d="M61.27,133.2c0,37.79-.2,75.58.09,113.37.13,16.2,2.85,32.02,10.59,46.63,8.82,16.64,22.71,26.32,40.97,30.03,6.7,1.36,13.48,2.02,20.35,2,28.57-.08,57.15.14,85.72-.17,5.87-.06,7.28,1.79,7.16,7.35-.34,16.1-.15,32.21-.1,48.32.01,3.15-.05,5.64-4.43,5.56-34.56-.66-69.2,1.84-103.66-1.36-31.04-2.88-58.4-14.76-79.97-38.02-17.82-19.21-27.44-42.45-32.81-67.69C1.52,261.99.15,244.53.14,226.95.12,156.32.21,85.69,0,15.07c-.02-5.9,1.34-7.76,7.46-7.58,15.52.46,31.06.43,46.58.01,5.91-.16,7.16,1.84,7.13,7.37-.23,39.44-.12,78.89-.12,118.33.08,0,.15,0,.23,0Z"/>
+  <path class="cls-1" d="M727.51,386.14c-17.11.09-30.87-13.6-30.75-30.58.12-16.81,13.65-30.2,30.51-30.19,16.87.02,30.57,13.6,30.49,30.21-.08,16.72-13.7,30.48-30.25,30.56Z"/>
+  <path class="cls-1" d="M422.25,6.7c16.72.05,30.28,13.52,30.44,30.25.16,16.72-13.93,30.65-30.88,30.52-16.43-.12-29.91-13.62-29.98-30.02-.07-17.38,13.2-30.8,30.41-30.75Z"/>
+</svg></span>
+      <button id="drawerClose" class="iconbtn" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+      </button>
     </div>
     <button class="mdrawer__link mdrawer__acc" type="button">Jeux <span class="mdrawer__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="m6 9 6 6 6-6"></path></svg></span></button>
     <div class="mdrawer__sub">
@@ -1168,7 +1249,9 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
       <a class="btn btn--primary btn--block only-guest" href="inscription.html">S'inscrire</a>
       <a class="btn btn--outline btn--block only-guest" href="connexion.html">Connexion</a>
       <a class="btn btn--premium btn--block only-guest" href="premium.html">Découvrir Premium</a>
-      <span class="points points--drawer only-auth" title="11 540 points"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 11 540 pts</span>
+      <span class="points points--drawer only-auth" title="11 540 points">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>
+        11 540 pts</span>
     </div>
   </div>
 </div>
@@ -1206,11 +1289,6 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
       <div class="nitem nitem--read">
         <span class="nitem__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg></span>
         <span class="nitem__txt"><b>Événement 5.7 : bannières dès demain</b><span>Genshin Impact · hier</span></span>
-        <span class="nitem__dot"></span>
-      </div>
-      <div class="nitem nitem--read">
-        <span class="nitem__ico" style="background:var(--or-pale); color:var(--or-ink);"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg></span>
-        <span class="nitem__txt"><b>Défi hebdo : +100 pts à gagner</b><span>Expire dans 2 jours</span></span>
         <span class="nitem__dot"></span>
       </div>
     </div>
@@ -1502,6 +1580,31 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
       setTimeout(function(){b.textContent='Gérer mes préférences cookies';b.style.borderColor='';b.style.color='';},2200);
     });
   })();
+</script>
+
+<script>
+(function(){
+  /* ---------- menu compte (dropdown profil) ---------- */
+  var accBtn = document.getElementById('accBtn');
+  var accMenu = document.getElementById('accMenu');
+  if(accBtn && accMenu){
+    function accClose(){ accMenu.classList.remove('open'); accBtn.setAttribute('aria-expanded','false'); }
+    accBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open = accMenu.classList.toggle('open');
+      accBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if(open){ var nd=document.getElementById('ndrawer'); if(nd) nd.classList.remove('open'); }
+    });
+    accMenu.addEventListener('click', function(e){ e.stopPropagation(); });
+    document.addEventListener('click', accClose);
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') accClose(); });
+    var accLogout = document.getElementById('accLogout');
+    if(accLogout){ accLogout.addEventListener('click', function(){
+      try{ var s=JSON.parse(localStorage.getItem('lynk_proto_state')||'{}'); s.auth=false; localStorage.setItem('lynk_proto_state', JSON.stringify(s)); }catch(e){}
+      var w=(window.top!==window.self)?window.top:window; w.location.href='index.html';
+    }); }
+  }
+})();
 </script>
 </body>
 </html>
