@@ -1681,6 +1681,7 @@ body.is-auth .mapcard__lock{display:none;}
   document.querySelectorAll('.fav').forEach(function(f){
     f.addEventListener('click', function(e){
       e.stopPropagation(); e.preventDefault();
+      if(!document.body.classList.contains('is-auth')){ (window.top!==window?window.top:window).location.href='connexion.html'; return; }
       f.classList.toggle('on');
     });
   });
