@@ -760,7 +760,6 @@ body.is-embed #deviceHost{display:none !important;}
 .ncard__m svg{width:14px; height:14px; flex:none;}
 
 /* favoris & fonctionnalités premium : réservés aux connectés */
-body:not(.is-auth) .fav{display:none !important;}
 
 /* toggle Mes jeux / Tout (premium, connecté) */
 body:not(.is-auth) .scope.only-auth{display:none !important;}
@@ -923,9 +922,10 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 
 /* ===== barre catalogue (recherche + filtres + tri) ===== */
 .catbar{display:flex; flex-wrap:wrap; align-items:center; gap:12px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:14px 16px; margin-bottom:22px;}
-.catsearch{flex:1; min-width:200px; display:flex; align-items:center; gap:9px; background:var(--surface-2); border:1.5px solid var(--line-2); border-radius:var(--r-pill); padding:9px 15px;}
+.catsearch svg{width:19px; height:19px; color:var(--ink-400); flex:none;}
+.catsearch{flex:1 1 100%; min-width:220px; display:flex; align-items:center; gap:11px; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); padding:13px 16px;}
 .catsearch svg{width:17px; height:17px; color:var(--ink-400); flex:none;}
-.catsearch input{flex:1; border:none; background:none; outline:none; font-family:var(--sans); font-size:14.5px; color:var(--noir);}
+.catsearch input{flex:1; border:none; background:none; outline:none; font-family:var(--sans); font-size:15px; color:var(--noir);}
 .catchips{display:flex; flex-wrap:wrap; gap:7px;}
 .catchip{font-size:13px; font-weight:700; color:var(--ink-500); background:var(--surface-2); border:1.5px solid var(--line-2); border-radius:var(--r-pill); padding:8px 14px; cursor:pointer; transition:all .14s;}
 .catchip:hover{border-color:var(--magenta); color:var(--magenta);}
@@ -1281,97 +1281,29 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
         <button class="catchip" data-f="service">Jeux-service</button>
         <button class="catchip" data-f="coop">Coop & MMO</button>
         <button class="catchip" data-f="indie">Indé</button>
+        <button class="catchip" data-f="metroidvania">Metroidvania</button>
+        <button class="catchip" data-f="aventure">Aventure</button>
         </div>
         <select class="catsort" id="catSort" aria-label="Trier">
           <option value="pop">Les plus consultés</option>
           <option value="az">A → Z</option>
         </select>
       </div>
-      <div class="glist2" id="catGrid">
-      <a class="grow2" href="jeu.html" data-g="rpg ow" data-name="Elden Ring" data-guides="214">
-        <span class="grow2__cover cover-er"></span>
-        <span class="grow2__main"><span class="grow2__name">Elden Ring</span><span class="grow2__meta"><b>214 guides</b> · carte · trophées</span></span>
-        <span class="grow2__badge"><span class="badge badge--maj badge--dot">À jour · 1.12.3</span></span>
-        <span class="grow2__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      <a class="grow2" href="jeu.html" data-g="ow" data-name="Zelda : Tears of the Kingdom" data-guides="186">
-        <span class="grow2__cover cover-zd"></span>
-        <span class="grow2__main"><span class="grow2__name">Zelda : Tears of the Kingdom</span><span class="grow2__meta"><b>186 guides</b> · carte · soluce</span></span>
-        <span class="grow2__badge"><span class="badge badge--maj badge--dot">À jour</span></span>
-        <span class="grow2__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      <a class="grow2" href="jeu.html" data-g="rpg coop" data-name="Baldur's Gate 3" data-guides="158">
-        <span class="grow2__cover cover-bg"></span>
-        <span class="grow2__main"><span class="grow2__name">Baldur's Gate 3</span><span class="grow2__meta"><b>158 guides</b> · soluce · builds</span></span>
-        <span class="grow2__badge"><span class="badge badge--maj badge--dot">À jour</span></span>
-        <span class="grow2__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      <a class="grow2" href="jeu.html" data-g="ow service" data-name="Genshin Impact" data-guides="142">
-        <span class="grow2__cover cover-gi"></span>
-        <span class="grow2__main"><span class="grow2__name">Genshin Impact</span><span class="grow2__meta"><b>142 guides</b> · carte · builds</span></span>
-        <span class="grow2__badge"><span class="badge badge--maj badge--dot">À jour · 5.6</span></span>
-        <span class="grow2__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      <a class="grow2" href="jeu.html" data-g="rpg ow" data-name="Cyberpunk 2077" data-guides="96">
-        <span class="grow2__cover cover-cp"></span>
-        <span class="grow2__main"><span class="grow2__name">Cyberpunk 2077</span><span class="grow2__meta"><b>96 guides</b> · soluce · trophées</span></span>
-        <span class="grow2__badge"><span class="badge badge--maj badge--dot">À jour</span></span>
-        <span class="grow2__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      <a class="grow2" href="jeu.html" data-g="rpg service" data-name="Diablo IV" data-guides="88">
-        <span class="grow2__cover cover-d4"></span>
-        <span class="grow2__main"><span class="grow2__name">Diablo IV</span><span class="grow2__meta"><b>88 guides</b> · builds · soluce</span></span>
-        <span class="grow2__badge"><span class="badge badge--maj badge--dot">Saison 8</span></span>
-        <span class="grow2__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      <a class="grow2" href="jeu.html" data-g="rpg ow" data-name="The Witcher 3" data-guides="83">
-        <span class="grow2__cover cover-w3"></span>
-        <span class="grow2__main"><span class="grow2__name">The Witcher 3</span><span class="grow2__meta"><b>83 guides</b> · carte · soluce</span></span>
-        <span class="grow2__badge"><span class="badge badge--maj badge--dot">Complet</span></span>
-        <span class="grow2__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      <a class="grow2" href="jeu.html" data-g="rpg service" data-name="Path of Exile 2" data-guides="74">
-        <span class="grow2__cover cover-poe"></span>
-        <span class="grow2__main"><span class="grow2__name">Path of Exile 2</span><span class="grow2__meta"><b>74 guides</b> · builds</span></span>
-        <span class="grow2__badge"><span class="badge badge--new badge--dot">Nouveau</span></span>
-        <span class="grow2__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      <a class="grow2" href="jeu.html" data-g="coop" data-name="Monster Hunter Wilds" data-guides="61">
-        <span class="grow2__cover cover-mh"></span>
-        <span class="grow2__main"><span class="grow2__name">Monster Hunter Wilds</span><span class="grow2__meta"><b>61 guides</b> · soluce · builds</span></span>
-        <span class="grow2__badge"><span class="badge badge--maj badge--dot">À jour</span></span>
-        <span class="grow2__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      <a class="grow2" href="jeu.html" data-g="rpg" data-name="Final Fantasy VII Rebirth" data-guides="57">
-        <span class="grow2__cover cover-ff"></span>
-        <span class="grow2__main"><span class="grow2__name">Final Fantasy VII Rebirth</span><span class="grow2__meta"><b>57 guides</b> · soluce · trophées</span></span>
-        <span class="grow2__badge"><span class="badge badge--maj badge--dot">Complet</span></span>
-        <span class="grow2__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      <a class="grow2" href="jeu.html" data-g="rpg ow" data-name="Starfield" data-guides="52">
-        <span class="grow2__cover cover-sf"></span>
-        <span class="grow2__main"><span class="grow2__name">Starfield</span><span class="grow2__meta"><b>52 guides</b> · carte · builds</span></span>
-        <span class="grow2__badge"><span class="badge badge--maj badge--dot">À jour</span></span>
-        <span class="grow2__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      <a class="grow2" href="jeu.html" data-g="indie" data-name="Hades II" data-guides="48">
-        <span class="grow2__cover cover-hd"></span>
-        <span class="grow2__main"><span class="grow2__name">Hades II</span><span class="grow2__meta"><b>48 guides</b> · builds</span></span>
-        <span class="grow2__badge"><span class="badge badge--new badge--dot">Nouveau</span></span>
-        <span class="grow2__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      <a class="grow2" href="jeu.html" data-g="service coop" data-name="Stardew Valley" data-guides="45">
-        <span class="grow2__cover cover-sv"></span>
-        <span class="grow2__main"><span class="grow2__name">Stardew Valley</span><span class="grow2__meta"><b>45 guides</b> · carte</span></span>
-        <span class="grow2__badge"><span class="badge badge--maj badge--dot">À jour</span></span>
-        <span class="grow2__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
-      <a class="grow2" href="jeu.html" data-g="indie" data-name="Hollow Knight: Silksong" data-guides="39">
-        <span class="grow2__cover cover-hk"></span>
-        <span class="grow2__main"><span class="grow2__name">Hollow Knight: Silksong</span><span class="grow2__meta"><b>39 guides</b> · carte · soluce</span></span>
-        <span class="grow2__badge"><span class="badge badge--new badge--dot">Nouveau</span></span>
-        <span class="grow2__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
-      </a>
+      <div class="games" id="catGrid">
+        <article class="gcard" data-g="rpg ow aventure metroidvania" data-name="Elden Ring" data-guides="214" data-href="jeu.html"><div class="gcard__cover cover-er"><span class="badge badge--maj badge--dot">À jour · 1.12.3</span><button class="fav gcard__fav" type="button" aria-label="Suivre Elden Ring"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Elden Ring</span></div><div class="gcard__body"><div class="gcard__meta"><b>214 guides</b> · carte · trophées</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
+        <article class="gcard" data-g="ow aventure metroidvania" data-name="Zelda : Tears of the Kingdom" data-guides="186" data-href="jeu.html"><div class="gcard__cover cover-zd"><span class="badge badge--maj badge--dot">À jour</span><button class="fav gcard__fav" type="button" aria-label="Suivre Zelda : Tears of the Kingdom"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Zelda : Tears of the Kingdom</span></div><div class="gcard__body"><div class="gcard__meta"><b>186 guides</b> · carte · soluce</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
+        <article class="gcard" data-g="rpg coop" data-name="Baldur's Gate 3" data-guides="158" data-href="jeu.html"><div class="gcard__cover cover-bg"><span class="badge badge--maj badge--dot">À jour</span><button class="fav gcard__fav" type="button" aria-label="Suivre Baldur's Gate 3"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Baldur's Gate 3</span></div><div class="gcard__body"><div class="gcard__meta"><b>158 guides</b> · soluce · builds</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
+        <article class="gcard" data-g="ow service aventure" data-name="Genshin Impact" data-guides="142" data-href="jeu.html"><div class="gcard__cover cover-gi"><span class="badge badge--maj badge--dot">À jour · 5.6</span><button class="fav gcard__fav" type="button" aria-label="Suivre Genshin Impact"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Genshin Impact</span></div><div class="gcard__body"><div class="gcard__meta"><b>142 guides</b> · carte · builds</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
+        <article class="gcard" data-g="rpg ow" data-name="Cyberpunk 2077" data-guides="96" data-href="jeu.html"><div class="gcard__cover cover-cp"><span class="badge badge--maj badge--dot">À jour</span><button class="fav gcard__fav" type="button" aria-label="Suivre Cyberpunk 2077"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Cyberpunk 2077</span></div><div class="gcard__body"><div class="gcard__meta"><b>96 guides</b> · soluce · trophées</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
+        <article class="gcard" data-g="rpg service" data-name="Diablo IV" data-guides="88" data-href="jeu.html"><div class="gcard__cover cover-d4"><span class="badge badge--maj badge--dot">Saison 8</span><button class="fav gcard__fav" type="button" aria-label="Suivre Diablo IV"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Diablo IV</span></div><div class="gcard__body"><div class="gcard__meta"><b>88 guides</b> · builds · soluce</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
+        <article class="gcard" data-g="rpg ow" data-name="The Witcher 3" data-guides="83" data-href="jeu.html"><div class="gcard__cover cover-w3"><span class="badge badge--maj badge--dot">Complet</span><button class="fav gcard__fav" type="button" aria-label="Suivre The Witcher 3"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">The Witcher 3</span></div><div class="gcard__body"><div class="gcard__meta"><b>83 guides</b> · carte · soluce</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
+        <article class="gcard" data-g="rpg service" data-name="Path of Exile 2" data-guides="74" data-href="jeu.html"><div class="gcard__cover cover-poe"><button class="fav gcard__fav" type="button" aria-label="Suivre Path of Exile 2"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Path of Exile 2</span></div><div class="gcard__body"><div class="gcard__meta"><b>74 guides</b> · builds</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
+        <article class="gcard" data-g="coop" data-name="Monster Hunter Wilds" data-guides="61" data-href="jeu.html"><div class="gcard__cover cover-mh"><span class="badge badge--maj badge--dot">À jour</span><button class="fav gcard__fav" type="button" aria-label="Suivre Monster Hunter Wilds"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Monster Hunter Wilds</span></div><div class="gcard__body"><div class="gcard__meta"><b>61 guides</b> · soluce · builds</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
+        <article class="gcard" data-g="rpg" data-name="Final Fantasy VII Rebirth" data-guides="57" data-href="jeu.html"><div class="gcard__cover cover-ff"><span class="badge badge--maj badge--dot">Complet</span><button class="fav gcard__fav" type="button" aria-label="Suivre Final Fantasy VII Rebirth"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Final Fantasy VII Rebirth</span></div><div class="gcard__body"><div class="gcard__meta"><b>57 guides</b> · soluce · trophées</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
+        <article class="gcard" data-g="rpg ow" data-name="Starfield" data-guides="52" data-href="jeu.html"><div class="gcard__cover cover-sf"><span class="badge badge--maj badge--dot">À jour</span><button class="fav gcard__fav" type="button" aria-label="Suivre Starfield"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Starfield</span></div><div class="gcard__body"><div class="gcard__meta"><b>52 guides</b> · carte · builds</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
+        <article class="gcard" data-g="indie" data-name="Hades II" data-guides="48" data-href="jeu.html"><div class="gcard__cover cover-hd"><button class="fav gcard__fav" type="button" aria-label="Suivre Hades II"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Hades II</span></div><div class="gcard__body"><div class="gcard__meta"><b>48 guides</b> · builds</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
+        <article class="gcard" data-g="service coop" data-name="Stardew Valley" data-guides="45" data-href="jeu.html"><div class="gcard__cover cover-sv"><span class="badge badge--maj badge--dot">À jour</span><button class="fav gcard__fav" type="button" aria-label="Suivre Stardew Valley"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Stardew Valley</span></div><div class="gcard__body"><div class="gcard__meta"><b>45 guides</b> · carte</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
+        <article class="gcard" data-g="indie" data-name="Hollow Knight: Silksong" data-guides="39" data-href="jeu.html"><div class="gcard__cover cover-hk"><button class="fav gcard__fav" type="button" aria-label="Suivre Hollow Knight: Silksong"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Hollow Knight: Silksong</span></div><div class="gcard__body"><div class="gcard__meta"><b>39 guides</b> · carte · soluce</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
       </div>
       <div class="cat-empty" id="catEmpty">Aucun jeu ne correspond à ta recherche.</div>
     </section>
@@ -1382,13 +1314,19 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
         <h2 class="sec-title">Par type de ressource</h2>
       </div>
       <div class="rband">
-      <a class="rlink" href="cartes.html"><span class="rlink__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></span><span class="rlink__t">Cartes interactives</span><span class="rlink__m">Coffres, objets, boss, quêtes et PNJ, filtrables.</span></a>
-      <a class="rlink" href="guides.html"><span class="rlink__ico" style="background:var(--magenta-pale); color:var(--magenta);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg></span><span class="rlink__t">Guides</span><span class="rlink__m">Tous les guides, soluces et astuces sur tes jeux.</span></a>
-      <a class="rlink" href="actualites.html"><span class="rlink__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0V9a1 1 0 0 1 1-1h1"/><path d="M16 6h2M16 10h2M10 6h2v4h-2z"/><path d="M10 14h8M10 18h8"/></svg></span><span class="rlink__t">Actualités</span><span class="rlink__m">Toutes les actualités et news sur tes jeux.</span></a>
-      <a class="rlink" href="builds.html"><span class="rlink__ico" style="background:var(--magenta-pale); color:var(--magenta);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/><line x1="13" x2="19" y1="19" y2="13"/><line x1="16" x2="20" y1="16" y2="20"/><line x1="19" x2="21" y1="21" y2="19"/></svg></span><span class="rlink__t">Builds</span><span class="rlink__m">Builds notés et tier lists pour chaque style.</span></a>
-      <a class="rlink" href="trophees.html"><span class="rlink__ico" style="background:var(--or-pale); color:var(--or-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span><span class="rlink__t">Trophées</span><span class="rlink__m">Guides du platine et succès manquables.</span></a>
-      <a class="rlink" href="communaute.html"><span class="rlink__ico" style="background:var(--magenta-pale); color:var(--magenta);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="rlink__t">Communauté</span><span class="rlink__m">Pose tes questions, la communauté répond.</span></a>
-    </div>
+        <a class="rlink" href="guides.html"><span class="rlink__ico" style="background:var(--magenta-pale); color:var(--magenta);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg></span><span class="rlink__t">Guides</span><span class="rlink__m">Tous les guides, soluces et astuces sur tes jeux.</span></a>
+        <a class="rlink" href="cartes.html"><span class="rlink__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></span><span class="rlink__t">Cartes interactives</span><span class="rlink__m">Coffres, objets, boss, quêtes et PNJ, filtrables.</span></a>
+        <a class="rlink" href="actualites.html"><span class="rlink__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0V9a1 1 0 0 1 1-1h1"/><path d="M16 6h2M16 10h2M10 6h2v4h-2z"/><path d="M10 14h8M10 18h8"/></svg></span><span class="rlink__t">Actualités</span><span class="rlink__m">Toutes les actualités et news sur tes jeux.</span></a>
+        <a class="rlink" href="communaute.html">
+          <span class="rlink__ico" style="background:#efe9fb; color:#5b3fb0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </span>
+          <span class="rlink__t">Communauté</span>
+          <span class="rlink__m">Questions, entraide et discussions entre joueurs.</span>
+        </a>
+        <a class="rlink" href="trophees.html"><span class="rlink__ico" style="background:var(--or-pale); color:var(--or-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span><span class="rlink__t">Trophées</span><span class="rlink__m">Guides du platine et succès manquables.</span></a>
+        <a class="rlink" href="builds.html"><span class="rlink__ico" style="background:var(--magenta-pale); color:var(--magenta);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/><line x1="13" x2="19" y1="19" y2="13"/><line x1="16" x2="20" y1="16" y2="20"/><line x1="19" x2="21" y1="21" y2="19"/></svg></span><span class="rlink__t">Builds</span><span class="rlink__m">Builds notés et tier lists pour chaque style.</span></a>
+      </div>
     </section>
   </div>
 </main>
@@ -1853,7 +1791,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 <script>
 (function(){
   var grid=document.getElementById('catGrid'); if(!grid)return;
-  var cards=[].slice.call(grid.querySelectorAll('.grow2'));
+  var cards=[].slice.call(grid.querySelectorAll('.gcard'));
   var search=document.getElementById('catSearch'),sort=document.getElementById('catSort'),empty=document.getElementById('catEmpty');
   var chips=[].slice.call(document.querySelectorAll('#catChips .catchip'));
   var state={f:'tous',q:''};
@@ -1907,5 +1845,6 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   }
 })();
 </script>
+<script id="lynk-catgrid-nav">(function(){var grid=document.getElementById("catGrid");if(!grid)return;function top(){return window.top!==window?window.top:window;}Array.prototype.forEach.call(grid.querySelectorAll(".gcard"),function(c){c.style.cursor="pointer";c.addEventListener("click",function(e){if(e.target.closest(".fav"))return;top().location.href=c.getAttribute("data-href")||"jeu.html";});});Array.prototype.forEach.call(grid.querySelectorAll(".fav"),function(f){f.addEventListener("click",function(e){e.stopPropagation();e.preventDefault();if(!document.body.classList.contains("is-auth")){top().location.href="connexion.html";return;}f.classList.toggle("on");});});})();</script>
 </body>
 </html>
