@@ -1173,6 +1173,9 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .fav-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:14px;}
 .fav-list{display:flex; flex-direction:column; gap:12px;}
 .favitem{display:flex; align-items:center; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); padding:14px 15px; box-shadow:var(--sh-xs);}
+.favitem{cursor:pointer; transition:border-color .15s ease, box-shadow .15s ease, transform .15s ease;}
+.favitem:hover{border-color:var(--magenta); box-shadow:var(--sh-md); transform:translateY(-2px);}
+.favitem:focus-visible{outline:2px solid var(--magenta); outline-offset:2px;}
 .favitem__cover{width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#fff; font-family:var(--serif); font-weight:800; font-size:17px; flex:none; margin-right:13px;}
 .favitem__cover svg{width:24px; height:24px;}
 .favitem__b{flex:1; min-width:0;}
@@ -2078,6 +2081,26 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   function wheelH(el){ if(!el) return; el.addEventListener('wheel', function(e){ if(e.deltaY===0) return; if(el.scrollWidth>el.clientWidth+1){ el.scrollLeft += e.deltaY; e.preventDefault(); } }, {passive:false}); }
   wheelH(document.querySelector('.fav-tabs'));
   wheelH(document.querySelector('.snav__list'));
+
+  /* Cartes favori cliquables -> page de détail correspondante (le bouton « retirer » reste prioritaire) */
+  (function(){
+    var FAV_HREF={jeux:'jeu.html', guides:'guide.html', cartes:'carte.html', articles:'actualite.html', trophees:'trophee.html', builds:'build.html'};
+    function gotoFav(dest){ try{ window.top.location.href=dest; }catch(e){ window.location.href=dest; } }
+    Array.prototype.forEach.call(document.querySelectorAll('[data-fav-panel]'), function(panel){
+      var dest=FAV_HREF[panel.getAttribute('data-fav-panel')]; if(!dest) return;
+      panel.addEventListener('click', function(e){
+        if(e.target.closest && e.target.closest('.favitem__rm')) return;
+        var item=e.target.closest && e.target.closest('.favitem'); if(!item) return;
+        gotoFav(dest);
+      });
+      Array.prototype.forEach.call(panel.querySelectorAll('.favitem'), function(it){
+        it.setAttribute('role','link'); it.setAttribute('tabindex','0');
+        it.addEventListener('keydown', function(e){
+          if((e.key==='Enter' || e.key===' ') && !(e.target.closest && e.target.closest('.favitem__rm'))){ e.preventDefault(); gotoFav(dest); }
+        });
+      });
+    });
+  })();
   var __guestBtns=document.querySelectorAll('[data-sw="guest"]');
   Array.prototype.forEach.call(__guestBtns, function(gb){
     gb.addEventListener('click', function(){ try{ window.top.location.href='index.html'; }catch(e){ window.location.href='index.html'; } });
