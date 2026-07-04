@@ -717,7 +717,7 @@ body.is-embed #deviceHost{display:none !important;}
 }
 
 @media (max-width:520px){
-  .games{grid-template-columns:1fr 1fr;}
+  .games{grid-template-columns:1fr 1fr;} .games .gcard__cover{aspect-ratio:4/5; padding:10px;} .games .gcard__gname{font-size:14px; line-height:1.2;} .games .gcard__body{padding:11px 12px 13px; gap:8px;} .games .gcard__meta{font-size:11px; line-height:1.35;} .games .gcard__cta{font-size:12px; white-space:nowrap; gap:6px;} .games .gcard__cta svg{width:15px; height:15px; flex:none;}
   .why{grid-template-columns:1fr;}
   .hero h1{font-size:32px;}
   .trust{gap:14px;}
@@ -921,7 +921,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .gcard{text-decoration:none;}
 
 /* ===== barre catalogue (recherche + filtres + tri) ===== */
-.catbar{display:flex; flex-wrap:wrap; align-items:center; gap:12px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:14px 16px; margin-bottom:22px;}
+.catbar{display:flex; flex-wrap:wrap; align-items:center; column-gap:7px; row-gap:14px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:14px 16px; margin-bottom:22px;}
 .catsearch svg{width:19px; height:19px; color:var(--ink-400); flex:none;}
 .catsearch{flex:1 1 100%; min-width:220px; display:flex; align-items:center; gap:11px; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); padding:13px 16px;}
 .catsearch svg{width:17px; height:17px; color:var(--ink-400); flex:none;}
@@ -1233,10 +1233,42 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 
 <main class="page">
   <div class="wrap">
-  <section class="psec" style="padding-top:6px;">
+      <section class="psec auth-only-block" style="padding-top:6px;">
+      <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Reprends là où tu t'es arrêté</span>
+      <h2 class="sec-title">Les derniers jeux consultés</h2>
+      <div class="rail">
+        <a class="railcard" href="jeu.html"><span class="railcard__cover cover-er"><span class="gcard__gname">Elden Ring</span></span><span class="railcard__meta"><b>214 guides</b> · carte interactive · trophées</span></a>
+        <a class="railcard" href="jeu.html"><span class="railcard__cover cover-cp"><span class="gcard__gname">Cyberpunk 2077</span></span><span class="railcard__meta"><b>96 guides</b> · soluce complète · trophées</span></a>
+        <a class="railcard" href="jeu.html"><span class="railcard__cover cover-zd"><span class="gcard__gname">Zelda : Tears of the Kingdom</span></span><span class="railcard__meta"><b>186 guides</b> · carte interactive · soluce complète</span></a>
+        <a class="railcard" href="jeu.html"><span class="railcard__cover cover-bg"><span class="gcard__gname">Baldur's Gate 3</span></span><span class="railcard__meta"><b>158 guides</b> · soluce complète · builds</span></a>
+        <a class="railcard" href="jeu.html"><span class="railcard__cover cover-gi"><span class="gcard__gname">Genshin Impact</span></span><span class="railcard__meta"><b>142 guides</b> · carte interactive · builds</span></a>
+      </div>
+    </section>
+    <section class="psec guest-only-block" style="padding-top:6px;">
+      <div class="discover">
+        <div class="discover__txt">
+          <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Ton compagnon de jeu</span>
+          <h2 class="sec-title" style="margin-top:6px;">Retrouve tes derniers jeux consultés <span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></h2>
+          <p class="sec-sub" style="margin-top:8px;">Avec Premium dès 1,99 €/mois, Lynk garde en mémoire les jeux que tu consultes et te les remet en avant à chaque visite — avec ta progression et les nouveautés.</p>
+          <div style="display:flex; gap:10px; margin-top:18px; flex-wrap:wrap;">
+            <a class="btn btn--primary" href="inscription.html">Créer mon compte gratuit</a>
+            <a class="btn btn--premium" href="premium.html">Découvrir Premium</a>
+          </div>
+        </div>
+        <div class="discover__demo" aria-hidden="true">
+          <div class="demo-card">
+            <div class="demo-card__row"><span class="demo-cover cover-er"></span><div style="flex:1;"><b style="font-family:var(--serif); font-size:14px;">Elden Ring</b><div class="progress" style="margin-top:7px; background:var(--surface-3);"><div class="progress__bar" style="width:68%;"></div></div></div><span class="demo-pct">68 %</span></div>
+            <div class="demo-card__row"><span class="demo-cover cover-zd"></span><div style="flex:1;"><b style="font-family:var(--serif); font-size:14px;">Zelda TOTK</b><div class="progress" style="margin-top:7px; background:var(--surface-3);"><div class="progress__bar" style="width:41%; background:linear-gradient(90deg,var(--cyan),#3ed3ec);"></div></div></div><span class="demo-pct">41 %</span></div>
+            <div class="demo-card__row"><span class="demo-cover cover-cp"></span><div style="flex:1;"><b style="font-family:var(--serif); font-size:14px;">Cyberpunk 2077</b><div class="progress" style="margin-top:7px; background:var(--surface-3);"><div class="progress__bar" style="width:25%; background:linear-gradient(90deg,var(--or),#ffca57);"></div></div></div><span class="demo-pct">25 %</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="psec" style="padding-top:6px;">
       <div class="psec__head">
         <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Cette semaine</span>
-        <h2 class="sec-title">Les plus recherchés</h2>
+        <h2 class="sec-title">Les plus consultés</h2>
       </div>
       <div class="rail">
       <a class="railcard" href="jeu.html">
@@ -1272,6 +1304,10 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
         <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Catalogue complet</span>
         <h2 class="sec-title">Tous les jeux</h2>
       </div>
+      <div class="scope only-auth" data-scope-target="catalogue" style="margin-bottom:14px;">
+        <button class="scope__btn active" data-scope="tous">Tout</button>
+        <button class="scope__btn" data-scope="suivis">Mes jeux</button>
+      </div>
       <div class="catbar">
         <div class="catsearch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input type="text" id="catSearch" placeholder="Filtrer le catalogue (ex. Elden, RPG…)" aria-label="Filtrer les jeux"></div>
         <div class="catchips" id="catChips">
@@ -1290,10 +1326,10 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
         </select>
       </div>
       <div class="games" id="catGrid">
-        <article class="gcard" data-g="rpg ow aventure metroidvania" data-name="Elden Ring" data-guides="214" data-href="jeu.html"><div class="gcard__cover cover-er"><span class="badge badge--maj badge--dot">À jour · 1.12.3</span><button class="fav gcard__fav" type="button" aria-label="Suivre Elden Ring"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Elden Ring</span></div><div class="gcard__body"><div class="gcard__meta"><b>214 guides</b> · carte interactive · trophées</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
-        <article class="gcard" data-g="ow aventure metroidvania" data-name="Zelda : Tears of the Kingdom" data-guides="186" data-href="jeu.html"><div class="gcard__cover cover-zd"><span class="badge badge--maj badge--dot">À jour</span><button class="fav gcard__fav" type="button" aria-label="Suivre Zelda : Tears of the Kingdom"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Zelda : Tears of the Kingdom</span></div><div class="gcard__body"><div class="gcard__meta"><b>186 guides</b> · carte interactive · soluce complète</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
+        <article class="gcard" data-followed="1" data-g="rpg ow aventure metroidvania" data-name="Elden Ring" data-guides="214" data-href="jeu.html"><div class="gcard__cover cover-er"><span class="badge badge--maj badge--dot">À jour · 1.12.3</span><button class="fav gcard__fav" type="button" aria-label="Suivre Elden Ring"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Elden Ring</span></div><div class="gcard__body"><div class="gcard__meta"><b>214 guides</b> · carte interactive · trophées</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
+        <article class="gcard" data-followed="1" data-g="ow aventure metroidvania" data-name="Zelda : Tears of the Kingdom" data-guides="186" data-href="jeu.html"><div class="gcard__cover cover-zd"><span class="badge badge--maj badge--dot">À jour</span><button class="fav gcard__fav" type="button" aria-label="Suivre Zelda : Tears of the Kingdom"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Zelda : Tears of the Kingdom</span></div><div class="gcard__body"><div class="gcard__meta"><b>186 guides</b> · carte interactive · soluce complète</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
         <article class="gcard" data-g="rpg coop" data-name="Baldur's Gate 3" data-guides="158" data-href="jeu.html"><div class="gcard__cover cover-bg"><span class="badge badge--maj badge--dot">À jour</span><button class="fav gcard__fav" type="button" aria-label="Suivre Baldur's Gate 3"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Baldur's Gate 3</span></div><div class="gcard__body"><div class="gcard__meta"><b>158 guides</b> · soluce complète · builds</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
-        <article class="gcard" data-g="ow service aventure" data-name="Genshin Impact" data-guides="142" data-href="jeu.html"><div class="gcard__cover cover-gi"><span class="badge badge--maj badge--dot">À jour · 5.6</span><button class="fav gcard__fav" type="button" aria-label="Suivre Genshin Impact"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Genshin Impact</span></div><div class="gcard__body"><div class="gcard__meta"><b>142 guides</b> · carte interactive · builds</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
+        <article class="gcard" data-followed="1" data-g="ow service aventure" data-name="Genshin Impact" data-guides="142" data-href="jeu.html"><div class="gcard__cover cover-gi"><span class="badge badge--maj badge--dot">À jour · 5.6</span><button class="fav gcard__fav" type="button" aria-label="Suivre Genshin Impact"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Genshin Impact</span></div><div class="gcard__body"><div class="gcard__meta"><b>142 guides</b> · carte interactive · builds</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
         <article class="gcard" data-g="rpg ow" data-name="Cyberpunk 2077" data-guides="96" data-href="jeu.html"><div class="gcard__cover cover-cp"><span class="badge badge--maj badge--dot">À jour</span><button class="fav gcard__fav" type="button" aria-label="Suivre Cyberpunk 2077"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Cyberpunk 2077</span></div><div class="gcard__body"><div class="gcard__meta"><b>96 guides</b> · soluce complète · trophées</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
         <article class="gcard" data-g="rpg service" data-name="Diablo IV" data-guides="88" data-href="jeu.html"><div class="gcard__cover cover-d4"><span class="badge badge--maj badge--dot">Saison 8</span><button class="fav gcard__fav" type="button" aria-label="Suivre Diablo IV"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Diablo IV</span></div><div class="gcard__body"><div class="gcard__meta"><b>88 guides</b> · soluce complète · builds</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
         <article class="gcard" data-g="rpg ow" data-name="The Witcher 3" data-guides="83" data-href="jeu.html"><div class="gcard__cover cover-w3"><span class="badge badge--maj badge--dot">Complet</span><button class="fav gcard__fav" type="button" aria-label="Suivre The Witcher 3"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">The Witcher 3</span></div><div class="gcard__body"><div class="gcard__meta"><b>83 guides</b> · carte interactive · soluce complète</div><span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span></div></article>
@@ -1794,13 +1830,14 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   var cards=[].slice.call(grid.querySelectorAll('.gcard'));
   var search=document.getElementById('catSearch'),sort=document.getElementById('catSort'),empty=document.getElementById('catEmpty');
   var chips=[].slice.call(document.querySelectorAll('#catChips .catchip'));
-  var state={f:'tous',q:''};
+  var state={f:'tous',q:'',scope:'tous'};
   function apply(){
     var q=state.q.toLowerCase(),shown=0;
     cards.forEach(function(c){
       var okF=state.f==='tous'||(' '+c.getAttribute('data-g')+' ').indexOf(' '+state.f+' ')>=0;
       var okQ=!q||(c.getAttribute('data-name')+' '+c.getAttribute('data-g')).toLowerCase().indexOf(q)>=0;
-      var show=okF&&okQ; c.style.display=show?'':'none'; if(show)shown++;
+      var okS=state.scope==='tous'||c.getAttribute('data-followed')==='1';
+      var show=okF&&okQ&&okS; c.style.display=show?'':'none'; if(show)shown++;
     });
     empty.style.display=shown?'none':'block';
   }
@@ -1816,6 +1853,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     chips.forEach(function(x){x.classList.remove('active');});ch.classList.add('active');
     state.f=ch.getAttribute('data-f');apply();
   });});
+  [].slice.call(document.querySelectorAll('.scope[data-scope-target="catalogue"] .scope__btn')).forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.scope[data-scope-target="catalogue"] .scope__btn').forEach(function(x){x.classList.remove('active');});b.classList.add('active');state.scope=b.getAttribute('data-scope');apply();});});
   if(search)search.addEventListener('input',function(){state.q=search.value.trim();apply();});
   if(sort)sort.addEventListener('change',function(){doSort();});
 })();
