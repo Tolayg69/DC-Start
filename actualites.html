@@ -1870,5 +1870,6 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 </script>
 <script>(function(){function A(){return document.body.classList.contains('is-auth');}
 Array.prototype.forEach.call(document.querySelectorAll('.card[data-href]'),function(c){c.addEventListener('click',function(e){if(e.target.closest('.fav'))return;var d=(c.classList.contains('card--premium')&&!A())?'premium.html':(c.getAttribute('data-href')||'actualite.html');try{window.top.location.href=d;}catch(_){window.location.href=d;}});});})();</script>
+<script id="lynk-url-gamefilter">(function(){var m=location.search.match(/[?&]game=([^&]+)/);if(!m)return;var g=decodeURIComponent(m[1]);function act(){var chip=document.querySelector('[data-chip="'+g+'"][data-bar="game"]');if(chip){chip.click();}}if(document.readyState!=="loading"){setTimeout(act,0);}else{document.addEventListener("DOMContentLoaded",function(){setTimeout(act,0);});}})();</script>
 </body>
 </html>
