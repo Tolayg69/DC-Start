@@ -1649,7 +1649,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   var FOLLOWED = ['er','zd','gi'];
   function setScopes(mode, anchor){
     var before = anchor ? anchor.getBoundingClientRect().top : 0;
-    document.querySelectorAll('.scope').forEach(function(sc){
+    document.querySelectorAll('.scope:not([data-scope-target^="jg-"])').forEach(function(sc){
       sc.querySelectorAll('.scope__btn').forEach(function(b){
         b.classList.toggle('active', b.getAttribute('data-scope')===mode);
       });
