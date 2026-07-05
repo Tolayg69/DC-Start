@@ -859,6 +859,8 @@ body.drawer-open{overflow:hidden;}
 }
 body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
 body.is-embed .mdrawer__panel{ padding-top: 44px; }
+
+body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
 </style>
 </head>
 <body>
@@ -1195,42 +1197,42 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 
     <div class="games" data-scope-zone="jeux">
       <article class="gcard" data-game="er" data-g="rpg ow">
-        <div class="gcard__cover cover-er"><span class="badge badge--maj badge--dot">À jour · 1.12.3</span><button class="fav on gcard__fav" aria-label="Suivre Elden Ring"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Elden Ring</span></div>
+        <div class="gcard__cover cover-er"><button class="fav on gcard__fav" aria-label="Suivre Elden Ring"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Elden Ring</span></div>
         <div class="gcard__body">
           <div class="gcard__meta"><b>214 guides</b> · carte interactive · trophées</div>
           <span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
         </div>
       </article>
       <article class="gcard" data-game="zd" data-g="ow">
-        <div class="gcard__cover cover-zd"><span class="badge badge--maj badge--dot">À jour</span><button class="fav on gcard__fav" aria-label="Suivre Zelda TOTK"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Zelda : Tears of the Kingdom</span></div>
+        <div class="gcard__cover cover-zd"><button class="fav on gcard__fav" aria-label="Suivre Zelda TOTK"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Zelda : Tears of the Kingdom</span></div>
         <div class="gcard__body">
           <div class="gcard__meta"><b>186 guides</b> · carte interactive · soluce complète</div>
           <span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
         </div>
       </article>
       <article class="gcard" data-game="bg3" data-g="rpg">
-        <div class="gcard__cover cover-bg"><span class="badge badge--maj badge--dot">À jour</span><button class="fav gcard__fav" aria-label="Suivre Baldur's Gate 3"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Baldur's Gate 3</span></div>
+        <div class="gcard__cover cover-bg"><button class="fav gcard__fav" aria-label="Suivre Baldur's Gate 3"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Baldur's Gate 3</span></div>
         <div class="gcard__body">
           <div class="gcard__meta"><b>158 guides</b> · soluce complète · builds</div>
           <span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
         </div>
       </article>
       <article class="gcard" data-game="gi" data-g="ow service">
-        <div class="gcard__cover cover-gi"><span class="badge badge--maj badge--dot">À jour · 5.6</span><button class="fav on gcard__fav" aria-label="Suivre Genshin Impact"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Genshin Impact</span></div>
+        <div class="gcard__cover cover-gi"><button class="fav on gcard__fav" aria-label="Suivre Genshin Impact"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Genshin Impact</span></div>
         <div class="gcard__body">
           <div class="gcard__meta"><b>142 guides</b> · carte interactive · builds</div>
           <span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
         </div>
       </article>
       <article class="gcard hide-mobile" data-game="cp" data-g="rpg ow">
-        <div class="gcard__cover cover-cp"><span class="badge badge--maj badge--dot">À jour</span><button class="fav gcard__fav" aria-label="Suivre Cyberpunk 2077"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Cyberpunk 2077</span></div>
+        <div class="gcard__cover cover-cp"><button class="fav gcard__fav" aria-label="Suivre Cyberpunk 2077"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Cyberpunk 2077</span></div>
         <div class="gcard__body">
           <div class="gcard__meta"><b>96 guides</b> · soluce complète · trophées</div>
           <span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
         </div>
       </article>
       <article class="gcard hide-mobile" data-game="diablo" data-g="rpg service">
-        <div class="gcard__cover cover-d4"><span class="badge badge--maj badge--dot">Saison 8</span><button class="fav gcard__fav" aria-label="Suivre Diablo IV"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Diablo IV</span></div>
+        <div class="gcard__cover cover-d4"><button class="fav gcard__fav" aria-label="Suivre Diablo IV"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Diablo IV</span></div>
         <div class="gcard__body">
           <div class="gcard__meta"><b>88 guides</b> · soluce complète · builds</div>
           <span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
@@ -1238,14 +1240,14 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
       </article>
     
       <article class="gcard hide-mobile" data-game="poe" data-g="rpg service">
-        <div class="gcard__cover cover-poe"><span class="badge badge--new badge--dot">Nouveau</span><button class="fav gcard__fav" aria-label="Suivre Path of Exile 2"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Path of Exile 2</span></div>
+        <div class="gcard__cover cover-poe"><button class="fav gcard__fav" aria-label="Suivre Path of Exile 2"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Path of Exile 2</span></div>
         <div class="gcard__body">
           <div class="gcard__meta"><b>74 guides</b> · builds</div>
           <span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
         </div>
       </article>
       <article class="gcard hide-mobile" data-game="mh" data-g="mmo">
-        <div class="gcard__cover cover-mh"><span class="badge badge--maj badge--dot">À jour</span><button class="fav gcard__fav" aria-label="Suivre Monster Hunter Wilds"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Monster Hunter Wilds</span></div>
+        <div class="gcard__cover cover-mh"><button class="fav gcard__fav" aria-label="Suivre Monster Hunter Wilds"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button><span class="gcard__gname">Monster Hunter Wilds</span></div>
         <div class="gcard__body">
           <div class="gcard__meta"><b>61 guides</b> · soluce complète · builds</div>
           <span class="gcard__cta">Voir les ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>
