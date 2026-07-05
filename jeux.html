@@ -1303,7 +1303,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
       <div class="catbar">
         <div class="catsearch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input type="text" id="catSearch" placeholder="Filtrer le catalogue (ex. Elden, RPG…)" aria-label="Filtrer les jeux"></div>
         <div class="catdrop" id="catDrop"><button class="catdrop__btn" id="catDropBtn" type="button" aria-label="Filtres"><span class="catdrop__lbl">Tout</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></button><div class="catchips" id="catChips">
-          <button class="catchip active" data-f="tous">Tous</button>
+          <button class="catchip active" data-f="tous">Tout</button>
         <button class="catchip" data-f="rpg">RPG</button>
         <button class="catchip" data-f="ow">Open-world</button>
         <button class="catchip" data-f="service">Jeux-service</button>
@@ -1882,5 +1882,6 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 })();
 </script>
 <script id="lynk-catgrid-nav">(function(){var grid=document;function top(){return window.top!==window?window.top:window;}Array.prototype.forEach.call(grid.querySelectorAll(".gcard"),function(c){c.style.cursor="pointer";c.addEventListener("click",function(e){if(e.target.closest(".fav"))return;top().location.href=c.getAttribute("data-href")||"jeu.html";});});Array.prototype.forEach.call(grid.querySelectorAll(".fav"),function(f){f.addEventListener("click",function(e){e.stopPropagation();e.preventDefault();if(!document.body.classList.contains("is-auth")){top().location.href="connexion.html";return;}f.classList.toggle("on");});});})();</script>
+<script id="lynk-rail-wheel">(function(){Array.prototype.forEach.call(document.querySelectorAll(".rail"),function(r){r.addEventListener("wheel",function(e){if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){var before=r.scrollLeft;r.scrollLeft+=e.deltaY;if(r.scrollLeft!==before)e.preventDefault();}},{passive:false});});})();</script>
 </body>
 </html>
