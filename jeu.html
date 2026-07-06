@@ -1243,7 +1243,7 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
       </div>
       <p class="ghero__desc">Tout ce qu'il te faut pour l'Entre-terre, au même endroit : carte interactive, guides, soluce complète, guide des trophées et builds, fiables et tenus à jour.</p>
       <div class="ghero__cta">
-        <button class="btn btn--primary gfollow is-following" type="button" aria-pressed="true" aria-label="Ne plus suivre Elden Ring"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> <span class="gfollow__t">Jeu suivi</span></button>
+        <button class="btn btn--primary gfollow" type="button" aria-pressed="false" aria-label="Suivre Elden Ring"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> <span class="gfollow__t">Suivre ce jeu</span></button>
         <button class="btn btn--ondark" type="button" onclick="if(navigator.share){navigator.share({title:document.title,url:location.href});}else{return false;}">Partager</button>
       </div>
       <div class="gstats">
@@ -1672,6 +1672,12 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
   function applyAuth(){
     document.body.classList.toggle('is-auth', state.auth);
     setScopes(state.auth ? 'suivis' : 'tous');
+    document.querySelectorAll('.gfollow').forEach(function(gf){
+      gf.classList.toggle('is-following', state.auth);
+      gf.setAttribute('aria-pressed', state.auth ? 'true' : 'false');
+      var gft = gf.querySelector('.gfollow__t');
+      if(gft) gft.textContent = state.auth ? 'Jeu suivi' : 'Suivre ce jeu';
+    });
     document.querySelectorAll('[data-sw="guest"]').forEach(function(b){ b.classList.toggle('active', !state.auth); });
     document.querySelectorAll('[data-sw="auth"]').forEach(function(b){ b.classList.toggle('active', state.auth); });
     var fr = document.getElementById('mobileFrame');
