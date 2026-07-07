@@ -1125,6 +1125,29 @@ body.is-auth .preminset{filter:none;}
 }
 .gscreen.c1{background:#3a2a14;} .gscreen.c2{background:#2a1530;} .gscreen.c3{background:#102a33;}
 
+
+.gdguest svg{width:16px; height:16px; flex:none;}
+.gdguest{align-items:center;}
+.gchip--type{background:var(--magenta-pale); color:var(--magenta-ink); border-color:transparent;}
+
+.gvideo{margin:20px 0;}
+.gvideo__frame{position:relative; aspect-ratio:16/9; border-radius:var(--r-lg); overflow:hidden; display:flex; align-items:flex-end; padding:14px; box-shadow:var(--sh-sm);}
+.gvideo__frame::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55));}
+.gvideo__play{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:62px; height:62px; border-radius:50%; background:rgba(255,255,255,.92); display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:2; box-shadow:0 8px 26px rgba(0,0,0,.3); transition:transform .15s;}
+.gvideo__play:hover{transform:translate(-50%,-50%) scale(1.06);}
+.gvideo__play svg{width:26px; height:26px; color:var(--magenta); margin-left:3px;}
+.gvideo__lbl{position:relative; z-index:1; color:#fff; font-weight:700; font-size:13.5px; text-shadow:0 2px 8px rgba(0,0,0,.5);}
+.gvideo__cap{font-size:13px; color:var(--ink-500); margin-top:10px !important;}
+
+.gbuild{margin:18px 0;}
+.gbuild__kicker{display:block; font-family:var(--sans); font-weight:800; font-size:12px; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-500); margin-bottom:10px;}
+.gbuild__card{display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:14px 16px; text-decoration:none; transition:border-color .15s, box-shadow .15s, transform .12s;}
+.gbuild__card:hover{border-color:var(--magenta); box-shadow:var(--sh-md); transform:translateY(-2px);}
+.gbuild__cover{width:48px; height:62px; border-radius:9px; flex:none; box-shadow:var(--sh-xs);}
+.gbuild__body{flex:1; min-width:0;}
+.gbuild__t{display:block; font-family:var(--serif); font-weight:700; font-size:16px; color:var(--noir);}
+.gbuild__m{display:block; font-size:12.5px; color:var(--ink-500); margin-top:3px;}
+.gbuild__go{width:20px; height:20px; color:var(--magenta); flex:none;}
 </style>
 </head>
 <body>
@@ -1289,15 +1312,15 @@ body.is-auth .preminset{filter:none;}
   <div class="ghero__in">
     <div class="wrap">
       <nav class="crumb" aria-label="Fil d'Ariane"><a href="jeux.html">Jeux</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> <a href="jeu.html">Elden Ring</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> <a href="guides.html">Guides</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> <span>Malenia</span></nav>
-      <div class="ghero__chips"><span class="gtag gtag--mg">Boss</span> <span class="gchip">Difficulté extrême</span> <span class="gchip">Elden Ring</span></div>
-      <h1 class="ghero__title">Battre Malenia, Lame de Miquella</h1>
+      <div class="ghero__chips"><span class="gchip gchip--type">Boss</span> <span class="gchip">Difficulté extrême</span> <span class="gchip">Elden Ring</span></div>
+      <h1 class="ghero__title">Battre Malenia : stratégie complète, builds conseillés et invocations</h1>
       <div class="gdmeta">
         <span class="gdmeta__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg> Par l'équipe Lynk</span>
         <span class="gdmeta__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~8 min de lecture</span>
         <span class="gdmeta__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18M7 3v4M17 3v4"/><rect x="3" y="5" width="18" height="16" rx="2"/></svg> Mis à jour le 12 juin · patch 1.12.3</span>
       </div>
       <div class="gdactions">
-        <button class="btn btn--ondark btn--fav only-auth" id="gdFav" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> <span>Sauvegarder</span></button>
+        <button class="btn btn--primary btn--fav is-fav only-auth" id="gdFav" type="button" aria-pressed="true"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> <span>Guide sauvegardé</span></button>
         <span class="gdguest only-guest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> <span><a href="connexion.html">Connecte-toi</a> pour sauvegarder ce guide et suivre ta progression.</span></span>
         <button class="btn btn--ondark" type="button" onclick="if(navigator.share){navigator.share({title:document.title,url:location.href});}else{return false;}">Partager</button>
       </div>
@@ -1309,19 +1332,19 @@ body.is-auth .preminset{filter:none;}
   <div class="wrap">
     <div class="gdwrap">
       <article class="gart">
-        <p class="glead">Malenia est sans doute le boss optionnel le plus exigeant d'Elden Ring. Ce guide décompose ses <strong>deux phases</strong>, sa fameuse <strong>Danse du fauchage</strong> et te donne un build fiable pour mettre toutes les chances de ton côté, que tu joues mêlée ou hybride.</p>
+        <p class="glead">Malenia est sans doute le boss optionnel le plus exigeant d'Elden Ring. Ce guide décompose ses <strong>deux phases</strong>, sa fameuse <strong>Waterfowl Dance</strong> et te donne un build fiable pour mettre toutes les chances de ton côté, que tu joues mêlée ou hybride.</p>
 
         <div class="gcallout">
           <span class="gcallout__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span>
-          <p><b>Localisation.</b> Malenia se trouve au cœur de l'Arbre-Haligbre fléau, tout au bout du Manoir Elphael (Hauteurs des Géants → Arbre-monde mineur). Prévois un <b>flacon de larmes</b> dédié et un <b>esprit de cendres</b> avant d'entrer dans l'arène.</p>
+          <p><b>Localisation.</b> Malenia se trouve au cœur de l'Arbre-Halig sacré, tout au bout d'Élphaël, brasier de l'Arbre-Halig (accessible depuis les Sommets des Géants). Prévois un <b>flacon de larmes</b> dédié et un <b>Cendres d'esprit</b> avant d'entrer dans l'arène.</p>
         </div>
 
         <h2 id="prep">Avant le combat : build et préparation</h2>
-        <p>Quel que soit ton archétype, vise un <strong>niveau d'arme +24/+9</strong> minimum et un dégât par coup élevé pour profiter des fenêtres courtes. Trois approches sortent du lot :</p>
+        <p>Quel que soit ton build, vise un <strong>niveau d'arme +24/+9</strong> minimum et un DPS élevé pour profiter des fenêtres courtes. Trois approches sortent du lot :</p>
         <ul class="gsteps">
           <li><b>Saignement (recommandé débutant)</b> : Katanas Uchigatana/Rivière de sang : le saignement entame une grosse part de sa vie et interrompt certaines attaques. Voir notre build <a href="build.html">Samouraï saignement</a>.</li>
           <li><b>Incantations de foi</b> : Lame écarlate + Flammes de Frénésie pour punir à distance pendant ses déplacements.</li>
-          <li><b>Cendres d'esprit</b> : Mimétisme (Larme de mimétisme) ou Tireurs de la Lune noire pour détourner son aggro pendant la phase 2.</li>
+          <li><b>Cendres d'esprit</b> : Mimétisme (Larme mimétique) ou Tireurs de la Lune noire pour détourner son aggro pendant la phase 2.</li>
         </ul>
 
         <div class="gscreens">
@@ -1330,42 +1353,56 @@ body.is-auth .preminset{filter:none;}
         </div>
 
         <h2 id="phase1">Phase 1 : Malenia, Lame de Miquella</h2>
-        <p>Reste <strong>collé à elle</strong> : la majorité de ses combos sont plus lisibles de près. Le danger principal est la <strong>Danse du fauchage</strong> (Waterfowl Dance), une série de trois rafales de coups aériens.</p>
+        <p>Reste <strong>collé à elle</strong> : la majorité de ses combos sont plus lisibles de près. Le danger principal est la <strong>Waterfowl Dance</strong>, une série de trois rafales de coups aériens.</p>
         <div class="gcallout gcallout--warn">
           <span class="gcallout__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span>
-          <p><b>Esquiver la Danse du fauchage :</b> quand elle s'envole, <b>éloigne-toi</b> pour la 1re rafale, puis roule <b>vers elle en diagonale</b> sur les 2e et 3e. Ne sprinte jamais en ligne droite, tu seras rattrapé.</p>
+          <p><b>Esquiver la Waterfowl Dance :</b> quand elle s'envole, <b>éloigne-toi</b> pour la 1re rafale, puis roule <b>vers elle en diagonale</b> sur les 2e et 3e. Ne sprinte jamais en ligne droite, tu seras rattrapé.</p>
         </div>
-        <p>Punis après ses <strong>coups de pied retournés</strong> et après la fin de ses combos de 3-4 coups. Garde toujours une endurance pour deux roulades de secours.</p>
+        <p>Ses enchaînements les plus fréquents à connaître :</p>
+        <ul class="gsteps">
+          <li><b>Combo de 3-4 coups d'épée.</b> Roule <b>à travers</b> chaque coup (esquive rapprochée) et place 1 à 2 attaques à la fin du combo.</li>
+          <li><b>Coup de pied retourné / saut plongeant.</b> Très télégraphié : esquive sur le côté puis punis pendant sa récupération.</li>
+          <li><b>Ruée + estoc.</b> Quand elle fonce sur toi, esquive latéralement au dernier moment, c'est une longue fenêtre de punition.</li>
+          <li><b>Waterfowl Dance.</b> Sa technique signature (voir l'encadré ci-dessus) : trois rafales aériennes qu'il faut gérer différemment.</li>
+        </ul>
+        <p>Garde toujours assez d'endurance pour deux roulades de secours, et ne sois pas trop gourmand : un seul coup sûr vaut mieux que deux coups risqués.</p>
 
         <h2 id="phase2">Phase 2 : Malenia, Déesse de la Pourriture</h2>
-        <p>À la 2e phase, elle déclenche une explosion d'ouverture (recule au déclenchement) puis ajoute la <strong>Pourriture écarlate</strong> à ses attaques. Surveille ta jauge : garde des <strong>Boluses de cuivre-perle</strong> pour la purger.</p>
+        <p>À la 2e phase, elle déclenche une explosion d'ouverture (recule au déclenchement) puis ajoute la <strong>Pourriture écarlate</strong> à ses attaques. Surveille ta jauge : garde des <strong>Bolus de cuivre-perle</strong> pour la purger.</p>
         <div class="gcallout gcallout--mg">
           <span class="gcallout__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg></span>
-          <p><b>Astuce de la communauté.</b> Ses soins à chaque coup porté fonctionnent <b>même quand tu bloques</b> : privilégie l'esquive au bouclier sur cette phase pour ne pas la regonfler.</p>
+          <p><b>Astuce :</b> Ses soins à chaque coup porté fonctionnent <b>même quand tu bloques</b> : privilégie l'esquive au bouclier sur cette phase pour ne pas la regonfler.</p>
         </div>
 
-        <div class="preminset">
-          <span class="preminset__lock"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg> Contenu Premium</span>
-          <h3>Build détaillé phase par phase + timings d'esquive en vidéo</h3>
-          <div class="preminset__blur">
-            <p>Statistiques exactes, talismans, ordre des Cendres de guerre, et chronométrage image par image de la Danse du fauchage selon ton arme...</p>
-          </div>
-          <p class="only-guest" style="color:var(--ink-600); font-size:14px;">Réservé aux membres Premium. <a href="premium.html" style="color:var(--magenta); font-weight:700;">Découvrir Premium</a> ou <a href="connexion.html" style="color:var(--magenta); font-weight:700;">se connecter</a>.</p>
-          <div class="only-auth">
-            <p style="color:var(--ink-700); font-size:14.5px;"><b>Talismans :</b> Griffe de l'aigle dauphin +2, Cornes de bouc, Talisman du guerrier impie, Larme cramoisie. <b>Cendres de guerre :</b> Vœu du seigneur du sang sur l'arme secondaire.</p>
-            <a class="btn btn--primary" href="build.html">Ouvrir le build complet <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-          </div>
-        </div>
+        
 
-        <h2 id="tips">Conseils express</h2>
+        <h2 id="tips">Quelques conseils</h2>
         <ul class="gsteps">
           <li><b>Patience.</b> Mieux vaut un coup sûr que deux coups risqués : ses contres punissent l'avidité.</li>
-          <li><b>Invocations.</b> Pose ton esprit de cendres dès l'entrée pour partager l'aggro.</li>
-          <li><b>Saignement &gt; tout.</b> Deux procs de saignement en phase 1 peuvent t'éviter une Danse du fauchage.</li>
+          <li><b>Invocations.</b> Pose ton Cendres d'esprit dès l'entrée pour partager l'aggro.</li>
+          <li><b>Saignement &gt; tout.</b> Deux procs de saignement en phase 1 peuvent t'éviter une Waterfowl Dance.</li>
         </ul>
+        <div class="gvideo">
+          <div class="gvideo__frame cover-er">
+            <button class="gvideo__play" type="button" aria-label="Lire la vidéo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg></button>
+            <span class="gvideo__lbl">Vidéo · Battre Malenia phase par phase</span>
+          </div>
+          <p class="gvideo__cap">Démonstration en vidéo : timing d'esquive de la Waterfowl Dance et fenêtres de punition sur les deux phases.</p>
+        </div>
 
         <h2 id="related">Guides liés</h2>
-        <div class="glist"><a class="grow" href="guide.html"><span class="grow__n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><span class="grow__b"><span class="grow__t">Quête de Ranni · étapes complètes</span><span class="grow__m">Débloque la fin alternative « Âge des astres »</span></span><span class="gtag gtag--mg">Quête</span><span class="grow__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a><a class="grow" href="guide.html"><span class="grow__n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><span class="grow__b"><span class="grow__t">Toutes les Larmes de cristal</span><span class="grow__m">Soigne-toi et booste tes stats avant le combat</span></span><span class="gtag gtag--cy">Carte</span><span class="grow__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a><a class="grow" href="guide.html"><span class="grow__n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><span class="grow__b"><span class="grow__t">Farm de runes rapide</span><span class="grow__m">Monte de niveau avant d'affronter Malenia</span></span><span class="gtag gtag--or">Astuce</span><span class="grow__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a></div>
+        <div class="glist"><a class="grow" href="guide.html"><span class="grow__n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><span class="grow__b"><span class="grow__t">Quête de Ranni · étapes complètes</span><span class="grow__m">Débloque la fin « Âge des astres », étape par étape</span></span><span class="gtag gtag--mg">Quête</span><span class="grow__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a><a class="grow" href="guide.html"><span class="grow__n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><span class="grow__b"><span class="grow__t">Toutes les Larmes de cristal</span><span class="grow__m">Emplacements et effets, carte à l'appui</span></span><span class="gtag gtag--cy">Carte</span><span class="grow__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a><a class="grow" href="guide.html"><span class="grow__n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><span class="grow__b"><span class="grow__t">Farm de runes rapide</span><span class="grow__m">La méthode la plus rapide pour monter de niveau</span></span><span class="gtag gtag--or">Astuce</span><span class="grow__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a></div>
+        <div class="gbuild">
+          <span class="gbuild__kicker">Build recommandé pour ce boss</span>
+          <a class="gbuild__card" href="build.html">
+            <span class="gbuild__cover cover-er"></span>
+            <span class="gbuild__body">
+              <span class="gbuild__t">Samouraï saignement</span>
+              <span class="gbuild__m">Katana Rivière de sang · saignement · débutant-friendly · Tier S</span>
+            </span>
+            <svg class="gbuild__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
+        </div>
       </article>
 
       <aside class="gside">
@@ -1375,7 +1412,7 @@ body.is-auth .preminset{filter:none;}
             <li><a href="#prep">Préparation &amp; build</a></li>
             <li><a href="#phase1">Phase 1</a></li>
             <li><a href="#phase2">Phase 2</a></li>
-            <li><a href="#tips">Conseils express</a></li>
+            <li><a href="#tips">Quelques conseils</a></li>
             <li><a href="#related">Guides liés</a></li>
           </ul>
         </div>
@@ -1387,14 +1424,10 @@ body.is-auth .preminset{filter:none;}
           <div class="irow"><span class="irow__k">Runes</span><span class="irow__v">480 000</span></div>
           <div class="irow"><span class="irow__k">Faiblesses</span><span class="irow__v">Saignement, Givre</span></div>
         </div>
-        <div class="icard only-auth">
-          <p class="icard__h">Ta progression</p>
-          <button class="btn btn--ghost progbtn" id="gdProg" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <span>Marquer comme vaincu</span></button>
-        </div>
-        <div class="icard only-guest">
+          <div class="icard only-guest">
           <p class="icard__h">Suis ta progression</p>
-          <p style="font-size:13.5px; color:var(--ink-600); margin:0 0 12px;">Avec un compte Lynk, marque les boss vaincus et synchronise ta progression.</p>
-          <a class="btn btn--primary progbtn" href="inscription.html">Créer un compte</a>
+          <p style="font-size:13.5px; color:var(--ink-600); margin:0 0 12px;">Avec un compte Lynk, enregistre ce guide en favori et synchronise ta progression.</p>
+          <a class="btn btn--primary btn--sm" href="inscription.html">Créer un compte</a>
         </div>
       </aside>
     </div>
@@ -1909,7 +1942,9 @@ body.is-auth .preminset{filter:none;}
   function get(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
   function set(a){ try{ localStorage.setItem(KEY, JSON.stringify(a)); }catch(e){} }
   if(fav){
+    function syncTxt(){ var s=fav.querySelector('span'); if(s) s.textContent = fav.classList.contains('is-fav')?'Guide sauvegardé':'Sauvegarder'; fav.setAttribute('aria-pressed', fav.classList.contains('is-fav')?'true':'false'); }
     if(get().indexOf(ID)>=0) fav.classList.add('is-fav');
+    syncTxt();
     fav.addEventListener('click', function(){
       if(!isAuth()){ window.location.href='connexion.html'; return; }
       var a=get(), i=a.indexOf(ID);
