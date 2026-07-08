@@ -1109,11 +1109,11 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .gsearch{position:relative; display:flex; align-items:center; gap:11px; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); padding:13px 16px; margin-bottom:14px;}
 .gsearch__ico{position:static; width:19px; height:19px; color:var(--ink-400); flex:none;}
 .gsearch input{flex:1; border:none; background:none; outline:none; font-family:var(--sans); font-size:15px; color:var(--noir);}
-.gfilters{display:flex; align-items:center; column-gap:7px; row-gap:10px; flex-wrap:wrap;}
+.gfilters{display:flex; flex-direction:column; gap:12px; align-items:stretch;}
 .chipbar{display:flex; flex-wrap:wrap; gap:7px;}
 .fchip{font-family:var(--sans); font-size:13px; font-weight:600; padding:8px 14px; border-radius:var(--r-pill); border:1px solid var(--line); background:#fff; color:var(--ink-600); cursor:pointer; transition:all .14s;}
 .fchip.is-on{background:var(--noir); color:#fff; border-color:var(--noir);}
-.catsort{margin-left:auto;}
+.catsort{align-self:flex-end;}
 .gdrop__btn{display:none;}
 @media (max-width:640px){
   .gfilters{flex-direction:column; align-items:stretch;}
@@ -1299,7 +1299,7 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
   <div class="wrap">
         <section class="psec auth-only-block" style="padding-top:6px;">
       <div class="psec__head"><span class="sec-kicker"><span class="dots"><i></i><i></i></span> Reprends là où tu t'es arrêté</span>
-        <h2 class="sec-title">Tes guides récemment consultés</h2></div>
+        <h2 class="sec-title">Les derniers guides consultés</h2></div>
       <div class="rail rail--gcards">
         <article class="card" data-item data-game="er" data-game-name="Elden Ring" data-type="boss" data-title="Battre Malenia : stratégie complète, builds conseillés et invocations" data-href="guide.html"><div class="card__thumb cover-er"><span class="card__game">Elden Ring</span><button class="fav" type="button" data-fav-id="rc-0" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--guide">Guide de boss</span><span class="badge badge--maj badge--dot">Màj il y a 2 j</span></div><h3 class="card__title">Battre Malenia : stratégie complète, builds conseillés et invocations</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>12 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,8 <span style="color:var(--ink-400); font-weight:400;">(412)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>3 juill.</span></div></div></article>
         <article class="card" data-item data-game="zelda" data-game-name="Zelda TOTK" data-type="carte" data-title="Toutes les graines Korogu : carte interactive et méthode par région" data-href="guide.html"><div class="card__thumb cover-zd"><span class="card__game">Zelda TOTK</span><button class="fav" type="button" data-fav-id="rc-1" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--carte">Carte interactive</span></div><h3 class="card__title">Toutes les graines Korogu : carte interactive et méthode par région</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>8 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,9 <span style="color:var(--ink-400); font-weight:400;">(803)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>3 juill.</span></div></div></article>
@@ -1312,8 +1312,8 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
       <div class="discover">
         <div class="discover__txt">
           <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Ton compagnon de jeu</span>
-          <h2 class="sec-title" style="margin-top:6px;">Des guides choisis pour toi <span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></h2>
-          <p class="sec-sub" style="margin-top:8px;">Avec Premium dès 1,99 €/mois, Lynk te propose en priorité les guides récents adaptés à tes jeux suivis et à tes préférences, et retient ceux que tu consultes pour les remettre en avant.</p>
+          <h2 class="sec-title" style="margin-top:6px;">Retrouve tes derniers guides consultés <span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></h2>
+          <p class="sec-sub" style="margin-top:8px;">Avec Premium dès 1,99 €/mois, Lynk garde en mémoire les guides que tu consultes et te les remet en avant à chaque visite — avec ta progression et les nouveautés.</p>
           <div style="display:flex; gap:10px; margin-top:18px; flex-wrap:wrap;">
             <a class="btn btn--primary" href="inscription.html">Créer mon compte gratuit</a>
             <a class="btn btn--premium" href="premium.html">Découvrir Premium</a>
@@ -1345,9 +1345,9 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
           <input id="lsearch" type="text" placeholder="Rechercher un guide, un jeu, un boss..." aria-label="Rechercher un guide">
         </div>
         <div class="gfilters">
-          <div class="gdrop" data-drop="game"><button class="gdrop__btn" type="button"><span class="gdrop__lbl">Tous</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></button>
+          <div class="gdrop" data-drop="game"><button class="gdrop__btn" type="button"><span class="gdrop__lbl">Tout</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></button>
           <div class="chipbar chipbar--game" role="group" aria-label="Filtrer par jeu">
-        <button class="fchip is-on" type="button" data-chip="all" data-bar="game">Tous</button>
+        <button class="fchip is-on" type="button" data-chip="all" data-bar="game">Tout</button>
         <button class="fchip" type="button" data-chip="er" data-bar="game">Elden Ring</button>
         <button class="fchip" type="button" data-chip="bg3" data-bar="game">Baldur's Gate 3</button>
         <button class="fchip" type="button" data-chip="zelda" data-bar="game">Zelda: TotK</button>
@@ -1954,7 +1954,7 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
     if(empty) empty.classList.toggle('is-on', n===0);
     if(countEl) countEl.innerHTML = '<b>'+n+'</b> '+(n>1?'résultats':'résultat');
   }
-  function updateDrop(bar, arr){ var b=document.querySelector('.gdrop[data-drop="'+bar+'"] .gdrop__lbl'); if(b){ var all=bar==='game'?'Tous':'Tout type'; b.textContent=arr.indexOf('all')>=0?all:(arr.length+' filtre'+(arr.length>1?'s':'')); } }
+  function updateDrop(bar, arr){ var b=document.querySelector('.gdrop[data-drop="'+bar+'"] .gdrop__lbl'); if(b){ var all=bar==='game'?'Tout':'Tout type'; b.textContent=arr.indexOf('all')>=0?all:(arr.length+' filtre'+(arr.length>1?'s':'')); } }
   function updateBar(bar, arr){ Array.prototype.forEach.call(document.querySelectorAll('[data-bar="'+bar+'"]'), function(x){ x.classList.toggle('is-on', arr.indexOf(x.getAttribute('data-chip'))>=0); }); updateDrop(bar, arr); }
   if(search) search.addEventListener('input', function(){ q=norm(search.value).trim(); apply(); });
   Array.prototype.forEach.call(document.querySelectorAll('[data-chip]'), function(c){
