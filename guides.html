@@ -1079,7 +1079,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 
 .gtools{display:flex; flex-wrap:wrap; align-items:center; column-gap:7px; row-gap:14px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:14px 16px; margin-bottom:22px;}
 .gsearch{position:relative;}
-.gsearch input{width:100%; box-sizing:border-box; font-family:var(--sans); font-size:15px; padding:14px 16px 14px 46px; border:1px solid var(--line); border-radius:var(--r); background:#fff; color:var(--noir); box-shadow:var(--sh-xs);}
+.gsearch input{flex:1; padding:0; border:none; background:none; box-shadow:none; font-family:var(--sans); font-size:15px; color:var(--noir); outline:none;}
 .gsearch input:focus{outline:none; border-color:var(--magenta); box-shadow:0 0 0 3px var(--mg-soft);}
 .gsearch__ico{position:absolute; left:16px; top:50%; transform:translateY(-50%); width:20px; height:20px; color:var(--ink-400); pointer-events:none;}
 .chipbar{display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; -webkit-overflow-scrolling:touch; scrollbar-width:none;}
@@ -1109,7 +1109,10 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .gsearch{flex:1 1 100%; position:relative; display:flex; align-items:center; gap:11px; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); padding:13px 16px;}
 .gsearch__ico{position:static; width:19px; height:19px; color:var(--ink-400); flex:none;}
 .gsearch input{flex:1; border:none; background:none; outline:none; font-family:var(--sans); font-size:15px; color:var(--noir);}
-.gfilters{flex:1 1 100%; display:flex; flex-direction:column; gap:12px; align-items:stretch;}
+.gfilters{flex:1 1 100%; display:flex; flex-wrap:wrap; align-items:center; column-gap:10px; row-gap:12px;}
+.gfilters .gdrop[data-drop="game"]{flex:1 1 100%;}
+.gfilters .gdrop[data-drop="type"]{flex:0 1 auto;}
+.gfilters .catsort{margin-left:auto; align-self:auto;}
 .chipbar{display:flex; flex-wrap:wrap; gap:7px;}
 .fchip{font-family:var(--sans); font-size:13px; font-weight:700; padding:8px 14px; border-radius:var(--r-pill); border:1.5px solid var(--line-2); background:var(--surface-2); color:var(--ink-500); cursor:pointer; transition:all .14s;}
 .fchip.is-on{background:var(--magenta); color:#fff; border-color:var(--magenta);}
