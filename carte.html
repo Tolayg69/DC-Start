@@ -1116,9 +1116,17 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 @media (max-width:780px){
   .mwrap{flex-direction:column; height:auto;}
   .mpanel{flex-basis:auto; border-right:0; border-bottom:1px solid var(--line); max-height:240px;}
-  .mcanvas{height:380px;}
+  .mcanvas{flex:0 0 380px; height:380px; min-height:380px;}
 }
 
+
+.ghero__actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px;}
+.gchip--type{background:var(--magenta-pale); color:var(--magenta-ink); border-color:transparent;}
+.btn--fav.is-fav{background:var(--magenta); border-color:var(--magenta); color:#fff;}
+.btn--fav.is-fav svg{fill:#fff;}
+.gdguest{font-size:13px; color:rgba(255,255,255,.78); background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:9px 14px; border-radius:var(--r); display:inline-flex; align-items:center; gap:8px;}
+.gdguest a{color:#fff; text-decoration:underline; font-weight:700;}
+.gdguest svg{width:16px; height:16px; flex:none;}
 </style>
 </head>
 <body>
@@ -1278,15 +1286,18 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   </div>
 </nav>
 
-<section class="mtop">
-  <div class="wrap">
-    <div class="mtop__in">
-      <div>
-        <div class="mtop__crumb"><a href="jeux.html">Jeux</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> <a href="jeu.html">Elden Ring</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> <a href="cartes.html">Cartes</a></div>
-        <h1 class="mtop__title">Carte interactive de l’Entre-terre</h1>
+<section class="ghero">
+  <div class="ghero__bg cover-er"></div>
+  <div class="ghero__in">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Fil d'Ariane"><a href="jeux.html">Jeux</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;vertical-align:middle;opacity:.6;"><path d="m9 18 6-6-6-6"></path></svg> <a href="jeu.html">Elden Ring</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;vertical-align:middle;opacity:.6;"><path d="m9 18 6-6-6-6"></path></svg> <a href="cartes.html">Cartes</a></nav>
+      <div class="ghero__chips"><span class="gchip gchip--type">Carte interactive</span> <span class="gchip">Elden Ring</span> <span class="gchip">+320 lieux</span></div>
+      <h1 class="ghero__title">Elden Ring</h1>
+      <div class="ghero__actions">
+        <button class="btn btn--primary btn--fav is-fav only-auth" id="gdFav" type="button" aria-pressed="true"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> <span>Sauvegardée</span></button>
+        <span class="gdguest only-guest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg> <span><a href="connexion.html">Connecte-toi</a> pour sauvegarder cette carte.</span></span>
+        <button class="btn btn--ondark" type="button" onclick="if(navigator.share){navigator.share({title:document.title,url:location.href});}else{return false;}">Partager</button>
       </div>
-      <div class="mtop__spacer"></div>
-      <span class="gtag gtag--cy">+320 lieux</span>
     </div>
   </div>
 </section>
@@ -1330,15 +1341,15 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
       <div class="mtools">
         <div class="mtool">
           <span class="mtool__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <div class="mtool__b"><div class="mtool__t">Ajouter un marqueur <span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg>Premium</span></div><div class="mtool__m only-auth">Place tes propres spots de farm et secrets.</div><div class="mtool__m only-guest"><a href="connexion.html" style="color:var(--magenta); font-weight:700;">Connecte-toi</a> pour ajouter tes marqueurs.</div></div>
+          <div class="mtool__b"><div class="mtool__t">Ajouter un marqueur <span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg>Premium</span></div><div class="mtool__m only-auth">Place tes propres spots de farm et secrets.</div><div class="mtool__m only-guest"><a href="connexion.html" style="color:var(--magenta); font-weight:700; display:inline;">Connecte-toi</a> pour ajouter tes marqueurs.</div></div>
         </div>
         <div class="mtool">
           <span class="mtool__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-          <div class="mtool__b"><div class="mtool__t">Marquer comme trouvé <span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg>Premium</span></div><div class="mtool__m only-auth">Synchronisé avec ta progression de jeu.</div><div class="mtool__m only-guest"><a href="connexion.html" style="color:var(--magenta); font-weight:700;">Connecte-toi</a> pour suivre ce que tu as trouvé.</div></div>
+          <div class="mtool__b"><div class="mtool__t">Marquer comme trouvé <span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg>Premium</span></div><div class="mtool__m only-auth">Synchronisé avec ta progression de jeu.</div><div class="mtool__m only-guest"><a href="connexion.html" style="color:var(--magenta); font-weight:700; display:inline;">Connecte-toi</a> pour suivre ce que tu as trouvé.</div></div>
         </div>
       </div>
 
-      <div class="mnote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><div>Cette démo de carte est illustrative : les calques se basculent, mais le déplacement et le zoom réels arrivent dans la version complète. Les outils <b>Ajouter un marqueur</b> et <b>Marquer comme trouvé</b> sont réservés aux membres Premium. <a href="premium.html">Découvrir Premium</a>.</div></div>
+      <div class="mnote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><div>Cette démo de carte est illustrative : les calques se basculent, mais le déplacement, le zoom réel, la possibilité d'ajouter un marqueur et d'en masquer seront développés dans la version complète.</div></div>
     </section>
   </div>
 </main>
@@ -1858,5 +1869,23 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 })();
 
 </script>
+<script>(function(){
+  function isAuth(){ return document.body.classList.contains('is-auth'); }
+  var fav=document.getElementById('gdFav');
+  var KEY='lynk_fav_cartes', ID='c-er';
+  function get(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
+  function set(a){ try{ localStorage.setItem(KEY, JSON.stringify(a)); }catch(e){} }
+  if(fav){
+    function syncTxt(){ var s=fav.querySelector('span'); if(s) s.textContent = fav.classList.contains('is-fav')?'Sauvegardée':'Sauvegarder'; fav.setAttribute('aria-pressed', fav.classList.contains('is-fav')?'true':'false'); }
+    if(get().indexOf(ID)>=0) fav.classList.add('is-fav');
+    syncTxt();
+    fav.addEventListener('click', function(){
+      if(!isAuth()){ window.location.href='connexion.html'; return; }
+      var a=get(), i=a.indexOf(ID);
+      if(i>=0){ a.splice(i,1); fav.classList.remove('is-fav'); } else { a.push(ID); fav.classList.add('is-fav'); }
+      set(a); syncTxt();
+    });
+  }
+})();</script>
 </body>
 </html>
