@@ -1172,6 +1172,12 @@ body.is-auth .preminset{filter:none;}
 .ratebox__starbtn.hot{color:var(--or);}
 .ratebox__hint{font-size:12.5px; color:var(--ink-500); margin:0; min-height:16px;}
 @media (max-width:560px){ .ratebox__divider{display:none;} .ratebox__head{gap:18px;} }
+
+.ratebox{max-width:600px;}
+.ratebox__title{font-family:var(--serif,var(--sans)); font-weight:800; font-size:19px; line-height:1.2; margin:0 0 16px; color:var(--noir);}
+.ratebox .only-guest{display:block;}
+.ratebox__hint--guest{color:var(--ink-600,var(--ink-500));}
+.ratebox__hint--guest a{color:var(--magenta); font-weight:700; text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -1457,6 +1463,7 @@ body.is-auth .preminset{filter:none;}
     </div>
   
     <section class="ratebox" aria-label="Notation">
+      <h2 class="ratebox__title">Laisse une note</h2>
       <div class="ratebox__head">
         <div class="ratebox__scorebox">
           <span class="ratebox__score">4,8</span>
@@ -1467,9 +1474,11 @@ body.is-auth .preminset{filter:none;}
         </div>
         <div class="ratebox__divider" aria-hidden="true"></div>
         <div class="ratebox__action">
-          <p class="ratebox__label">Note ce guide</p>
+          <p class="ratebox__label only-auth">Ton avis</p>
+          <p class="ratebox__label only-guest">Ton avis</p>
           <div class="ratebox__stars ratebox__stars--input" id="rateInput" role="radiogroup"><button class="ratebox__starbtn" type="button" data-v="1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button></div>
-          <p class="ratebox__hint" id="rateHint">Clique sur une étoile pour laisser ta note.</p>
+          <p class="ratebox__hint only-auth" id="rateHint">Clique sur une étoile pour laisser ta note.</p>
+          <p class="ratebox__hint ratebox__hint--guest only-guest">Il faut un compte pour laisser une note. <a href="connexion.html">Connecte-toi</a> pour donner ton avis.</p>
         </div>
       </div>
     </section>
