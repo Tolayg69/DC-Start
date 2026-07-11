@@ -1145,6 +1145,10 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
 .btn--fav.is-fav svg{fill:#fff;}
 .gdguest svg{width:16px; height:16px; flex:none;}
 .icard.only-guest{display:block;}
+
+.tag--patch{background:var(--magenta-pale); color:var(--magenta-ink);}
+.tag--maj{background:var(--cyan-pale); color:var(--cyan-ink);}
+.tag--news{background:var(--or-pale); color:var(--or-ink);}
 </style>
 </head>
 <body>
@@ -1310,7 +1314,7 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
     <div class="wrap">
       <nav class="crumb" aria-label="Fil d'Ariane"><a href="jeux.html">Jeux</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> <a href="jeu.html">Elden Ring</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> <a href="actualites.html">Actualités</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> <span>Patch 1.12.3</span></nav>
       <div class="ghero__chips"><span class="gchip gchip--type">Patch</span> <span class="gchip">Elden Ring</span> <span class="gchip">Version 1.12.3</span></div>
-      <h1 class="ghero__title">Patch 1.12.3 : équilibrage PvP et corrections</h1>
+      <h1 class="ghero__title">Elden Ring 1.12.3 : équilibrage des armes de sang et corrections</h1>
       <div class="gdmeta">
         <span class="gdmeta__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg> Par l'équipe Lynk</span>
         <span class="gdmeta__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18M7 3v4M17 3v4"/><rect x="3" y="5" width="18" height="16" rx="2"/></svg> 12 juin</span>
@@ -1331,31 +1335,32 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
       <article class="gart">
         <p class="glead">Le patch <strong>1.12.3</strong> se concentre sur l'équilibrage <strong>PvP</strong>, quelques ajustements d'armes et d'incantations, et une nette amélioration de la <strong>stabilité en ligne</strong>. Voici le résumé clair de ce qui change vraiment pour ta progression.</p>
 
-        <div class="gcallout">
-          <span class="gcallout__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span>
-          <p></p>
-        </div>
-
         <h2 id="armes">Armes rééquilibrées</h2>
         <ul class="pnotes">
-          <li class="nerf"><b>Saignement (PvP)</b> : la jauge se remplit 10 % moins vite contre les autres joueurs.</li>
-          <li class="buff"><b>Armes lourdes</b> : dégâts de poise augmentés, les masses redeviennent viables.</li>
-          <li class="buff"><b>Dagues</b> : bonus de dégâts critiques légèrement relevé.</li>
-          <li class="nerf"><b>Rivière de sang</b> : coût en FP de l'arme de guerre revu à la hausse.</li>
+          <li class="nerf"><b>Accumulation de saignement (PvP)</b> : la montée de la jauge d'hémorragie infligée aux autres joueurs est réduite d'environ 10 %, sans impact sur le PvE.</li>
+          <li class="nerf"><b>Rivière sanglante (Cendre de guerre « Bain de sang »)</b> : coût en FP augmenté et léger allongement de la récupération après le second coup, pour limiter le spam en duel.</li>
+          <li class="buff"><b>Armes lourdes (masses, marteaux, haches lourdes)</b> : dégâts de stabilité (poise) sur les coups chargés augmentés ; les masses redeviennent viables face aux boucliers.</li>
+          <li class="buff"><b>Dagues</b> : multiplicateur de dégâts critiques légèrement relevé et parade-riposte plus rapide.</li>
+          <li class="buff"><b>Épées colossales</b> : hyper-armure des attaques à deux mains renforcée pendant l'animation de départ.</li>
+          <li class="nerf"><b>Lance de mort (arme de guerre « Éclair de mort »)</b> : zone d'effet légèrement réduite en PvP.</li>
         </ul>
 
         <h2 id="sorts">Incantations et sorts</h2>
         <ul class="pnotes">
-          <li class="buff"><b>Comète d'Azur</b> : durée du faisceau allongée.</li>
-          <li class="buff"><b>Incantations de foi</b> : plusieurs coûts en FP réduits.</li>
-          <li class="fix"><b>Flammes de Frénésie</b> : correction d'un bug de hitbox.</li>
+          <li class="buff"><b>Comète d'Azur</b> : durée du faisceau allongée et consommation de FP lissée sur la durée.</li>
+          <li class="buff"><b>Incantations de foi (soin et foudre)</b> : plusieurs coûts en FP réduits ; les incantations de foudre gagnent en vitesse d'incantation.</li>
+          <li class="buff"><b>Flamme noire</b> : dégâts continus revalorisés contre les cibles à grande barre de vie.</li>
+          <li class="nerf"><b>Sorts de pierre-étoile</b> : dégâts en PvP légèrement réduits pour les projectiles rapides.</li>
+          <li class="fix"><b>Flamme de la frénésie</b> : correction d'un bug de hitbox touchant à travers certains décors.</li>
         </ul>
 
         <h2 id="online">Corrections PvP &amp; stabilité en ligne</h2>
         <ul class="pnotes">
-          <li class="fix">Correction des déconnexions fréquentes lors des invasions.</li>
-          <li class="fix">Réduction du décalage (lag) sur les attaques chargées en duel.</li>
-          <li class="fix">Plusieurs plantages rares corrigés en coop à trois joueurs.</li>
+          <li class="fix">Correction des déconnexions fréquentes survenant au lancement d'une invasion.</li>
+          <li class="fix">Réduction du décalage (lag) perçu sur les attaques chargées et les esquives en duel.</li>
+          <li class="fix">Plusieurs plantages rares corrigés en coopération à trois joueurs.</li>
+          <li class="fix">Correction d'un exploit permettant d'annuler la récupération de certaines armes de guerre.</li>
+          <li class="fix">Amélioration de la synchronisation des dégâts de statut (saignement, gel) entre les joueurs.</li>
         </ul>
 
         <h2 id="divers">Objets, PNJ et divers</h2>
@@ -1367,7 +1372,7 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
         </ul>
 
         <h2 id="related">À lire ensuite</h2>
-        <div class="newsl"><a class="newsrow" href="actualite.html"><span class="newsrow__date">03<span>juin</span></span><span class="newsrow__b"><span class="newsrow__t">Mise à jour 2.2 : personnalisation de véhicules et refonte du gameplay</span><span class="newsrow__m">Cyberpunk 2077 · nouveautés de gameplay</span></span><span class="newsrow__tag"><span class="gtag gtag--cy">MàJ</span></span></a><a class="newsrow" href="actualite.html"><span class="newsrow__date">28<span>mai</span></span><span class="newsrow__b"><span class="newsrow__t">Hades II : la mise à jour majeure ajoute une nouvelle région</span><span class="newsrow__m">Hades II · contenu majeur</span></span><span class="newsrow__tag"><span class="gtag gtag--or">MàJ</span></span></a></div>
+        <div class="newsl"><a class="newsrow" href="actualite.html"><span class="newsrow__date">03<span>juin</span></span><span class="newsrow__b"><span class="newsrow__t">Cyberpunk 2077 : Mise à jour 2.2 : personnalisation de véhicules et refonte du gameplay</span><span class="newsrow__m">Véhicules personnalisables, combats à moto retravaillés et nouveaux contrats.</span></span><span class="newsrow__tag"><span class="tag tag--maj">MàJ</span></span></a><a class="newsrow" href="actualite.html"><span class="newsrow__date">28<span>mai</span></span><span class="newsrow__b"><span class="newsrow__t">Hades II : la mise à jour majeure ajoute une nouvelle région</span><span class="newsrow__m">Une région inédite, de nouvelles armes et un boss de fin remanié.</span></span><span class="newsrow__tag"><span class="tag tag--maj">MàJ</span></span></a></div>
       </article>
 
       <aside class="gside">
