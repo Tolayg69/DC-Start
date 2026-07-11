@@ -731,7 +731,9 @@ body.is-embed #deviceHost{display:none !important;}
 .card__top .badge--prem{margin-left:0;}
 .card--premium{position:relative;}
 .card__lock{display:none;}
-body:not(.is-auth) .card--premium{cursor:pointer;}
+body:not(.is-auth) .card--premium{cursor:default;}
+body:not(.is-auth) .card--premium .card__lock{cursor:default;}
+.card__lock .btn-prem{cursor:pointer;}
 body:not(.is-auth) .card--premium .card__body, body:not(.is-auth) .card--premium .card__thumb{filter:blur(2.5px); pointer-events:none; user-select:none;}
 body:not(.is-auth) .card--premium .card__lock{display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; position:absolute; inset:0; background:linear-gradient(180deg, rgba(24,8,48,.72), rgba(24,8,48,.86)); backdrop-filter:blur(3px); color:#fff; text-align:center; padding:16px; border-radius:var(--r-lg); z-index:2;}
 .card__lock svg{width:26px; height:26px; color:var(--or);}
@@ -1995,7 +1997,11 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
   Array.prototype.forEach.call(root.querySelectorAll('.card[data-href]'), function(card){
     card.addEventListener('click', function(e){
       if(e.target.closest('.fav')) return;
-      var dest = (card.classList.contains('card--premium') && !isAuth()) ? 'premium.html' : (card.getAttribute('data-href')||'guide.html');
+      if(card.classList.contains('card--premium') && !isAuth()){
+        if(e.target.closest('.btn-prem')){ try{ window.top.location.href='premium.html'; }catch(_){ window.location.href='premium.html'; } }
+        return;
+      }
+      var dest = card.getAttribute('data-href')||'guide.html';
       try{ window.top.location.href=dest; }catch(_){ window.location.href=dest; }
     });
   });
