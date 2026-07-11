@@ -1171,6 +1171,12 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
 .ratebox__starbtn.hot{color:var(--or);}
 .ratebox__hint{font-size:12.5px; color:var(--ink-500); margin:0; min-height:16px;}
 @media (max-width:560px){ .ratebox__divider{display:none;} .ratebox__head{gap:18px;} }
+
+.ratebox{max-width:600px;}
+.ratebox__title{font-family:var(--serif,var(--sans)); font-weight:800; font-size:19px; line-height:1.2; margin:0 0 16px; color:var(--noir);}
+.ratebox .only-guest{display:block;}
+.ratebox__hint--guest{color:var(--ink-600,var(--ink-500));}
+.ratebox__hint--guest a{color:var(--magenta); font-weight:700; text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -1359,18 +1365,18 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
 
         <h2 id="armes">Armes rééquilibrées</h2>
         <ul class="pnotes">
-          <li class="nerf"><b>Accumulation de saignement (PvP)</b> : la montée de la jauge d'hémorragie infligée aux autres joueurs est réduite d'environ 10 %, sans impact sur le PvE.</li>
-          <li class="nerf"><b>Rivière sanglante (Cendre de guerre « Bain de sang »)</b> : coût en FP augmenté et léger allongement de la récupération après le second coup, pour limiter le spam en duel.</li>
           <li class="buff"><b>Armes lourdes (masses, marteaux, haches lourdes)</b> : dégâts de stabilité (poise) sur les coups chargés augmentés ; les masses redeviennent viables face aux boucliers.</li>
           <li class="buff"><b>Dagues</b> : multiplicateur de dégâts critiques légèrement relevé et parade-riposte plus rapide.</li>
           <li class="buff"><b>Épées colossales</b> : hyper-armure des attaques à deux mains renforcée pendant l'animation de départ.</li>
+          <li class="nerf"><b>Accumulation de saignement (PvP)</b> : la montée de la jauge d'hémorragie infligée aux autres joueurs est réduite d'environ 10 %, sans impact sur le PvE.</li>
+          <li class="nerf"><b>Rivière sanglante (Cendre de guerre « Bain de sang »)</b> : coût en FP augmenté et léger allongement de la récupération après le second coup, pour limiter le spam en duel.</li>
           <li class="nerf"><b>Lance de mort (arme de guerre « Éclair de mort »)</b> : zone d'effet légèrement réduite en PvP.</li>
         </ul>
 
         <h2 id="sorts">Incantations et sorts</h2>
         <ul class="pnotes">
           <li class="buff"><b>Comète d'Azur</b> : durée du faisceau allongée et consommation de FP lissée sur la durée.</li>
-          <li class="buff"><b>Incantations de foi (soin et foudre)</b> : plusieurs coûts en FP réduits ; les incantations de foudre gagnent en vitesse d'incantation.</li>
+          <li class="buff"><b>Incantations de foi (soin et foudre)</b> : coût en FP réduit pour plusieurs d'entre elles, et incantation plus rapide pour les sorts de foudre.</li>
           <li class="buff"><b>Flamme noire</b> : dégâts continus revalorisés contre les cibles à grande barre de vie.</li>
           <li class="nerf"><b>Sorts de pierre-étoile</b> : dégâts en PvP légèrement réduits pour les projectiles rapides.</li>
           <li class="fix"><b>Flamme de la frénésie</b> : correction d'un bug de hitbox touchant à travers certains décors.</li>
@@ -1381,16 +1387,16 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
           <li class="fix">Correction des déconnexions fréquentes survenant au lancement d'une invasion.</li>
           <li class="fix">Réduction du décalage (lag) perçu sur les attaques chargées et les esquives en duel.</li>
           <li class="fix">Plusieurs plantages rares corrigés en coopération à trois joueurs.</li>
-          <li class="fix">Correction d'un exploit permettant d'annuler la récupération de certaines armes de guerre.</li>
+          <li class="fix">Correction d'un glitch permettant d'annuler la récupération de certaines armes de guerre.</li>
           <li class="fix">Amélioration de la synchronisation des dégâts de statut (saignement, gel) entre les joueurs.</li>
         </ul>
 
         <h2 id="divers">Objets, PNJ et divers</h2>
-        <ul class="glist">
-          <li>Ajustement des prix de plusieurs marchands nomades et rééquilibrage des runes obtenues sur certains ennemis d'élite.</li>
-          <li>Correction d'un bug empêchant l'apparition de quelques PNJ d'invocation coopérative près des sites de grâce.</li>
-          <li>Amélioration de la lisibilité des effets de statut (saignement, pourriture écarlate, gel) sur la barre d'état.</li>
-          <li>Divers ajustements de textes et de traductions dans les descriptions d'objets.</li>
+        <ul class="pnotes">
+          <li class="fix">Ajustement des prix de plusieurs marchands nomades et rééquilibrage des runes obtenues sur certains ennemis d'élite.</li>
+          <li class="fix">Correction d'un bug empêchant l'apparition de quelques PNJ d'invocation coopérative près des sites de grâce.</li>
+          <li class="fix">Amélioration de la lisibilité des effets de statut (saignement, pourriture écarlate, gel) sur la barre d'état.</li>
+          <li class="fix">Divers ajustements de textes et de traductions dans les descriptions d'objets.</li>
         </ul>
 
         <h2 id="related">À lire ensuite</h2>
@@ -1424,6 +1430,7 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
     </div>
   
     <section class="ratebox" aria-label="Notation">
+      <h2 class="ratebox__title">Laisse une note</h2>
       <div class="ratebox__head">
         <div class="ratebox__scorebox">
           <span class="ratebox__score">4,8</span>
@@ -1434,9 +1441,11 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
         </div>
         <div class="ratebox__divider" aria-hidden="true"></div>
         <div class="ratebox__action">
-          <p class="ratebox__label">Note cette actualité</p>
+          <p class="ratebox__label only-auth">Ton avis</p>
+          <p class="ratebox__label only-guest">Ton avis</p>
           <div class="ratebox__stars ratebox__stars--input" id="rateInput" role="radiogroup"><button class="ratebox__starbtn" type="button" data-v="1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button></div>
-          <p class="ratebox__hint" id="rateHint">Clique sur une étoile pour laisser ta note.</p>
+          <p class="ratebox__hint only-auth" id="rateHint">Clique sur une étoile pour laisser ta note.</p>
+          <p class="ratebox__hint ratebox__hint--guest only-guest">Il faut un compte pour laisser une note. <a href="connexion.html">Connecte-toi</a> pour donner ton avis.</p>
         </div>
       </div>
     </section>
