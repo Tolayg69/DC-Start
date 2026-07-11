@@ -1150,6 +1150,28 @@ body.is-auth .preminset{filter:none;}
 .gbuild__go{width:20px; height:20px; color:var(--magenta); flex:none;}
 
 .icard.only-guest{display:block;}
+
+/* --- encart notation --- */
+.ratebox{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:22px 24px; margin:28px 0 8px;}
+.ratebox__head{display:flex; align-items:center; gap:28px; flex-wrap:wrap;}
+.ratebox__scorebox{display:flex; align-items:center; gap:14px;}
+.ratebox__score{font-family:var(--serif,var(--sans)); font-weight:800; font-size:44px; line-height:1; color:var(--noir);}
+.ratebox__scoremeta{display:flex; flex-direction:column; gap:4px;}
+.ratebox__count{font-size:13px; color:var(--ink-500);}
+.ratebox__stars{display:inline-flex; gap:3px;}
+.ratebox__stars svg{width:20px; height:20px;}
+.ratebox__stars--display{position:relative; color:var(--line-2,#e2e2e8);}
+.ratebox__stars--display .ratebox__fill{position:absolute; top:0; left:0; overflow:hidden; white-space:nowrap; color:var(--or); display:inline-flex; gap:3px;}
+.ratebox__divider{width:1px; align-self:stretch; background:var(--line); margin:2px 0;}
+.ratebox__action{display:flex; flex-direction:column; gap:8px;}
+.ratebox__label{font-weight:700; font-size:14px; color:var(--noir); margin:0;}
+.ratebox__stars--input{gap:4px;}
+.ratebox__starbtn{background:none; border:none; padding:2px; cursor:pointer; color:var(--line-2,#d9d9e0); line-height:0; transition:transform .1s ease, color .12s ease;}
+.ratebox__starbtn svg{width:26px; height:26px;}
+.ratebox__starbtn:hover{transform:scale(1.12);}
+.ratebox__starbtn.hot{color:var(--or);}
+.ratebox__hint{font-size:12.5px; color:var(--ink-500); margin:0; min-height:16px;}
+@media (max-width:560px){ .ratebox__divider{display:none;} .ratebox__head{gap:18px;} }
 </style>
 </head>
 <body>
@@ -1433,6 +1455,24 @@ body.is-auth .preminset{filter:none;}
         </div>
       </aside>
     </div>
+  
+    <section class="ratebox" aria-label="Notation">
+      <div class="ratebox__head">
+        <div class="ratebox__scorebox">
+          <span class="ratebox__score">4,8</span>
+          <div class="ratebox__scoremeta">
+            <div class="ratebox__stars ratebox__stars--display"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span class="ratebox__fill" style="width:96%;"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span></span></div>
+            <span class="ratebox__count">412 avis</span>
+          </div>
+        </div>
+        <div class="ratebox__divider" aria-hidden="true"></div>
+        <div class="ratebox__action">
+          <p class="ratebox__label">Note ce guide</p>
+          <div class="ratebox__stars ratebox__stars--input" id="rateInput" role="radiogroup"><button class="ratebox__starbtn" type="button" data-v="1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button></div>
+          <p class="ratebox__hint" id="rateHint">Clique sur une étoile pour laisser ta note.</p>
+        </div>
+      </div>
+    </section>
   </div>
 </main>
 
@@ -1964,5 +2004,27 @@ body.is-auth .preminset{filter:none;}
 })();
 
 </script>
+<script>(function(){
+  var wrap=document.getElementById('rateInput'); if(!wrap) return;
+  var hint=document.getElementById('rateHint');
+  var btns=[].slice.call(wrap.querySelectorAll('.ratebox__starbtn'));
+  var KEY='lynk_rate_malenia', current=0;
+  function isAuth(){ return document.body.classList.contains('is-auth'); }
+  try{ var s=parseInt(localStorage.getItem(KEY)||'0',10); if(s>0) current=s; }catch(e){}
+  function paint(n){ btns.forEach(function(b,i){ b.classList.toggle('hot', i<n); }); }
+  function go(u){ try{ window.top.location.href=u; }catch(_){ window.location.href=u; } }
+  paint(current);
+  if(current>0 && hint) hint.textContent='Ta note : '+current+'/5. Merci !';
+  btns.forEach(function(b){
+    var v=parseInt(b.getAttribute('data-v'),10);
+    b.addEventListener('mouseenter', function(){ if(isAuth()) paint(v); });
+    b.addEventListener('click', function(){
+      if(!isAuth()){ go('connexion.html'); return; }
+      current=v; try{ localStorage.setItem(KEY, String(v)); }catch(e){}
+      paint(v); if(hint) hint.textContent='Ta note : '+v+'/5. Merci !';
+    });
+  });
+  wrap.addEventListener('mouseleave', function(){ paint(current); });
+})();</script>
 </body>
 </html>
