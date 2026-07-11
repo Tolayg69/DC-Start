@@ -1066,11 +1066,10 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 
 /* ---- page-specific ---- */
 
-.gtools{display:flex; flex-direction:column; gap:14px; margin-bottom:22px;}
 .gsearch{position:relative;}
-.gsearch input{width:100%; box-sizing:border-box; font-family:var(--sans); font-size:15px; padding:14px 16px 14px 46px; border:1px solid var(--line); border-radius:var(--r); background:#fff; color:var(--noir); box-shadow:var(--sh-xs);}
+.gsearch input{flex:1; padding:0; border:none; background:none; box-shadow:none; font-family:var(--sans); font-size:15px; color:var(--noir); outline:none;}
 .gsearch input:focus{outline:none; border-color:var(--magenta); box-shadow:0 0 0 3px var(--mg-soft);}
-.gsearch__ico{position:absolute; left:16px; top:50%; transform:translateY(-50%); width:20px; height:20px; color:var(--ink-400); pointer-events:none;}
+.gsearch__ico{pointer-events:none;}
 .chipbar{display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; -webkit-overflow-scrolling:touch; scrollbar-width:none;}
 .chipbar::-webkit-scrollbar{display:none;}
 .fchip{flex:none; cursor:pointer; font-family:var(--sans); font-weight:700; font-size:13px; padding:8px 14px; border-radius:var(--r-pill); border:1px solid var(--line); background:#fff; color:var(--ink-700); white-space:nowrap; transition:all .14s;}
@@ -1119,16 +1118,20 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
 .rail--gcards{scroll-snap-type:x mandatory;}
 .rail--gcards .mapcard{flex:0 0 300px; scroll-snap-align:start;}
 
-/* --- filtres portés de guides.html --- */
-.catsort{font-family:var(--sans); font-size:13.5px; font-weight:700; color:var(--ink-700); background:var(--surface-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23667788' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 13px center; border:1.5px solid var(--line-2); border-radius:var(--r-pill); padding:9px 36px 9px 14px; cursor:pointer; outline:none; appearance:none; -webkit-appearance:none; -moz-appearance:none;}
+
+
+.mapcard__lock svg{width:26px; height:26px; color:var(--or);}
+.mapcard__lock-title{font-family:var(--serif); font-weight:800; font-size:15px;}
+.mapcard__lock-sub{font-size:12px; color:rgba(255,255,255,.78); line-height:1.35; max-width:180px;}
+.mapcard__lock .btn-prem{margin-top:5px; background:var(--or); color:var(--noir); font-weight:800; font-size:12px; padding:7px 15px; border-radius:var(--r-pill);}
+.mapcard[data-premium="1"]{position:relative;}
+body:not(.is-auth) .mapcard[data-premium="1"] .mapcard__art{filter:blur(2.5px);}
+body:not(.is-auth) .mapcard[data-premium="1"] .mapcard__body{filter:blur(2px); pointer-events:none;}
+body:not(.is-auth) .mapcard[data-premium="1"] .mapcard__lock{display:flex;}
+
+/* --- filtres (copie propre de guides.html) --- */
 .gtools{display:flex; flex-wrap:wrap; align-items:center; column-gap:7px; row-gap:14px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:14px 16px; margin-bottom:22px;}
-.gsearch{position:relative;}
-.gsearch input{flex:1; padding:0; border:none; background:none; box-shadow:none; font-family:var(--sans); font-size:15px; color:var(--noir); outline:none;}
-.gsearch__ico{pointer-events:none;}
-.chipbar{display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; -webkit-overflow-scrolling:touch; scrollbar-width:none;}
-.fchip{flex:none; cursor:pointer; font-family:var(--sans); font-weight:700; font-size:13px; padding:8px 14px; border-radius:var(--r-pill); border:1px solid var(--line); background:#fff; color:var(--ink-700); white-space:nowrap; transition:all .14s;}
-.fchip.is-on{background:var(--magenta); border-color:var(--magenta); color:#fff;}
-.chipbar--type .fchip.is-on{background:var(--cyan); border-color:var(--cyan);}
+/* --- filtres refondus style jeux.html --- */
 .gsearch{flex:1 1 100%; position:relative; display:flex; align-items:center; gap:11px; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); padding:13px 16px;}
 .gsearch__ico{position:static; transform:none; left:auto; top:auto; width:19px; height:19px; color:var(--ink-400); flex:none;}
 .gsearch input{flex:1; border:none; background:none; outline:none; font-family:var(--sans); font-size:15px; color:var(--noir);}
@@ -1141,22 +1144,17 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
 .fchip.is-on{background:var(--magenta); color:#fff; border-color:var(--magenta);}
 .catsort{align-self:flex-end;}
 .gdrop__btn{display:none;}
-.gfilters{flex-direction:column; align-items:stretch;}
-.gdrop__btn{display:flex; align-items:center; justify-content:space-between; gap:8px; width:100%; padding:11px 14px; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); font-family:var(--sans); font-size:14px; font-weight:600; color:var(--noir); cursor:pointer;}
-.chipbar{position:absolute; top:calc(100% + 6px); left:0; right:0; z-index:30; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-md,0 12px 32px rgba(18,18,18,.14)); flex-direction:column; align-items:stretch; gap:2px; padding:8px; max-height:56vh; overflow:auto; display:none;}
-.chipbar{display:flex;}
-.fchip{text-align:left; width:100%;}
-.catsort{margin-left:0; width:100%;}
-
-
-.mapcard__lock svg{width:26px; height:26px; color:var(--or);}
-.mapcard__lock-title{font-family:var(--serif); font-weight:800; font-size:15px;}
-.mapcard__lock-sub{font-size:12px; color:rgba(255,255,255,.78); line-height:1.35; max-width:180px;}
-.mapcard__lock .btn-prem{margin-top:5px; background:var(--or); color:var(--noir); font-weight:800; font-size:12px; padding:7px 15px; border-radius:var(--r-pill);}
-.mapcard[data-premium="1"]{position:relative;}
-body:not(.is-auth) .mapcard[data-premium="1"] .mapcard__art{filter:blur(2.5px);}
-body:not(.is-auth) .mapcard[data-premium="1"] .mapcard__body{filter:blur(2px); pointer-events:none;}
-body:not(.is-auth) .mapcard[data-premium="1"] .mapcard__lock{display:flex;}
+@media (max-width:640px){
+  .gfilters{flex-direction:column; align-items:stretch;}
+  .gdrop{position:relative;}
+  .gdrop__btn{display:flex; align-items:center; justify-content:space-between; gap:8px; width:100%; padding:11px 14px; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); font-family:var(--sans); font-size:14px; font-weight:600; color:var(--noir); cursor:pointer;}
+  .gdrop__btn svg{width:16px; height:16px; transition:transform .18s; flex:none;}
+  .gdrop.open .gdrop__btn svg{transform:rotate(180deg);}
+  .gdrop .chipbar{position:absolute; top:calc(100% + 6px); left:0; right:0; z-index:30; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-md,0 12px 32px rgba(18,18,18,.14)); flex-direction:column; align-items:stretch; gap:2px; padding:8px; max-height:56vh; overflow:auto; display:none;}
+  .gdrop.open .chipbar{display:flex;}
+  .gdrop .fchip{text-align:left; width:100%;}
+  .catsort{margin-left:0; width:100%;}
+}
 </style>
 </head>
 <body>
