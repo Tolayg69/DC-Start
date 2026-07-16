@@ -1177,6 +1177,41 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
 .ratebox .only-guest{display:block;}
 .ratebox__hint--guest{color:var(--ink-600,var(--ink-500));}
 .ratebox__hint--guest a{color:var(--magenta); font-weight:700; text-decoration:underline;}
+
+/* --- encart commentaires --- */
+.combox{max-width:600px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:22px 24px; margin:18px 0 8px;}
+.combox__title{font-family:var(--serif,var(--sans)); font-weight:800; font-size:19px; line-height:1.2; margin:0 0 16px; color:var(--noir);}
+.combox__write{display:flex; gap:12px; align-items:flex-start;}
+.combox__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); background:var(--noir); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; border:2px solid var(--magenta);}
+.combox__field{flex:1; min-width:0;}
+.combox__ta{width:100%; box-sizing:border-box; font-family:var(--sans); font-size:14px; color:var(--noir); background:var(--surface-2); border:1px solid var(--line-2, var(--line)); border-radius:var(--r); padding:11px 13px; resize:vertical; min-height:82px; outline:none; transition:border-color .15s, box-shadow .15s;}
+.combox__ta:focus{border-color:var(--magenta); box-shadow:0 0 0 3px rgba(162,0,188,.10); background:#fff;}
+.combox__bar{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:10px;}
+.combox__count{font-size:12px; color:var(--ink-500);}
+.combox__guest{display:flex; gap:11px; align-items:center; background:var(--surface-2); border:1px dashed var(--line-2, var(--line)); border-radius:var(--r); padding:14px 15px;}
+.combox__guest svg{width:18px; height:18px; flex:none; color:var(--ink-500);}
+.combox__guest p{margin:0; font-size:13px; color:var(--ink-600, var(--ink-500)); line-height:1.45;}
+.combox__guest a{color:var(--magenta); font-weight:700; text-decoration:underline;}
+.comlist{list-style:none; margin:22px 0 0; padding:20px 0 0; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:20px;}
+.com{display:flex; gap:12px;}
+.com__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; color:#fff; background:var(--noir);}
+.com__ava--a{background:#5b3fa6;} .com__ava--b{background:#1f7a68;} .com__ava--c{background:#a63f6b;} .com__ava--d{background:#2f5fd0;} .com__ava--e{background:#a8651f;}
+.com__body{flex:1; min-width:0;}
+.com__head{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;}
+.com__name{font-weight:800; font-size:14px; color:var(--noir);}
+.com__date{font-size:12px; color:var(--ink-400, var(--ink-500));}
+.com__stars{display:inline-flex; gap:2px; color:var(--or); margin-left:2px;}
+.com__stars svg{width:13px; height:13px;}
+.com__txt{margin:6px 0 0; font-size:14px; line-height:1.55; color:var(--ink-700, var(--noir));}
+.com.is-hidden{display:none;}
+.combox__more{margin-top:20px; display:flex; justify-content:center;}
+.combox__more.is-done{display:none;}
+@media (max-width:560px){ .combox{padding:18px 16px;} }
+
+body:not(.is-auth) .combox__write{display:none;}
+body.is-auth .combox__write{display:flex;}
+body.is-auth .combox__guest{display:none;}
+body:not(.is-auth) .combox__guest{display:flex;}
 </style>
 </head>
 <body>
@@ -1447,6 +1482,63 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
           <p class="ratebox__hint only-auth" id="rateHint">Clique sur une étoile pour laisser ta note.</p>
           <p class="ratebox__hint ratebox__hint--guest only-guest">Il faut un compte pour laisser une note. <a href="connexion.html">Se connecter</a></p>
         </div>
+      </div>
+    </section>
+
+    <section class="combox" aria-label="Commentaires">
+      <h2 class="combox__title">Commentaires</h2>
+      <div class="combox__write only-auth">
+        <span class="combox__ava" aria-hidden="true">É</span>
+        <div class="combox__field">
+          <textarea class="combox__ta" id="comTa" maxlength="600" placeholder="Donne ton avis sur ce patch..." aria-label="Ton commentaire"></textarea>
+          <div class="combox__bar">
+            <span class="combox__count" id="comCount">0 / 600</span>
+            <button class="btn btn--primary btn--sm" type="button" id="comSend">Publier</button>
+          </div>
+        </div>
+      </div>
+      <div class="combox__guest only-guest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+        <p>Il faut un compte pour laisser un commentaire. <a href="connexion.html">Se connecter</a></p>
+      </div>
+      <ul class="comlist" id="comList">
+        <li class="com">
+          <span class="com__ava com__ava--a" aria-hidden="true">S</span>
+          <div class="com__body">
+            <div class="com__head"><span class="com__name">Skarn_ER</span><span class="com__stars" aria-label="5 sur 5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span class="com__date">il y a 1 jour</span></div>
+            <p class="com__txt">Enfin un nerf du saignement en PvP. Les duels sont beaucoup plus lisibles depuis le patch, et le buff des armes lourdes fait plaisir.</p>
+          </div>
+        </li>
+        <li class="com">
+          <span class="com__ava com__ava--b" aria-hidden="true">D</span>
+          <div class="com__body">
+            <div class="com__head"><span class="com__name">DrakenVII</span><span class="com__stars" aria-label="4 sur 5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span class="com__date">il y a 2 jours</span></div>
+            <p class="com__txt">Bonne mise à jour côté stabilité, je n'ai plus eu de déconnexion en invasion. Par contre le nerf de Rivière sanglante est un peu sévère.</p>
+          </div>
+        </li>
+        <li class="com">
+          <span class="com__ava com__ava--c" aria-hidden="true">C</span>
+          <div class="com__body">
+            <div class="com__head"><span class="com__name">Camille_G</span><span class="com__stars" aria-label="5 sur 5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span class="com__date">il y a 3 jours</span></div>
+            <p class="com__txt">Récap clair et complet, merci. Le détail par catégorie est beaucoup plus pratique que les notes officielles.</p>
+          </div>
+        </li>
+        <li class="com is-hidden">
+          <span class="com__ava com__ava--d" aria-hidden="true">R</span>
+          <div class="com__body">
+            <div class="com__head"><span class="com__name">Ronin_92</span><span class="com__stars" aria-label="4 sur 5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span class="com__date">il y a 5 jours</span></div>
+            <p class="com__txt">Content pour les dagues, le multiplicateur critique change vraiment les ripostes. Reste à voir l'équilibrage sur la durée.</p>
+          </div>
+        </li>
+        <li class="com is-hidden">
+          <span class="com__ava com__ava--e" aria-hidden="true">E</span>
+          <div class="com__body">
+            <div class="com__head"><span class="com__name">Elowen</span><span class="com__stars" aria-label="5 sur 5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span class="com__date">il y a 1 semaine</span></div>
+            <p class="com__txt">La correction du glitch d'annulation était attendue depuis longtemps. Bon patch dans l'ensemble.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="combox__more" id="comMoreWrap">
+        <button class="btn btn--ghost btn--sm" type="button" id="comMore">Voir plus de commentaires</button>
       </div>
     </section>
   </div>
@@ -1982,6 +2074,29 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
     });
   });
   wrap.addEventListener('mouseleave', function(){ paint(current); });
+})();</script>
+<script>(function(){
+  var list=document.getElementById('comList'); if(!list) return;
+  var more=document.getElementById('comMore'), wrap=document.getElementById('comMoreWrap');
+  var ta=document.getElementById('comTa'), count=document.getElementById('comCount'), send=document.getElementById('comSend');
+  function isAuth(){ return document.body.classList.contains('is-auth'); }
+  function go(u){ try{ window.top.location.href=u; }catch(_){ window.location.href=u; } }
+  if(more){ more.addEventListener('click', function(){
+    list.querySelectorAll('.com.is-hidden').forEach(function(c){ c.classList.remove('is-hidden'); });
+    wrap.classList.add('is-done');
+  }); }
+  if(ta && count){ ta.addEventListener('input', function(){ count.textContent = ta.value.length + ' / 600'; }); }
+  if(send){ send.addEventListener('click', function(){
+    if(!isAuth()){ go('connexion.html'); return; }
+    var v=(ta.value||'').trim();
+    if(!v){ ta.focus(); return; }
+    var li=document.createElement('li');
+    li.className='com';
+    li.innerHTML='<span class="com__ava" aria-hidden="true">\u00c9</span><div class="com__body"><div class="com__head"><span class="com__name">Toi</span><span class="com__date">\u00e0 l\u2019instant</span></div><p class="com__txt"></p></div>';
+    li.querySelector('.com__txt').textContent=v;
+    list.insertBefore(li, list.firstChild);
+    ta.value=''; count.textContent='0 / 600';
+  }); }
 })();</script>
 </body>
 </html>
