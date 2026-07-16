@@ -1178,6 +1178,9 @@ body.is-auth .preminset{filter:none;}
 .ratebox .only-guest{display:block;}
 .ratebox__hint--guest{color:var(--ink-600,var(--ink-500));}
 .ratebox__hint--guest a{color:var(--magenta); font-weight:700; text-decoration:underline;}
+
+.ratebox__action{max-width:300px;}
+.ratebox__hint--guest{max-width:280px;}
 </style>
 </head>
 <body>
@@ -1478,7 +1481,7 @@ body.is-auth .preminset{filter:none;}
           <p class="ratebox__label only-guest">Ton avis</p>
           <div class="ratebox__stars ratebox__stars--input" id="rateInput" role="radiogroup"><button class="ratebox__starbtn" type="button" data-v="1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button></div>
           <p class="ratebox__hint only-auth" id="rateHint">Clique sur une étoile pour laisser ta note.</p>
-          <p class="ratebox__hint ratebox__hint--guest only-guest">Il faut un compte pour laisser une note. <a href="connexion.html">Connecte-toi</a> pour donner ton avis.</p>
+          <p class="ratebox__hint ratebox__hint--guest only-guest">Il faut un compte pour laisser une note. <a href="connexion.html">Se connecter</a></p>
         </div>
       </div>
     </section>
@@ -2017,20 +2020,16 @@ body.is-auth .preminset{filter:none;}
   var wrap=document.getElementById('rateInput'); if(!wrap) return;
   var hint=document.getElementById('rateHint');
   var btns=[].slice.call(wrap.querySelectorAll('.ratebox__starbtn'));
-  var KEY='lynk_rate_malenia', current=0;
+  var current=0;
   function isAuth(){ return document.body.classList.contains('is-auth'); }
-  try{ var s=parseInt(localStorage.getItem(KEY)||'0',10); if(s>0) current=s; }catch(e){}
   function paint(n){ btns.forEach(function(b,i){ b.classList.toggle('hot', i<n); }); }
   function go(u){ try{ window.top.location.href=u; }catch(_){ window.location.href=u; } }
-  paint(current);
-  if(current>0 && hint) hint.textContent='Ta note : '+current+'/5. Merci !';
   btns.forEach(function(b){
     var v=parseInt(b.getAttribute('data-v'),10);
     b.addEventListener('mouseenter', function(){ if(isAuth()) paint(v); });
     b.addEventListener('click', function(){
       if(!isAuth()){ go('connexion.html'); return; }
-      current=v; try{ localStorage.setItem(KEY, String(v)); }catch(e){}
-      paint(v); if(hint) hint.textContent='Ta note : '+v+'/5. Merci !';
+      current=v; paint(v); if(hint) hint.textContent='Ta note : '+v+'/5. Merci !';
     });
   });
   wrap.addEventListener('mouseleave', function(){ paint(current); });
