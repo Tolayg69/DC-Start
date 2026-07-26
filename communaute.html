@@ -1144,7 +1144,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .mdisc__i{display:flex; align-items:center; gap:11px; padding:11px 0; border-top:1px solid var(--line); text-decoration:none;}
 .mdisc__i:first-child{border-top:0;}
 .mdisc__av{width:34px; height:34px; flex:none; border-radius:var(--r-pill); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:13px; color:#fff;}
-.mdisc__b{flex:1; min-width:0;}
+.mdisc__b{flex:1; min-width:0; display:flex; flex-direction:column; gap:5px;}
 .mdisc__t{font-weight:700; font-size:13.5px; color:var(--noir); line-height:1.3; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
 .mdisc__m{font-size:12px; color:var(--ink-500); margin-top:2px;}
 .mdisc__badge{flex:none; font-size:11px; font-weight:700; padding:3px 9px; border-radius:var(--r-pill); white-space:nowrap;}
@@ -1161,6 +1161,10 @@ body:not(.is-auth) .psec.only-guest{display:block;}
 .commecard{max-width:100%; overflow:hidden;}
 .mdisc__i{min-width:0; max-width:100%;}
 .mdisc__b{min-width:0; overflow:hidden;}
+
+.mdisc__meta{font-size:11.5px; color:var(--ink-500); display:flex; align-items:center; flex-wrap:wrap; gap:6px; line-height:1.3;}
+.mdisc__meta .gtag{font-size:10px; padding:2px 7px;}
+.mdisc__badge{align-self:center;}
 </style>
 </head>
 <body>
@@ -1335,45 +1339,21 @@ body:not(.is-auth) .psec.only-guest{display:block;}
       <div class="commepart">
         <div class="commecard"><h3 class="commecard__h">Discussions que tu as créées</h3>
         <div class="mdisc">
-        <a class="mdisc__i" href="discussion.html">
-          <span class="mdisc__av" style="background:#3f6d4a;">T</span>
-          <span class="mdisc__b"><span class="mdisc__t">Tier list armes après 1.12.3 : on en pense quoi ?</span><span class="mdisc__m">Elden Ring · 41 réponses</span></span>
-          <span class="mdisc__badge mdisc__badge--new">2 nouvelles</span>
-        </a>
-        <a class="mdisc__i" href="discussion.html">
-          <span class="mdisc__av" style="background:#7a5c1e;">V</span>
-          <span class="mdisc__b"><span class="mdisc__t">Partage : mon spot de farm de runes</span><span class="mdisc__m">Elden Ring · 19 réponses</span></span>
-          <span class="mdisc__badge mdisc__badge--ok">À jour</span>
-        </a>
-        <a class="mdisc__i" href="discussion.html">
-          <span class="mdisc__av" style="background:#5b3fa6;">O</span>
-          <span class="mdisc__b"><span class="mdisc__t">La meilleure OST de jeu vidéo selon vous ?</span><span class="mdisc__m">Global · 47 réponses</span></span>
-          <span class="mdisc__badge mdisc__badge--new">5 nouvelles</span>
-        </a>
+        <a class="mdisc__i" href="discussion.html"><span class="mdisc__av" style="background:#3f6d4a;">T</span><span class="mdisc__b"><span class="mdisc__t">Tier list armes après 1.12.3 : on en pense quoi ?</span><span class="mdisc__meta"><span class="gtag gtag--cy">Build</span> <span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span> · 41 réponses · il y a 2 j</span></span><span class="mdisc__badge mdisc__badge--new">2 nouvelles réponses</span></a>
+        <a class="mdisc__i" href="discussion.html"><span class="mdisc__av" style="background:#7a5c1e;">V</span><span class="mdisc__b"><span class="mdisc__t">Partage : mon spot de farm de runes</span><span class="mdisc__meta"><span class="gtag gtag--or">Entraide</span> <span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span> · 19 réponses · hier</span></span><span class="mdisc__badge mdisc__badge--ok">À jour</span></a>
+        <a class="mdisc__i" href="discussion.html"><span class="mdisc__av" style="background:#5b3fa6;">O</span><span class="mdisc__b"><span class="mdisc__t">La meilleure OST de jeu vidéo selon vous ?</span><span class="mdisc__meta"><span class="gtag gtag--mg">Musiques</span> <span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Global</span> · 47 réponses · il y a 3 j</span></span><span class="mdisc__badge mdisc__badge--new">5 nouvelles réponses</span></a>
         </div></div>
         <div class="commecard"><h3 class="commecard__h">Discussions où tu as participé</h3>
         <div class="mdisc">
-        <a class="mdisc__i" href="discussion.html">
-          <span class="mdisc__av" style="background:#a63f6b;">M</span>
-          <span class="mdisc__b"><span class="mdisc__t">Comment battre Malenia sans saignement ?</span><span class="mdisc__m">Elden Ring · 63 réponses</span></span>
-          <span class="mdisc__badge mdisc__badge--new">1 nouvelle</span>
-        </a>
-        <a class="mdisc__i" href="discussion.html">
-          <span class="mdisc__av" style="background:#2f5fd0;">C</span>
-          <span class="mdisc__b"><span class="mdisc__t">Cyberpunk : meilleure fin selon vous ?</span><span class="mdisc__m">Cyberpunk 2077 · 28 réponses</span></span>
-          <span class="mdisc__badge mdisc__badge--ok">À jour</span>
-        </a>
-        <a class="mdisc__i" href="discussion.html">
-          <span class="mdisc__av" style="background:#1f7a68;">R</span>
-          <span class="mdisc__b"><span class="mdisc__t">Sanctuaires les plus durs de TotK ?</span><span class="mdisc__m">Zelda: TotK · 22 réponses</span></span>
-          <span class="mdisc__badge mdisc__badge--ok">À jour</span>
-        </a>
+        <a class="mdisc__i" href="discussion.html"><span class="mdisc__av" style="background:#a63f6b;">M</span><span class="mdisc__b"><span class="mdisc__t">Comment battre Malenia sans saignement ?</span><span class="mdisc__meta"><span class="gtag gtag--mg">Boss</span> <span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span> · 63 réponses · il y a 4 h</span></span><span class="mdisc__badge mdisc__badge--new">1 nouvelle réponse</span></a>
+        <a class="mdisc__i" href="discussion.html"><span class="mdisc__av" style="background:#2f5fd0;">C</span><span class="mdisc__b"><span class="mdisc__t">Cyberpunk : meilleure fin selon vous ?</span><span class="mdisc__meta"><span class="gtag gtag--mg">Théorie</span> <span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Cyberpunk 2077</span> · 28 réponses · il y a 2 j</span></span><span class="mdisc__badge mdisc__badge--ok">À jour</span></a>
+        <a class="mdisc__i" href="discussion.html"><span class="mdisc__av" style="background:#1f7a68;">R</span><span class="mdisc__b"><span class="mdisc__t">Sanctuaires les plus durs de TotK ?</span><span class="mdisc__meta"><span class="gtag gtag--or">Entraide</span> <span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Zelda: TotK</span> · 22 réponses · il y a 3 j</span></span><span class="mdisc__badge mdisc__badge--ok">À jour</span></a>
         </div></div>
       </div>
     </section>
     <section class="psec only-guest" style="padding-top:6px;">
       <div class="commeguest">
-        <div class="commeguest__t"><h2>Retrouve tes discussions</h2><p>En créant un compte ou en te connectant, tu retrouves ici les dernières discussions que tu as publiées et celles auxquelles tu as participé — avec les nouvelles réponses mises en avant.</p></div>
+        <div class="commeguest__t"><h2>Retrouve tes discussions</h2><p>En créant un compte ou en te connectant, tu retrouves ici les dernières discussions que tu as publiées et celles auxquelles tu as participé.</p></div>
         <a class="btn btn--primary" href="inscription.html">Créer un compte</a>
         <a class="btn btn--ondark" href="connexion.html" style="background:var(--noir); color:#fff;">Se connecter</a>
       </div>
@@ -1381,27 +1361,11 @@ body:not(.is-auth) .psec.only-guest{display:block;}
     <section class="psec" style="padding-top:6px;">
       <div class="psec__head"><span class="sec-kicker"><span class="dots"><i></i><i></i></span> Cette semaine</span><h2 class="sec-title">Les discussions les plus consultées</h2></div>
       <div class="commecard"><div class="mdisc">
-        <a class="mdisc__i" href="discussion.html">
-          <span class="mdisc__av" style="background:#a63f6b;">M</span>
-          <span class="mdisc__b"><span class="mdisc__t">Comment battre Malenia sans saignement ?</span><span class="mdisc__m">Elden Ring · 63 réponses</span></span>
-          
-        </a>
-        <a class="mdisc__i" href="discussion.html">
-          <span class="mdisc__av" style="background:#5b3fa6;">O</span>
-          <span class="mdisc__b"><span class="mdisc__t">La meilleure OST de jeu vidéo selon vous ?</span><span class="mdisc__m">Global · 47 réponses</span></span>
-          
-        </a>
-        <a class="mdisc__i" href="discussion.html">
-          <span class="mdisc__av" style="background:#3f6d4a;">T</span>
-          <span class="mdisc__b"><span class="mdisc__t">Tier list armes après 1.12.3 : on en pense quoi ?</span><span class="mdisc__m">Elden Ring · 41 réponses</span></span>
-          
-        </a>
-        <a class="mdisc__i" href="discussion.html">
-          <span class="mdisc__av" style="background:#a63f6b;">A</span>
-          <span class="mdisc__b"><span class="mdisc__t">Débat : le meilleur metroidvania de tous les temps</span><span class="mdisc__m">Global · 33 réponses</span></span>
-          
-        </a>
-      </div></div>
+        <a class="mdisc__i" href="discussion.html"><span class="mdisc__av" style="background:#a63f6b;">M</span><span class="mdisc__b"><span class="mdisc__t">Comment battre Malenia sans saignement ?</span><span class="mdisc__meta"><span class="gtag gtag--mg">Boss</span> <span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span> · 63 réponses · il y a 4 h</span></span></a>
+        <a class="mdisc__i" href="discussion.html"><span class="mdisc__av" style="background:#5b3fa6;">O</span><span class="mdisc__b"><span class="mdisc__t">La meilleure OST de jeu vidéo selon vous ?</span><span class="mdisc__meta"><span class="gtag gtag--mg">Musiques</span> <span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Global</span> · 47 réponses · il y a 5 h</span></span></a>
+        <a class="mdisc__i" href="discussion.html"><span class="mdisc__av" style="background:#3f6d4a;">T</span><span class="mdisc__b"><span class="mdisc__t">Tier list armes après 1.12.3 : on en pense quoi ?</span><span class="mdisc__meta"><span class="gtag gtag--cy">Build</span> <span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span> · 41 réponses · il y a 1 j</span></span></a>
+        <a class="mdisc__i" href="discussion.html"><span class="mdisc__av" style="background:#a63f6b;">A</span><span class="mdisc__b"><span class="mdisc__t">Débat : le meilleur metroidvania de tous les temps</span><span class="mdisc__meta"><span class="gtag gtag--mg">Théorie</span> <span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Global</span> · 33 réponses · hier</span></span></a>
+        </div></div>
     </section>
 
     <section class="psec" style="padding-top:6px;">
