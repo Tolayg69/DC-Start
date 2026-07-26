@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Toutes les actualités · Lynk</title>
+<title>Patch 1.12.3 · Actualité Elden Ring · Lynk</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
@@ -727,23 +727,6 @@ body.is-embed #deviceHost{display:none !important;}
 /* badge premium */
 .badge--prem{display:inline-flex; align-items:center; gap:5px; background:var(--or-pale); color:var(--or-ink); font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; border-radius:var(--r-pill); padding:3px 9px; vertical-align:2px; margin-left:6px;}
 .badge--prem svg{width:10px; height:10px;}
-.card__date{margin-left:auto; display:inline-flex; align-items:center; gap:5px; color:var(--ink-400); white-space:nowrap;}
-.card__top .badge--prem{margin-left:0;}
-.card--premium{position:relative;}
-.card__lock{display:none;}
-body:not(.is-auth) .card--premium{cursor:default;}
-body:not(.is-auth) .card--premium .card__body, body:not(.is-auth) .card--premium .card__thumb{filter:blur(2.5px); pointer-events:none; user-select:none;}
-body:not(.is-auth) .card--premium .card__lock{display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; position:absolute; inset:0; background:linear-gradient(180deg, rgba(24,8,48,.72), rgba(24,8,48,.86)); backdrop-filter:blur(3px); color:#fff; text-align:center; padding:16px; border-radius:var(--r-lg); z-index:2;}
-.fav.is-fav svg{color:var(--magenta); fill:var(--magenta);}
-.ncard--premium{position:relative;}
-.ncard__lock{display:none;}
-body:not(.is-auth) .ncard--premium .ncard__body, body:not(.is-auth) .ncard--premium .ncard__thumb{filter:blur(2.5px); pointer-events:none; user-select:none;}
-body:not(.is-auth) .ncard--premium .ncard__lock{display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; position:absolute; inset:0; background:linear-gradient(180deg, rgba(24,8,48,.72), rgba(24,8,48,.86)); backdrop-filter:blur(3px); color:#fff; text-align:center; padding:16px; border-radius:var(--r-lg); z-index:2;}
-.card__lock svg{width:26px; height:26px; color:var(--or);}
-.card__lock-title{font-family:var(--serif); font-weight:800; font-size:15px;}
-.card__lock-sub{font-size:12px; color:rgba(255,255,255,.78); line-height:1.35; max-width:180px;}
-.card__lock .btn-prem{margin-top:5px; background:var(--or); color:var(--noir); font-weight:800; font-size:12px; padding:7px 15px; border-radius:var(--r-pill); cursor:pointer; transition:transform .14s ease, box-shadow .18s ease;}
-.card__lock .btn-prem:hover{transform:translateY(-1px); box-shadow:var(--sh-or,0 6px 18px rgba(245,166,35,.4));}
 
 /* drawer : accordéon Jeux */
 .mdrawer__acc{width:100%; background:none; cursor:pointer; font-family:inherit; text-align:left; color:inherit;}
@@ -777,6 +760,7 @@ body:not(.is-auth) .ncard--premium .ncard__lock{display:flex; flex-direction:col
 .ncard__m svg{width:14px; height:14px; flex:none;}
 
 /* favoris & fonctionnalités premium : réservés aux connectés */
+body:not(.is-auth) .fav{display:none !important;}
 
 /* toggle Mes jeux / Tout (premium, connecté) */
 body:not(.is-auth) .scope.only-auth{display:none !important;}
@@ -946,7 +930,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .catchip{font-size:13px; font-weight:700; color:var(--ink-500); background:var(--surface-2); border:1.5px solid var(--line-2); border-radius:var(--r-pill); padding:8px 14px; cursor:pointer; transition:all .14s;}
 .catchip:hover{border-color:var(--magenta); color:var(--magenta);}
 .catchip.active{background:var(--magenta); border-color:var(--magenta); color:#fff;}
-.catsort{font-family:var(--sans); font-size:13.5px; font-weight:700; color:var(--ink-700); background:var(--surface-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23667788' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 13px center; border:1.5px solid var(--line-2); border-radius:var(--r-pill); padding:9px 36px 9px 14px; cursor:pointer; outline:none; appearance:none; -webkit-appearance:none; -moz-appearance:none;}
+.catsort{font-family:var(--sans); font-size:13.5px; font-weight:700; color:var(--ink-700); background:var(--surface-2); border:1.5px solid var(--line-2); border-radius:var(--r-pill); padding:9px 14px; cursor:pointer; outline:none;}
 .cat-empty{display:none; padding:40px; text-align:center; color:var(--ink-400); font-weight:700;}
 
 /* ===== resource band (liens vers les hubs) ===== */
@@ -1083,67 +1067,153 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 
 /* ---- page-specific ---- */
 
-.gsearch{position:relative;}
-.gsearch input{flex:1; padding:0; border:none; background:none; box-shadow:none; font-family:var(--sans); font-size:15px; color:var(--noir); outline:none;}
-.gsearch input:focus{outline:none; border-color:var(--magenta); box-shadow:0 0 0 3px var(--mg-soft);}
-.gsearch__ico{pointer-events:none;}
-.chipbar{display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; -webkit-overflow-scrolling:touch; scrollbar-width:none;}
-.chipbar::-webkit-scrollbar{display:none;}
-.fchip{flex:none; cursor:pointer; font-family:var(--sans); font-weight:700; font-size:13px; padding:8px 14px; border-radius:var(--r-pill); border:1px solid var(--line); background:#fff; color:var(--ink-700); white-space:nowrap; transition:all .14s;}
-.fchip:hover{border-color:var(--magenta); color:var(--magenta);}
-.fchip.is-on{background:var(--magenta); border-color:var(--magenta); color:#fff;}
-.chipbar--type .fchip.is-on{background:var(--cyan); border-color:var(--cyan);}
-.lcount{font-family:var(--sans); font-size:13.5px; color:var(--ink-500); margin-bottom:14px;}
-.lcount b{color:var(--noir);}
-.lfav{flex:none; width:38px; height:38px; border-radius:50%; border:1px solid var(--line); background:#fff; color:var(--ink-400); display:inline-flex; align-items:center; justify-content:center; cursor:pointer; transition:all .14s; margin-left:4px;}
-.lfav svg{width:18px; height:18px;}
-.lfav:hover{border-color:var(--magenta); color:var(--magenta);}
-.lfav.is-fav{background:var(--mg-pale); border-color:var(--magenta); color:var(--magenta);}
-.lfav.is-fav svg{fill:var(--magenta);}
-.lempty{display:none; text-align:center; padding:46px 20px; color:var(--ink-500); background:#fff; border:1px dashed var(--line); border-radius:var(--r-lg);}
-.lempty.is-on{display:block;}
-.lempty svg{width:34px; height:34px; color:var(--ink-300); margin-bottom:8px;}
-@media (max-width:560px){ .grow__m,.newsrow__m{display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;} }
-
-
-/* --- filtres (copie propre de guides.html) --- */
-.gtools{display:flex; flex-wrap:wrap; align-items:center; column-gap:7px; row-gap:14px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:14px 16px; margin-bottom:22px;}
-/* --- filtres refondus style jeux.html --- */
-.gsearch{flex:1 1 100%; position:relative; display:flex; align-items:center; gap:11px; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); padding:13px 16px;}
-.gsearch__ico{position:static; transform:none; left:auto; top:auto; width:19px; height:19px; color:var(--ink-400); flex:none;}
-.gsearch input{flex:1; border:none; background:none; outline:none; font-family:var(--sans); font-size:15px; color:var(--noir);}
-.gfilters{flex:1 1 100%; display:flex; flex-wrap:wrap; align-items:center; column-gap:10px; row-gap:12px;}
-.gfilters .gdrop[data-drop="game"]{flex:1 1 100%;}
-.gfilters .gdrop[data-drop="type"]{flex:0 1 auto;}
-.gfilters .catsort{margin-left:auto; align-self:auto;}
-.chipbar{display:flex; flex-wrap:wrap; gap:7px;}
-.fchip{font-family:var(--sans); font-size:13px; font-weight:700; padding:8px 14px; border-radius:var(--r-pill); border:1.5px solid var(--line-2); background:var(--surface-2); color:var(--ink-500); cursor:pointer; transition:all .14s;}
-.fchip.is-on{background:var(--magenta); color:#fff; border-color:var(--magenta);}
-.catsort{align-self:flex-end;}
-.gdrop__btn{display:none;}
-@media (max-width:640px){
-  .gfilters{flex-direction:column; align-items:stretch;}
-  .gdrop{position:relative;}
-  .gdrop__btn{display:flex; align-items:center; justify-content:space-between; gap:8px; width:100%; padding:11px 14px; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); font-family:var(--sans); font-size:14px; font-weight:600; color:var(--noir); cursor:pointer;}
-  .gdrop__btn svg{width:16px; height:16px; transition:transform .18s; flex:none;}
-  .gdrop.open .gdrop__btn svg{transform:rotate(180deg);}
-  .gdrop .chipbar{position:absolute; top:calc(100% + 6px); left:0; right:0; z-index:30; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-md,0 12px 32px rgba(18,18,18,.14)); flex-direction:column; align-items:stretch; gap:2px; padding:8px; max-height:56vh; overflow:auto; display:none;}
-  .gdrop.open .chipbar{display:flex;}
-  .gdrop .fchip{text-align:left; width:100%;}
-  .catsort{margin-left:0; width:100%;}
+.gdwrap{display:flex; gap:34px; align-items:flex-start;}
+.gart{flex:1 1 auto; min-width:0; max-width:760px;}
+.gside{flex:0 0 312px; position:sticky; top:84px;}
+.gdmeta{display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px; color:rgba(255,255,255,.82); font-size:13.5px; font-weight:600; margin-bottom:18px;}
+.gdmeta__i{display:inline-flex; align-items:center; gap:6px;}
+.gdmeta__i svg{width:15px; height:15px;}
+.gdactions{display:flex; flex-wrap:wrap; gap:10px;}
+.gdguest{font-size:13px; color:rgba(255,255,255,.78); background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:9px 14px; border-radius:var(--r); display:inline-flex; align-items:center; gap:8px;}
+.gdguest a{color:#fff; text-decoration:underline; font-weight:700;}
+.gdguest svg{width:16px; height:16px; flex:none;}
+.btn--fav.is-fav{background:var(--magenta); border-color:var(--magenta); color:#fff;}
+.btn--fav.is-fav svg{fill:#fff;}
+.gart h2{font-family:var(--serif); font-size:26px; font-weight:800; color:var(--noir); margin:34px 0 12px; scroll-margin-top:80px;}
+.gart h3{font-family:var(--sans); font-size:18px; font-weight:800; color:var(--ink-800); margin:22px 0 8px;}
+.gart p{font-size:15.5px; line-height:1.72; color:var(--ink-700); margin:0 0 14px;}
+.gart strong{color:var(--noir);}
+.glead{font-size:17px !important; line-height:1.7 !important; color:var(--ink-800) !important;}
+.gcallout{display:flex; gap:13px; background:var(--cy-pale); border:1px solid #bfe9f2; border-radius:var(--r-lg); padding:16px 18px; margin:18px 0;}
+.gcallout--warn{background:#fdeecf; border-color:#f3d28a;}
+.gcallout--mg{background:var(--mg-pale); border-color:#ecc9f3;}
+.gcallout__ico{flex:none; width:26px; height:26px; color:var(--cy-ink);}
+.gcallout--warn .gcallout__ico{color:var(--or-ink);}
+.gcallout--mg .gcallout__ico{color:var(--magenta);}
+.gcallout__ico svg{width:26px;height:26px;}
+.gcallout p{margin:0; font-size:14.5px;}
+.gcallout b{color:var(--noir);}
+.gsteps{list-style:none; padding:0; margin:14px 0; counter-reset:st;}
+.gsteps li{position:relative; padding:0 0 14px 42px; counter-increment:st;}
+.gsteps li::before{content:counter(st); position:absolute; left:0; top:-2px; width:28px; height:28px; border-radius:50%; background:var(--mg-pale); color:var(--magenta); font-family:var(--serif); font-weight:800; font-size:14px; display:flex; align-items:center; justify-content:center;}
+.gsteps li b{color:var(--noir);}
+.gscreens{display:flex; gap:14px; margin:18px 0;}
+.gscreen{flex:1; aspect-ratio:16/10; border-radius:var(--r-lg); border:1px solid var(--line); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; color:#fff; text-align:center; padding:14px; position:relative; overflow:hidden;}
+.gscreen svg{width:28px; height:28px; opacity:.92; position:relative; z-index:1;}
+.gscreen span{font-size:12.5px; font-weight:700; opacity:.95; position:relative; z-index:1;}
+.gscreen::after{content:""; position:absolute; inset:0; background:repeating-linear-gradient(135deg, rgba(255,255,255,.06) 0 2px, transparent 2px 12px);}
+.gscreen.c1{background:#3a2a14;} .gscreen.c2{background:#2a1530;} .gscreen.c3{background:#102a33;} .gscreen.c4{background:#13202e;}
+.preminset{position:relative; border:1px solid #ecc9f3; background:linear-gradient(160deg,#fff,var(--mg-pale)); border-radius:var(--r-lg); padding:22px; margin:20px 0; overflow:hidden;}
+.preminset__lock{display:inline-flex; align-items:center; gap:7px; font-weight:800; font-size:12.5px; color:var(--magenta); background:#fff; border:1px solid #ecc9f3; padding:6px 11px; border-radius:var(--r-pill); margin-bottom:12px;}
+.preminset__lock svg{width:14px; height:14px;}
+.preminset h3{margin-top:0;}
+.preminset__blur{filter:blur(5px); opacity:.5; pointer-events:none; user-select:none; margin-bottom:14px;}
+body.is-auth .preminset__blur{filter:none; opacity:1;}
+.preminset .btn{margin-top:4px;}
+.icard{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:18px; margin-bottom:16px;}
+.icard__h{font-family:var(--sans); font-weight:800; font-size:13px; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-500); margin:0 0 12px;}
+.irow{display:flex; justify-content:space-between; gap:12px; padding:9px 0; border-bottom:1px solid var(--line-2); font-size:14px;}
+.irow:last-child{border-bottom:0;}
+.irow__k{color:var(--ink-500);}
+.irow__v{font-weight:700; color:var(--noir); text-align:right;}
+.gtoc{list-style:none; padding:0; margin:0;}
+.gtoc a{display:block; padding:8px 12px; border-radius:var(--r); color:var(--ink-700); font-size:14px; font-weight:600; text-decoration:none; border-left:2px solid var(--line-2);}
+.gtoc a:hover{background:var(--mg-pale); color:var(--magenta); border-left-color:var(--magenta);}
+.progbtn{width:100%; justify-content:center;}
+.progbtn.is-done{background:var(--magenta); border-color:var(--magenta); color:#fff;}
+.progbtn.is-done svg{stroke:#fff;}
+@media (max-width:980px){
+  .gdwrap{flex-direction:column;}
+  .gside{position:static; flex-basis:auto; width:100%;}
+  .gart{max-width:none;}
+  .toc-card{display:none;}
+  .gscreens{flex-direction:column;}
 }
 
-body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
+.pnotes{list-style:none; padding:0; margin:14px 0;}
+.pnotes li{position:relative; padding:9px 0 9px 30px; border-bottom:1px solid var(--line-2); font-size:14.5px; color:var(--ink-700); line-height:1.6;}
+.pnotes li:last-child{border-bottom:0;}
+.pnotes li::before{position:absolute; left:0; top:9px; width:20px; height:20px; border-radius:6px; font-weight:800; font-size:13px; display:flex; align-items:center; justify-content:center;}
+.pnotes li.buff::before{content:"+"; background:#d6f3e2; color:#137a45;}
+.pnotes li.nerf::before{content:"−"; background:#fde0e0; color:#b3261e;}
+.pnotes li.fix::before{content:"✓"; background:var(--cy-pale); color:var(--cy-ink);}
+.pnotes li b{color:var(--noir);}
 
-.rail--gcards{scroll-snap-type:x mandatory;}
-.rail--gcards .card{flex:0 0 300px; scroll-snap-align:start;}
-@media (max-width:520px){ .rail--gcards .card{flex:0 0 260px;} }
+
+.gchip--type{background:var(--magenta-pale); color:var(--magenta-ink); border-color:transparent;}
+.btn--fav.is-fav{background:var(--magenta); border-color:var(--magenta); color:#fff;}
+.btn--fav.is-fav svg{fill:#fff;}
+.gdguest svg{width:16px; height:16px; flex:none;}
+.icard.only-guest{display:block;}
 
 .tag--patch{background:var(--magenta-pale); color:var(--magenta-ink);}
 .tag--maj{background:var(--cyan-pale); color:var(--cyan-ink);}
 .tag--news{background:var(--or-pale); color:var(--or-ink);}
-.tag--test{background:#ede9fb; color:#4b3a99;}
-.tag--sortie{background:#e5f6ec; color:#1c7a44;}
+
+/* --- encart notation --- */
+.ratebox{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:22px 24px; margin:28px 0 8px;}
+.ratebox__head{display:flex; align-items:center; gap:28px; flex-wrap:wrap;}
+.ratebox__scorebox{display:flex; align-items:center; gap:14px;}
+.ratebox__score{font-family:var(--serif,var(--sans)); font-weight:800; font-size:44px; line-height:1; color:var(--noir);}
+.ratebox__scoremeta{display:flex; flex-direction:column; gap:4px;}
+.ratebox__count{font-size:13px; color:var(--ink-500);}
+.ratebox__stars{display:inline-flex; gap:3px;}
+.ratebox__stars svg{width:20px; height:20px;}
+.ratebox__stars--display{position:relative; color:var(--line-2,#e2e2e8);}
+.ratebox__stars--display .ratebox__fill{position:absolute; top:0; left:0; overflow:hidden; white-space:nowrap; color:var(--or); display:inline-flex; gap:3px;}
+.ratebox__divider{width:1px; align-self:stretch; background:var(--line); margin:2px 0;}
+.ratebox__action{display:flex; flex-direction:column; gap:8px;}
+.ratebox__label{font-weight:700; font-size:14px; color:var(--noir); margin:0;}
+.ratebox__stars--input{gap:4px;}
+.ratebox__starbtn{background:none; border:none; padding:2px; cursor:pointer; color:var(--line-2,#d9d9e0); line-height:0; transition:transform .1s ease, color .12s ease;}
+.ratebox__starbtn svg{width:26px; height:26px;}
+.ratebox__starbtn:hover{transform:scale(1.12);}
+.ratebox__starbtn.hot{color:var(--or);}
+.ratebox__hint{font-size:12.5px; color:var(--ink-500); margin:0; min-height:16px;}
+@media (max-width:560px){ .ratebox__divider{display:none;} .ratebox__head{gap:18px;} }
+
+.ratebox{max-width:none;}
+.ratebox__title{font-family:var(--serif,var(--sans)); font-weight:800; font-size:19px; line-height:1.2; margin:0 0 16px; color:var(--noir);}
+.ratebox .only-guest{display:block;}
+.ratebox__hint--guest{color:var(--ink-600,var(--ink-500));}
+.ratebox__hint--guest a{color:var(--magenta); font-weight:700; text-decoration:underline;}
+
+/* --- encart commentaires --- */
+.combox{max-width:none; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:22px 24px; margin:18px 0 8px;}
+.combox__title{font-family:var(--serif,var(--sans)); font-weight:800; font-size:19px; line-height:1.2; margin:0 0 16px; color:var(--noir);}
+.combox__write{display:flex; gap:12px; align-items:flex-start;}
+.combox__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); background:var(--noir); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; border:2px solid var(--magenta);}
+.combox__field{flex:1; min-width:0;}
+.combox__ta{width:100%; box-sizing:border-box; font-family:var(--sans); font-size:14px; color:var(--noir); background:var(--surface-2); border:1px solid var(--line-2, var(--line)); border-radius:var(--r); padding:11px 13px; resize:vertical; min-height:82px; outline:none; transition:border-color .15s, box-shadow .15s;}
+.combox__ta:focus{border-color:var(--magenta); box-shadow:0 0 0 3px rgba(162,0,188,.10); background:#fff;}
+.combox__bar{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:10px;}
+.combox__count{font-size:12px; color:var(--ink-500);}
+.combox__guest{display:flex; gap:11px; align-items:center; background:var(--surface-2); border:1px dashed var(--line-2, var(--line)); border-radius:var(--r); padding:14px 15px;}
+.combox__guest svg{width:18px; height:18px; flex:none; color:var(--ink-500);}
+.combox__guest p{margin:0; font-size:13px; color:var(--ink-600, var(--ink-500)); line-height:1.45;}
+.combox__guest a{color:var(--magenta); font-weight:700; text-decoration:underline;}
+.comlist{list-style:none; margin:22px 0 0; padding:20px 0 0; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:20px;}
+.com{display:flex; gap:12px;}
+.com__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; color:#fff; background:var(--noir);}
+.com__ava--a{background:#5b3fa6;} .com__ava--b{background:#1f7a68;} .com__ava--c{background:#a63f6b;} .com__ava--d{background:#2f5fd0;} .com__ava--e{background:#a8651f;}
+.com__body{flex:1; min-width:0;}
+.com__head{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;}
+.com__name{font-weight:800; font-size:14px; color:var(--noir);}
+.com__date{font-size:12px; color:var(--ink-400, var(--ink-500));}
+.com__stars{display:inline-flex; gap:2px; color:var(--or); margin-left:2px;}
+.com__stars svg{width:13px; height:13px;}
+.com__txt{margin:6px 0 0; font-size:14px; line-height:1.55; color:var(--ink-700, var(--noir));}
+.com.is-hidden{display:none;}
+.combox__more{margin-top:20px; display:flex; justify-content:center;}
+.combox__more.is-done{display:none;}
+@media (max-width:560px){ .combox{padding:18px 16px;} }
+
+body:not(.is-auth) .combox__write{display:none;}
+body.is-auth .combox__write{display:flex;}
+body.is-auth .combox__guest{display:none;}
+body:not(.is-auth) .combox__guest{display:flex;}
+
+.combox__hint{margin:8px 0 0; font-size:12.5px; color:var(--magenta); font-weight:600; min-height:16px;}
 </style>
 </head>
 <body>
@@ -1185,9 +1255,7 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
             <a class="mega__row" href="jeu.html"><span class="mega__cover cover-gi"></span><span><span class="mega__name">Genshin Impact</span><br><span class="mega__meta">142 guides · carte interactive · builds</span></span></a>
             <a class="mega__row" href="jeu.html"><span class="mega__cover cover-cp"></span><span><span class="mega__name">Cyberpunk 2077</span><br><span class="mega__meta">96 guides · soluce complète · trophées</span></span></a>
             <a class="mega__row" href="jeu.html"><span class="mega__cover cover-d4"></span><span><span class="mega__name">Diablo IV</span><br><span class="mega__meta">88 guides · soluce complète · builds</span></span></a>
-          
-
-        </div>
+          </div>
           <div class="mega__foot">
             <span class="sec-kicker" style="font-size:11px;"><span class="dots"><i></i><i></i></span> Les plus consultés cette semaine</span>
             <a class="link-arrow" href="jeux.html">Tous les jeux
@@ -1305,141 +1373,178 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
   </div>
 </nav>
 
-<section class="phero">
-  <div class="wrap">
-    <span class="kicker"><span class="dots"><i></i><i></i></span> Le fil</span>
-    <h1>Toutes les actualités</h1>
-    <p class="phero__sub">Patchs, DLC, tier lists, événements et mises à jour : le fil des nouveautés de tes jeux, trié et tenu à jour. Filtre par jeu ou par type.</p>
+<section class="ghero">
+  <div class="ghero__bg cover-er"></div>
+  <div class="ghero__in">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Fil d'Ariane"><a href="jeux.html">Jeux</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> <a href="jeu.html">Elden Ring</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> <a href="actualites.html">Actualités</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> <span>Patch 1.12.3</span></nav>
+      <div class="ghero__chips"><span class="gchip gchip--type">Patch</span> <span class="gchip">Elden Ring</span> <span class="gchip">Version 1.12.3</span></div>
+      <h1 class="ghero__title">Elden Ring 1.12.3 : équilibrage des armes de sang et corrections</h1>
+      <div class="gdmeta">
+        <span class="gdmeta__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg> Par l'équipe Lynk</span>
+        <span class="gdmeta__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18M7 3v4M17 3v4"/><rect x="3" y="5" width="18" height="16" rx="2"/></svg> 12 juin</span>
+        <span class="gdmeta__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~4 min de lecture</span>
+      </div>
+      <div class="gdactions">
+        <button class="btn btn--primary btn--fav is-fav only-auth" id="gdFav" type="button" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> <span>Sauvegardé</span></button>
+        <span class="gdguest only-guest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> <span><a href="connexion.html">Connecte-toi</a> pour suivre les actus de tes jeux.</span></span>
+        <button class="btn btn--ondark" type="button" onclick="if(navigator.share){navigator.share({title:document.title,url:location.href});}else{return false;}">Partager</button>
+      </div>
+    </div>
   </div>
 </section>
 
 <main class="page">
   <div class="wrap">
-        <section class="psec auth-only-block" style="padding-top:6px;">
-      <div class="psec__head"><span class="sec-kicker"><span class="dots"><i></i><i></i></span> Reprends là où tu t'es arrêté</span>
-        <h2 class="sec-title">Les dernières actualités consultées</h2></div>
-      <div class="rail rail--gcards">
-        <article class="card" data-item data-game="er" data-game-name="Elden Ring" data-type="patch maj playstation xbox pc" data-title="Elden Ring 1.12.3 : équilibrage des armes de sang et corrections" data-href="actualite.html"><div class="card__thumb cover-er"><span class="card__game">Elden Ring</span><button class="fav on" type="button" data-fav-id="n-patch" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--patch">Patch notes</span></div><h3 class="card__title">Elden Ring 1.12.3 : équilibrage des armes de sang et corrections</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>3 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,8 <span style="color:var(--ink-400); font-weight:400;">(412)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>3 juill.</span></div></div></article>
-        <article class="card" data-item data-game="gi" data-game-name="Genshin Impact" data-type="maj playstation pc" data-title="Genshin Impact 5.7 : bannières, événements et nouvelles quêtes" data-href="actualite.html"><div class="card__thumb cover-gi"><span class="card__game">Genshin Impact</span><button class="fav on" type="button" data-fav-id="n-gi" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--maj">MàJ</span></div><h3 class="card__title">Genshin Impact 5.7 : bannières, événements et nouvelles quêtes</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>4 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,7 <span style="color:var(--ink-400); font-weight:400;">(529)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>3 juill.</span></div></div></article>
-        <article class="card" data-item data-game="poe" data-game-name="Path of Exile 2" data-type="news pc playstation xbox" data-title="Path of Exile 2 : tout savoir sur la ligue avant son lancement" data-href="actualite.html"><div class="card__thumb cover-poe"><span class="card__game">Path of Exile 2</span><button class="fav" type="button" data-fav-id="n-poe" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--news">News</span></div><h3 class="card__title">Path of Exile 2 : tout savoir sur la ligue avant son lancement</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>6 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,9 <span style="color:var(--ink-400); font-weight:400;">(803)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>2 juill.</span></div></div></article>
-        <article class="card" data-item data-game="cp" data-game-name="Cyberpunk 2077" data-type="maj playstation xbox pc" data-title="Cyberpunk 2077 : Mise à jour 2.2 : personnalisation de véhicules et refonte du gameplay" data-href="actualite.html"><div class="card__thumb cover-cp"><span class="card__game">Cyberpunk 2077</span><button class="fav" type="button" data-fav-id="n-cp" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--maj">MàJ</span></div><h3 class="card__title">Cyberpunk 2077 : Mise à jour 2.2 : personnalisation de véhicules et refonte du gameplay</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>4 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,6 <span style="color:var(--ink-400); font-weight:400;">(142)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>1er juill.</span></div></div></article>
-        <article class="card" data-item data-game="diablo" data-game-name="Diablo IV" data-type="news playstation xbox pc" data-title="Diablo IV : Saison 5 : nouveau donjon endgame et butin" data-href="actualite.html"><div class="card__thumb cover-d4"><span class="card__game">Diablo IV</span><button class="fav" type="button" data-fav-id="n-diablo" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--news">News</span></div><h3 class="card__title">Diablo IV : Saison 5 : nouveau donjon endgame et butin</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>5 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,5 <span style="color:var(--ink-400); font-weight:400;">(88)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>29 juin</span></div></div></article>
-      </div>
-    </section>
-    <section class="psec guest-only-block" style="padding-top:6px;">
-      <div class="discover">
-        <div class="discover__txt">
-          <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Ton compagnon de jeu</span>
-          <h2 class="sec-title" style="margin-top:6px;">Retrouve tes dernières actualités consultées <span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></h2>
-          <p class="sec-sub" style="margin-top:8px;">Avec Premium dès 1,99 €/mois, Lynk garde en mémoire les actualités que tu consultes et te les remet en avant à chaque visite — avec tes jeux suivis et les nouveautés.</p>
-          <div style="display:flex; gap:10px; margin-top:18px; flex-wrap:wrap;">
-            <a class="btn btn--primary" href="inscription.html">Créer mon compte gratuit</a>
-            <a class="btn btn--premium" href="premium.html">Découvrir Premium</a>
-          </div>
-        </div>
-        <div class="discover__demo" aria-hidden="true"><div class="demo-card">
-          <div class="demo-card__row"><span class="demo-cover cover-er"></span><div style="flex:1;"><b style="font-family:var(--serif); font-size:14px;">Elden Ring 1.12.3</b><div class="progress" style="margin-top:7px; background:var(--surface-3);"><div class="progress__bar" style="width:80%;"></div></div></div><span class="demo-pct">80 %</span></div>
-          <div class="demo-card__row"><span class="demo-cover cover-gi"></span><div style="flex:1;"><b style="font-family:var(--serif); font-size:14px;">Genshin 5.7</b><div class="progress" style="margin-top:7px; background:var(--surface-3);"><div class="progress__bar" style="width:52%; background:linear-gradient(90deg,var(--cyan),#3ed3ec);"></div></div></div><span class="demo-pct">52 %</span></div>
-        </div></div>
-      </div>
-    </section>
-    <section class="psec" style="padding-top:6px;">
-      <div class="psec__head"><span class="sec-kicker"><span class="dots"><i></i><i></i></span> Cette semaine</span>
-        <h2 class="sec-title">Les actualités les plus consultées</h2></div>
-      <div class="rail rail--gcards">
-        <article class="card" data-item data-game="er" data-game-name="Elden Ring" data-type="patch maj playstation xbox pc" data-title="Elden Ring 1.12.3 : équilibrage des armes de sang et corrections" data-href="actualite.html"><div class="card__thumb cover-er"><span class="card__game">Elden Ring</span><button class="fav on" type="button" data-fav-id="n-patch" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--patch">Patch notes</span></div><h3 class="card__title">Elden Ring 1.12.3 : équilibrage des armes de sang et corrections</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>3 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,8 <span style="color:var(--ink-400); font-weight:400;">(412)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>3 juill.</span></div></div></article>
-        <article class="card" data-item data-game="gi" data-game-name="Genshin Impact" data-type="maj playstation pc" data-title="Genshin Impact 5.7 : bannières, événements et nouvelles quêtes" data-href="actualite.html"><div class="card__thumb cover-gi"><span class="card__game">Genshin Impact</span><button class="fav on" type="button" data-fav-id="n-gi" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--maj">MàJ</span></div><h3 class="card__title">Genshin Impact 5.7 : bannières, événements et nouvelles quêtes</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>4 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,7 <span style="color:var(--ink-400); font-weight:400;">(529)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>3 juill.</span></div></div></article>
-        <article class="card" data-item data-game="poe" data-game-name="Path of Exile 2" data-type="news pc playstation xbox" data-title="Path of Exile 2 : tout savoir sur la ligue avant son lancement" data-href="actualite.html"><div class="card__thumb cover-poe"><span class="card__game">Path of Exile 2</span><button class="fav" type="button" data-fav-id="n-poe" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--news">News</span></div><h3 class="card__title">Path of Exile 2 : tout savoir sur la ligue avant son lancement</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>6 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,9 <span style="color:var(--ink-400); font-weight:400;">(803)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>2 juill.</span></div></div></article>
-        <article class="card" data-item data-game="cp" data-game-name="Cyberpunk 2077" data-type="maj playstation xbox pc" data-title="Cyberpunk 2077 : Mise à jour 2.2 : personnalisation de véhicules et refonte du gameplay" data-href="actualite.html"><div class="card__thumb cover-cp"><span class="card__game">Cyberpunk 2077</span><button class="fav" type="button" data-fav-id="n-cp" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--maj">MàJ</span></div><h3 class="card__title">Cyberpunk 2077 : Mise à jour 2.2 : personnalisation de véhicules et refonte du gameplay</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>4 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,6 <span style="color:var(--ink-400); font-weight:400;">(142)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>1er juill.</span></div></div></article>
-        <article class="card" data-item data-game="diablo" data-game-name="Diablo IV" data-type="news playstation xbox pc" data-title="Diablo IV : Saison 5 : nouveau donjon endgame et butin" data-href="actualite.html"><div class="card__thumb cover-d4"><span class="card__game">Diablo IV</span><button class="fav" type="button" data-fav-id="n-diablo" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--news">News</span></div><h3 class="card__title">Diablo IV : Saison 5 : nouveau donjon endgame et butin</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>5 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,5 <span style="color:var(--ink-400); font-weight:400;">(88)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>29 juin</span></div></div></article>
+    <div class="gdwrap">
+      <article class="gart">
+        <p class="glead">Le patch <strong>1.12.3</strong> se concentre sur l'équilibrage <strong>PvP</strong>, quelques ajustements d'armes et d'incantations, et une nette amélioration de la <strong>stabilité en ligne</strong>. Voici le résumé clair de ce qui change vraiment pour ta progression.</p>
+
+        <h2 id="armes">Armes rééquilibrées</h2>
+        <ul class="pnotes">
+          <li class="buff"><b>Armes lourdes (masses, marteaux, haches lourdes)</b> : dégâts de stabilité (poise) sur les coups chargés augmentés ; les masses redeviennent viables face aux boucliers.</li>
+          <li class="buff"><b>Dagues</b> : multiplicateur de dégâts critiques légèrement relevé et parade-riposte plus rapide.</li>
+          <li class="buff"><b>Épées colossales</b> : hyper-armure des attaques à deux mains renforcée pendant l'animation de départ.</li>
+          <li class="nerf"><b>Accumulation de saignement (PvP)</b> : la montée de la jauge d'hémorragie infligée aux autres joueurs est réduite d'environ 10 %, sans impact sur le PvE.</li>
+          <li class="nerf"><b>Rivière sanglante (Cendre de guerre « Bain de sang »)</b> : coût en FP augmenté et léger allongement de la récupération après le second coup, pour limiter le spam en duel.</li>
+          <li class="nerf"><b>Lance de mort (arme de guerre « Éclair de mort »)</b> : zone d'effet légèrement réduite en PvP.</li>
+        </ul>
+
+        <h2 id="sorts">Incantations et sorts</h2>
+        <ul class="pnotes">
+          <li class="buff"><b>Comète d'Azur</b> : durée du faisceau allongée et consommation de FP lissée sur la durée.</li>
+          <li class="buff"><b>Incantations de foi (soin et foudre)</b> : coût en FP réduit pour plusieurs d'entre elles, et incantation plus rapide pour les sorts de foudre.</li>
+          <li class="buff"><b>Flamme noire</b> : dégâts continus revalorisés contre les cibles à grande barre de vie.</li>
+          <li class="nerf"><b>Sorts de pierre-étoile</b> : dégâts en PvP légèrement réduits pour les projectiles rapides.</li>
+          <li class="fix"><b>Flamme de la frénésie</b> : correction d'un bug de hitbox touchant à travers certains décors.</li>
+        </ul>
+
+        <h2 id="online">Corrections PvP &amp; stabilité en ligne</h2>
+        <ul class="pnotes">
+          <li class="fix">Correction des déconnexions fréquentes survenant au lancement d'une invasion.</li>
+          <li class="fix">Réduction du décalage (lag) perçu sur les attaques chargées et les esquives en duel.</li>
+          <li class="fix">Plusieurs plantages rares corrigés en coopération à trois joueurs.</li>
+          <li class="fix">Correction d'un glitch permettant d'annuler la récupération de certaines armes de guerre.</li>
+          <li class="fix">Amélioration de la synchronisation des dégâts de statut (saignement, gel) entre les joueurs.</li>
+        </ul>
+
+        <h2 id="divers">Objets, PNJ et divers</h2>
+        <ul class="pnotes">
+          <li class="fix">Ajustement des prix de plusieurs marchands nomades et rééquilibrage des runes obtenues sur certains ennemis d'élite.</li>
+          <li class="fix">Correction d'un bug empêchant l'apparition de quelques PNJ d'invocation coopérative près des sites de grâce.</li>
+          <li class="fix">Amélioration de la lisibilité des effets de statut (saignement, pourriture écarlate, gel) sur la barre d'état.</li>
+          <li class="fix">Divers ajustements de textes et de traductions dans les descriptions d'objets.</li>
+        </ul>
+
+        <h2 id="related">À lire ensuite</h2>
+        <div class="newsl"><a class="newsrow" href="actualite.html"><span class="newsrow__date">03<span>juin</span></span><span class="newsrow__b"><span class="newsrow__t">Cyberpunk 2077 : Mise à jour 2.2 : personnalisation de véhicules et refonte du gameplay</span><span class="newsrow__m">Véhicules personnalisables, combats à moto retravaillés et nouveaux contrats.</span></span><span class="newsrow__tag"><span class="tag tag--maj">MàJ</span></span></a><a class="newsrow" href="actualite.html"><span class="newsrow__date">28<span>mai</span></span><span class="newsrow__b"><span class="newsrow__t">Hades II : la mise à jour majeure ajoute une nouvelle région</span><span class="newsrow__m">Une région inédite, de nouvelles armes et un boss de fin remanié.</span></span><span class="newsrow__tag"><span class="tag tag--maj">MàJ</span></span></a></div>
       
-        <article class="card card--premium" data-item data-game="hades" data-game-name="Hades II" data-type="maj switch pc playstation" data-title="Hades II : la mise à jour majeure ajoute une nouvelle région" data-href="actualite.html"><div class="card__thumb cover-mh"><span class="card__game">Hades II</span><button class="fav" type="button" data-fav-id="n-hades" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--maj">MàJ</span><span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></div><h3 class="card__title">Hades II : la mise à jour majeure ajoute une nouvelle région</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>4 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,7 <span style="color:var(--ink-400); font-weight:400;">(153)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>27 juin</span></div></div><div class="card__lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><span class="card__lock-title">Contenu exclusif</span><span class="card__lock-sub">Réservé aux abonnés Premium</span><span class="btn-prem">Découvrir Premium</span></div></article>
+
+      <section class="ratebox" aria-label="Notation">
+      <h2 class="ratebox__title">Laisse une note</h2>
+      <div class="ratebox__head">
+        <div class="ratebox__scorebox">
+          <span class="ratebox__score">4,8</span>
+          <div class="ratebox__scoremeta">
+            <div class="ratebox__stars ratebox__stars--display"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span class="ratebox__fill" style="width:96%;"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span></span></div>
+            <span class="ratebox__count">412 avis</span>
+          </div>
+        </div>
+        <div class="ratebox__divider" aria-hidden="true"></div>
+        <div class="ratebox__action">
+          <p class="ratebox__label only-auth">Ton avis</p>
+          <p class="ratebox__label only-guest">Ton avis</p>
+          <div class="ratebox__stars ratebox__stars--input" id="rateInput" role="radiogroup"><button class="ratebox__starbtn" type="button" data-v="1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button></div>
+          <p class="ratebox__hint only-auth" id="rateHint">Clique sur une étoile pour laisser ta note.</p>
+          <p class="ratebox__hint ratebox__hint--guest only-guest">Il faut un compte pour laisser une note. <a href="connexion.html">Se connecter</a></p>
+        </div>
       </div>
     </section>
 
-    <section class="psec" style="padding-top:6px;">
-      <div class="gtools">
-        <div class="gsearch">
-          <svg class="gsearch__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
-          <input id="lsearch" type="text" placeholder="Rechercher une actualité, un jeu..." aria-label="Rechercher">
-        </div>
-        <div class="gfilters">
-          <div class="gdrop" data-drop="game"><button class="gdrop__btn" type="button"><span class="gdrop__lbl">Tout</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></button>
-          <div class="chipbar chipbar--game" role="group" aria-label="Filtrer par jeu">
-        <button class="fchip is-on" type="button" data-chip="all" data-bar="game">Tout</button>
-        <button class="fchip" type="button" data-chip="er" data-bar="game">Elden Ring</button>
-        <button class="fchip" type="button" data-chip="bg3" data-bar="game">Baldur's Gate 3</button>
-        <button class="fchip" type="button" data-chip="zelda" data-bar="game">Zelda: TotK</button>
-        <button class="fchip" type="button" data-chip="cp" data-bar="game">Cyberpunk 2077</button>
-        <button class="fchip" type="button" data-chip="hades" data-bar="game">Hades II</button>
-        <button class="fchip" type="button" data-chip="poe" data-bar="game">Path of Exile 2</button>
-        <button class="fchip" type="button" data-chip="diablo" data-bar="game">Diablo IV</button>
-        </div>
+    <section class="combox" aria-label="Commentaires">
+      <h2 class="combox__title">Commentaires</h2>
+      <div class="combox__write only-auth">
+        <span class="combox__ava" aria-hidden="true">É</span>
+        <div class="combox__field">
+          <textarea class="combox__ta" id="comTa" maxlength="600" placeholder="Donne ton avis sur cette actualité..." aria-label="Ton commentaire"></textarea>
+          <div class="combox__bar">
+            <span class="combox__count" id="comCount">0 / 600</span>
+            <button class="btn btn--primary btn--sm" type="button" id="comSend">Publier</button>
           </div>
-          <div class="gdrop" data-drop="type"><button class="gdrop__btn" type="button"><span class="gdrop__lbl">Tout type</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></button>
-          <div class="chipbar chipbar--type" role="group" aria-label="Filtrer par type">
-        <button class="fchip is-on" type="button" data-chip="all" data-bar="type">Tout type</button>
-        <button class="fchip" type="button" data-chip="patch" data-bar="type">Patch</button>
-        <button class="fchip" type="button" data-chip="dlc" data-bar="type">DLC</button>
-        <button class="fchip" type="button" data-chip="tierlist" data-bar="type">Tier list</button>
-        
-          <button class="fchip" type="button" data-chip="maj" data-bar="type">MàJ</button>
-          <button class="fchip" type="button" data-chip="news" data-bar="type">News</button>
-          <button class="fchip" type="button" data-chip="offres" data-bar="type">Offres</button>
-          <button class="fchip" type="button" data-chip="bonsplans" data-bar="type">Bons plans</button>
-          <button class="fchip" type="button" data-chip="tests" data-bar="type">Tests</button>
-          <button class="fchip" type="button" data-chip="sortie-recente" data-bar="type">Sorties récentes</button>
-          <button class="fchip" type="button" data-chip="sortie-future" data-bar="type">Sorties futures</button>
-          <button class="fchip" type="button" data-chip="playstation" data-bar="type">PlayStation</button>
-          <button class="fchip" type="button" data-chip="switch" data-bar="type">Nintendo Switch</button>
-          <button class="fchip" type="button" data-chip="xbox" data-bar="type">Xbox</button>
-          <button class="fchip" type="button" data-chip="pc" data-bar="type">PC</button>
-        </div>
-          </div>
-          <select class="catsort" id="lsort" aria-label="Trier">
-            <option value="consult">Les plus consultées</option>
-            <option value="az">A → Z</option>
-          </select>
+          <p class="combox__hint" id="comHint"></p>
         </div>
       </div>
-      <div class="lrow" style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom:14px;"><div class="lcount" id="lcount"></div><div class="scope only-auth" data-scope-target="actu-scope"><button class="scope__btn active" data-scope="tous">Tout</button><button class="scope__btn" data-scope="suivis">Mes jeux</button><button class="scope__btn" data-scope="favoris">Favoris</button></div></div>
-      <div class="guides" data-list="news" data-noun="actualité" id="newsList">
-        <article class="card" data-item data-game="er" data-game-name="Elden Ring" data-type="patch maj playstation xbox pc" data-title="Elden Ring 1.12.3 : équilibrage des armes de sang et corrections" data-href="actualite.html"><div class="card__thumb cover-er"><span class="card__game">Elden Ring</span><button class="fav on" type="button" data-fav-id="n-patch" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--patch">Patch notes</span></div><h3 class="card__title">Elden Ring 1.12.3 : équilibrage des armes de sang et corrections</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>3 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,8 <span style="color:var(--ink-400); font-weight:400;">(412)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>3 juill.</span></div></div></article>
-        <article class="card" data-item data-game="gi" data-game-name="Genshin Impact" data-type="maj playstation pc" data-title="Genshin Impact 5.7 : bannières, événements et nouvelles quêtes" data-href="actualite.html"><div class="card__thumb cover-gi"><span class="card__game">Genshin Impact</span><button class="fav on" type="button" data-fav-id="n-gi" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--maj">MàJ</span></div><h3 class="card__title">Genshin Impact 5.7 : bannières, événements et nouvelles quêtes</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>4 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,7 <span style="color:var(--ink-400); font-weight:400;">(529)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>3 juill.</span></div></div></article>
-        <article class="card card--premium" data-item data-game="hades" data-game-name="Monster Hunter Wilds" data-type="news playstation xbox pc" data-title="Monster Hunter Wilds : le festival d'été apporte 2 monstres inédits" data-href="actualite.html"><div class="card__thumb cover-mh"><span class="card__game">Monster Hunter Wilds</span><button class="fav" type="button" data-fav-id="n-mhw" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--news">News</span><span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></div><h3 class="card__title">Monster Hunter Wilds : le festival d'été apporte 2 monstres inédits</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>3 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,6 <span style="color:var(--ink-400); font-weight:400;">(193)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>2 juill.</span></div></div><div class="card__lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><span class="card__lock-title">Contenu exclusif</span><span class="card__lock-sub">Réservé aux abonnés Premium</span><span class="btn-prem">Découvrir Premium</span></div></article>
-        <article class="card" data-item data-game="poe" data-game-name="Path of Exile 2" data-type="news pc playstation xbox" data-title="Path of Exile 2 : tout savoir sur la ligue avant son lancement" data-href="actualite.html"><div class="card__thumb cover-poe"><span class="card__game">Path of Exile 2</span><button class="fav" type="button" data-fav-id="n-poe" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--news">News</span></div><h3 class="card__title">Path of Exile 2 : tout savoir sur la ligue avant son lancement</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>6 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,9 <span style="color:var(--ink-400); font-weight:400;">(803)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>2 juill.</span></div></div></article>
-        <article class="card" data-item data-game="cp" data-game-name="Cyberpunk 2077" data-type="maj playstation xbox pc" data-title="Cyberpunk 2077 : Mise à jour 2.2 : personnalisation de véhicules et refonte du gameplay" data-href="actualite.html"><div class="card__thumb cover-cp"><span class="card__game">Cyberpunk 2077</span><button class="fav" type="button" data-fav-id="n-cp" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--maj">MàJ</span></div><h3 class="card__title">Cyberpunk 2077 : Mise à jour 2.2 : personnalisation de véhicules et refonte du gameplay</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>4 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,6 <span style="color:var(--ink-400); font-weight:400;">(142)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>1er juill.</span></div></div></article>
-        <article class="card card--premium" data-item data-game="poe" data-game-name="Path of Exile 2" data-type="news pc" data-title="Path of Exile 2 : Nouvelle ligue : tout ce qu'il faut savoir" data-href="actualite.html"><div class="card__thumb cover-poe"><span class="card__game">Path of Exile 2</span><button class="fav" type="button" data-fav-id="n-poe" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--news">News</span><span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></div><h3 class="card__title">Path of Exile 2 : Nouvelle ligue : tout ce qu'il faut savoir</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>3 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,8 <span style="color:var(--ink-400); font-weight:400;">(221)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>30 juin</span></div></div><div class="card__lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><span class="card__lock-title">Contenu exclusif</span><span class="card__lock-sub">Réservé aux abonnés Premium</span><span class="btn-prem">Découvrir Premium</span></div></article>
-        <article class="card" data-item data-game="diablo" data-game-name="Diablo IV" data-type="news playstation xbox pc" data-title="Diablo IV : Saison 5 : nouveau donjon endgame et butin" data-href="actualite.html"><div class="card__thumb cover-d4"><span class="card__game">Diablo IV</span><button class="fav" type="button" data-fav-id="n-diablo" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--news">News</span></div><h3 class="card__title">Diablo IV : Saison 5 : nouveau donjon endgame et butin</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>5 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,5 <span style="color:var(--ink-400); font-weight:400;">(88)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>29 juin</span></div></div></article>
-        <article class="card card--premium" data-item data-game="hades" data-game-name="Hades II" data-type="maj switch pc playstation" data-title="Hades II : la mise à jour majeure ajoute une nouvelle région" data-href="actualite.html"><div class="card__thumb cover-mh"><span class="card__game">Hades II</span><button class="fav" type="button" data-fav-id="n-hades" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top"><span class="tag tag--maj">MàJ</span><span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></div><h3 class="card__title">Hades II : la mise à jour majeure ajoute une nouvelle région</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>4 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,7 <span style="color:var(--ink-400); font-weight:400;">(153)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>27 juin</span></div></div><div class="card__lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><span class="card__lock-title">Contenu exclusif</span><span class="card__lock-sub">Réservé aux abonnés Premium</span><span class="btn-prem">Découvrir Premium</span></div></article>
+      <div class="combox__guest only-guest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+        <p>Il faut un compte pour laisser un commentaire. <a href="connexion.html">Se connecter</a></p>
       </div>
-      <div class="lempty" id="lempty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><div>Aucune actualité ne correspond à ta recherche.</div></div>
+      <ul class="comlist" id="comList">
+        <li class="com">
+          <span class="com__ava com__ava--a" aria-hidden="true">S</span>
+          <div class="com__body">
+            <div class="com__head"><span class="com__name">Skarn_ER</span><span class="com__stars" aria-label="5 sur 5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span class="com__date">il y a 1 jour</span></div>
+            <p class="com__txt">Enfin un nerf du saignement en PvP. Les duels sont beaucoup plus lisibles depuis le patch, et le buff des armes lourdes fait plaisir.</p>
+          </div>
+        </li>
+        <li class="com">
+          <span class="com__ava com__ava--b" aria-hidden="true">D</span>
+          <div class="com__body">
+            <div class="com__head"><span class="com__name">DrakenVII</span><span class="com__stars" aria-label="4 sur 5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span class="com__date">il y a 2 jours</span></div>
+            <p class="com__txt">Bonne mise à jour côté stabilité, je n'ai plus eu de déconnexion en invasion. Par contre le nerf de Rivière sanglante est un peu sévère.</p>
+          </div>
+        </li>
+        <li class="com">
+          <span class="com__ava com__ava--c" aria-hidden="true">C</span>
+          <div class="com__body">
+            <div class="com__head"><span class="com__name">Camille_G</span><span class="com__stars" aria-label="5 sur 5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span class="com__date">il y a 3 jours</span></div>
+            <p class="com__txt">Récap clair et complet, merci. Le détail par catégorie est beaucoup plus pratique que les notes officielles.</p>
+          </div>
+        </li>
+        <li class="com is-hidden">
+          <span class="com__ava com__ava--d" aria-hidden="true">R</span>
+          <div class="com__body">
+            <div class="com__head"><span class="com__name">Ronin_92</span><span class="com__stars" aria-label="4 sur 5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span class="com__date">il y a 5 jours</span></div>
+            <p class="com__txt">Content pour les dagues, le multiplicateur critique change vraiment les ripostes. Reste à voir l'équilibrage sur la durée.</p>
+          </div>
+        </li>
+        <li class="com is-hidden">
+          <span class="com__ava com__ava--e" aria-hidden="true">E</span>
+          <div class="com__body">
+            <div class="com__head"><span class="com__name">Elowen</span><span class="com__stars" aria-label="5 sur 5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span class="com__date">il y a 1 semaine</span></div>
+            <p class="com__txt">La correction du glitch d'annulation était attendue depuis longtemps. Bon patch dans l'ensemble.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="combox__more" id="comMoreWrap">
+        <button class="btn btn--ghost btn--sm" type="button" id="comMore">Voir plus de commentaires</button>
+      </div>
     </section>
+    </article>
 
-    <section class="psec" style="padding-top:6px;">
-      <div class="psec__head"><span class="sec-kicker"><span class="dots"><i></i><i></i></span> Explorer autrement</span>
-        <h2 class="sec-title">Par type de ressource</h2></div>
-      <div class="rband">
-        <a class="rlink" href="jeux.html">
-          <span class="rlink__ico" style="background:#e7f0ff; color:#2f5fd0;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="11" x2="10" y2="11"></line><line x1="8" y1="9" x2="8" y2="13"></line><line x1="15" y1="12" x2="15.01" y2="12"></line><line x1="18" y1="10" x2="18.01" y2="10"></line><rect x="2" y="6" width="20" height="12" rx="2"></rect></svg>
-          </span>
-          <span class="rlink__t">Jeux</span>
-          <span class="rlink__m">Tous les contenus, classés par jeu.</span>
-        </a>
-        <a class="rlink" href="guides.html"><span class="rlink__ico" style="background:var(--magenta-pale); color:var(--magenta);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg></span><span class="rlink__t">Guides</span><span class="rlink__m">Tous les guides, soluces et astuces sur tes jeux.</span></a>
-        <a class="rlink" href="cartes.html"><span class="rlink__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></span><span class="rlink__t">Cartes interactives</span><span class="rlink__m">Coffres, objets, boss, quêtes et PNJ, filtrables.</span></a>
-        <a class="rlink" href="communaute.html">
-          <span class="rlink__ico" style="background:#efe9fb; color:#5b3fb0;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-          </span>
-          <span class="rlink__t">Communauté</span>
-          <span class="rlink__m">Questions, entraide et discussions entre joueurs.</span>
-        </a>
-        <a class="rlink" href="trophees.html"><span class="rlink__ico" style="background:var(--or-pale); color:var(--or-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span><span class="rlink__t">Trophées</span><span class="rlink__m">Guides du platine et succès manquables.</span></a>
-        <a class="rlink" href="builds.html"><span class="rlink__ico" style="background:var(--magenta-pale); color:var(--magenta);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/><line x1="13" x2="19" y1="19" y2="13"/><line x1="16" x2="20" y1="16" y2="20"/><line x1="19" x2="21" y1="21" y2="19"/></svg></span><span class="rlink__t">Builds</span><span class="rlink__m">Builds notés et tier lists pour chaque style.</span></a>
-      </div>
-    </section>
+      <aside class="gside">
+        <div class="icard toc-card">
+          <p class="icard__h">Sommaire</p>
+          <ul class="gtoc">
+            <li><a href="#armes">Armes rééquilibrées</a></li>
+            <li><a href="#sorts">Incantations et sorts</a></li>
+            <li><a href="#online">PvP &amp; stabilité</a></li>
+            <li><a href="#related">À lire ensuite</a></li>
+          </ul>
+        </div>
+        <div class="icard">
+          <p class="icard__h">Détails</p>
+          <div class="irow"><span class="irow__k">Jeu</span><span class="irow__v">Elden Ring</span></div>
+          <div class="irow"><span class="irow__k">Version</span><span class="irow__v">1.12.3</span></div>
+          <div class="irow"><span class="irow__k">Date</span><span class="irow__v">12 juin</span></div>
+          <div class="irow"><span class="irow__k">Plateformes</span><span class="irow__v">PC · PS5 · Xbox</span></div>
+          <div class="irow"><span class="irow__k">Catégorie</span><span class="irow__v">Patch / équilibrage</span></div>
+        </div>
+        <div class="icard only-guest">
+          <p class="icard__h">Ne rate aucune actu</p>
+          <p style="font-size:13.5px; color:var(--ink-600); margin:0 0 12px;">Crée un compte pour suivre tes jeux et enregistrer l'article dans tes favoris afin de le retrouver facilement.</p>
+          <a class="btn btn--primary btn--sm" href="inscription.html">Créer un compte</a>
+        </div>
+      </aside>
+    </div>
   
   </div>
 </main>
@@ -1684,7 +1789,7 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
   var FOLLOWED = ['er','zd','gi'];
   function setScopes(mode, anchor){
     var before = anchor ? anchor.getBoundingClientRect().top : 0;
-    document.querySelectorAll('.scope:not([data-scope-target="actu-scope"])').forEach(function(sc){
+    document.querySelectorAll('.scope').forEach(function(sc){
       sc.querySelectorAll('.scope__btn').forEach(function(b){
         b.classList.toggle('active', b.getAttribute('data-scope')===mode);
       });
@@ -1809,7 +1914,6 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
   document.querySelectorAll('.fav').forEach(function(f){
     f.addEventListener('click', function(e){
       e.stopPropagation(); e.preventDefault();
-      if(!document.body.classList.contains('is-auth')){ (window.top!==window?window.top:window).location.href='connexion.html'; return; }
       f.classList.toggle('on');
     });
   });
@@ -1948,71 +2052,63 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
 
 (function(){
   function isAuth(){ return document.body.classList.contains('is-auth'); }
-  var root = document.querySelector('[data-list]'); if(!root) return;
-  var key = root.getAttribute('data-list');
-  var search = document.getElementById('lsearch');
-  var rows = Array.prototype.slice.call(root.querySelectorAll('[data-item]'));
-  var empty = document.getElementById('lempty');
-  var countEl = document.getElementById('lcount');
-  var noun = root.getAttribute('data-noun') || 'r\u00e9sultat';
-  var fGame=['all'], fType=['all'], q='', fScope='tous', fSort='consult';
-  var FOLLOWED_G=['er','zelda','gi'];
-  var orig=rows.slice();
-  function norm(s){ return (s||'').toLowerCase(); }
-  function apply(){
-    var n=0;
-    rows.forEach(function(r){
-      var okG = fGame.indexOf('all')>=0 || fGame.indexOf(r.getAttribute('data-game'))>=0;
-      var okT = fType.indexOf('all')>=0 || fType.some(function(f){ return (' '+r.getAttribute('data-type')+' ').indexOf(' '+f+' ')>=0; });
-      var okQ = q==='' || norm(r.getAttribute('data-title')).indexOf(q)>=0 || norm(r.getAttribute('data-game-name')).indexOf(q)>=0;
-      var okS = fScope==='tous' || (fScope==='suivis' ? FOLLOWED_G.indexOf(r.getAttribute('data-game'))>=0 : (function(){ var f=r.querySelector('.fav'); return !!(f&&f.classList.contains('on')); })());
-      var show = okG && okT && okQ && okS; r.style.display = show?'':'none'; if(show) n++;
-    });
-    var sorted=orig.slice();
-    if(fSort==='az'){ sorted.sort(function(a,b){ return norm(a.getAttribute('data-title')).localeCompare(norm(b.getAttribute('data-title'))); }); }
-    sorted.forEach(function(r){ root.appendChild(r); });
-    if(empty) empty.classList.toggle('is-on', n===0);
-    if(countEl) countEl.innerHTML = '<b>'+n+'</b> '+(n>1?'résultats':'résultat');
-  }
-  function updateDrop(bar, arr){ var b=document.querySelector('.gdrop[data-drop="'+bar+'"] .gdrop__lbl'); if(b){ var all=bar==='game'?'Tout':'Tout type'; b.textContent=arr.indexOf('all')>=0?all:(arr.length+' filtre'+(arr.length>1?'s':'')); } }
-  function updateBar(bar, arr){ Array.prototype.forEach.call(document.querySelectorAll('[data-bar="'+bar+'"]'), function(x){ x.classList.toggle('is-on', arr.indexOf(x.getAttribute('data-chip'))>=0); }); updateDrop(bar, arr); }
-  if(search) search.addEventListener('input', function(){ q=norm(search.value).trim(); apply(); });
-  Array.prototype.forEach.call(document.querySelectorAll('[data-chip]'), function(c){
-    c.addEventListener('click', function(){
-      var bar=c.getAttribute('data-bar'), val=c.getAttribute('data-chip');
-      var arr = bar==='game'?fGame:fType;
-      if(val==='all'){ arr.length=0; arr.push('all'); }
-      else { var ai=arr.indexOf('all'); if(ai>=0)arr.splice(ai,1); var vi=arr.indexOf(val); if(vi>=0)arr.splice(vi,1); else arr.push(val); if(arr.length===0)arr.push('all'); }
-      updateBar(bar, arr); apply();
-    });
-  });
-  Array.prototype.forEach.call(document.querySelectorAll('.scope[data-scope-target="actu-scope"] .scope__btn'), function(b){
-    b.addEventListener('click', function(){ document.querySelectorAll('.scope[data-scope-target="actu-scope"] .scope__btn').forEach(function(x){x.classList.remove('active');}); b.classList.add('active'); fScope=b.getAttribute('data-scope'); apply(); });
-  });
-  var sortEl=document.getElementById('lsort'); if(sortEl) sortEl.addEventListener('change', function(){ fSort=sortEl.value; apply(); });
-  Array.prototype.forEach.call(document.querySelectorAll('.gdrop__btn'), function(bt){ bt.addEventListener('click', function(e){ e.stopPropagation(); var d=bt.closest('.gdrop'); var w=d.classList.contains('open'); document.querySelectorAll('.gdrop').forEach(function(x){x.classList.remove('open');}); if(!w)d.classList.add('open'); }); });
-  document.addEventListener('click', function(e){ if(!e.target.closest('.gdrop')) document.querySelectorAll('.gdrop').forEach(function(x){x.classList.remove('open');}); });
-  function favKey(){ return 'lynk_fav_'+key; }
-  function getFavs(){ try{ return JSON.parse(localStorage.getItem(favKey())||'[]'); }catch(e){ return []; } }
-  function setFavs(a){ try{ localStorage.setItem(favKey(), JSON.stringify(a)); }catch(e){} }
-  var favs=getFavs();
-  Array.prototype.forEach.call(root.querySelectorAll('[data-fav-id]'), function(btn){
-    var id=btn.getAttribute('data-fav-id');
-    if(favs.indexOf(id)>=0) btn.classList.add('is-fav');
-    btn.addEventListener('click', function(ev){
-      ev.preventDefault(); ev.stopPropagation();
-      if(!isAuth()){ window.location.href='connexion.html'; return; }
-      var arr=getFavs(), i=arr.indexOf(id);
-      if(i>=0){ arr.splice(i,1); btn.classList.remove('is-fav'); } else { arr.push(id); btn.classList.add('is-fav'); }
-      setFavs(arr);
-    });
-  });
-  apply();
+  var fav=document.getElementById('gdFav'), KEY='lynk_fav_news', ID='n-patch';
+  function g(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
+  function s(a){ try{ localStorage.setItem(KEY, JSON.stringify(a)); }catch(e){} }
+  if(fav){ if(g().indexOf(ID)>=0) fav.classList.add('is-fav');
+    fav.addEventListener('click', function(){ if(!isAuth()){ location.href='connexion.html'; return; }
+      var a=g(),i=a.indexOf(ID); if(i>=0){a.splice(i,1);fav.classList.remove('is-fav');fav.querySelector('span').textContent='Sauvegarder';}
+      else{a.push(ID);fav.classList.add('is-fav');fav.querySelector('span').textContent='Sauvegard\u00e9';} s(a); }); }
 })();
 
 </script>
-<script>(function(){function A(){return document.body.classList.contains('is-auth');}
-Array.prototype.forEach.call(document.querySelectorAll('.card[data-href]'),function(c){c.addEventListener('click',function(e){if(e.target.closest('.fav'))return;if(c.classList.contains('card--premium')&&!A()){if(e.target.closest('.btn-prem')){try{window.top.location.href='premium.html';}catch(_){window.location.href='premium.html';}}return;}var d=c.getAttribute('data-href')||'actualite.html';try{window.top.location.href=d;}catch(_){window.location.href=d;}});});})();</script>
-<script id="lynk-url-gamefilter">(function(){var m=location.search.match(/[?&]game=([^&]+)/);if(!m)return;var g=decodeURIComponent(m[1]);function act(){var chip=document.querySelector('[data-chip="'+g+'"][data-bar="game"]');if(chip){chip.click();}}if(document.readyState!=="loading"){setTimeout(act,0);}else{document.addEventListener("DOMContentLoaded",function(){setTimeout(act,0);});}})();</script>
+<script>(function(){
+  var wrap=document.getElementById('rateInput'); if(!wrap) return;
+  var hint=document.getElementById('rateHint');
+  var btns=[].slice.call(wrap.querySelectorAll('.ratebox__starbtn'));
+  var current=0;
+  function isAuth(){ return document.body.classList.contains('is-auth'); }
+  function paint(n){ btns.forEach(function(b,i){ b.classList.toggle('hot', i<n); }); }
+  function go(u){ try{ window.top.location.href=u; }catch(_){ window.location.href=u; } }
+  btns.forEach(function(b){
+    var v=parseInt(b.getAttribute('data-v'),10);
+    b.addEventListener('mouseenter', function(){ if(isAuth()) paint(v); });
+    b.addEventListener('click', function(){
+      if(!isAuth()){ go('connexion.html'); return; }
+      current=v; window.__lynkRating=v; paint(v); if(hint) hint.textContent='Ta note : '+v+'/5. Merci !';
+      var ch=document.getElementById('comHint'); if(ch) ch.textContent='';
+    });
+  });
+  wrap.addEventListener('mouseleave', function(){ paint(current); });
+})();</script>
+<script>(function(){
+  var list=document.getElementById('comList'); if(!list) return;
+  var more=document.getElementById('comMore'), wrap=document.getElementById('comMoreWrap');
+  var ta=document.getElementById('comTa'), count=document.getElementById('comCount'), send=document.getElementById('comSend'), comHint=document.getElementById('comHint');
+  var STAR='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg>';
+  function isAuth(){ return document.body.classList.contains('is-auth'); }
+  function go(u){ try{ window.top.location.href=u; }catch(_){ window.location.href=u; } }
+  if(more){ more.addEventListener('click', function(){
+    list.querySelectorAll('.com.is-hidden').forEach(function(c){ c.classList.remove('is-hidden'); });
+    wrap.classList.add('is-done');
+  }); }
+  if(ta && count){ ta.addEventListener('input', function(){ count.textContent = ta.value.length + ' / 600'; }); }
+  if(send){ send.addEventListener('click', function(){
+    if(!isAuth()){ go('connexion.html'); return; }
+    var rating = window.__lynkRating || 0;
+    if(!rating){ if(comHint) comHint.textContent='Mets d\u2019abord une note ci-dessus pour pouvoir laisser un commentaire.'; return; }
+    var v=(ta.value||'').trim();
+    if(!v){ ta.focus(); return; }
+    var stars='<span class="com__stars" aria-label="'+rating+' sur 5">';
+    for(var k=0;k<rating;k++) stars+=STAR;
+    stars+='</span>';
+    var li=document.createElement('li');
+    li.className='com';
+    li.innerHTML='<span class="com__ava" aria-hidden="true">\u00c9</span><div class="com__body"><div class="com__head"><span class="com__name">Toi</span>'+stars+'<span class="com__date">\u00e0 l\u2019instant</span></div><p class="com__txt"></p></div>';
+    li.querySelector('.com__txt').textContent=v;
+    list.insertBefore(li, list.firstChild);
+    ta.value=''; count.textContent='0 / 600'; if(comHint) comHint.textContent='';
+  }); }
+})();</script>
 </body>
 </html>
