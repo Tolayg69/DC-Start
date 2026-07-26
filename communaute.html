@@ -97,6 +97,9 @@ p{margin:0;}
 .btn--primary{background:var(--magenta); color:#fff;}
 .btn--primary:hover{background:var(--magenta-600); box-shadow:var(--sh-mag); transform:translateY(-1px);}
 .btn--primary:active{transform:translateY(0); box-shadow:none;}
+    .btn--cyan{background:var(--cyan); color:#fff;}
+    .btn--cyan:hover{background:#0596b5; box-shadow:0 10px 28px rgba(6,182,212,.22); transform:translateY(-1px);}
+    .btn--cyan:active{transform:translateY(0); box-shadow:none;}
 .btn--outline{background:#fff; color:var(--noir); border:1.5px solid var(--line-2);}
 .btn--outline:hover{border-color:var(--magenta); color:var(--magenta); transform:translateY(-1px);}
 .btn--ghost{color:var(--ink-700); padding:12px 14px;}
@@ -637,6 +640,7 @@ body.is-auth .auth-only-block{display:block;}
 .demo-pct{font-family:var(--serif); font-weight:800; font-size:14px; color:var(--ink-500);}
 .demo-card__badge{display:inline-flex; align-items:center; gap:7px; background:var(--or-pale); color:var(--or-ink); font-weight:700; font-size:12.5px; padding:7px 12px; border-radius:var(--r-pill); align-self:flex-start;}
 .demo-card__badge svg{width:14px; height:14px;}
+    .demo-stack{display:flex; flex-direction:column; gap:12px;}
 
 /* ===================================================================
    STATE SWITCHER (outil de démonstration)
@@ -1363,18 +1367,28 @@ body:not(.is-auth) .psec.only-guest{display:block;}
           <p class="sec-sub" style="margin-top:8px;">En créant un compte ou en te connectant, tu retrouves ici les dernières discussions que tu as publiées et celles auxquelles tu as participé.</p>
           <div style="display:flex; gap:10px; margin-top:18px; flex-wrap:wrap;">
             <a class="btn btn--primary" href="inscription.html">Créer mon compte gratuit</a>
-            <a class="btn btn--ondark" href="connexion.html" style="background:var(--cyan); color:#fff;">Se connecter</a>
+            <a class="btn btn--cyan" href="connexion.html">Se connecter</a>
           </div>
         </div>
         <div class="discover__demo" aria-hidden="true">
-          <div class="demo-card">
-            <div class="demo-card__row">
-              <span class="disc__av" style="background:#a63f6b; width:40px; height:40px; font-size:15px; flex:none;">M</span>
-              <div style="flex:1; min-width:0;"><b style="font-family:var(--serif); font-size:14.5px;">Comment battre Malenia ?</b><div style="font-size:12px; color:var(--ink-500); margin-top:3px;">Elden Ring · 63 réponses</div></div>
+          <div class="demo-stack">
+            <div class="disc">
+              <span class="disc__av" style="background:#a63f6b;">M</span>
+              <div class="disc__b">
+                <div class="disc__t">Comment battre Malenia sans saignement ?</div>
+                <div class="disc__meta">Maelis <span class="disc__tags"><span class="gtag gtag--mg">Boss</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span></span> · il y a 4 h</div>
+              </div>
+              <div class="disc__stat"><div class="disc__stat__n">63</div><div class="disc__stat__l">réponses</div></div>
+              <span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></span>
             </div>
-            <div class="demo-card__row" style="border-top:1px solid var(--line); padding-top:13px; margin-top:13px;">
-              <span class="disc__av" style="background:#06b6d4; width:40px; height:40px; font-size:15px; flex:none;">T</span>
-              <div style="flex:1; min-width:0;"><b style="font-family:var(--serif); font-size:14.5px;">Tier list armes après 1.12.3 ?</b><div style="font-size:12px; color:var(--ink-500); margin-top:3px;">Elden Ring · 41 réponses</div></div>
+            <div class="disc">
+              <span class="disc__av" style="background:#06b6d4;">T</span>
+              <div class="disc__b">
+                <div class="disc__t">Tier list armes après 1.12.3 : on en pense quoi ?</div>
+                <div class="disc__meta">Théo <span class="disc__tags"><span class="gtag gtag--cy">Build</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span></span> · il y a 1 j</div>
+              </div>
+              <div class="disc__stat"><div class="disc__stat__n">41</div><div class="disc__stat__l">réponses</div></div>
+              <span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></span>
             </div>
           </div>
         </div>
