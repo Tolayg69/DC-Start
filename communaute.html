@@ -1356,10 +1356,21 @@ body:not(.is-auth) .psec.only-guest{display:block;}
       </div>
     </section>
     <section class="psec only-guest" style="padding-top:6px;">
-      <div class="commeguest">
-        <div class="commeguest__t"><h2>Retrouve tes discussions</h2><p>En créant un compte ou en te connectant, tu retrouves ici les dernières discussions que tu as publiées et celles auxquelles tu as participé.</p></div>
-        <a class="btn btn--primary" href="inscription.html">Créer un compte</a>
-        <a class="btn btn--ondark" href="connexion.html" style="background:var(--noir); color:#fff;">Se connecter</a>
+      <div class="discover">
+        <div class="discover__txt">
+          <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Ton espace</span>
+          <h2 class="sec-title" style="margin-top:6px;">Retrouve tes discussions</h2>
+          <p class="sec-sub" style="margin-top:8px;">En créant un compte ou en te connectant, tu retrouves ici les dernières discussions que tu as publiées et celles auxquelles tu as participé.</p>
+          <div style="display:flex; gap:10px; margin-top:18px; flex-wrap:wrap;">
+            <a class="btn btn--primary" href="inscription.html">Créer mon compte gratuit</a>
+            <a class="btn btn--ondark" href="connexion.html" style="background:var(--noir); color:#fff;">Se connecter</a>
+          </div>
+        </div>
+        <div class="discover__demo" aria-hidden="true">
+          <div class="demo-card">
+            <div class="demo-card__row">
+              <span class="disc__av" style="background:#a63f6b; width:40px; height:40px; font-size:15px;">M</span>
+              <div style="flex:1; min-width:0;"><b style="font-family:var(--serif); font-size:14.5px;">Comment battre Malenia ?</b><div style="font-size:12px; color:var(--ink-500); margin-top:3px;">Elden Ring · 63 réponses</div></div>
       </div>
     </section>
     <section class="psec" style="padding-top:6px;">
@@ -1381,7 +1392,7 @@ body:not(.is-auth) .psec.only-guest{display:block;}
           <span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></span>
         </a>
         <a class="disc" href="discussion.html">
-          <span class="disc__av" style="background:#5b3fa6;">O</span>
+          <span class="disc__av" style="background:#3f6d4a;">O</span>
           <div class="disc__b">
             <div class="disc__t">La meilleure OST de jeu vidéo selon vous ?</div>
             <div class="disc__meta">Onyx <span class="disc__tags">
@@ -1396,7 +1407,7 @@ body:not(.is-auth) .psec.only-guest{display:block;}
           <span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></span>
         </a>
         <a class="disc" href="discussion.html">
-          <span class="disc__av" style="background:#3f6d4a;">T</span>
+          <span class="disc__av" style="background:#06b6d4;">T</span>
           <div class="disc__b">
             <div class="disc__t">Tier list armes après 1.12.3 : on en pense quoi ?</div>
             <div class="disc__meta">Théo <span class="disc__tags">
@@ -1411,7 +1422,7 @@ body:not(.is-auth) .psec.only-guest{display:block;}
           <span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></span>
         </a>
         <a class="disc" href="discussion.html">
-          <span class="disc__av" style="background:#a63f6b;">A</span>
+          <span class="disc__av" style="background:#5b3fa6;">A</span>
           <div class="disc__b">
             <div class="disc__t">Débat : le meilleur metroidvania de tous les temps</div>
             <div class="disc__meta">Aria <span class="disc__tags">
@@ -1429,30 +1440,14 @@ body:not(.is-auth) .psec.only-guest{display:block;}
     </section>
 
     <section class="psec" style="padding-top:6px;">
-      <div class="discover" style="margin-bottom:22px;">
-        <div class="discover__txt">
-          <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Rejoins la communauté</span>
-          <h2 class="sec-title" style="margin-top:6px;">Une question, une idée à partager ?</h2>
-          <p class="sec-sub only-auth" style="margin-top:8px;">Lance une nouvelle discussion : elle crée un espace dédié où les autres pourront te répondre.</p>
-          <p class="sec-sub only-guest" style="margin-top:8px;">Connecte-toi ou crée un compte gratuit pour poser une question et participer aux discussions.</p>
-          <div style="display:flex; gap:10px; margin-top:18px; flex-wrap:wrap;">
-            <a class="btn btn--primary only-auth" href="nouvelle-discussion.html">Poser une question <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
-            <a class="btn btn--primary only-guest" href="connexion.html">Se connecter</a>
-            <a class="btn btn--ondark only-guest" href="inscription.html" style="background:var(--noir); color:#fff;">Créer un compte gratuit</a>
-          </div>
+      <div class="fcta">
+        <div class="fcta__b">
+          <div class="fcta__t">Une question, une idée à partager ?</div>
+          <div class="fcta__m only-auth">Lance une nouvelle discussion : elle crée un espace dédié où les autres pourront te répondre.</div>
+          <div class="fcta__m only-guest">Connecte-toi ou crée un compte gratuit pour poser une question et participer aux discussions.</div>
         </div>
-        <div class="discover__demo" aria-hidden="true">
-          <div class="demo-card">
-            <div class="demo-card__row">
-              <span class="disc__av" style="background:#a63f6b; width:40px; height:40px; font-size:15px;">M</span>
-              <div style="flex:1; min-width:0;"><b style="font-family:var(--serif); font-size:14.5px;">Comment battre Malenia ?</b><div style="font-size:12px; color:var(--ink-500); margin-top:3px;">Elden Ring · 63 réponses</div></div>
-            </div>
-            <div style="border-top:1px solid var(--line); padding-top:13px; display:flex; flex-direction:column; gap:10px;">
-              <div style="display:flex; gap:8px; align-items:center;"><span class="disc__av" style="background:#3f6d4a; width:26px; height:26px; font-size:11px; flex:none;">T</span><span style="height:8px; border-radius:4px; background:var(--surface-3); flex:1;"></span></div>
-              <div style="display:flex; gap:8px; align-items:center;"><span class="disc__av" style="background:#2f5fd0; width:26px; height:26px; font-size:11px; flex:none;">O</span><span style="height:8px; border-radius:4px; background:var(--surface-3); width:72%;"></span></div>
-            </div>
-          </div>
-        </div>
+        <a class="btn btn--primary only-auth" href="nouvelle-discussion.html">Poser une question <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+        <a class="btn btn--primary only-guest" href="connexion.html">Se connecter pour participer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
       </div>
       <div class="gtools">
         <div class="gsearch">
@@ -1504,7 +1499,7 @@ body:not(.is-auth) .psec.only-guest{display:block;}
       <div class="lrow" style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom:14px;"><div class="lcount" id="lcount"></div><div class="scope only-auth" data-scope-target="comm-scope"><button class="scope__btn active" data-scope="tous">Tout</button><button class="scope__btn" data-scope="suivis">Mes jeux</button></div></div>
       <div class="disc-list" data-list="discussions" data-noun="discussion" id="discList">
         <a class="disc" href="discussion.html" data-item data-game="er" data-game-name="Elden Ring" data-type="objet echange" data-genre="rpg ow aventure" data-title="Échange : je cède mes doublons de pierres de forge">
-<span class="disc__av" style="background:#3f6d4a;">K</span>
+<span class="disc__av" style="background:#b58a0c;">K</span>
 <div class="disc__b">
 <div class="disc__t">Échange : je cède mes doublons de pierres de forge</div>
 <div class="disc__meta">Korrin <span class="disc__tags">
@@ -1519,7 +1514,7 @@ body:not(.is-auth) .psec.only-guest{display:block;}
 <span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></span>
 </a>
         <a class="disc" href="discussion.html" data-item data-game="global" data-game-name="Global" data-type="musiques echange" data-genre="" data-title="La meilleure OST de jeu vidéo selon vous ?">
-<span class="disc__av" style="background:#5b3fa6;">O</span>
+<span class="disc__av" style="background:#3f6d4a;">O</span>
 <div class="disc__b">
 <div class="disc__t">La meilleure OST de jeu vidéo selon vous ?</div>
 <div class="disc__meta">Onyx <span class="disc__tags">
@@ -1534,7 +1529,7 @@ body:not(.is-auth) .psec.only-guest{display:block;}
 <span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></span>
 </a>
         <a class="disc" href="discussion.html" data-item data-game="global" data-game-name="Global" data-type="theorie echange" data-genre="metroidvania" data-title="Débat : le meilleur metroidvania de tous les temps">
-<span class="disc__av" style="background:#a63f6b;">A</span>
+<span class="disc__av" style="background:#5b3fa6;">A</span>
 <div class="disc__b">
 <div class="disc__t">Débat : le meilleur metroidvania de tous les temps</div>
 <div class="disc__meta">Aria <span class="disc__tags">
@@ -1549,13 +1544,13 @@ body:not(.is-auth) .psec.only-guest{display:block;}
 <span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></span>
 </a>
       <a class="disc" href="discussion.html" data-item data-game="er" data-game-name="Elden Ring" data-type="boss question" data-title="Comment battre Malenia sans saignement ?" data-genre="rpg ow aventure"><span class="disc__av" style="background:#a63f6b;">M</span><div class="disc__b"><div class="disc__t">Comment battre Malenia sans saignement ?</div><div class="disc__meta">Maelis <span class="disc__tags"><span class="gtag gtag--mg">Boss</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span></span> · il y a 4 h</div></div><div class="disc__stat"><div class="disc__stat__n">63</div><div class="disc__stat__l">réponses</div></div><span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
-      <a class="disc" href="discussion.html" data-item data-game="er" data-game-name="Elden Ring" data-type="build question" data-title="Votre meilleur build mage pour le DLC ?" data-genre="rpg ow aventure"><span class="disc__av" style="background:#06b6d4;">K</span><div class="disc__b"><div class="disc__t">Votre meilleur build mage pour le DLC ?</div><div class="disc__meta">Kael <span class="disc__tags"><span class="gtag gtag--cy">Build</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span></span> · il y a 40 min</div></div><div class="disc__stat"><div class="disc__stat__n">17</div><div class="disc__stat__l">réponses</div></div><span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
-      <a class="disc" href="discussion.html" data-item data-game="bg3" data-game-name="Baldur's Gate 3" data-type="entraide question" data-title="Ordre des actes en BG3 pour la première partie" data-genre="rpg"><span class="disc__av" style="background:#f5a623;">M</span><div class="disc__b"><div class="disc__t">Ordre des actes en BG3 pour la première partie</div><div class="disc__meta">Mara <span class="disc__tags"><span class="gtag gtag--or">Entraide</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Baldur's Gate 3</span></span> · il y a 1 h</div></div><div class="disc__stat"><div class="disc__stat__n">8</div><div class="disc__stat__l">réponses</div></div><span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
-      <a class="disc" href="discussion.html" data-item data-game="er" data-game-name="Elden Ring" data-type="theorie echange" data-title="Théorie : le lien entre Ranni et les astres" data-genre="rpg ow aventure"><span class="disc__av" style="background:#5C1268;">N</span><div class="disc__b"><div class="disc__t">Théorie : le lien entre Ranni et les astres</div><div class="disc__meta">Nael <span class="disc__tags"><span class="gtag gtag--mg">Théorie</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span></span> · il y a 2 h</div></div><div class="disc__stat"><div class="disc__stat__n">41</div><div class="disc__stat__l">réponses</div></div><span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
-      <a class="disc" href="discussion.html" data-item data-game="zelda" data-game-name="Zelda: TotK" data-type="entraide question" data-title="Sanctuaires les plus durs de TotK ?" data-genre="ow aventure"><span class="disc__av" style="background:#1e8a4c;">S</span><div class="disc__b"><div class="disc__t">Sanctuaires les plus durs de TotK ?</div><div class="disc__meta">Soa <span class="disc__tags"><span class="gtag gtag--or">Entraide</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Zelda: TotK</span></span> · il y a 3 h</div></div><div class="disc__stat"><div class="disc__stat__n">12</div><div class="disc__stat__l">réponses</div></div><span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
-      <a class="disc" href="discussion.html" data-item data-game="er" data-game-name="Elden Ring" data-type="build echange" data-title="Tier list armes après 1.12.3 : on en pense quoi ?" data-genre="rpg ow aventure"><span class="disc__av" style="background:#3f6d4a;">T</span><div class="disc__b"><div class="disc__t">Tier list armes après 1.12.3 : on en pense quoi ?</div><div class="disc__meta">Théo <span class="disc__tags"><span class="gtag gtag--cy">Build</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span></span> · il y a 1 j</div></div><div class="disc__stat"><div class="disc__stat__n">41</div><div class="disc__stat__l">réponses</div></div><span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
-      <a class="disc" href="discussion.html" data-item data-game="cp" data-game-name="Cyberpunk 2077" data-type="theorie question" data-title="Cyberpunk : meilleure fin selon vous ?" data-genre="rpg ow"><span class="disc__av" style="background:#0a5563;">D</span><div class="disc__b"><div class="disc__t">Cyberpunk : meilleure fin selon vous ?</div><div class="disc__meta">Dax <span class="disc__tags"><span class="gtag gtag--mg">Théorie</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Cyberpunk 2077</span></span> · hier</div></div><div class="disc__stat"><div class="disc__stat__n">54</div><div class="disc__stat__l">réponses</div></div><span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
-      <a class="disc" href="discussion.html" data-item data-game="er" data-game-name="Elden Ring" data-type="entraide echange objet" data-title="Partage : mon spot de farm de runes" data-genre="rpg ow aventure"><span class="disc__av" style="background:#7a5c1e;">V</span><div class="disc__b"><div class="disc__t">Partage : mon spot de farm de runes</div><div class="disc__meta">Vex <span class="disc__tags"><span class="gtag gtag--or">Entraide</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span></span> · hier</div></div><div class="disc__stat"><div class="disc__stat__n">19</div><div class="disc__stat__l">réponses</div></div><span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+      <a class="disc" href="discussion.html" data-item data-game="er" data-game-name="Elden Ring" data-type="build question" data-title="Votre meilleur build mage pour le DLC ?" data-genre="rpg ow aventure"><span class="disc__av" style="background:#2f5fd0;">K</span><div class="disc__b"><div class="disc__t">Votre meilleur build mage pour le DLC ?</div><div class="disc__meta">Kael <span class="disc__tags"><span class="gtag gtag--cy">Build</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span></span> · il y a 40 min</div></div><div class="disc__stat"><div class="disc__stat__n">17</div><div class="disc__stat__l">réponses</div></div><span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+      <a class="disc" href="discussion.html" data-item data-game="bg3" data-game-name="Baldur's Gate 3" data-type="entraide question" data-title="Ordre des actes en BG3 pour la première partie" data-genre="rpg"><span class="disc__av" style="background:#0a5563;">M</span><div class="disc__b"><div class="disc__t">Ordre des actes en BG3 pour la première partie</div><div class="disc__meta">Mara <span class="disc__tags"><span class="gtag gtag--or">Entraide</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Baldur's Gate 3</span></span> · il y a 1 h</div></div><div class="disc__stat"><div class="disc__stat__n">8</div><div class="disc__stat__l">réponses</div></div><span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+      <a class="disc" href="discussion.html" data-item data-game="er" data-game-name="Elden Ring" data-type="theorie echange" data-title="Théorie : le lien entre Ranni et les astres" data-genre="rpg ow aventure"><span class="disc__av" style="background:#a200bc;">N</span><div class="disc__b"><div class="disc__t">Théorie : le lien entre Ranni et les astres</div><div class="disc__meta">Nael <span class="disc__tags"><span class="gtag gtag--mg">Théorie</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span></span> · il y a 2 h</div></div><div class="disc__stat"><div class="disc__stat__n">41</div><div class="disc__stat__l">réponses</div></div><span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+      <a class="disc" href="discussion.html" data-item data-game="zelda" data-game-name="Zelda: TotK" data-type="entraide question" data-title="Sanctuaires les plus durs de TotK ?" data-genre="ow aventure"><span class="disc__av" style="background:#b58a0c;">S</span><div class="disc__b"><div class="disc__t">Sanctuaires les plus durs de TotK ?</div><div class="disc__meta">Soa <span class="disc__tags"><span class="gtag gtag--or">Entraide</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Zelda: TotK</span></span> · il y a 3 h</div></div><div class="disc__stat"><div class="disc__stat__n">12</div><div class="disc__stat__l">réponses</div></div><span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+      <a class="disc" href="discussion.html" data-item data-game="er" data-game-name="Elden Ring" data-type="build echange" data-title="Tier list armes après 1.12.3 : on en pense quoi ?" data-genre="rpg ow aventure"><span class="disc__av" style="background:#06b6d4;">T</span><div class="disc__b"><div class="disc__t">Tier list armes après 1.12.3 : on en pense quoi ?</div><div class="disc__meta">Théo <span class="disc__tags"><span class="gtag gtag--cy">Build</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span></span> · il y a 1 j</div></div><div class="disc__stat"><div class="disc__stat__n">41</div><div class="disc__stat__l">réponses</div></div><span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+      <a class="disc" href="discussion.html" data-item data-game="cp" data-game-name="Cyberpunk 2077" data-type="theorie question" data-title="Cyberpunk : meilleure fin selon vous ?" data-genre="rpg ow"><span class="disc__av" style="background:#a200bc;">D</span><div class="disc__b"><div class="disc__t">Cyberpunk : meilleure fin selon vous ?</div><div class="disc__meta">Dax <span class="disc__tags"><span class="gtag gtag--mg">Théorie</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Cyberpunk 2077</span></span> · hier</div></div><div class="disc__stat"><div class="disc__stat__n">54</div><div class="disc__stat__l">réponses</div></div><span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+      <a class="disc" href="discussion.html" data-item data-game="er" data-game-name="Elden Ring" data-type="entraide echange objet" data-title="Partage : mon spot de farm de runes" data-genre="rpg ow aventure"><span class="disc__av" style="background:#b58a0c;">V</span><div class="disc__b"><div class="disc__t">Partage : mon spot de farm de runes</div><div class="disc__meta">Vex <span class="disc__tags"><span class="gtag gtag--or">Entraide</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span></span> · hier</div></div><div class="disc__stat"><div class="disc__stat__n">19</div><div class="disc__stat__l">réponses</div></div><span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
       
       </div>
       <div class="lempty" id="lempty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><div>Aucune discussion ne correspond à ta recherche.</div></div>
