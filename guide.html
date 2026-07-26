@@ -1173,7 +1173,7 @@ body.is-auth .preminset{filter:none;}
 .ratebox__hint{font-size:12.5px; color:var(--ink-500); margin:0; min-height:16px;}
 @media (max-width:560px){ .ratebox__divider{display:none;} .ratebox__head{gap:18px;} }
 
-.ratebox{max-width:600px;}
+.ratebox{max-width:none;}
 .ratebox__title{font-family:var(--serif,var(--sans)); font-weight:800; font-size:19px; line-height:1.2; margin:0 0 16px; color:var(--noir);}
 .ratebox .only-guest{display:block;}
 .ratebox__hint--guest{color:var(--ink-600,var(--ink-500));}
@@ -1183,7 +1183,7 @@ body.is-auth .preminset{filter:none;}
 .ratebox__hint--guest{max-width:280px;}
 
 /* --- encart commentaires --- */
-.combox{max-width:600px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:22px 24px; margin:18px 0 8px;}
+.combox{max-width:none; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:22px 24px; margin:18px 0 8px;}
 .combox__title{font-family:var(--serif,var(--sans)); font-weight:800; font-size:19px; line-height:1.2; margin:0 0 16px; color:var(--noir);}
 .combox__write{display:flex; gap:12px; align-items:flex-start;}
 .combox__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); background:var(--noir); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; border:2px solid var(--magenta);}
@@ -1216,6 +1216,8 @@ body:not(.is-auth) .combox__write{display:none;}
 body.is-auth .combox__write{display:flex;}
 body.is-auth .combox__guest{display:none;}
 body:not(.is-auth) .combox__guest{display:flex;}
+
+.combox__hint{margin:8px 0 0; font-size:12.5px; color:var(--magenta); font-weight:600; min-height:16px;}
 </style>
 </head>
 <body>
@@ -1471,36 +1473,9 @@ body:not(.is-auth) .combox__guest{display:flex;}
             <svg class="gbuild__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
           </a>
         </div>
-      </article>
+      
 
-      <aside class="gside">
-        <div class="icard toc-card">
-          <p class="icard__h">Sommaire</p>
-          <ul class="gtoc">
-            <li><a href="#prep">Préparation &amp; build</a></li>
-            <li><a href="#phase1">Phase 1</a></li>
-            <li><a href="#phase2">Phase 2</a></li>
-            <li><a href="#tips">Quelques conseils</a></li>
-            <li><a href="#related">Guides liés</a></li>
-          </ul>
-        </div>
-        <div class="icard">
-          <p class="icard__h">En bref</p>
-          <div class="irow"><span class="irow__k">Type</span><span class="irow__v">Boss optionnel</span></div>
-          <div class="irow"><span class="irow__k">Difficulté</span><span class="irow__v">Extrême</span></div>
-          <div class="irow"><span class="irow__k">Récompense</span><span class="irow__v">Grande Rune de Malenia</span></div>
-          <div class="irow"><span class="irow__k">Runes</span><span class="irow__v">480 000</span></div>
-          <div class="irow"><span class="irow__k">Faiblesses</span><span class="irow__v">Saignement, Givre</span></div>
-        </div>
-          <div class="icard only-guest">
-          <p class="icard__h">Suis ta progression</p>
-          <p style="font-size:13.5px; color:var(--ink-600); margin:0 0 12px;">Avec un compte Lynk, enregistre ce guide en favori et synchronise ta progression.</p>
-          <a class="btn btn--primary btn--sm" href="inscription.html">Créer un compte</a>
-        </div>
-      </aside>
-    </div>
-  
-    <section class="ratebox" aria-label="Notation">
+      <section class="ratebox" aria-label="Notation">
       <h2 class="ratebox__title">Laisse une note</h2>
       <div class="ratebox__head">
         <div class="ratebox__scorebox">
@@ -1526,11 +1501,12 @@ body:not(.is-auth) .combox__guest{display:flex;}
       <div class="combox__write only-auth">
         <span class="combox__ava" aria-hidden="true">É</span>
         <div class="combox__field">
-          <textarea class="combox__ta" id="comTa" maxlength="600" placeholder="Partage ton retour sur ce guide..." aria-label="Ton commentaire"></textarea>
+          <textarea class="combox__ta" id="comTa" maxlength="600" placeholder="Donne ton avis sur ce guide..." aria-label="Ton commentaire"></textarea>
           <div class="combox__bar">
             <span class="combox__count" id="comCount">0 / 600</span>
             <button class="btn btn--primary btn--sm" type="button" id="comSend">Publier</button>
           </div>
+          <p class="combox__hint" id="comHint"></p>
         </div>
       </div>
       <div class="combox__guest only-guest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
@@ -1577,6 +1553,35 @@ body:not(.is-auth) .combox__guest{display:flex;}
         <button class="btn btn--ghost btn--sm" type="button" id="comMore">Voir plus de commentaires</button>
       </div>
     </section>
+    </article>
+
+      <aside class="gside">
+        <div class="icard toc-card">
+          <p class="icard__h">Sommaire</p>
+          <ul class="gtoc">
+            <li><a href="#prep">Préparation &amp; build</a></li>
+            <li><a href="#phase1">Phase 1</a></li>
+            <li><a href="#phase2">Phase 2</a></li>
+            <li><a href="#tips">Quelques conseils</a></li>
+            <li><a href="#related">Guides liés</a></li>
+          </ul>
+        </div>
+        <div class="icard">
+          <p class="icard__h">En bref</p>
+          <div class="irow"><span class="irow__k">Type</span><span class="irow__v">Boss optionnel</span></div>
+          <div class="irow"><span class="irow__k">Difficulté</span><span class="irow__v">Extrême</span></div>
+          <div class="irow"><span class="irow__k">Récompense</span><span class="irow__v">Grande Rune de Malenia</span></div>
+          <div class="irow"><span class="irow__k">Runes</span><span class="irow__v">480 000</span></div>
+          <div class="irow"><span class="irow__k">Faiblesses</span><span class="irow__v">Saignement, Givre</span></div>
+        </div>
+          <div class="icard only-guest">
+          <p class="icard__h">Suis ta progression</p>
+          <p style="font-size:13.5px; color:var(--ink-600); margin:0 0 12px;">Avec un compte Lynk, enregistre ce guide en favori et synchronise ta progression.</p>
+          <a class="btn btn--primary btn--sm" href="inscription.html">Créer un compte</a>
+        </div>
+      </aside>
+    </div>
+  
   </div>
 </main>
 
@@ -2121,7 +2126,8 @@ body:not(.is-auth) .combox__guest{display:flex;}
     b.addEventListener('mouseenter', function(){ if(isAuth()) paint(v); });
     b.addEventListener('click', function(){
       if(!isAuth()){ go('connexion.html'); return; }
-      current=v; paint(v); if(hint) hint.textContent='Ta note : '+v+'/5. Merci !';
+      current=v; window.__lynkRating=v; paint(v); if(hint) hint.textContent='Ta note : '+v+'/5. Merci !';
+      var ch=document.getElementById('comHint'); if(ch) ch.textContent='';
     });
   });
   wrap.addEventListener('mouseleave', function(){ paint(current); });
@@ -2129,7 +2135,8 @@ body:not(.is-auth) .combox__guest{display:flex;}
 <script>(function(){
   var list=document.getElementById('comList'); if(!list) return;
   var more=document.getElementById('comMore'), wrap=document.getElementById('comMoreWrap');
-  var ta=document.getElementById('comTa'), count=document.getElementById('comCount'), send=document.getElementById('comSend');
+  var ta=document.getElementById('comTa'), count=document.getElementById('comCount'), send=document.getElementById('comSend'), comHint=document.getElementById('comHint');
+  var STAR='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg>';
   function isAuth(){ return document.body.classList.contains('is-auth'); }
   function go(u){ try{ window.top.location.href=u; }catch(_){ window.location.href=u; } }
   if(more){ more.addEventListener('click', function(){
@@ -2139,14 +2146,19 @@ body:not(.is-auth) .combox__guest{display:flex;}
   if(ta && count){ ta.addEventListener('input', function(){ count.textContent = ta.value.length + ' / 600'; }); }
   if(send){ send.addEventListener('click', function(){
     if(!isAuth()){ go('connexion.html'); return; }
+    var rating = window.__lynkRating || 0;
+    if(!rating){ if(comHint) comHint.textContent='Mets d\u2019abord une note ci-dessus pour pouvoir laisser un commentaire.'; return; }
     var v=(ta.value||'').trim();
     if(!v){ ta.focus(); return; }
+    var stars='<span class="com__stars" aria-label="'+rating+' sur 5">';
+    for(var k=0;k<rating;k++) stars+=STAR;
+    stars+='</span>';
     var li=document.createElement('li');
     li.className='com';
-    li.innerHTML='<span class="com__ava" aria-hidden="true">\u00c9</span><div class="com__body"><div class="com__head"><span class="com__name">Toi</span><span class="com__date">\u00e0 l\u2019instant</span></div><p class="com__txt"></p></div>';
+    li.innerHTML='<span class="com__ava" aria-hidden="true">\u00c9</span><div class="com__body"><div class="com__head"><span class="com__name">Toi</span>'+stars+'<span class="com__date">\u00e0 l\u2019instant</span></div><p class="com__txt"></p></div>';
     li.querySelector('.com__txt').textContent=v;
     list.insertBefore(li, list.firstChild);
-    ta.value=''; count.textContent='0 / 600';
+    ta.value=''; count.textContent='0 / 600'; if(comHint) comHint.textContent='';
   }); }
 })();</script>
 </body>
