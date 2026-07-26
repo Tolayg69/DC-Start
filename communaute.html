@@ -1165,6 +1165,10 @@ body:not(.is-auth) .psec.only-guest{display:block;}
 .mdisc__meta{font-size:11.5px; color:var(--ink-500); display:flex; align-items:center; flex-wrap:wrap; gap:6px; line-height:1.3;}
 .mdisc__meta .gtag{font-size:10px; padding:2px 7px;}
 .mdisc__badge{align-self:center;}
+
+.commecard--disclist{padding:6px 18px;}
+.commecard--disclist .disc{border:none; box-shadow:none; border-radius:0; padding:15px 0; border-top:1px solid var(--line); gap:14px;}
+.commecard--disclist .disc:first-child{border-top:0;}
 </style>
 </head>
 <body>
@@ -1360,12 +1364,68 @@ body:not(.is-auth) .psec.only-guest{display:block;}
     </section>
     <section class="psec" style="padding-top:6px;">
       <div class="psec__head"><span class="sec-kicker"><span class="dots"><i></i><i></i></span> Cette semaine</span><h2 class="sec-title">Les discussions les plus consultées</h2></div>
-      <div class="commecard"><div class="mdisc">
-        <a class="mdisc__i" href="discussion.html"><span class="mdisc__av" style="background:#a63f6b;">M</span><span class="mdisc__b"><span class="mdisc__t">Comment battre Malenia sans saignement ?</span><span class="mdisc__meta"><span class="gtag gtag--mg">Boss</span> <span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span> · 63 réponses · il y a 4 h</span></span></a>
-        <a class="mdisc__i" href="discussion.html"><span class="mdisc__av" style="background:#5b3fa6;">O</span><span class="mdisc__b"><span class="mdisc__t">La meilleure OST de jeu vidéo selon vous ?</span><span class="mdisc__meta"><span class="gtag gtag--mg">Musiques</span> <span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Global</span> · 47 réponses · il y a 5 h</span></span></a>
-        <a class="mdisc__i" href="discussion.html"><span class="mdisc__av" style="background:#3f6d4a;">T</span><span class="mdisc__b"><span class="mdisc__t">Tier list armes après 1.12.3 : on en pense quoi ?</span><span class="mdisc__meta"><span class="gtag gtag--cy">Build</span> <span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span> · 41 réponses · il y a 1 j</span></span></a>
-        <a class="mdisc__i" href="discussion.html"><span class="mdisc__av" style="background:#a63f6b;">A</span><span class="mdisc__b"><span class="mdisc__t">Débat : le meilleur metroidvania de tous les temps</span><span class="mdisc__meta"><span class="gtag gtag--mg">Théorie</span> <span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Global</span> · 33 réponses · hier</span></span></a>
-        </div></div>
+      <div class="commecard commecard--disclist">
+        <a class="disc" href="discussion.html">
+          <span class="disc__av" style="background:#a63f6b;">M</span>
+          <div class="disc__b">
+            <div class="disc__t">Comment battre Malenia sans saignement ?</div>
+            <div class="disc__meta">Maelis <span class="disc__tags">
+              <span class="gtag gtag--mg">Boss</span>
+              <span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span>
+            </span> · il y a 4 h</div>
+          </div>
+          <div class="disc__stat">
+            <div class="disc__stat__n">63</div>
+            <div class="disc__stat__l">réponses</div>
+          </div>
+          <span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></span>
+        </a>
+        <a class="disc" href="discussion.html">
+          <span class="disc__av" style="background:#5b3fa6;">O</span>
+          <div class="disc__b">
+            <div class="disc__t">La meilleure OST de jeu vidéo selon vous ?</div>
+            <div class="disc__meta">Onyx <span class="disc__tags">
+              <span class="gtag gtag--mg">Musiques</span>
+              <span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Global</span>
+            </span> · il y a 5 h</div>
+          </div>
+          <div class="disc__stat">
+            <div class="disc__stat__n">47</div>
+            <div class="disc__stat__l">réponses</div>
+          </div>
+          <span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></span>
+        </a>
+        <a class="disc" href="discussion.html">
+          <span class="disc__av" style="background:#3f6d4a;">T</span>
+          <div class="disc__b">
+            <div class="disc__t">Tier list armes après 1.12.3 : on en pense quoi ?</div>
+            <div class="disc__meta">Théo <span class="disc__tags">
+              <span class="gtag gtag--cy">Build</span>
+              <span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span>
+            </span> · il y a 1 j</div>
+          </div>
+          <div class="disc__stat">
+            <div class="disc__stat__n">41</div>
+            <div class="disc__stat__l">réponses</div>
+          </div>
+          <span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></span>
+        </a>
+        <a class="disc" href="discussion.html">
+          <span class="disc__av" style="background:#a63f6b;">A</span>
+          <div class="disc__b">
+            <div class="disc__t">Débat : le meilleur metroidvania de tous les temps</div>
+            <div class="disc__meta">Aria <span class="disc__tags">
+              <span class="gtag gtag--mg">Théorie</span>
+              <span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Global</span>
+            </span> · hier</div>
+          </div>
+          <div class="disc__stat">
+            <div class="disc__stat__n">33</div>
+            <div class="disc__stat__l">réponses</div>
+          </div>
+          <span class="grow__go" style="color:var(--ink-300);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></span>
+        </a>
+      </div>
     </section>
 
     <section class="psec" style="padding-top:6px;">
