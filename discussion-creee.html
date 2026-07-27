@@ -1078,7 +1078,18 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .succ__card__m{font-size:13px; color:var(--ink-500); margin-top:5px; display:flex; gap:7px; align-items:center;}
 .succ__actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
 
-</style>
+
+    /* --- encart discussion (style communauté) --- */
+    .succ__disc{display:flex; gap:13px; align-items:center;}
+    .succ__disc__av{flex:none; width:42px; height:42px; border-radius:var(--r-pill); display:flex; align-items:center; justify-content:center; color:#fff; font-family:var(--serif); font-weight:800; font-size:16px;}
+    .succ__disc__b{flex:1; min-width:0;}
+    .succ__disc__t{font-weight:700; font-size:15px; color:var(--noir); line-height:1.3;}
+    .succ__disc__meta{font-size:12.5px; color:var(--ink-400); margin-top:4px; display:flex; flex-wrap:wrap; gap:5px 8px; align-items:center;}
+    .succ__disc__tags{display:flex; gap:6px; flex:none;}
+    .succ__disc__stat{flex:none; text-align:center; min-width:56px;}
+    .succ__disc__stat b{font-family:var(--serif); font-weight:800; font-size:18px; color:var(--magenta); line-height:1; display:block;}
+    .succ__disc__stat span{font-size:10.5px; color:var(--ink-400); text-transform:uppercase; letter-spacing:.04em; font-weight:800; margin-top:3px; display:block;}
+  </style>
 </head>
 <body>
 
@@ -1246,8 +1257,14 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
         <p>Elle est maintenant visible par la communauté. Tu seras notifié dès qu’un joueur y répond.</p>
         <div class="succ__card">
           <p class="succ__card__h">Ta discussion</p>
-          <div class="succ__card__t">Comment battre Malenia sans saignement ?</div>
-          <div class="succ__card__m"><span class="gtag gtag--mg">Boss</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span> · à l'instant</div>
+          <div class="succ__disc">
+            <span class="succ__disc__av" style="background:#a200bc;">É</span>
+            <div class="succ__disc__b">
+              <div class="succ__disc__t">Comment battre Malenia sans saignement ?</div>
+              <div class="succ__disc__meta">Élyo <span class="succ__disc__tags"><span class="gtag gtag--mg">Boss</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span></span> · à l'instant</div>
+            </div>
+            <div class="succ__disc__stat"><b>0</b><span>réponse</span></div>
+          </div>
         </div>
         <div class="succ__actions">
           <a class="btn btn--primary" href="discussion.html">Voir ma discussion <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
