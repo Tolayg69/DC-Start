@@ -471,10 +471,16 @@ body.is-auth .nav__right .only-auth{display:flex;}
 .thread__main{flex:1; min-width:0;}
 .thread__t{font-weight:700; font-size:15px; line-height:1.3; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
 .thread__t:hover{color:var(--magenta);}
-.thread__meta{display:flex; align-items:center; gap:10px; font-size:12.5px; color:var(--ink-400); margin-top:4px;}
+.thread__meta{display:flex; align-items:center; flex-wrap:nowrap; white-space:nowrap; gap:7px; font-size:12.5px; color:var(--ink-400); margin-top:4px;}
 .thread__res{display:inline-flex; align-items:center; gap:5px; color:var(--ok); font-weight:700;}
 .thread__res svg{width:13px; height:13px;}
 .thread__count{text-align:center; flex:none;}
+    @media (max-width:560px){
+      .thread{padding:12px 12px; gap:10px;}
+      .thread__av{width:32px; height:32px; font-size:13px;}
+      .thread__meta{gap:5px; font-size:11px;}
+      .thread__count span{font-size:10px;}
+    }
 .thread__count b{font-family:var(--serif); font-size:17px; display:block;}
 .thread__count span{font-size:11px; color:var(--ink-400);}
 
