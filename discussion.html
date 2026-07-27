@@ -1130,6 +1130,22 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     .post--mine{border-color:#ecc9f3;}
     .simbox{margin-top:34px;}
     .simbox__t{font-family:var(--serif); font-weight:800; font-size:19px; color:var(--noir); margin:0 0 14px;}
+    .disc-list{display:flex; flex-direction:column; gap:10px;}
+    .disc{display:flex; gap:14px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); padding:14px 16px; text-decoration:none; transition:border-color .15s, box-shadow .15s;}
+    .disc:hover{border-color:var(--magenta); box-shadow:var(--sh-sm);}
+    .disc__av{flex:none; width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-family:var(--serif); font-weight:800; font-size:16px;}
+    .disc__b{flex:1; min-width:0;}
+    .disc__t{font-weight:700; font-size:15px; color:var(--noir); line-height:1.3;}
+    .disc__meta{font-size:12.5px; color:var(--ink-400); margin-top:4px; display:flex; flex-wrap:wrap; gap:5px 10px; align-items:center;}
+    .disc__tags{display:flex; gap:6px; flex:none;}
+    .disc__res{display:inline-flex; align-items:center; gap:4px; color:var(--ok); font-weight:700;}
+    .disc__res svg{width:13px; height:13px;}
+    .disc__stat{flex:none; text-align:center; min-width:54px;}
+    .disc__stat__n{font-family:var(--serif); font-weight:800; font-size:18px; color:var(--magenta); line-height:1;}
+    .disc__stat__l{font-size:10.5px; color:var(--ink-400); text-transform:uppercase; letter-spacing:.04em; font-weight:800; margin-top:3px;}
+    .disc .grow__go{color:var(--ink-300); flex:none;}
+    .disc .grow__go svg{width:18px; height:18px;}
+    @media (max-width:560px){ .disc{padding:12px 13px; gap:11px;} .disc__av{width:38px; height:38px; font-size:14px;} .disc__stat{min-width:44px;} }
   </style>
 </head>
 <body>
@@ -1350,11 +1366,35 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 
       <div class="simbox">
         <h2 class="simbox__t">Sur des sujets similaires</h2>
-        <div class="threads">
-          <a class="thread" href="discussion.html"><span class="thread__av" style="background:#a63f6b;">R</span><div class="thread__main"><div class="thread__t">Build force/foi viable en fin de jeu ?</div><div class="thread__meta"><span>Elden Ring</span> · <span class="thread__res"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> résolu</span> · il y a 2 h</div></div><div class="thread__count"><b>9</b><span>réponses</span></div></a>
-          <a class="thread" href="discussion.html"><span class="thread__av" style="background:#2f5fd0;">S</span><div class="thread__main"><div class="thread__t">Quelles cendres pour esquiver la Danse du fauchage ?</div><div class="thread__meta"><span>Elden Ring</span> · il y a 5 h</div></div><div class="thread__count"><b>12</b><span>réponses</span></div></a>
-          <a class="thread" href="discussion.html"><span class="thread__av" style="background:#1f7a68;">T</span><div class="thread__main"><div class="thread__t">Givre vs saignement sur les boss de fin ?</div><div class="thread__meta"><span>Elden Ring</span> · il y a 1 j</div></div><div class="thread__count"><b>7</b><span>réponses</span></div></a>
-        </div>
+        <div class="disc-list">
+        <a class="disc" href="discussion.html">
+          <span class="disc__av" style="background:#a63f6b;">R</span>
+          <div class="disc__b">
+            <div class="disc__t">Build force/foi viable en fin de jeu ?</div>
+            <div class="disc__meta"><span class="disc__tags"><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span></span> · <span class="disc__res"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> résolu</span> · il y a 2 h</div>
+          </div>
+          <div class="disc__stat"><div class="disc__stat__n">9</div><div class="disc__stat__l">réponses</div></div>
+          <span class="grow__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></span>
+        </a>
+        <a class="disc" href="discussion.html">
+          <span class="disc__av" style="background:#2f5fd0;">S</span>
+          <div class="disc__b">
+            <div class="disc__t">Quelles cendres pour esquiver la Danse du fauchage ?</div>
+            <div class="disc__meta"><span class="disc__tags"><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span></span> · il y a 5 h</div>
+          </div>
+          <div class="disc__stat"><div class="disc__stat__n">12</div><div class="disc__stat__l">réponses</div></div>
+          <span class="grow__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></span>
+        </a>
+        <a class="disc" href="discussion.html">
+          <span class="disc__av" style="background:#1f7a68;">T</span>
+          <div class="disc__b">
+            <div class="disc__t">Givre vs saignement sur les boss de fin ?</div>
+            <div class="disc__meta"><span class="disc__tags"><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span></span> · il y a 1 j</div>
+          </div>
+          <div class="disc__stat"><div class="disc__stat__n">7</div><div class="disc__stat__l">réponses</div></div>
+          <span class="grow__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></span>
+        </a>
+      </div>
       </div>
     </section>
   </div>
