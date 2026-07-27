@@ -1088,10 +1088,11 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .tcount{font-family:var(--serif); font-weight:800; font-size:18px; color:var(--noir); margin:22px 0 14px;}
 .replybox{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-xs); padding:18px; margin-top:8px;}
     .replybox__write{display:flex; gap:12px; align-items:flex-start;}
-    .replybox__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); background:var(--noir); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; border:2px solid var(--magenta);}
+    .replybox__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); background:var(--magenta); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; border:none;}
     .replybox__field{flex:1; min-width:0;}
     .replybox__bar{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:10px;}
     .replybox__count{font-size:12px; color:var(--ink-500);}
+    .replybox__rules{margin-top:10px; font-size:11.5px; color:var(--ink-400); line-height:1.45; min-height:16px;}
 .replybox textarea{width:100%; box-sizing:border-box; font-family:var(--sans); font-size:14px; color:var(--noir); background:var(--surface-2); border:1px solid var(--line-2,var(--line)); border-radius:var(--r); padding:11px 13px; resize:vertical; min-height:82px; outline:none; transition:border-color .15s, box-shadow .15s;}
     .replybox textarea:focus{border-color:var(--magenta); box-shadow:0 0 0 3px var(--mg-soft,rgba(162,0,188,.12));}
 .replybox textarea:focus{outline:none; border-color:var(--magenta); box-shadow:0 0 0 3px var(--mg-soft);}
@@ -1330,6 +1331,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
                 <span class="replybox__count" id="replyCount">0 / 600</span>
                 <button class="btn btn--primary btn--sm" type="submit">Publier</button>
               </div>
+              <p class="replybox__rules">En publiant, tu acceptes les règles de la communauté. Reste courtois : les propos injurieux ou hors-sujet peuvent être modérés.</p>
             </div>
           </div>
         </form>
@@ -1864,7 +1866,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   });
   var rt0=document.getElementById('replyText'), rc0=document.getElementById('replyCount'); if(rt0&&rc0){ rt0.addEventListener('input', function(){ rc0.textContent=rt0.value.length+' / 600'; }); }
   var rf=document.getElementById('replyForm');
-  if(rf){ rf.addEventListener('submit', function(ev){ ev.preventDefault(); var t=document.getElementById('replyText'); var val=t?t.value.trim():''; var ok=document.getElementById('replyOk'); if(!val){ if(ok){ ok.innerHTML='\u00c9cris un message avant de publier ta r\u00e9ponse.'; ok.style.background='#fdecec'; ok.style.borderColor='#f5c2c2'; ok.style.color='#b23b3b'; ok.classList.add('show'); } return; } var esc=val.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>'); var post=document.createElement('div'); post.className='post post--mine'; post.innerHTML='<div class="post__head"><span class="post__av" style="background:#a200bc;">T</span><div><div class="post__who">Toi</div><div class="post__when">\u00e0 l\u2019instant</div></div></div><div class="post__body"><p>'+esc+'</p></div>'; var rb=document.querySelector('.replybox'); rb.parentNode.insertBefore(post, rb); var tc=document.getElementById('tcount'); if(tc){ var n=(parseInt(tc.textContent,10)||0)+1; tc.textContent=n+' r\u00e9ponses'; var db=document.getElementById('dbarCount'); if(db) db.textContent=n; } if(t) t.value=''; var rcE=document.getElementById('replyCount'); if(rcE) rcE.textContent='0 / 600'; if(ok){ ok.innerHTML='<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg> Ta r\u00e9ponse a bien \u00e9t\u00e9 publi\u00e9e.'; ok.style.background=''; ok.style.borderColor=''; ok.style.color=''; ok.classList.add('show'); } }); }
+  if(rf){ rf.addEventListener('submit', function(ev){ ev.preventDefault(); var t=document.getElementById('replyText'); var val=t?t.value.trim():''; var ok=document.getElementById('replyOk'); if(!val){ if(ok){ ok.innerHTML='\u00c9cris un message avant de publier ta r\u00e9ponse.'; ok.style.background='#fdecec'; ok.style.borderColor='#f5c2c2'; ok.style.color='#b23b3b'; ok.classList.add('show'); } return; } var esc=val.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>'); var post=document.createElement('div'); post.className='post post--mine'; post.innerHTML='<div class="post__head"><span class="post__av" style="background:#a200bc;">E</span><div><div class="post__who">Toi</div><div class="post__when">\u00e0 l\u2019instant</div></div></div><div class="post__body"><p>'+esc+'</p></div>'; var rb=document.querySelector('.replybox'); rb.parentNode.insertBefore(post, rb); var tc=document.getElementById('tcount'); if(tc){ var n=(parseInt(tc.textContent,10)||0)+1; tc.textContent=n+' r\u00e9ponses'; var db=document.getElementById('dbarCount'); if(db) db.textContent=n; } if(t) t.value=''; var rcE=document.getElementById('replyCount'); if(rcE) rcE.textContent='0 / 600'; if(ok){ ok.innerHTML='<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg> Ta r\u00e9ponse a bien \u00e9t\u00e9 publi\u00e9e.'; ok.style.background=''; ok.style.borderColor=''; ok.style.color=''; ok.classList.add('show'); } }); }
 })();
 
 </script>
