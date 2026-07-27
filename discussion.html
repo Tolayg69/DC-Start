@@ -1094,7 +1094,26 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .replygate__t{flex:1; min-width:180px; font-size:14px; color:var(--ink-700);}
 .replygate__t b{color:var(--noir);}
 
-</style>
+
+    /* --- ajouts discussion --- */
+    body.is-auth .replybox.only-auth{display:block;}
+    body:not(.is-auth) .replygate.only-guest{display:flex;}
+    .dbar{display:flex; flex-wrap:wrap; align-items:center; gap:10px 18px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-xs); padding:14px 18px; margin-bottom:14px;}
+    .dbar__grp{display:flex; align-items:center; gap:7px; flex-wrap:wrap;}
+    .dbar__k{font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-400);}
+    .dbar__stats{display:flex; flex-wrap:wrap; align-items:center; gap:6px 14px; margin-left:auto; font-size:12.5px; color:var(--ink-500);}
+    .dbar__stat{display:inline-flex; align-items:center; gap:5px;}
+    .dbar__stat b{color:var(--noir); font-weight:700;}
+    .dbar__stat svg{width:14px; height:14px; color:var(--ink-400);}
+    .premtag{display:inline-flex; align-items:center; gap:4px; font-size:10.5px; font-weight:800; color:var(--or-ink); background:var(--or-pale); padding:2px 8px; border-radius:var(--r-pill); vertical-align:middle; margin-left:7px;}
+    .premtag svg{width:11px; height:11px;}
+    .replyok{display:none; align-items:center; gap:9px; background:#e8f6ef; border:1px solid #b6e0cc; color:var(--ok); font-weight:700; font-size:13.5px; padding:11px 15px; border-radius:var(--r); margin-top:12px;}
+    .replyok.show{display:flex;}
+    .replyok svg{width:17px; height:17px; flex:none;}
+    .post--mine{border-color:#ecc9f3;}
+    .simbox{margin-top:34px;}
+    .simbox__t{font-family:var(--serif); font-weight:800; font-size:19px; color:var(--noir); margin:0 0 14px;}
+  </style>
 </head>
 <body>
 
@@ -1256,7 +1275,18 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 <main class="page" style="padding-top:34px;">
   <div class="wrap" style="max-width:780px;">
     <section class="psec" style="padding-top:0;">
-      <a class="tback" href="communaute.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg> Retour aux discussions Elden Ring</a>
+      <a class="tback" href="communaute.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg> Retour à la liste des discussions</a>
+
+      <div class="dbar">
+        <div class="dbar__grp"><span class="dbar__k">Jeu</span><span class="gtag" style="background:var(--mg-pale); color:var(--magenta);">Elden Ring</span></div>
+        <div class="dbar__grp"><span class="dbar__k">Catégorie</span><span class="gtag gtag--mg">Boss</span></div>
+        <div class="dbar__grp"><span class="dbar__k">Genre</span><span class="gtag gtag--cy">RPG</span><span class="gtag gtag--cy">Open-world</span></div>
+        <div class="dbar__stats">
+          <span class="dbar__stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> <b id="dbarCount">3</b> réponses</span>
+          <span class="dbar__stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg> <b>128</b> vues</span>
+          <span class="dbar__stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> Actif il y a 3 min</span>
+        </div>
+      </div>
 
       <div class="post post--op">
         <div class="post__head">
@@ -1273,8 +1303,8 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
         <div class="post__foot"><button class="likebtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> <span class="likebtn__n">8</span></button></div>
       </div>
 
-      <div class="tcount">3 réponses</div>
-      <div class="post"><div class="post__head"><span class="post__av" style="background:#06b6d4;">K</span><div><div class="post__who">Kael</div><div class="post__when">il y a 9 min</div></div></div><div class="post__body"><p>Honnêtement, le givre marche super bien : tu la geles, gros dégât de stagger, et ça remplace le saignement sans souci. Vise une arme fébrile.</p></div><div class="post__foot"><button class="likebtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> <span class="likebtn__n">14</span></button></div></div>
+      <div class="tcount" id="tcount">3 réponses</div>
+      <div class="post"><div class="post__head"><span class="post__av" style="background:#06b6d4;">K</span><div><div class="post__who">Kael <span class="premtag"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg> Premium</span></div><div class="post__when">il y a 9 min</div></div></div><div class="post__body"><p>Honnêtement, le givre marche super bien : tu la geles, gros dégât de stagger, et ça remplace le saignement sans souci. Vise une arme fébrile.</p></div><div class="post__foot"><button class="likebtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> <span class="likebtn__n">14</span></button></div></div>
       <div class="post"><div class="post__head"><span class="post__av" style="background:#f5a623;">M</span><div><div class="post__who">Mara</div><div class="post__when">il y a 6 min</div></div></div><div class="post__body"><p>+1 pour le givre. Sinon en pur dégât, une masse lourde avec Vœu du seigneur du sang fonctionne aussi, même sans build saignement dédié.</p></div><div class="post__foot"><button class="likebtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> <span class="likebtn__n">7</span></button></div></div>
       <div class="post"><div class="post__head"><span class="post__av" style="background:#5C1268;">N</span><div><div class="post__who">Nael</div><div class="post__when">il y a 3 min</div></div></div><div class="post__body"><p>Le plus important reste d'esquiver la Danse du fauchage : tant que tu gères ça, l'élément compte peu. Roule en diagonale vers elle.</p></div><div class="post__foot"><button class="likebtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> <span class="likebtn__n">5</span></button></div></div>
 
@@ -1283,11 +1313,21 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
           <textarea id="replyText" placeholder="Écris ta réponse..."></textarea>
           <div class="replybox__foot"><button class="btn btn--primary" type="submit">Répondre</button></div>
         </form>
+        <div class="replyok" id="replyOk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Ta réponse a bien été publiée.</div>
       </div>
       <div class="replygate only-guest">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         <div class="replygate__t"><b>Connecte-toi pour répondre.</b> Rejoins la discussion et aide les autres joueurs.</div>
         <a class="btn btn--primary" href="connexion.html">Se connecter</a>
+      </div>
+
+      <div class="simbox">
+        <h2 class="simbox__t">Sur des sujets similaires</h2>
+        <div class="threads">
+          <a class="thread" href="discussion.html"><span class="thread__av" style="background:#a63f6b;">R</span><div class="thread__main"><div class="thread__t">Build force/foi viable en fin de jeu ?</div><div class="thread__meta"><span>Elden Ring</span> · <span class="thread__res"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> résolu</span> · il y a 2 h</div></div><div class="thread__count"><b>9</b><span>réponses</span></div></a>
+          <a class="thread" href="discussion.html"><span class="thread__av" style="background:#2f5fd0;">S</span><div class="thread__main"><div class="thread__t">Quelles cendres pour esquiver la Danse du fauchage ?</div><div class="thread__meta"><span>Elden Ring</span> · il y a 5 h</div></div><div class="thread__count"><b>12</b><span>réponses</span></div></a>
+          <a class="thread" href="discussion.html"><span class="thread__av" style="background:#1f7a68;">T</span><div class="thread__main"><div class="thread__t">Givre vs saignement sur les boss de fin ?</div><div class="thread__meta"><span>Elden Ring</span> · il y a 1 j</div></div><div class="thread__count"><b>7</b><span>réponses</span></div></a>
+        </div>
       </div>
     </section>
   </div>
@@ -1803,7 +1843,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     });
   });
   var rf=document.getElementById('replyForm');
-  if(rf){ rf.addEventListener('submit', function(ev){ ev.preventDefault(); var t=document.getElementById('replyText'); if(t) t.value=''; alert('Merci ! Ta r\u00e9ponse a \u00e9t\u00e9 publi\u00e9e (d\u00e9mo).'); }); }
+  if(rf){ rf.addEventListener('submit', function(ev){ ev.preventDefault(); var t=document.getElementById('replyText'); var val=t?t.value.trim():''; var ok=document.getElementById('replyOk'); if(!val){ if(ok){ ok.innerHTML='\u00c9cris un message avant de publier ta r\u00e9ponse.'; ok.style.background='#fdecec'; ok.style.borderColor='#f5c2c2'; ok.style.color='#b23b3b'; ok.classList.add('show'); } return; } var esc=val.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>'); var post=document.createElement('div'); post.className='post post--mine'; post.innerHTML='<div class="post__head"><span class="post__av" style="background:#a200bc;">T</span><div><div class="post__who">Toi</div><div class="post__when">\u00e0 l\u2019instant</div></div></div><div class="post__body"><p>'+esc+'</p></div>'; var rb=document.querySelector('.replybox'); rb.parentNode.insertBefore(post, rb); var tc=document.getElementById('tcount'); if(tc){ var n=(parseInt(tc.textContent,10)||0)+1; tc.textContent=n+' r\u00e9ponses'; var db=document.getElementById('dbarCount'); if(db) db.textContent=n; } if(t) t.value=''; if(ok){ ok.innerHTML='<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg> Ta r\u00e9ponse a bien \u00e9t\u00e9 publi\u00e9e.'; ok.style.background=''; ok.style.borderColor=''; ok.style.color=''; ok.classList.add('show'); } }); }
 })();
 
 </script>
