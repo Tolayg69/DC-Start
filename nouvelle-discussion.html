@@ -1279,29 +1279,32 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
           </div>
           <div class="frow">
             <div class="field">
-              <label class="flabel">Jeu ou univers concerné</label>
+              <label class="flabel">Jeu ou genre concerné</label>
               <div class="nsel" data-nsel="game" id="dGame">
                 <button class="nsel__btn" type="button"><span class="nsel__val">Elden Ring</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
                 <div class="nsel__panel">
-                  <button class="nsel__opt is-sel" type="button">Elden Ring</button>
-                  <button class="nsel__opt" type="button">Baldur's Gate 3</button>
-                  <button class="nsel__opt" type="button">Zelda: TotK</button>
-                  <button class="nsel__opt" type="button">Cyberpunk 2077</button>
-                  <button class="nsel__opt" type="button">Hades II</button>
-                  <button class="nsel__opt" type="button">Path of Exile 2</button>
-                  <button class="nsel__opt" type="button">Diablo IV</button>
-                  <button class="nsel__opt" type="button">Global (tous jeux)</button>
+                  <div class="nsel__sep">Jeu</div>
+                  <button class="nsel__opt is-sel" type="button" data-group="jeu">Elden Ring</button>
+                  <button class="nsel__opt" type="button" data-group="jeu">Baldur's Gate 3</button>
+                  <button class="nsel__opt" type="button" data-group="jeu">Zelda: TotK</button>
+                  <button class="nsel__opt" type="button" data-group="jeu">Cyberpunk 2077</button>
+                  <button class="nsel__opt" type="button" data-group="jeu">Hades II</button>
+                  <button class="nsel__opt" type="button" data-group="jeu">Path of Exile 2</button>
+                  <button class="nsel__opt" type="button" data-group="jeu">Diablo IV</button>
+                  <button class="nsel__opt" type="button" data-group="jeu">Global (tous jeux)</button>
                   <div class="nsel__sep">Genres</div>
-                  <button class="nsel__opt" type="button">RPG</button>
-                  <button class="nsel__opt" type="button">Open-world</button>
-                  <button class="nsel__opt" type="button">Aventure</button>
-                  <button class="nsel__opt" type="button">Metroidvania</button>
+                  <button class="nsel__opt" type="button" data-group="genre">RPG</button>
+                  <button class="nsel__opt" type="button" data-group="genre">Open-world</button>
+                  <button class="nsel__opt" type="button" data-group="genre">Aventure</button>
+                  <button class="nsel__opt" type="button" data-group="genre">Souls-like</button>
+                  <button class="nsel__opt" type="button" data-group="genre">Metroidvania</button>
+                  <button class="nsel__opt" type="button" data-group="genre">Global (tous genres)</button>
                 </div>
               </div>
             </div>
             <div class="field">
               <label class="flabel">Catégorie</label>
-              <div class="nsel" data-nsel="cat" id="dCat">
+              <div class="nsel" data-nsel="cat" data-multi="1" id="dCat">
                 <button class="nsel__btn" type="button"><span class="nsel__val">Entraide</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
                 <div class="nsel__panel">
                   <button class="nsel__opt is-sel" type="button">Entraide</button>
@@ -1845,9 +1848,31 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 (function(){
   document.querySelectorAll('.nsel').forEach(function(sel){
     var btn=sel.querySelector('.nsel__btn'), val=sel.querySelector('.nsel__val');
+    var mixed = sel.getAttribute('data-nsel')==='game';
+    var multi = sel.getAttribute('data-multi')==='1';
+    function label(){
+      var on=[].slice.call(sel.querySelectorAll('.nsel__opt.is-sel'));
+      if(on.length===0){ val.textContent='Choisir'; }
+      else if(on.length===1){ val.textContent=on[0].textContent; }
+      else { val.textContent=on.length+' sélectionnés'; }
+    }
     btn.addEventListener('click', function(e){ e.stopPropagation(); var open=sel.classList.contains('open'); document.querySelectorAll('.nsel').forEach(function(x){x.classList.remove('open');}); if(!open) sel.classList.add('open'); });
     sel.querySelectorAll('.nsel__opt').forEach(function(opt){
-      opt.addEventListener('click', function(){ val.textContent=opt.textContent; sel.querySelectorAll('.nsel__opt').forEach(function(o){o.classList.remove('is-sel');}); opt.classList.add('is-sel'); sel.classList.remove('open'); });
+      opt.addEventListener('click', function(e){ e.stopPropagation();
+        var grp=opt.getAttribute('data-group');
+        if(mixed && grp==='jeu'){
+          sel.querySelectorAll('.nsel__opt[data-group="jeu"]').forEach(function(o){o.classList.remove('is-sel');});
+          opt.classList.add('is-sel');
+        } else if(mixed && grp==='genre'){
+          opt.classList.toggle('is-sel');
+        } else if(multi){
+          opt.classList.toggle('is-sel');
+        } else {
+          sel.querySelectorAll('.nsel__opt').forEach(function(o){o.classList.remove('is-sel');});
+          opt.classList.add('is-sel');
+        }
+        label();
+      });
     });
   });
   document.addEventListener('click', function(){ document.querySelectorAll('.nsel').forEach(function(x){x.classList.remove('open');}); });
@@ -1862,7 +1887,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     else if(!body) m='Ajoute un message \u00e0 ta discussion avant de publier.';
     if(m){ if(msg) msg.textContent=m; if(err) err.classList.add('show'); return; }
     if(err) err.classList.remove('show');
-    var _href='discussion-creee.html'; try{ window.top.location.href=_href; }catch(err){ window.location.href=_href; }
+    var _href='discussion-creee.html'; try{ window.top.location.href=_href; }catch(e2){ window.location.href=_href; }
   }); }
 })();
 
