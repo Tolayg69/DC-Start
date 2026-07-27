@@ -1152,10 +1152,10 @@ body.is-auth .preminset{filter:none;}
 .icard.only-guest{display:block;}
 
 /* --- encart notation --- */
-.ratebox{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:22px 24px; margin:28px 0 8px;}
-.ratebox__head{display:flex; align-items:center; gap:28px; flex-wrap:wrap;}
+.ratebox{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:18px 20px; margin:22px 0 8px;}
+.ratebox__head{display:flex; align-items:center; gap:20px; flex-wrap:wrap;}
 .ratebox__scorebox{display:flex; align-items:center; gap:14px;}
-.ratebox__score{font-family:var(--serif,var(--sans)); font-weight:800; font-size:44px; line-height:1; color:var(--noir);}
+.ratebox__score{font-family:var(--serif,var(--sans)); font-weight:800; font-size:38px; line-height:1; color:var(--noir);}
 .ratebox__scoremeta{display:flex; flex-direction:column; gap:4px;}
 .ratebox__count{font-size:13px; color:var(--ink-500);}
 .ratebox__stars{display:inline-flex; gap:3px;}
@@ -1174,7 +1174,7 @@ body.is-auth .preminset{filter:none;}
 @media (max-width:560px){ .ratebox__divider{display:none;} .ratebox__head{gap:18px;} }
 
 .ratebox{max-width:none;}
-.ratebox__title{font-family:var(--serif,var(--sans)); font-weight:800; font-size:19px; line-height:1.2; margin:0 0 16px; color:var(--noir);}
+.ratebox__title{font-family:var(--serif,var(--sans)); font-weight:800; font-size:19px; line-height:1.2; margin:0 0 14px; color:var(--noir);}
 .ratebox .only-guest{display:block;}
 .ratebox__hint--guest{color:var(--ink-600,var(--ink-500));}
 .ratebox__hint--guest a{color:var(--magenta); font-weight:700; text-decoration:underline;}
@@ -1183,8 +1183,8 @@ body.is-auth .preminset{filter:none;}
 .ratebox__hint--guest{max-width:280px;}
 
 /* --- encart commentaires --- */
-.combox{max-width:none; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:22px 24px; margin:18px 0 8px;}
-.combox__title{font-family:var(--serif,var(--sans)); font-weight:800; font-size:19px; line-height:1.2; margin:0 0 16px; color:var(--noir);}
+.combox{max-width:none; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:18px 20px; margin:16px 0 8px;}
+.combox__title{font-family:var(--serif,var(--sans)); font-weight:800; font-size:19px; line-height:1.2; margin:0 0 14px; color:var(--noir);}
 .combox__write{display:flex; gap:12px; align-items:flex-start;}
 .combox__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); background:var(--noir); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; border:2px solid var(--magenta);}
 .combox__field{flex:1; min-width:0;}
@@ -1196,7 +1196,7 @@ body.is-auth .preminset{filter:none;}
 .combox__guest svg{width:18px; height:18px; flex:none; color:var(--ink-500);}
 .combox__guest p{margin:0; font-size:13px; color:var(--ink-600, var(--ink-500)); line-height:1.45;}
 .combox__guest a{color:var(--magenta); font-weight:700; text-decoration:underline;}
-.comlist{list-style:none; margin:22px 0 0; padding:20px 0 0; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:20px;}
+.comlist{list-style:none; margin:18px 0 0; padding:16px 0 0; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:16px;}
 .com{display:flex; gap:12px;}
 .com__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; color:#fff; background:var(--noir);}
 .com__ava--a{background:#5b3fa6;} .com__ava--b{background:#1f7a68;} .com__ava--c{background:#a63f6b;} .com__ava--d{background:#2f5fd0;} .com__ava--e{background:#a8651f;}
@@ -1208,7 +1208,7 @@ body.is-auth .preminset{filter:none;}
 .com__stars svg{width:13px; height:13px;}
 .com__txt{margin:6px 0 0; font-size:14px; line-height:1.55; color:var(--ink-700, var(--noir));}
 .com.is-hidden{display:none;}
-.combox__more{margin-top:20px; display:flex; justify-content:center;}
+.combox__more{margin-top:16px; display:flex; justify-content:center;}
 .combox__more.is-done{display:none;}
 @media (max-width:560px){ .combox{padding:18px 16px;} }
 
@@ -1482,7 +1482,7 @@ body:not(.is-auth) .combox__guest{display:flex;}
           <span class="ratebox__score">4,8</span>
           <div class="ratebox__scoremeta">
             <div class="ratebox__stars ratebox__stars--display"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span class="ratebox__fill" style="width:96%;"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span></span></div>
-            <span class="ratebox__count">412 avis</span>
+            <span class="ratebox__count" id="rateCount">412 avis</span>
           </div>
         </div>
         <div class="ratebox__divider" aria-hidden="true"></div>
@@ -2126,7 +2126,7 @@ body:not(.is-auth) .combox__guest{display:flex;}
     b.addEventListener('mouseenter', function(){ if(isAuth()) paint(v); });
     b.addEventListener('click', function(){
       if(!isAuth()){ go('connexion.html'); return; }
-      current=v; window.__lynkRating=v; paint(v); if(hint) hint.textContent='Ta note : '+v+'/5. Merci !';
+      current=v; window.__lynkRating=v; paint(v); var rc=document.getElementById('rateCount'); if(rc){ rc.textContent='413 avis'; } if(hint) hint.textContent='Ta note : '+v+'/5. Merci !';
       var ch=document.getElementById('comHint'); if(ch) ch.textContent='';
     });
   });
