@@ -1067,7 +1067,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 
 /* ---- page-specific ---- */
 
-.fwrap{max-width:680px;}
+.fwrap{max-width:780px;}
 .fcard{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:24px;}
 .field{margin-bottom:18px;}
 .flabel{display:block; font-weight:700; font-size:13.5px; color:var(--ink-800); margin-bottom:7px;}
@@ -1082,6 +1082,21 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .gate__ico svg{width:26px;height:26px;}
 .gate h2{font-family:var(--serif); font-size:22px; margin:0 0 8px; color:var(--noir);}
 .gate p{color:var(--ink-600); font-size:14.5px; max-width:42ch; margin:0 auto 18px; line-height:1.6;}
+    body.is-auth .fcard.only-auth{display:block;}
+    body:not(.is-auth) .gate.only-guest{display:block;}
+    .nsel{position:relative;}
+    .nsel__btn{display:flex; align-items:center; justify-content:space-between; gap:8px; width:100%; box-sizing:border-box; padding:12px 14px; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); font-family:var(--sans); font-size:14.5px; font-weight:600; color:var(--noir); cursor:pointer; text-align:left;}
+    .nsel__btn svg{width:16px; height:16px; transition:transform .18s; flex:none; color:var(--ink-400);}
+    .nsel.open .nsel__btn{border-color:var(--magenta); box-shadow:0 0 0 3px var(--mg-soft,rgba(162,0,188,.12));}
+    .nsel.open .nsel__btn svg{transform:rotate(180deg);}
+    .nsel__panel{position:absolute; top:calc(100% + 6px); left:0; right:0; z-index:30; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-md,0 12px 32px rgba(18,18,18,.14)); padding:7px; max-height:280px; overflow:auto; display:none; flex-direction:column; gap:2px;}
+    .nsel.open .nsel__panel{display:flex;}
+    .nsel__opt{text-align:left; width:100%; box-sizing:border-box; font-family:var(--sans); font-size:14px; font-weight:600; color:var(--ink-700); padding:9px 12px; border:none; background:none; border-radius:var(--r-sm); cursor:pointer; transition:background .12s, color .12s;}
+    .nsel__opt:hover{background:var(--surface-2); color:var(--magenta);}
+    .nsel__opt.is-sel{background:var(--magenta); color:#fff;}
+    .ferror{display:none; align-items:center; gap:9px; margin-top:14px; background:#fdecec; border:1px solid #f5c2c2; color:#b23b3b; border-radius:var(--r); padding:11px 14px; font-size:13.5px; font-weight:600;}
+    .ferror.show{display:flex;}
+    .ferror svg{width:18px; height:18px; flex:none;}
 @media (max-width:560px){ .frow{flex-direction:column; gap:0;} }
 
 </style>
@@ -1258,36 +1273,48 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
         <form class="fcard only-auth" id="discForm">
           <div class="field">
             <label class="flabel" for="dTitle">Titre de la discussion</label>
-            <input class="finput" id="dTitle" type="text" placeholder="Ex : Comment battre Malenia sans saignement ?" required>
+            <input class="finput" id="dTitle" type="text" placeholder="Ex : Comment battre Malenia sans saignement ?">
             <div class="fhint">Une phrase claire et précise obtient plus de réponses.</div>
           </div>
           <div class="frow">
             <div class="field">
-              <label class="flabel" for="dGame">Jeu concerné</label>
-              <select class="fselect" id="dGame">
-            <option>Elden Ring</option>
-            <option>Baldur's Gate 3</option>
-            <option>Zelda: TotK</option>
-            <option>Cyberpunk 2077</option>
-            <option>Hades II</option>
-            <option>Path of Exile 2</option>
-            <option>Diablo IV</option>
-              </select>
+              <label class="flabel">Jeu ou univers concerné</label>
+              <div class="nsel" data-nsel="game" id="dGame">
+                <button class="nsel__btn" type="button"><span class="nsel__val">Elden Ring</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+                <div class="nsel__panel">
+                  <button class="nsel__opt is-sel" type="button">Elden Ring</button>
+                  <button class="nsel__opt" type="button">Baldur's Gate 3</button>
+                  <button class="nsel__opt" type="button">Zelda: TotK</button>
+                  <button class="nsel__opt" type="button">Cyberpunk 2077</button>
+                  <button class="nsel__opt" type="button">Hades II</button>
+                  <button class="nsel__opt" type="button">Path of Exile 2</button>
+                  <button class="nsel__opt" type="button">Diablo IV</button>
+                  <button class="nsel__opt" type="button">Global (tous jeux)</button>
+                </div>
+              </div>
             </div>
             <div class="field">
-              <label class="flabel" for="dCat">Catégorie</label>
-              <select class="fselect" id="dCat">
-            <option>Entraide</option>
-            <option>Build</option>
-            <option>Boss</option>
-            <option>Théorie</option>
-              </select>
+              <label class="flabel">Catégorie</label>
+              <div class="nsel" data-nsel="cat" id="dCat">
+                <button class="nsel__btn" type="button"><span class="nsel__val">Entraide</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+                <div class="nsel__panel">
+                  <button class="nsel__opt is-sel" type="button">Entraide</button>
+                  <button class="nsel__opt" type="button">Build</button>
+                  <button class="nsel__opt" type="button">Boss</button>
+                  <button class="nsel__opt" type="button">Théorie</button>
+                  <button class="nsel__opt" type="button">Question</button>
+                  <button class="nsel__opt" type="button">Échange</button>
+                  <button class="nsel__opt" type="button">Objet</button>
+                  <button class="nsel__opt" type="button">Musiques</button>
+                </div>
+              </div>
             </div>
           </div>
           <div class="field">
             <label class="flabel" for="dBody">Ton message</label>
             <textarea class="ftext" id="dBody" placeholder="Détaille ta question, ce que tu as déjà essayé, ta config..."></textarea>
           </div>
+          <div class="ferror" id="dError"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg> <span id="dErrorMsg"></span></div>
           <div class="factions">
             <button class="btn btn--primary" type="submit">Publier la discussion <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
             <a class="btn btn--ghost" href="communaute.html">Annuler</a>
@@ -1810,8 +1837,27 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 <script>
 
 (function(){
+  document.querySelectorAll('.nsel').forEach(function(sel){
+    var btn=sel.querySelector('.nsel__btn'), val=sel.querySelector('.nsel__val');
+    btn.addEventListener('click', function(e){ e.stopPropagation(); var open=sel.classList.contains('open'); document.querySelectorAll('.nsel').forEach(function(x){x.classList.remove('open');}); if(!open) sel.classList.add('open'); });
+    sel.querySelectorAll('.nsel__opt').forEach(function(opt){
+      opt.addEventListener('click', function(){ val.textContent=opt.textContent; sel.querySelectorAll('.nsel__opt').forEach(function(o){o.classList.remove('is-sel');}); opt.classList.add('is-sel'); sel.classList.remove('open'); });
+    });
+  });
+  document.addEventListener('click', function(){ document.querySelectorAll('.nsel').forEach(function(x){x.classList.remove('open');}); });
   var f=document.getElementById('discForm');
-  if(f){ f.addEventListener('submit', function(ev){ ev.preventDefault(); window.location.href='discussion-cree.html'; }); }
+  if(f){ f.addEventListener('submit', function(ev){ ev.preventDefault();
+    var title=(document.getElementById('dTitle').value||'').trim();
+    var body=(document.getElementById('dBody').value||'').trim();
+    var err=document.getElementById('dError'), msg=document.getElementById('dErrorMsg');
+    var m='';
+    if(!title && !body) m='Le titre et le message sont obligatoires pour publier.';
+    else if(!title) m='Ajoute un titre \u00e0 ta discussion avant de publier.';
+    else if(!body) m='Ajoute un message \u00e0 ta discussion avant de publier.';
+    if(m){ if(msg) msg.textContent=m; if(err) err.classList.add('show'); return; }
+    if(err) err.classList.remove('show');
+    window.location.href='discussion-creee.html';
+  }); }
 })();
 
 </script>
