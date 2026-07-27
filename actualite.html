@@ -1192,7 +1192,7 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
 .combox__guest svg{width:18px; height:18px; flex:none; color:var(--ink-500);}
 .combox__guest p{margin:0; font-size:13px; color:var(--ink-600, var(--ink-500)); line-height:1.45;}
 .combox__guest a{color:var(--magenta); font-weight:700; text-decoration:underline;}
-.comlist{list-style:none; margin:18px 0 0; padding:16px 0 0; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:16px;}
+.comlist{list-style:none; margin:10px 0 0; padding:16px 0 0; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:16px;}
 .com{display:flex; gap:12px;}
 .com__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; color:#fff; background:var(--noir);}
 .com__ava--a{background:#5b3fa6;} .com__ava--b{background:#1f7a68;} .com__ava--c{background:#a63f6b;} .com__ava--d{background:#2f5fd0;} .com__ava--e{background:#a8651f;}
@@ -1220,7 +1220,8 @@ body:not(.is-auth) .combox__guest{display:flex;}
     .gart .ratebox__hint{margin:0; line-height:1.4; font-size:12.5px; color:var(--ink-500);}
     .gart .ratebox__hint--guest{color:var(--ink-600,var(--ink-500));}
     .gart .com__txt{margin:6px 0 0; line-height:1.55; font-size:14px; color:var(--ink-700);}
-    .gart .combox__hint{margin:8px 0 0; line-height:1.4; font-size:12.5px; color:var(--magenta);}
+    .gart .combox__hint{margin:8px 0 0; line-height:1.4; font-size:12.5px; color:var(--magenta); min-height:0;}
+    .gart .combox__hint:empty{margin:0;}
     .gart .combox__count{font-size:12px;}
 </style>
 </head>
