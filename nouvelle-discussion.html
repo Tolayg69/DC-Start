@@ -1067,7 +1067,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 
 /* ---- page-specific ---- */
 
-.fwrap{max-width:780px;}
+.fwrap{max-width:none;}
 .fcard{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:24px;}
 .field{margin-bottom:18px;}
 .flabel{display:block; font-weight:700; font-size:13.5px; color:var(--ink-800); margin-bottom:7px;}
@@ -1094,6 +1094,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     .nsel__opt{text-align:left; width:100%; box-sizing:border-box; font-family:var(--sans); font-size:14px; font-weight:600; color:var(--ink-700); padding:9px 12px; border:none; background:none; border-radius:var(--r-sm); cursor:pointer; transition:background .12s, color .12s;}
     .nsel__opt:hover{background:var(--surface-2); color:var(--magenta);}
     .nsel__opt.is-sel{background:var(--magenta); color:#fff;}
+    .nsel__sep{font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-400); padding:9px 12px 4px; pointer-events:none;}
     .ferror{display:none; align-items:center; gap:9px; margin-top:14px; background:#fdecec; border:1px solid #f5c2c2; color:#b23b3b; border-radius:var(--r); padding:11px 14px; font-size:13.5px; font-weight:600;}
     .ferror.show{display:flex;}
     .ferror svg{width:18px; height:18px; flex:none;}
@@ -1290,6 +1291,11 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
                   <button class="nsel__opt" type="button">Path of Exile 2</button>
                   <button class="nsel__opt" type="button">Diablo IV</button>
                   <button class="nsel__opt" type="button">Global (tous jeux)</button>
+                  <div class="nsel__sep">Genres</div>
+                  <button class="nsel__opt" type="button">RPG</button>
+                  <button class="nsel__opt" type="button">Open-world</button>
+                  <button class="nsel__opt" type="button">Aventure</button>
+                  <button class="nsel__opt" type="button">Metroidvania</button>
                 </div>
               </div>
             </div>
@@ -1856,7 +1862,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     else if(!body) m='Ajoute un message \u00e0 ta discussion avant de publier.';
     if(m){ if(msg) msg.textContent=m; if(err) err.classList.add('show'); return; }
     if(err) err.classList.remove('show');
-    window.location.href='discussion-creee.html';
+    var _href='discussion-creee.html'; try{ window.top.location.href=_href; }catch(err){ window.location.href=_href; }
   }); }
 })();
 
