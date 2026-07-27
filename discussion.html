@@ -1091,8 +1091,9 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     .replybox__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); background:var(--magenta); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; border:none;}
     .replybox__field{flex:1; min-width:0;}
     .replybox__bar{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:10px;}
-    .replybox__count{font-size:12px; color:var(--ink-500);}
-    .replybox__rules{margin-top:10px; font-size:11.5px; color:var(--ink-400); line-height:1.45; min-height:16px;}
+    .replybox__count{font-size:12px; color:var(--ink-500); text-align:right; margin-top:6px;}
+    .replybox__actions{display:flex; gap:12px; align-items:center;}
+    .replybox__rules{margin:0 0 12px; font-size:11.5px; color:var(--ink-400); line-height:1.45; min-height:16px;}
 .replybox textarea{width:100%; box-sizing:border-box; font-family:var(--sans); font-size:14px; color:var(--noir); background:var(--surface-2); border:1px solid var(--line-2,var(--line)); border-radius:var(--r); padding:11px 13px; resize:vertical; min-height:82px; outline:none; transition:border-color .15s, box-shadow .15s;}
     .replybox textarea:focus{border-color:var(--magenta); box-shadow:0 0 0 3px var(--mg-soft,rgba(162,0,188,.12));}
 .replybox textarea:focus{outline:none; border-color:var(--magenta); box-shadow:0 0 0 3px var(--mg-soft);}
@@ -1327,11 +1328,9 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
             <span class="replybox__ava" aria-hidden="true">E</span>
             <div class="replybox__field">
               <textarea id="replyText" maxlength="600" placeholder="Écris ta réponse..."></textarea>
-              <div class="replybox__bar">
-                <span class="replybox__count" id="replyCount">0 / 600</span>
-                <button class="btn btn--primary btn--sm" type="submit">Publier</button>
-              </div>
+              <div class="replybox__count" id="replyCount">0 / 600</div>
               <p class="replybox__rules">En publiant, tu acceptes les règles de la communauté. Reste courtois : les propos injurieux ou hors-sujet peuvent être modérés.</p>
+              <div class="replybox__actions"><button class="btn btn--primary btn--sm" type="submit">Publier</button></div>
             </div>
           </div>
         </form>
