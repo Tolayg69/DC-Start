@@ -1630,6 +1630,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 
   function applyAuth(){
     document.body.classList.toggle('is-auth', state.auth);
+    if(typeof applyFavState==='function') applyFavState();
     setScopes(state.auth ? 'suivis' : 'tous');
     document.querySelectorAll('[data-sw="guest"]').forEach(function(b){ b.classList.toggle('active', !state.auth); });
     document.querySelectorAll('[data-sw="auth"]').forEach(function(b){ b.classList.toggle('active', state.auth); });
@@ -1736,8 +1737,14 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   function getFavs(){ try{ return JSON.parse(localStorage.getItem(favKey())||'[]'); }catch(e){ return []; } }
   function setFavs(a){ try{ localStorage.setItem(favKey(), JSON.stringify(a)); }catch(e){} }
   function syncFav(id,on){ document.querySelectorAll('.fav[data-fav-id="'+id+'"]').forEach(function(x){ x.classList.toggle('on',on); }); }
-  var _favs = document.body.classList.contains('is-auth') ? getFavs() : [];
-  _favs.forEach(function(id){ syncFav(id,true); });
+  function hasStored(){ try{ return localStorage.getItem(favKey())!==null; }catch(e){ return false; } }
+  function applyFavState(){
+    var favs = state.auth ? (hasStored() ? getFavs() : ['t-er','t-bg3']) : [];
+    if(state.auth){ setFavs(favs); }
+    document.querySelectorAll('.fav').forEach(function(x){ x.classList.remove('on'); });
+    favs.forEach(function(id){ syncFav(id,true); });
+  }
+  applyFavState();
   document.querySelectorAll('.fav').forEach(function(f){
     f.addEventListener('click', function(e){
       e.stopPropagation(); e.preventDefault();
@@ -1890,7 +1897,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   var empty = document.getElementById('lempty');
   var countEl = document.getElementById('lcount');
   var noun = root.getAttribute('data-noun') || 'r\u00e9sultat';
-  var fGames=[], fTypes=[], q='', scopeMode='tous'; var FOLLOWED=['er','bg3','cp']; function inArr(a,v){ return a.length===0 || a.indexOf(v)>=0; }
+  var fGames=[], fTypes=[], q='', scopeMode='tous', fSort='consult'; var orig=rows.slice(); var FOLLOWED=['er','bg3','cp']; function inArr(a,v){ return a.length===0 || a.indexOf(v)>=0; }
   function norm(s){ return (s||'').toLowerCase(); }
   function apply(){
     var n=0;
@@ -1903,10 +1910,14 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
       else if(scopeMode==='suivis'){ okS = FOLLOWED.indexOf(r.getAttribute('data-game'))>=0; }
       var show = okG && okT && okQ && okS; r.style.display = show?'':'none'; if(show) n++;
     });
+    var sorted=orig.slice();
+    if(fSort==='az'){ sorted.sort(function(a,b){ return norm(a.getAttribute('data-title')).localeCompare(norm(b.getAttribute('data-title')), 'fr'); }); }
+    sorted.forEach(function(r){ root.appendChild(r); });
     if(empty) empty.classList.toggle('is-on', n===0);
     if(countEl) countEl.innerHTML = '<b>'+n+'</b> '+noun+(n>1?'s':'');
   }
   if(search) search.addEventListener('input', function(){ q=norm(search.value).trim(); apply(); });
+  var sortSel=document.getElementById('lsort'); if(sortSel) sortSel.addEventListener('change', function(){ fSort=this.value; apply(); });
   Array.prototype.forEach.call(document.querySelectorAll('[data-chip]'), function(c){
     c.addEventListener('click', function(){
       var bar=c.getAttribute('data-bar'), chip=c.getAttribute('data-chip');
