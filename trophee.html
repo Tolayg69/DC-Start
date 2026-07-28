@@ -1189,6 +1189,33 @@ body:not(.is-auth) .tro__chk{display:none;}
     .rn__b{flex:1; min-width:0; display:flex; flex-direction:column; gap:3px;}
     .rn__t{font-weight:700; font-size:14.5px; color:var(--noir); line-height:1.3;}
     .rn__m{font-size:12.5px; color:var(--ink-500);}
+
+    .ghero__chips{align-items:center;}
+    .gchip--platine{background:linear-gradient(135deg,#eef1f6,#cfd8e6); color:#3a4557; border:1px solid rgba(255,255,255,.28); font-weight:800;}
+    .trtypes{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 14px;}
+    .trtype{font-size:11.5px; font-weight:800; padding:4px 11px; border-radius:99px;}
+    .trtype--platine{background:#e9edf3; color:#5a6b82;} .trtype--or{background:var(--or-pale); color:var(--or-ink);} .trtype--argent{background:#eceef1; color:#6b7280;} .trtype--bronze{background:#f4e6d5; color:#986530;}
+    .trbar{display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:0 0 12px; justify-content:space-between;}
+    .trbar__sel{display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--ink-500);}
+    .trbar__sel select{font-family:var(--sans); font-size:13.5px; font-weight:600; color:var(--noir); padding:8px 12px; border:1px solid var(--line); border-radius:var(--r); background:#fff; cursor:pointer;}
+    body:not(.is-auth) .trfilter{display:none;}
+    .trfilter{display:inline-flex; background:var(--surface-2); border:1px solid var(--line); border-radius:99px; padding:3px;}
+    .trfilter__btn{border:none; background:none; font-family:var(--sans); font-size:12.5px; font-weight:700; color:var(--ink-500); padding:6px 13px; border-radius:99px; cursor:pointer;}
+    .trfilter__btn.active{background:#fff; color:var(--magenta); box-shadow:var(--sh-xs);}
+    .trreveal{display:inline-flex; align-items:center; gap:8px; margin:0 0 14px; padding:10px 15px; background:#fff; border:1px dashed #d9c2e0; border-radius:var(--r); font-family:var(--sans); font-size:13px; font-weight:700; color:var(--magenta); cursor:pointer;}
+    .trreveal svg{width:17px; height:17px; flex:none;}
+    .tr__got{display:none; align-items:center; gap:4px; font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:.03em; color:#1f9d55; background:#e7f6ec; padding:3px 9px; border-radius:99px; white-space:nowrap;}
+    .tr__got svg{width:12px; height:12px;}
+    body.is-auth .tr__got{display:inline-flex;}
+    body.is-auth .tr.is-got{border-color:#bfe6cd; background:#fbfefc;}
+    .tr__mask{display:none; font-weight:800; font-size:14.5px; color:var(--ink-400); font-style:italic;}
+    .trlist:not(.revealed) .tr.is-hidden .tr__name{display:none;}
+    .trlist:not(.revealed) .tr.is-hidden .tr__mask{display:block;}
+    .trlist:not(.revealed) .tr.is-hidden .tr__desc{display:none;}
+    .trlist:not(.revealed) .tr.is-hidden .tr__body{display:none;}
+    .trlist:not(.revealed) .tr.is-hidden .tr__chev{opacity:.35;}
+    .tr__vid{display:inline-flex; align-items:center; gap:7px; margin-top:10px; font-size:12.5px; font-weight:700; color:var(--magenta); text-decoration:none;}
+    .tr__vid svg{width:14px; height:14px;}
 </style>
 </head>
 <body>
@@ -1353,15 +1380,15 @@ body:not(.is-auth) .tro__chk{display:none;}
   <div class="ghero__in">
     <div class="wrap">
       <nav class="crumb" aria-label="Fil d'Ariane"><a href="jeux.html">Jeux</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> <a href="jeu.html">Elden Ring</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> <a href="trophees.html">Trophées</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> <span>Platine</span></nav>
-      <div class="ghero__chips"><span class="gtag gtag--platine">Platine</span> <span class="gchip">42 trophées</span> <span class="gchip">Difficulté : moyenne</span> <span class="gchip">~90 h</span></div>
+      <div class="ghero__chips"><span class="gchip gchip--platine">Platine</span> <span class="gchip">42 trophées</span> <span class="gchip">Difficulté : moyenne</span> <span class="gchip">~90 h</span></div>
       <h1 class="ghero__title">Platine Elden Ring : la route complète</h1>
       <div class="gdmeta">
         <span class="gdmeta__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg> Par l'équipe Lynk</span>
         <span class="gdmeta__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18M7 3v4M17 3v4"/><rect x="3" y="5" width="18" height="16" rx="2"/></svg> Mis à jour le 12 juin</span>
       </div>
       <div class="gdactions">
-        <button class="btn btn--ondark btn--fav only-auth" id="gdFav" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> <span>Sauvegarder</span></button>
-        <span class="gdguest only-guest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> <span><a href="connexion.html">Connecte-toi</a> pour synchroniser ta progression.</span></span>
+        <button class="btn btn--primary btn--fav only-auth" id="gdFav" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> <span>Sauvegarder</span></button>
+        <span class="gdguest only-guest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> <span><a href="connexion.html">Connecte-toi</a> pour synchroniser ta progression.</span></span>
         <button class="btn btn--ondark" type="button" onclick="if(navigator.share){navigator.share({title:document.title,url:location.href});}else{return false;}">Partager</button>
       </div>
     </div>
@@ -1382,390 +1409,435 @@ body:not(.is-auth) .tro__chk{display:none;}
         
 
         <h2 id="liste">La liste des trophées</h2>
-        <p class="trhint">Clique sur un trophée pour afficher le détail (comment l'obtenir) et la vidéo associée.</p>
-        <div class="trlist">
-<details class="tr tr--platine">
+        <p class="trhint">Clique sur un trophée pour dérouler comment l'obtenir.</p>
+        <div class="trtypes">
+          <span class="trtype trtype--platine">1 Platine</span>
+          <span class="trtype trtype--or">3 Or</span>
+          <span class="trtype trtype--argent">14 Argent</span>
+          <span class="trtype trtype--bronze">24 Bronze</span>
+        </div>
+        <div class="trbar">
+          <label class="trbar__sel"><span>Trier</span>
+            <select id="trOrder">
+              <option value="console">Ordre console</option>
+              <option value="rarete">Par rareté</option>
+              <option value="alpha">Alphabétique</option>
+            </select>
+          </label>
+          <div class="trfilter only-auth" role="group" aria-label="Filtrer les trophées">
+            <button class="trfilter__btn active" type="button" data-tf="all">Tous</button>
+            <button class="trfilter__btn" type="button" data-tf="got">Obtenus</button>
+            <button class="trfilter__btn" type="button" data-tf="miss">Manquants</button>
+          </div>
+        </div>
+        <button class="trreveal" id="trReveal" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg> <span>Afficher les 36 trophées masqués</span></button>
+        <div class="trlist" id="trList">
+<details class="tr tr--platine" data-rar="platine" data-got="0" data-hidden="0" data-miss="0" data-name="cercle d'elden" data-date="" data-console="0">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--platine"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Cercle d'Elden</span><span class="tr__desc">Obtenir tous les trophées.</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Cercle d'Elden</span><span class="tr__desc">Obtenir tous les trophées.</span></span>
     <span class="tr__tags"><span class="tr__rar tr__rar--platine">Platine</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
   <div class="tr__body"><p class="tr__how">Débloque les 41 autres trophées pour décrocher le platine.</p></div>
 </details>
-<details class="tr tr--or">
+<details class="tr tr--or is-hidden" data-rar="or" data-got="0" data-hidden="1" data-miss="0" data-name="seigneur d'elden" data-date="" data-console="1">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--or"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Seigneur d'Elden</span><span class="tr__desc">Atteindre la fin « Seigneur d'Elden ».</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Seigneur d'Elden</span><span class="tr__desc">Atteindre la fin « Seigneur d'Elden ».</span></span>
     <span class="tr__tags"><span class="tr__rar tr__rar--or">Or</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Termine le jeu avec la fin par défaut : touche le Cercle d'Elden après Radagon/Bête d'Elden sans avoir choisi la quête de Ranni ni la Flamme exaltée.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Seigneur d'Elden</span></div></div>
+  <div class="tr__body"><p class="tr__how">Termine le jeu avec la fin par défaut : touche le Cercle d'Elden après Radagon/Bête d'Elden sans avoir choisi la quête de Ranni ni la Flamme exaltée.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
 </details>
-<details class="tr tr--or">
+<details class="tr tr--or is-hidden" data-rar="or" data-got="0" data-hidden="1" data-miss="1" data-name="age des etoiles" data-date="" data-console="2">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--or"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Âge des étoiles</span><span class="tr__desc">Atteindre la fin « Âge des étoiles ».</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--or">Or</span> <span class="tr__miss"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg> Manquable</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Âge des étoiles</span><span class="tr__desc">Atteindre la fin « Âge des étoiles ».</span></span>
+    <span class="tr__tags"><span class="tr__rar tr__rar--or">Or</span><span class="tr__miss"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg> Manquable</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Accomplis entièrement la quête de Ranni la Sorcière, puis choisis sa fin devant le Cercle d'Elden.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Âge des étoiles</span></div></div>
+  <div class="tr__body"><p class="tr__how">Accomplis entièrement la quête de Ranni la Sorcière, puis choisis sa fin devant le Cercle d'Elden.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
 </details>
-<details class="tr tr--or">
+<details class="tr tr--or is-hidden" data-rar="or" data-got="0" data-hidden="1" data-miss="1" data-name="seigneur de la flamme exaltee" data-date="" data-console="3">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--or"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Seigneur de la Flamme exaltée</span><span class="tr__desc">Atteindre la fin « Seigneur de la Flamme exaltée ».</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--or">Or</span> <span class="tr__miss"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg> Manquable</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Seigneur de la Flamme exaltée</span><span class="tr__desc">Atteindre la fin « Seigneur de la Flamme exaltée ».</span></span>
+    <span class="tr__tags"><span class="tr__rar tr__rar--or">Or</span><span class="tr__miss"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg> Manquable</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Déverrouille la Flamme exaltée sous le Grand-Tombé (déséquipe toute ton armure devant la porte scellée), puis choisis cette fin. Fais une sauvegarde à part.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Seigneur de la Flamme exaltée</span></div></div>
+  <div class="tr__body"><p class="tr__how">Déverrouille la Flamme exaltée sous le Grand-Tombé (déséquipe toute ton armure devant la porte scellée), puis choisis cette fin. Fais une sauvegarde à part.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
 </details>
-<details class="tr tr--argent">
+<details class="tr tr--argent is-got is-hidden" data-rar="argent" data-got="1" data-hidden="1" data-miss="0" data-name="godrick, le porteur de fragment" data-date="2024-02-02" data-console="4">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Godrick, le porteur de fragment</span><span class="tr__desc">Vaincre Godrick, le porteur de fragment.</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Godrick, le porteur de fragment</span><span class="tr__desc">Vaincre Godrick, le porteur de fragment.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--argent">Argent</span></span>
+    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <div class="tr__body"><p class="tr__how">Boss d'histoire, au Château de Grantombe (Nécrolimbe). Esquive sa hache tournoyante et son bras de dragon en 2e phase.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
+</details>
+<details class="tr tr--argent is-got is-hidden" data-rar="argent" data-got="1" data-hidden="1" data-miss="0" data-name="radahn, le porteur de fragment" data-date="2024-02-03" data-console="5">
+  <summary class="tr__head">
+    <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Radahn, le porteur de fragment</span><span class="tr__desc">Vaincre Radahn, le porteur de fragment.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--argent">Argent</span></span>
+    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <div class="tr__body"><p class="tr__how">À Caelid, lors du festival de Rougebourg. Utilise les invocations d'esprits disséminées sur l'arène et reste mobile sur Torrent.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
+</details>
+<details class="tr tr--argent is-got is-hidden" data-rar="argent" data-got="1" data-hidden="1" data-miss="0" data-name="morgott, le porteur de fragment" data-date="2024-02-04" data-console="6">
+  <summary class="tr__head">
+    <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Morgott, le porteur de fragment</span><span class="tr__desc">Vaincre Morgott, le porteur de fragment.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--argent">Argent</span></span>
+    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <div class="tr__body"><p class="tr__how">Boss d'histoire, au sommet de Leyndell, la capitale royale.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
+</details>
+<details class="tr tr--argent is-got is-hidden" data-rar="argent" data-got="1" data-hidden="1" data-miss="0" data-name="rykard, le porteur de fragment" data-date="2024-02-05" data-console="7">
+  <summary class="tr__head">
+    <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Rykard, le porteur de fragment</span><span class="tr__desc">Vaincre Rykard, le porteur de fragment.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--argent">Argent</span></span>
+    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <div class="tr__body"><p class="tr__how">Au Manoir du Volcan. Ramasse et utilise le Tueur-de-serpents sur place pour des dégâts massifs.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
+</details>
+<details class="tr tr--argent is-hidden" data-rar="argent" data-got="0" data-hidden="1" data-miss="0" data-name="malenia, la porteuse de fragment" data-date="" data-console="8">
+  <summary class="tr__head">
+    <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Malenia, la porteuse de fragment</span><span class="tr__desc">Vaincre Malenia, la porteuse de fragment.</span></span>
     <span class="tr__tags"><span class="tr__rar tr__rar--argent">Argent</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Boss d'histoire, au Château de Grantombe (Nécrolimbe). Esquive sa hache tournoyante et son bras de dragon en 2e phase.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Godrick, le porteur de fragment</span></div></div>
+  <div class="tr__body"><p class="tr__how">Boss optionnel, tout au fond de l'Arbre-Sacré de Miquella. Le plus dur du jeu : gère sa Danse du fauchage en t'éloignant.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
 </details>
-<details class="tr tr--argent">
+<details class="tr tr--argent is-hidden" data-rar="argent" data-got="0" data-hidden="1" data-miss="0" data-name="mohg, le porteur de fragment" data-date="" data-console="9">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Radahn, le porteur de fragment</span><span class="tr__desc">Vaincre Radahn, le porteur de fragment.</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Mohg, le porteur de fragment</span><span class="tr__desc">Vaincre Mohg, le porteur de fragment.</span></span>
     <span class="tr__tags"><span class="tr__rar tr__rar--argent">Argent</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">À Caelid, lors du festival de Rougebourg. Utilise les invocations d'esprits disséminées sur l'arène et reste mobile sur Torrent.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Radahn, le porteur de fragment</span></div></div>
+  <div class="tr__body"><p class="tr__how">Au Palais sanglant de Mohgwyn. L'amulette Bouclier-écarté-de-pourriture réduit son rituel de sang (Nihil).</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
 </details>
-<details class="tr tr--argent">
+<details class="tr tr--argent is-got is-hidden" data-rar="argent" data-got="1" data-hidden="1" data-miss="0" data-name="maliketh la lame d'ebene" data-date="2024-02-06" data-console="10">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Morgott, le porteur de fragment</span><span class="tr__desc">Vaincre Morgott, le porteur de fragment.</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Maliketh la Lame d'ébène</span><span class="tr__desc">Vaincre Maliketh la Lame d'ébène.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--argent">Argent</span></span>
+    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <div class="tr__body"><p class="tr__how">Boss d'histoire, au Farum Azula ruisselant. Très rapide en 2e phase : colle-toi à lui et esquive vers ses attaques.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
+</details>
+<details class="tr tr--argent is-got is-hidden" data-rar="argent" data-got="1" data-hidden="1" data-miss="0" data-name="hoarah loux le guerrier" data-date="2024-02-07" data-console="11">
+  <summary class="tr__head">
+    <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Hoarah Loux le Guerrier</span><span class="tr__desc">Vaincre Hoarah Loux le Guerrier.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--argent">Argent</span></span>
+    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <div class="tr__body"><p class="tr__how">2e phase de Godefroy, devant l'Arbre-monde. Attention à ses projections au sol.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
+</details>
+<details class="tr tr--argent is-hidden" data-rar="argent" data-got="0" data-hidden="1" data-miss="0" data-name="placidusax, seigneur draconique" data-date="" data-console="12">
+  <summary class="tr__head">
+    <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Placidusax, seigneur draconique</span><span class="tr__desc">Vaincre Placidusax, seigneur draconique.</span></span>
     <span class="tr__tags"><span class="tr__rar tr__rar--argent">Argent</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Boss d'histoire, au sommet de Leyndell, la capitale royale.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Morgott, le porteur de fragment</span></div></div>
+  <div class="tr__body"><p class="tr__how">Boss optionnel au Farum Azula : couche-toi sur le sol au fond de l'arène des deux dragons pour être téléporté.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
 </details>
-<details class="tr tr--argent">
+<details class="tr tr--argent" data-rar="argent" data-got="0" data-hidden="0" data-miss="0" data-name="arme pourfendeuse du divin" data-date="" data-console="13">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Rykard, le porteur de fragment</span><span class="tr__desc">Vaincre Rykard, le porteur de fragment.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--argent">Argent</span></span>
-    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-  </summary>
-  <div class="tr__body"><p class="tr__how">Au Manoir du Volcan. Ramasse et utilise le Tueur-de-serpents sur place pour des dégâts massifs.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Rykard, le porteur de fragment</span></div></div>
-</details>
-<details class="tr tr--argent">
-  <summary class="tr__head">
-    <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Malenia, la porteuse de fragment</span><span class="tr__desc">Vaincre Malenia, la porteuse de fragment.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--argent">Argent</span></span>
-    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-  </summary>
-  <div class="tr__body"><p class="tr__how">Boss optionnel, tout au fond de l'Arbre-Sacré de Miquella. Le plus dur du jeu : gère sa Danse du fauchage en t'éloignant.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Malenia, la porteuse de fragment</span></div></div>
-</details>
-<details class="tr tr--argent">
-  <summary class="tr__head">
-    <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Mohg, le porteur de fragment</span><span class="tr__desc">Vaincre Mohg, le porteur de fragment.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--argent">Argent</span></span>
-    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-  </summary>
-  <div class="tr__body"><p class="tr__how">Au Palais sanglant de Mohgwyn. L'amulette Bouclier-écarté-de-pourriture réduit son rituel de sang (Nihil).</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Mohg, le porteur de fragment</span></div></div>
-</details>
-<details class="tr tr--argent">
-  <summary class="tr__head">
-    <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Maliketh la Lame d'ébène</span><span class="tr__desc">Vaincre Maliketh la Lame d'ébène.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--argent">Argent</span></span>
-    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-  </summary>
-  <div class="tr__body"><p class="tr__how">Boss d'histoire, au Farum Azula ruisselant. Très rapide en 2e phase : colle-toi à lui et esquive vers ses attaques.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Maliketh la Lame d'ébène</span></div></div>
-</details>
-<details class="tr tr--argent">
-  <summary class="tr__head">
-    <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Hoarah Loux le Guerrier</span><span class="tr__desc">Vaincre Hoarah Loux le Guerrier.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--argent">Argent</span></span>
-    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-  </summary>
-  <div class="tr__body"><p class="tr__how">2e phase de Godefroy, devant l'Arbre-monde. Attention à ses projections au sol.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Hoarah Loux le Guerrier</span></div></div>
-</details>
-<details class="tr tr--argent">
-  <summary class="tr__head">
-    <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Placidusax, seigneur draconique</span><span class="tr__desc">Vaincre Placidusax, seigneur draconique.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--argent">Argent</span></span>
-    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-  </summary>
-  <div class="tr__body"><p class="tr__how">Boss optionnel au Farum Azula : couche-toi sur le sol au fond de l'arène des deux dragons pour être téléporté.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Placidusax, seigneur draconique</span></div></div>
-</details>
-<details class="tr tr--argent">
-  <summary class="tr__head">
-    <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Arme pourfendeuse du divin</span><span class="tr__desc">Améliorer une arme au maximum.</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Arme pourfendeuse du divin</span><span class="tr__desc">Améliorer une arme au maximum.</span></span>
     <span class="tr__tags"><span class="tr__rar tr__rar--argent">Argent</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
   <div class="tr__body"><p class="tr__how">Monte une arme à +25 (éclats de forgeron) ou +10 (éclats de forgeron d'Ancestre pour les armes spéciales).</p></div>
 </details>
-<details class="tr tr--argent">
+<details class="tr tr--argent" data-rar="argent" data-got="0" data-hidden="0" data-miss="1" data-name="armes legendaires" data-date="" data-console="14">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Armes légendaires</span><span class="tr__desc">Obtenir toutes les armes légendaires.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--argent">Argent</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Armes légendaires</span><span class="tr__desc">Obtenir toutes les armes légendaires.</span></span>
+    <span class="tr__tags"><span class="tr__rar tr__rar--argent">Argent</span><span class="tr__miss"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg> Manquable</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
   <div class="tr__body"><p class="tr__how">Récupère les 9 armes légendaires (Grande-épée du Fléau-des-astres, Bouclier de l'Aube-des-étoiles, Épée du jour sacrée, etc.).</p></div>
 </details>
-<details class="tr tr--argent">
+<details class="tr tr--argent" data-rar="argent" data-got="0" data-hidden="0" data-miss="0" data-name="esprits legendaires" data-date="" data-console="15">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Esprits légendaires</span><span class="tr__desc">Obtenir tous les esprits légendaires.</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Esprits légendaires</span><span class="tr__desc">Obtenir tous les esprits légendaires.</span></span>
     <span class="tr__tags"><span class="tr__rar tr__rar--argent">Argent</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
   <div class="tr__body"><p class="tr__how">Récupère les 5 cendres d'esprit légendaires (Mimique en larmes, Chevalier noir Tiche, Cendres de Lhutel, etc.).</p></div>
 </details>
-<details class="tr tr--argent">
+<details class="tr tr--argent is-hidden" data-rar="argent" data-got="0" data-hidden="1" data-miss="0" data-name="sorcelleries et incantations legendaires" data-date="" data-console="16">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Sorcelleries et incantations légendaires</span><span class="tr__desc">Obtenir toutes les sorcelleries et incantations légendaires.</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Sorcelleries et incantations légendaires</span><span class="tr__desc">Obtenir toutes les sorcelleries et incantations légendaires.</span></span>
     <span class="tr__tags"><span class="tr__rar tr__rar--argent">Argent</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
   <div class="tr__body"><p class="tr__how">Récupère les 7 sorts/incantations légendaires (Comète Azur, Ranni la Lune noire, Cri de dragon rot, etc.).</p></div>
 </details>
-<details class="tr tr--argent">
+<details class="tr tr--argent is-hidden" data-rar="argent" data-got="0" data-hidden="1" data-miss="0" data-name="talismans legendaires" data-date="" data-console="17">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--argent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Talismans légendaires</span><span class="tr__desc">Obtenir tous les talismans légendaires.</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Talismans légendaires</span><span class="tr__desc">Obtenir tous les talismans légendaires.</span></span>
     <span class="tr__tags"><span class="tr__rar tr__rar--argent">Argent</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
   <div class="tr__body"><p class="tr__how">Récupère les 8 talismans légendaires (Amulette de Radagon, Cicatrice vénérée, Vieux talisman du seigneur, etc.).</p></div>
 </details>
-<details class="tr tr--bronze">
+<details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="rennala, reine de la pleine lune" data-date="2024-02-08" data-console="18">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Rennala, reine de la pleine lune</span><span class="tr__desc">Vaincre Rennala, reine de la pleine lune.</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Rennala, reine de la pleine lune</span><span class="tr__desc">Vaincre Rennala, reine de la pleine lune.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <div class="tr__body"><p class="tr__how">À l'Académie de Raya Lucaria. Casse son sceau en frappant les élèves invoqués avant de l'attaquer en 2e phase.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
+</details>
+<details class="tr tr--bronze is-hidden" data-rar="bronze" data-got="0" data-hidden="1" data-miss="1" data-name="fortissax la liche draconique" data-date="" data-console="19">
+  <summary class="tr__head">
+    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Fortissax la Liche draconique</span><span class="tr__desc">Vaincre Fortissax la Liche draconique.</span></span>
+    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span><span class="tr__miss"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg> Manquable</span></span>
+    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <div class="tr__body"><p class="tr__how">Pendant la quête de Fia (fais-la avancer jusqu'au bout). Résistance à la foudre conseillée.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
+</details>
+<details class="tr tr--bronze is-hidden" data-rar="bronze" data-got="0" data-hidden="1" data-miss="0" data-name="duo sanctechair" data-date="" data-console="20">
+  <summary class="tr__head">
+    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Duo sanctechair</span><span class="tr__desc">Vaincre le Duo sanctechair.</span></span>
     <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">À l'Académie de Raya Lucaria. Casse son sceau en frappant les élèves invoqués avant de l'attaquer en 2e phase.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Rennala, reine de la pleine lune</span></div></div>
+  <div class="tr__body"><p class="tr__how">Au Farum Azula ruisselant. Leur barre de vie est partagée : concentre les dégâts sur l'un puis l'autre.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
 </details>
-<details class="tr tr--bronze">
+<details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="geant de feu" data-date="2024-02-09" data-console="21">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Fortissax la Liche draconique</span><span class="tr__desc">Vaincre Fortissax la Liche draconique.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span> <span class="tr__miss"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg> Manquable</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Géant de feu</span><span class="tr__desc">Vaincre le Géant de feu.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Pendant la quête de Fia (fais-la avancer jusqu'au bout). Résistance à la foudre conseillée.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Fortissax la Liche draconique</span></div></div>
+  <div class="tr__body"><p class="tr__how">Boss d'histoire au Sommet-des-géants. Vise d'abord sa cheville blessée, puis son œil en 2e phase.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
 </details>
-<details class="tr tr--bronze">
+<details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="soldat draconide de nokstella" data-date="2024-02-10" data-console="22">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Duo sanctechair</span><span class="tr__desc">Vaincre le Duo sanctechair.</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Soldat draconide de Nokstella</span><span class="tr__desc">Vaincre le Soldat draconide de Nokstella.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <div class="tr__body"><p class="tr__how">Dans la cité éternelle de Nokstella (Terres-souterraines). Sensible aux dégâts de foudre.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
+</details>
+<details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="esprit ancestral royal" data-date="2024-02-11" data-console="23">
+  <summary class="tr__head">
+    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Esprit ancestral royal</span><span class="tr__desc">Vaincre l'Esprit ancestral royal.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <div class="tr__body"><p class="tr__how">Au fond du Bois-sans-astre (Terres-souterraines), après avoir allumé les torches.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
+</details>
+<details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="gargouilles vaillantes" data-date="2024-02-12" data-console="24">
+  <summary class="tr__head">
+    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Gargouilles vaillantes</span><span class="tr__desc">Vaincre les Gargouilles vaillantes.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <div class="tr__body"><p class="tr__how">Au fond de la Rivière Siofra. Deux gargouilles : la seconde arrive vite, gère le poison de leurs armes.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
+</details>
+<details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="margit le dechu" data-date="2024-02-13" data-console="25">
+  <summary class="tr__head">
+    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Margit le Déchu</span><span class="tr__desc">Vaincre Margit le Déchu.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <div class="tr__body"><p class="tr__how">À l'entrée du Château de Grantombe. La Pomme d'écharde enrayante annule ses armes d'énergie dorée.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
+</details>
+<details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="loup cramoisi de radagon" data-date="2024-02-14" data-console="26">
+  <summary class="tr__head">
+    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Loup cramoisi de Radagon</span><span class="tr__desc">Vaincre le Loup cramoisi de Radagon.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <div class="tr__body"><p class="tr__how">À l'Académie de Raya Lucaria, juste avant Rennala.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
+</details>
+<details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="noble sanctechair" data-date="2024-02-15" data-console="27">
+  <summary class="tr__head">
+    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Noble sanctechair</span><span class="tr__desc">Vaincre le Noble sanctechair.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <div class="tr__body"><p class="tr__how">Au Manoir d'Aurélin (Liurnia). Reste proche pour éviter ses roulades et son gonflement.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
+</details>
+<details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="makar le dragon du magma" data-date="2024-02-16" data-console="28">
+  <summary class="tr__head">
+    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Makar le Dragon du magma</span><span class="tr__desc">Vaincre Makar le Dragon du magma.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <div class="tr__body"><p class="tr__how">Dans la grotte de la Rivière Ruine-du-récif (accès vers le mont Géol).</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
+</details>
+<details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="godfrey, premier seigneur d'elden" data-date="2024-02-17" data-console="29">
+  <summary class="tr__head">
+    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Godfrey, premier Seigneur d'Elden</span><span class="tr__desc">Vaincre Godfrey, premier Seigneur d'Elden.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <div class="tr__body"><p class="tr__how">Ombre dorée à Leyndell (1re phase, avant Hoarah Loux).</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
+</details>
+<details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="mohg le reprouve" data-date="2024-02-18" data-console="30">
+  <summary class="tr__head">
+    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Mohg le Réprouvé</span><span class="tr__desc">Vaincre Mohg le Réprouvé.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <div class="tr__body"><p class="tr__how">Dans les égouts souterrains sous Leyndell. À ne pas confondre avec Mohg, porteur de fragment.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
+</details>
+<details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="larme imitatrice" data-date="2024-02-19" data-console="31">
+  <summary class="tr__head">
+    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Larme imitatrice</span><span class="tr__desc">Vaincre la Larme imitatrice.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <div class="tr__body"><p class="tr__how">Dans les Terres-souterraines (Nokron). Elle copie ton équipement : déséquipe tes armes avant de déclencher le combat pour l'affaiblir.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
+</details>
+<details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="loretta, chevaleresse de l'arbre-sacre" data-date="2024-02-20" data-console="32">
+  <summary class="tr__head">
+    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Loretta, chevaleresse de l'Arbre-Sacré</span><span class="tr__desc">Vaincre Loretta, chevaleresse de l'Arbre-Sacré.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </summary>
+  <div class="tr__body"><p class="tr__how">À l'Arbre-Sacré de Miquella (avant Malenia).</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
+</details>
+<details class="tr tr--bronze is-hidden" data-rar="bronze" data-got="0" data-hidden="1" data-miss="0" data-name="astel le rejeton du vide" data-date="" data-console="33">
+  <summary class="tr__head">
+    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Astel le Rejeton du vide</span><span class="tr__desc">Vaincre Astel le Rejeton du vide.</span></span>
     <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Au Farum Azula ruisselant. Leur barre de vie est partagée : concentre les dégâts sur l'un puis l'autre.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Duo sanctechair</span></div></div>
+  <div class="tr__body"><p class="tr__how">Au bout de la quête de Ranni, au Lac-aux-cendres (Terres-souterraines).</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
 </details>
-<details class="tr tr--bronze">
+<details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="chimere leonine" data-date="2024-02-21" data-console="34">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Géant de feu</span><span class="tr__desc">Vaincre le Géant de feu.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Chimère léonine</span><span class="tr__desc">Vaincre la Chimère léonine.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Boss d'histoire au Sommet-des-géants. Vise d'abord sa cheville blessée, puis son œil en 2e phase.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Géant de feu</span></div></div>
+  <div class="tr__body"><p class="tr__how">Au Château Morne (péninsule des Pleurs), tout en haut.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
 </details>
-<details class="tr tr--bronze">
+<details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="loretta, chevaleresse royale" data-date="2024-02-22" data-console="35">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Soldat draconide de Nokstella</span><span class="tr__desc">Vaincre le Soldat draconide de Nokstella.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Loretta, chevaleresse royale</span><span class="tr__desc">Vaincre Loretta, chevaleresse royale.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Dans la cité éternelle de Nokstella (Terres-souterraines). Sensible aux dégâts de foudre.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Soldat draconide de Nokstella</span></div></div>
+  <div class="tr__body"><p class="tr__how">Au cœur du Manoir Caria (Liurnia).</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
 </details>
-<details class="tr tr--bronze">
+<details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="elemer du roncier" data-date="2024-02-23" data-console="36">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Esprit ancestral royal</span><span class="tr__desc">Vaincre l'Esprit ancestral royal.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Elemer du Roncier</span><span class="tr__desc">Vaincre Elemer du Roncier.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Au fond du Bois-sans-astre (Terres-souterraines), après avoir allumé les torches.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Esprit ancestral royal</span></div></div>
+  <div class="tr__body"><p class="tr__how">Au Toit-de-fer-noir (Terres-des-caroncules) : donne la Maliketh d'épée-marteau.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
 </details>
-<details class="tr tr--bronze">
+<details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="esprit ancestral" data-date="2024-02-24" data-console="37">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Gargouilles vaillantes</span><span class="tr__desc">Vaincre les Gargouilles vaillantes.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Esprit ancestral</span><span class="tr__desc">Vaincre l'Esprit ancestral.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Au fond de la Rivière Siofra. Deux gargouilles : la seconde arrive vite, gère le poison de leurs armes.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Gargouilles vaillantes</span></div></div>
+  <div class="tr__body"><p class="tr__how">Dans la Rivière Siofra : allume les huit torches pour l'invoquer.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
 </details>
-<details class="tr tr--bronze">
+<details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="commandant niall" data-date="2024-02-25" data-console="38">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Margit le Déchu</span><span class="tr__desc">Vaincre Margit le Déchu.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Commandant Niall</span><span class="tr__desc">Vaincre le Commandant Niall.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">À l'entrée du Château de Grantombe. La Pomme d'écharde enrayante annule ses armes d'énergie dorée.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Margit le Déchu</span></div></div>
+  <div class="tr__body"><p class="tr__how">Au Château de Sol (Sommet-des-géants). Élimine d'abord ses deux chevaliers invoqués.</p><a class="tr__vid" href="#" onclick="return false;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Voir la vidéo</a></div>
 </details>
-<details class="tr tr--bronze">
+<details class="tr tr--bronze is-got" data-rar="bronze" data-got="1" data-hidden="0" data-miss="0" data-name="bastion de la table ronde" data-date="2024-02-26" data-console="39">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Loup cramoisi de Radagon</span><span class="tr__desc">Vaincre le Loup cramoisi de Radagon.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
-    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-  </summary>
-  <div class="tr__body"><p class="tr__how">À l'Académie de Raya Lucaria, juste avant Rennala.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Loup cramoisi de Radagon</span></div></div>
-</details>
-<details class="tr tr--bronze">
-  <summary class="tr__head">
-    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Noble sanctechair</span><span class="tr__desc">Vaincre le Noble sanctechair.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
-    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-  </summary>
-  <div class="tr__body"><p class="tr__how">Au Manoir d'Aurélin (Liurnia). Reste proche pour éviter ses roulades et son gonflement.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Noble sanctechair</span></div></div>
-</details>
-<details class="tr tr--bronze">
-  <summary class="tr__head">
-    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Makar le Dragon du magma</span><span class="tr__desc">Vaincre Makar le Dragon du magma.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
-    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-  </summary>
-  <div class="tr__body"><p class="tr__how">Dans la grotte de la Rivière Ruine-du-récif (accès vers le mont Géol).</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Makar le Dragon du magma</span></div></div>
-</details>
-<details class="tr tr--bronze">
-  <summary class="tr__head">
-    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Godfrey, premier Seigneur d'Elden</span><span class="tr__desc">Vaincre Godfrey, premier Seigneur d'Elden.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
-    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-  </summary>
-  <div class="tr__body"><p class="tr__how">Ombre dorée à Leyndell (1re phase, avant Hoarah Loux).</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Godfrey, premier Seigneur d'Elden</span></div></div>
-</details>
-<details class="tr tr--bronze">
-  <summary class="tr__head">
-    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Mohg le Réprouvé</span><span class="tr__desc">Vaincre Mohg le Réprouvé.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
-    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-  </summary>
-  <div class="tr__body"><p class="tr__how">Dans les égouts souterrains sous Leyndell. À ne pas confondre avec Mohg, porteur de fragment.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Mohg le Réprouvé</span></div></div>
-</details>
-<details class="tr tr--bronze">
-  <summary class="tr__head">
-    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Larme imitatrice</span><span class="tr__desc">Vaincre la Larme imitatrice.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
-    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-  </summary>
-  <div class="tr__body"><p class="tr__how">Dans les Terres-souterraines (Nokron). Elle copie ton équipement : déséquipe tes armes avant de déclencher le combat pour l'affaiblir.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Larme imitatrice</span></div></div>
-</details>
-<details class="tr tr--bronze">
-  <summary class="tr__head">
-    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Loretta, chevaleresse de l'Arbre-Sacré</span><span class="tr__desc">Vaincre Loretta, chevaleresse de l'Arbre-Sacré.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
-    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-  </summary>
-  <div class="tr__body"><p class="tr__how">À l'Arbre-Sacré de Miquella (avant Malenia).</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Loretta, chevaleresse de l'Arbre-Sacré</span></div></div>
-</details>
-<details class="tr tr--bronze">
-  <summary class="tr__head">
-    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Astel le Rejeton du vide</span><span class="tr__desc">Vaincre Astel le Rejeton du vide.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
-    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-  </summary>
-  <div class="tr__body"><p class="tr__how">Au bout de la quête de Ranni, au Lac-aux-cendres (Terres-souterraines).</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Astel le Rejeton du vide</span></div></div>
-</details>
-<details class="tr tr--bronze">
-  <summary class="tr__head">
-    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Chimère léonine</span><span class="tr__desc">Vaincre la Chimère léonine.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
-    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-  </summary>
-  <div class="tr__body"><p class="tr__how">Au Château Morne (péninsule des Pleurs), tout en haut.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Chimère léonine</span></div></div>
-</details>
-<details class="tr tr--bronze">
-  <summary class="tr__head">
-    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Loretta, chevaleresse royale</span><span class="tr__desc">Vaincre Loretta, chevaleresse royale.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
-    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-  </summary>
-  <div class="tr__body"><p class="tr__how">Au cœur du Manoir Caria (Liurnia).</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Loretta, chevaleresse royale</span></div></div>
-</details>
-<details class="tr tr--bronze">
-  <summary class="tr__head">
-    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Elemer du Roncier</span><span class="tr__desc">Vaincre Elemer du Roncier.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
-    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-  </summary>
-  <div class="tr__body"><p class="tr__how">Au Toit-de-fer-noir (Terres-des-caroncules) : donne la Maliketh d'épée-marteau.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Elemer du Roncier</span></div></div>
-</details>
-<details class="tr tr--bronze">
-  <summary class="tr__head">
-    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Esprit ancestral</span><span class="tr__desc">Vaincre l'Esprit ancestral.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
-    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-  </summary>
-  <div class="tr__body"><p class="tr__how">Dans la Rivière Siofra : allume les huit torches pour l'invoquer.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Esprit ancestral</span></div></div>
-</details>
-<details class="tr tr--bronze">
-  <summary class="tr__head">
-    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Commandant Niall</span><span class="tr__desc">Vaincre le Commandant Niall.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
-    <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-  </summary>
-  <div class="tr__body"><p class="tr__how">Au Château de Sol (Sommet-des-géants). Élimine d'abord ses deux chevaliers invoqués.</p><div class="tr__video"><span class="tr__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="tr__vlbl">Voir la vidéo — Commandant Niall</span></div></div>
-</details>
-<details class="tr tr--bronze">
-  <summary class="tr__head">
-    <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Bastion de la Table ronde</span><span class="tr__desc">Atteindre le Bastion de la Table ronde.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Bastion de la Table ronde</span><span class="tr__desc">Atteindre le Bastion de la Table ronde.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
   <div class="tr__body"><p class="tr__how">Repose-toi à quelques Sites de grâce après le début du jeu : Melina t'y téléporte automatiquement.</p></div>
 </details>
-<details class="tr tr--bronze">
+<details class="tr tr--bronze is-got" data-rar="bronze" data-got="1" data-hidden="0" data-miss="0" data-name="rune majeure" data-date="2024-02-27" data-console="40">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Rune majeure</span><span class="tr__desc">Restaurer le pouvoir d'une rune majeure.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Rune majeure</span><span class="tr__desc">Restaurer le pouvoir d'une rune majeure.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
   <div class="tr__body"><p class="tr__how">Bats un porteur de fragment, puis active sa Grande Rune au sommet d'une Tour de division.</p></div>
 </details>
-<details class="tr tr--bronze">
+<details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="embraser l'arbre-monde" data-date="2024-02-28" data-console="41">
   <summary class="tr__head">
     <span class="tr__ico tr__ico--bronze"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
-    <span class="tr__main"><span class="tr__name">Embraser l'Arbre-Monde</span><span class="tr__desc">Trouver un moyen pour embraser l'Arbre-Monde.</span></span>
-    <span class="tr__tags"><span class="tr__rar tr__rar--bronze">Bronze</span></span>
+    <span class="tr__main"><span class="tr__mask">Trophée masqué</span><span class="tr__name">Embraser l'Arbre-Monde</span><span class="tr__desc">Trouver un moyen pour embraser l'Arbre-Monde.</span></span>
+    <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
   <div class="tr__body"><p class="tr__how">Utilise du petit-bois après avoir atteint le parvis de Leyndell en cendres, en fin d'aventure.</p></div>
 </details>
         </div>
       </article>
+
+
+      <aside class="gside">
+        <div class="icard">
+          <p class="icard__h">Ta progression</p>
+          <div class="only-auth">
+            <div class="tprog"><div class="tprog__bar"><div class="tprog__fill" style="width:64%"></div></div><span class="tprog__pct">64%</span></div>
+            <div style="font-size:13px; color:var(--ink-500);"><b id="tgot">27</b> / <span id="ttot">42</span> obtenus</div>
+          </div>
+          <div class="only-guest" style="font-size:13px; color:var(--ink-500);"><a href="connexion.html" style="color:var(--magenta); font-weight:700;">Connecte-toi</a> pour synchroniser ta progression.</div>
+        </div>
+        <div class="icard">
+          <p class="icard__h">En bref</p>
+          <div class="irow"><span class="irow__k">Trophées</span><span class="irow__v">42</span></div>
+          <div class="irow"><span class="irow__k">Online</span><span class="irow__v">0</span></div>
+          <div class="irow"><span class="irow__k">Cachés</span><span class="irow__v">36</span></div>
+          <div class="irow"><span class="irow__k">Manquables</span><span class="irow__v">Oui (4)</span></div>
+          <div class="irow"><span class="irow__k">Difficulté</span><span class="irow__v">Moyenne</span></div>
+          <div class="irow"><span class="irow__k">Temps estimé</span><span class="irow__v">~90 h</span></div>
+          <div class="irow"><span class="irow__k">Parties</span><span class="irow__v">1 ou 3</span></div>
+        </div>
+        </aside>
+    </div>
+    <div class="wrap">
       <section class="rnext">
-        <h2 class="rnext__t">À lire ensuite</h2>
+        <h2 class="rnext__t">D’autres platines</h2>
         <div class="disc-list">
           <a class="rn" href="trophee.html">
             <span class="rn__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg></span>
@@ -1781,26 +1853,6 @@ body:not(.is-auth) .tro__chk{display:none;}
           </a>
         </div>
       </section>
-
-
-      <aside class="gside">
-        <div class="icard">
-          <p class="icard__h">Ta progression</p>
-          <div class="only-auth">
-            <div class="tprog"><div class="tprog__bar"><div class="tprog__fill" style="width:64%"></div></div><span class="tprog__pct">64%</span></div>
-            <div style="font-size:13px; color:var(--ink-500);"><b>27</b> / 42 obtenus</div>
-          </div>
-          <div class="only-guest" style="font-size:13px; color:var(--ink-500);"><a href="connexion.html" style="color:var(--magenta); font-weight:700;">Connecte-toi</a> pour synchroniser ta progression.</div>
-        </div>
-        <div class="icard">
-          <p class="icard__h">Infos platine</p>
-          <div class="irow"><span class="irow__k">Trophées</span><span class="irow__v">42</span></div>
-          <div class="irow"><span class="irow__k">Difficulté</span><span class="irow__v">Moyenne</span></div>
-          <div class="irow"><span class="irow__k">Temps estimé</span><span class="irow__v">~90 h</span></div>
-          <div class="irow"><span class="irow__k">Parties</span><span class="irow__v">1 ou 3</span></div>
-          <div class="irow"><span class="irow__k">Manquables</span><span class="irow__v">Oui (3)</span></div>
-        </div>
-        </aside>
     </div>
   </div>
 </main>
@@ -2318,5 +2370,41 @@ body:not(.is-auth) .tro__chk{display:none;}
   })();
 
 </script>
+
+<script>
+(function(){
+  var list=document.getElementById('trList'); if(!list) return;
+  var items=Array.prototype.slice.call(list.querySelectorAll('.tr'));
+  var RAR={platine:0,or:1,argent:2,bronze:3};
+  // progression calculée
+  var got=list.querySelectorAll('.tr[data-got="1"]').length, total=items.length, pct=Math.round(got/total*100);
+  var fill=document.querySelector('.tprog__fill'); if(fill) fill.style.width=pct+'%';
+  var pctEl=document.querySelector('.tprog__pct'); if(pctEl) pctEl.textContent=pct+'%';
+  var g=document.getElementById('tgot'); if(g) g.textContent=got;
+  var tt=document.getElementById('ttot'); if(tt) tt.textContent=total;
+  // option date si connecté
+  var order=document.getElementById('trOrder');
+  if(document.body.classList.contains('is-auth') && order){ var o=document.createElement('option'); o.value='date'; o.textContent="Date d'obtention"; order.appendChild(o); }
+  function sortBy(mode){
+    var arr=items.slice();
+    arr.sort(function(a,b){
+      if(mode==='rarete'){ var r=RAR[a.dataset.rar]-RAR[b.dataset.rar]; return r|| (+a.dataset.console - +b.dataset.console); }
+      if(mode==='alpha') return a.dataset.name<b.dataset.name?-1:(a.dataset.name>b.dataset.name?1:0);
+      if(mode==='date'){ var da=a.dataset.date||'9999', db=b.dataset.date||'9999'; if(da===db) return +a.dataset.console - +b.dataset.console; return da<db?-1:1; }
+      return +a.dataset.console - +b.dataset.console;
+    });
+    arr.forEach(function(el){ list.appendChild(el); });
+  }
+  if(order) order.addEventListener('change', function(){ sortBy(this.value); });
+  // filtres (connecté)
+  var tf='all';
+  function applyFilter(){ items.forEach(function(el){ var show=true; if(tf==='got') show=el.dataset.got==='1'; else if(tf==='miss') show=el.dataset.got==='0'; el.style.display=show?'':'none'; }); }
+  Array.prototype.forEach.call(document.querySelectorAll('.trfilter__btn'), function(bt){ bt.addEventListener('click', function(){ document.querySelectorAll('.trfilter__btn').forEach(function(x){x.classList.remove('active');}); bt.classList.add('active'); tf=bt.getAttribute('data-tf'); applyFilter(); }); });
+  // anti-spoiler
+  var reveal=document.getElementById('trReveal');
+  if(reveal) reveal.addEventListener('click', function(){ list.classList.add('revealed'); reveal.style.display='none'; });
+})();
+</script>
+
 </body>
 </html>
