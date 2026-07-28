@@ -1737,11 +1737,11 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   function getFavs(){ try{ return JSON.parse(localStorage.getItem(favKey())||'[]'); }catch(e){ return []; } }
   function setFavs(a){ try{ localStorage.setItem(favKey(), JSON.stringify(a)); }catch(e){} }
   function syncFav(id,on){ document.querySelectorAll('.fav[data-fav-id="'+id+'"]').forEach(function(x){ x.classList.toggle('on',on); }); }
-  function hasStored(){ try{ return localStorage.getItem(favKey())!==null; }catch(e){ return false; } }
   function applyFavState(){
-    var favs = state.auth ? (hasStored() ? getFavs() : ['t-er','t-bg3']) : [];
-    if(state.auth){ setFavs(favs); }
     document.querySelectorAll('.fav').forEach(function(x){ x.classList.remove('on'); });
+    if(!state.auth) return;
+    var favs = getFavs();
+    if(!favs || !favs.length){ favs = ['t-er','t-bg3']; setFavs(favs); }
     favs.forEach(function(id){ syncFav(id,true); });
   }
   applyFavState();
