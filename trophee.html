@@ -1230,7 +1230,25 @@ body:not(.is-auth) .tro__chk{display:none;}
     .tag--difficile{background:#fdecec; color:#b23b3b;}
 
     .trlist:not(.revealed) .tr.is-hidden > .tr__head{pointer-events:none; cursor:default;}
-    </style>
+    
+    .tr__shots{display:grid; grid-template-columns:minmax(0,1fr); gap:10px; margin-top:12px; min-width:0;}
+    .tr__shots--two{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .tr__shot{aspect-ratio:16/10; min-width:0; margin:0; border-radius:10px; background:linear-gradient(135deg,var(--surface-2),var(--surface-3)); border:1px solid var(--line); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:7px; color:var(--ink-400); text-align:center; padding:10px;}
+    .tr__shot svg{width:24px; height:24px; opacity:.7;}
+    .tr__shot figcaption{font-size:11px; font-weight:600; line-height:1.3;}
+    @media (max-width:600px){
+      .tr__head{gap:9px; padding:10px 12px;}
+      .tr__ico{width:30px; height:30px;}
+      .tr__name{font-size:13.5px; line-height:1.25;}
+      .tr__desc{font-size:12px; line-height:1.35;}
+      .tr__rar{font-size:9px; padding:3px 6px; letter-spacing:.02em;}
+      .tr__got, .tr__miss{font-size:0; padding:5px; gap:0; letter-spacing:0;}
+      .tr__got svg, .tr__miss svg{width:12px; height:12px;}
+      .tr__tags{gap:4px;}
+      .tr__body{padding:2px 14px 14px 14px;}
+      .tr__shots--two{grid-template-columns:repeat(2,minmax(0,1fr));}
+    }
+</style>
 </head>
 <body>
 
@@ -1453,7 +1471,7 @@ body:not(.is-auth) .tro__chk{display:none;}
     <span class="tr__tags"><span class="tr__rar tr__rar--platine">Platine</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Le platine se débloque tout seul une fois les 41 autres trophées obtenus : il faut donc vaincre les grands boss de l'histoire et réunir les collections d'objets légendaires.</p></div>
+  <div class="tr__body"><p class="tr__how">Le platine se débloque tout seul une fois les 41 autres trophées obtenus : il faut donc vaincre les grands boss de l'histoire et réunir les collections d'objets légendaires.</p><div class="tr__shots"><figure class="tr__shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><figcaption>Le platine dans la liste des trophées</figcaption></figure></div></div>
 </details>
 <details class="tr tr--or is-hidden" data-rar="or" data-got="0" data-hidden="1" data-miss="0" data-name="seigneur d'elden" data-date="" data-console="1">
   <summary class="tr__head">
@@ -1570,7 +1588,7 @@ body:not(.is-auth) .tro__chk{display:none;}
     <span class="tr__tags"><span class="tr__rar tr__rar--argent">Argent</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Améliore une arme au maximum : +25 avec des pierres de forge, ou +10 avec des pierres de forge sombres pour une arme spéciale.</p></div>
+  <div class="tr__body"><p class="tr__how">Améliore une arme au maximum : +25 avec des pierres de forge, ou +10 avec des pierres de forge sombres pour une arme spéciale.</p><div class="tr__shots"><figure class="tr__shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><figcaption>Une arme améliorée au niveau maximal</figcaption></figure></div></div>
 </details>
 <details class="tr tr--argent" data-rar="argent" data-got="0" data-hidden="0" data-miss="1" data-name="armes legendaires" data-date="" data-console="14">
   <summary class="tr__head">
@@ -1579,7 +1597,7 @@ body:not(.is-auth) .tro__chk{display:none;}
     <span class="tr__tags"><span class="tr__miss"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg> Manquable</span><span class="tr__rar tr__rar--argent">Argent</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Réunis les 9 armes légendaires disséminées dans l'Entre-Terre.</p></div>
+  <div class="tr__body"><p class="tr__how">Réunis les 9 armes légendaires disséminées dans l'Entre-Terre.</p><div class="tr__shots tr__shots--two"><figure class="tr__shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><figcaption>Emplacements sur la carte</figcaption></figure><figure class="tr__shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><figcaption>Aperçu des 9 armes légendaires</figcaption></figure></div></div>
 </details>
 <details class="tr tr--argent" data-rar="argent" data-got="0" data-hidden="0" data-miss="0" data-name="esprits legendaires" data-date="" data-console="15">
   <summary class="tr__head">
@@ -1588,7 +1606,7 @@ body:not(.is-auth) .tro__chk{display:none;}
     <span class="tr__tags"><span class="tr__rar tr__rar--argent">Argent</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Réunis les 5 cendres d'esprit légendaires disséminées dans l'Entre-Terre.</p></div>
+  <div class="tr__body"><p class="tr__how">Réunis les 5 cendres d'esprit légendaires disséminées dans l'Entre-Terre.</p><div class="tr__shots tr__shots--two"><figure class="tr__shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><figcaption>Emplacements sur la carte</figcaption></figure><figure class="tr__shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><figcaption>Aperçu des cendres d'esprit</figcaption></figure></div></div>
 </details>
 <details class="tr tr--argent is-hidden" data-rar="argent" data-got="0" data-hidden="1" data-miss="0" data-name="sorcelleries et incantations legendaires" data-date="" data-console="16">
   <summary class="tr__head">
@@ -1597,7 +1615,7 @@ body:not(.is-auth) .tro__chk{display:none;}
     <span class="tr__tags"><span class="tr__rar tr__rar--argent">Argent</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Réunis les 7 sorcelleries et incantations légendaires disséminées dans l'Entre-Terre.</p></div>
+  <div class="tr__body"><p class="tr__how">Réunis les 7 sorcelleries et incantations légendaires disséminées dans l'Entre-Terre.</p><div class="tr__shots tr__shots--two"><figure class="tr__shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><figcaption>Emplacements sur la carte</figcaption></figure><figure class="tr__shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><figcaption>Aperçu des sorts légendaires</figcaption></figure></div></div>
 </details>
 <details class="tr tr--argent is-hidden" data-rar="argent" data-got="0" data-hidden="1" data-miss="0" data-name="talismans legendaires" data-date="" data-console="17">
   <summary class="tr__head">
@@ -1606,7 +1624,7 @@ body:not(.is-auth) .tro__chk{display:none;}
     <span class="tr__tags"><span class="tr__rar tr__rar--argent">Argent</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Réunis les 8 talismans légendaires répartis dans l'Entre-Terre.</p></div>
+  <div class="tr__body"><p class="tr__how">Réunis les 8 talismans légendaires répartis dans l'Entre-Terre.</p><div class="tr__shots tr__shots--two"><figure class="tr__shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><figcaption>Emplacements sur la carte</figcaption></figure><figure class="tr__shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><figcaption>Aperçu des talismans légendaires</figcaption></figure></div></div>
 </details>
 <details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="rennala, reine de la pleine lune" data-date="2024-02-07" data-console="18">
   <summary class="tr__head">
@@ -1804,7 +1822,7 @@ body:not(.is-auth) .tro__chk{display:none;}
     <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Après quelques repos à des sites de grâce en début d'aventure, Melina te propose de t'y emmener : accepte pour débloquer ce hub où se réunissent les PNJ.</p></div>
+  <div class="tr__body"><p class="tr__how">Après quelques repos à des sites de grâce en début d'aventure, Melina te propose de t'y emmener : accepte pour débloquer ce hub où se réunissent les PNJ.</p><div class="tr__shots"><figure class="tr__shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><figcaption>Le Bastion de la Table ronde</figcaption></figure></div></div>
 </details>
 <details class="tr tr--bronze is-got" data-rar="bronze" data-got="1" data-hidden="0" data-miss="0" data-name="rune majeure" data-date="2024-02-04" data-console="40">
   <summary class="tr__head">
@@ -1813,7 +1831,7 @@ body:not(.is-auth) .tro__chk{display:none;}
     <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Bats un porteur de fragment pour récupérer sa Grande Rune, puis va l'activer au sommet de la Tour divine correspondante pour profiter de son bonus.</p></div>
+  <div class="tr__body"><p class="tr__how">Bats un porteur de fragment pour récupérer sa Grande Rune, puis va l'activer au sommet de la Tour divine correspondante pour profiter de son bonus.</p><div class="tr__shots"><figure class="tr__shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><figcaption>Activation d'une Grande Rune à la Tour divine</figcaption></figure></div></div>
 </details>
 <details class="tr tr--bronze is-got is-hidden" data-rar="bronze" data-got="1" data-hidden="1" data-miss="0" data-name="embraser l'arbre-monde" data-date="2024-03-02" data-console="41">
   <summary class="tr__head">
@@ -1822,7 +1840,7 @@ body:not(.is-auth) .tro__chk{display:none;}
     <span class="tr__tags"><span class="tr__got only-auth"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Obtenu</span><span class="tr__rar tr__rar--bronze">Bronze</span></span>
     <svg class="tr__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
   </summary>
-  <div class="tr__body"><p class="tr__how">Tout en fin de partie, une fois Leyndell réduite en cendres, embrase l'Arbre-Monde pour ouvrir la voie finale.</p></div>
+  <div class="tr__body"><p class="tr__how">Tout en fin de partie, une fois Leyndell réduite en cendres, embrase l'Arbre-Monde pour ouvrir la voie finale.</p><div class="tr__shots"><figure class="tr__shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><figcaption>L'Arbre-Monde embrasé</figcaption></figure></div></div>
 </details>
         </div>
       </article>
