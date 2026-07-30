@@ -1100,8 +1100,8 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 
     .gfilters{flex:1 1 100%; display:flex; flex-wrap:wrap; align-items:center; column-gap:10px; row-gap:12px;}
     .gfilters .gdrop[data-drop="game"]{flex:1 1 100%;}
-    .gfilters .gdrop[data-drop="type"]{flex:0 1 auto;}
-    .gfilters .gdrop[data-drop="diff"]{flex:1 1 100%;}
+    .gfilters .gdrop[data-drop="type"]{flex:1 1 100%;}
+    .gfilters .gdrop[data-drop="diff"]{flex:0 1 auto;}
     .gfilters .catsort{margin-left:auto; align-self:auto;}
     .gdrop{position:relative;}
     .gdrop__btn{display:none;}
@@ -1343,7 +1343,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
         <button class="fchip" type="button" data-chip="s" data-bar="type">Tier S</button>
         <button class="fchip" type="button" data-chip="a" data-bar="type">Tier A</button>
         <button class="fchip" type="button" data-chip="b" data-bar="type">Tier B</button>
-        </div></div><select class="catsort" id="lsort" aria-label="Trier"><option value="recent">Plus récents</option><option value="consult">Les plus consultés</option><option value="az">A → Z</option></select><div class="gdrop" data-drop="diff"><button class="gdrop__btn" type="button"><span class="gdrop__lbl">Toutes difficultés</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></button><div class="chipbar chipbar--diff" role="group" aria-label="Filtrer par difficulté"><button class="fchip is-on" type="button" data-chip="all" data-bar="diff">Toutes difficultés</button><button class="fchip" type="button" data-chip="facile" data-bar="diff">Facile</button><button class="fchip" type="button" data-chip="moyen" data-bar="diff">Moyen</button><button class="fchip" type="button" data-chip="expert" data-bar="diff">Expert</button></div></div>
+        </div></div><div class="gdrop" data-drop="diff"><button class="gdrop__btn" type="button"><span class="gdrop__lbl">Toutes difficultés</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></button><div class="chipbar chipbar--diff" role="group" aria-label="Filtrer par difficulté"><button class="fchip is-on" type="button" data-chip="all" data-bar="diff">Toutes difficultés</button><button class="fchip" type="button" data-chip="facile" data-bar="diff">Facile</button><button class="fchip" type="button" data-chip="moyen" data-bar="diff">Moyen</button><button class="fchip" type="button" data-chip="expert" data-bar="diff">Expert</button></div></div><select class="catsort" id="lsort" aria-label="Trier"><option value="recent">Plus récents</option><option value="consult">Les plus consultés</option><option value="az">A → Z</option></select>
       </div></div>
       <div class="lrow" style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom:14px;"><div class="lcount" id="lcount"></div><div class="scope only-auth" data-scope-target="builds-scope"><button class="scope__btn active" data-scope="tous">Tout</button><button class="scope__btn" data-scope="suivis">Mes jeux</button><button class="scope__btn" data-scope="favoris">Favoris</button></div></div>
       <div class="guides" data-list="builds" data-noun="build" id="buildList">
