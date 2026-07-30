@@ -1332,6 +1332,7 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
         <button class="catchip" data-f="pc">PC</button>
         </div></div>
         <select class="catsort" id="catSort" aria-label="Trier">
+          <option value="recent">Plus récents</option>
           <option value="pop">Les plus consultés</option>
           <option value="az">A → Z</option>
         </select>
@@ -1840,6 +1841,7 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
 (function(){
   var grid=document.getElementById('catGrid'); if(!grid)return;
   var cards=[].slice.call(grid.querySelectorAll('.gcard'));
+  var origOrder=cards.slice();
   var search=document.getElementById('catSearch'),sort=document.getElementById('catSort'),empty=document.getElementById('catEmpty');
   var chips=[].slice.call(document.querySelectorAll('#catChips .catchip'));
   var state={filters:['tous'],q:'',scope:'tous'};
@@ -1858,10 +1860,11 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
   }
   function doSort(){
     var v=sort.value;
-    cards.sort(function(a,b){
+    if(v==='recent'){ cards=origOrder.slice(); }
+    else { cards.sort(function(a,b){
       if(v==='az')return a.getAttribute('data-name').localeCompare(b.getAttribute('data-name'),'fr');
       return (+b.getAttribute('data-guides'))-(+a.getAttribute('data-guides'));
-    });
+    }); }
     cards.forEach(function(c){grid.appendChild(c);});
   }
   chips.forEach(function(ch){ch.addEventListener('click',function(){
