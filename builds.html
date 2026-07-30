@@ -931,7 +931,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .catchip{font-size:13px; font-weight:700; color:var(--ink-500); background:var(--surface-2); border:1.5px solid var(--line-2); border-radius:var(--r-pill); padding:8px 14px; cursor:pointer; transition:all .14s;}
 .catchip:hover{border-color:var(--magenta); color:var(--magenta);}
 .catchip.active{background:var(--magenta); border-color:var(--magenta); color:#fff;}
-.catsort{font-family:var(--sans); font-size:13.5px; font-weight:700; color:var(--ink-700); background:var(--surface-2); border:1.5px solid var(--line-2); border-radius:var(--r-pill); padding:9px 14px; cursor:pointer; outline:none;}
+.catsort{font-family:var(--sans); font-size:13.5px; font-weight:700; color:var(--ink-700); background:var(--surface-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23667788' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 13px center; border:1.5px solid var(--line-2); border-radius:var(--r-pill); padding:9px 36px 9px 14px; cursor:pointer; outline:none; appearance:none; -webkit-appearance:none; -moz-appearance:none; align-self:flex-end;}
 .cat-empty{display:none; padding:40px; text-align:center; color:var(--ink-400); font-weight:700;}
 
 /* ===== resource band (liens vers les hubs) ===== */
@@ -1068,7 +1068,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 
 /* ---- page-specific ---- */
 
-.gtools{display:flex; flex-direction:column; gap:14px; margin-bottom:22px;}
+.gtools{display:flex; flex-wrap:wrap; align-items:center; column-gap:7px; row-gap:14px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:14px 16px; margin-bottom:22px;}
 .gsearch{position:relative;}
 .gsearch input{width:100%; box-sizing:border-box; font-family:var(--sans); font-size:15px; padding:14px 16px 14px 46px; border:1px solid var(--line); border-radius:var(--r); background:#fff; color:var(--noir); box-shadow:var(--sh-xs);}
 .gsearch input:focus{outline:none; border-color:var(--magenta); box-shadow:0 0 0 3px var(--mg-soft);}
@@ -1091,6 +1091,29 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .lempty svg{width:34px; height:34px; color:var(--ink-300); margin-bottom:8px;}
 @media (max-width:560px){ .grow__m,.newsrow__m{display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;} }
 
+
+    .rail--gcards{scroll-snap-type:x mandatory;}
+    .rail--gcards .card{flex:0 0 300px; scroll-snap-align:start;}
+    @media (max-width:640px){ .rail--gcards .card{flex:0 0 260px;} }
+    body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
+
+    .gfilters{flex:1 1 100%; display:flex; flex-wrap:wrap; align-items:center; column-gap:10px; row-gap:12px;}
+    .gfilters .gdrop[data-drop="game"]{flex:1 1 100%;}
+    .gfilters .gdrop[data-drop="type"]{flex:0 1 auto;}
+    .gfilters .gdrop[data-drop="diff"]{flex:0 1 auto;}
+    .gfilters .catsort{margin-left:auto; align-self:auto;}
+    .gdrop{position:relative;}
+    .gdrop__btn{display:none;}
+    @media (max-width:640px){
+      .gfilters{flex-direction:column; align-items:stretch;}
+      .gdrop__btn{display:flex; align-items:center; justify-content:space-between; gap:8px; width:100%; padding:11px 14px; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); font-family:var(--sans); font-size:14px; font-weight:600; color:var(--noir); cursor:pointer;}
+      .gdrop__btn svg{width:16px; height:16px; transition:transform .18s; flex:none;}
+      .gdrop.open .gdrop__btn svg{transform:rotate(180deg);}
+      .gdrop .chipbar{position:absolute; top:calc(100% + 6px); left:0; right:0; z-index:30; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:0 12px 32px rgba(18,18,18,.14); flex-direction:column; align-items:stretch; gap:2px; padding:8px; max-height:56vh; overflow:auto; display:none;}
+      .gdrop.open .chipbar{display:flex;}
+      .gdrop .fchip{text-align:left; width:100%;}
+      .gfilters .catsort{margin-left:0; width:100%;}
+    }
 </style>
 </head>
 <body>
@@ -1254,7 +1277,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   <div class="wrap">
     <span class="kicker"><span class="dots"><i></i><i></i></span> Optimisation</span>
     <h1>Tous les builds</h1>
-    <p class="phero__sub">Builds notés et testés pour chaque jeu : mêlée, magie, hybrides. Filtre par jeu ou par tier, ou cherche directement l'archetype qu'il te faut.</p>
+    <p class="phero__sub">Builds notés et testés pour chaque jeu : mêlée, magie, hybrides. Filtre par jeu ou par tier, ou cherche directement le build qu'il te faut.</p>
   </div>
 </section>
 
@@ -1287,11 +1310,11 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     </section>
 
     <section class="psec" style="padding-top:6px;">
-      <div class="psec__head"><span class="sec-kicker" style="font-size:11px;"><span class="dots"><i></i><i></i></span> Les plus consultés cette semaine</span>
-        <h2 class="sec-title">Builds populaires</h2></div>
+      <div class="psec__head"><span class="sec-kicker"><span class="dots"><i></i><i></i></span> Cette semaine</span>
+        <h2 class="sec-title">Les builds les plus consultés</h2></div>
       <div class="rail rail--gcards">
         <article class="card" data-item data-game="er" data-game-name="Elden Ring" data-diff="facile" data-type="s" data-title="Build Elden Ring · Samouraï saignement" data-href="build.html"><div class="card__thumb cover-er"><span class="card__game">Elden Ring</span><button class="fav on" type="button" data-fav-id="rb-0" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top card__top--chars"><span class="tag tag--carte">Early game</span><span class="tag tag--guide">Facile</span><span class="tag tag--trophee">Tier S</span></div><h3 class="card__title">Build Elden Ring · Samouraï saignement</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>4 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,9 <span style="color:var(--ink-400); font-weight:400;">(240)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>1er juill.</span></div></div></article><article class="card" data-item data-game="diablo" data-game-name="Diablo IV" data-diff="expert" data-type="a" data-title="Build Diablo IV · Sorcier givre" data-href="build.html"><div class="card__thumb cover-d4"><span class="card__game">Diablo IV</span><button class="fav" type="button" data-fav-id="rb-2" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top card__top--chars"><span class="tag tag--carte">End game</span><span class="tag tag--guide">Expert</span><span class="tag tag--trophee">Tier A</span></div><h3 class="card__title">Build Diablo IV · Sorcier givre</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>3 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,8 <span style="color:var(--ink-400); font-weight:400;">(310)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>26 mai</span></div></div></article><article class="card" data-item data-game="cp" data-game-name="Cyberpunk 2077" data-diff="moyen" data-type="s" data-title="Build Cyberpunk 2077 · Netrunner overclock" data-href="build.html"><div class="card__thumb cover-cp"><span class="card__game">Cyberpunk 2077</span><button class="fav on" type="button" data-fav-id="rb-9" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top card__top--chars"><span class="tag tag--carte">Tout le jeu</span><span class="tag tag--guide">Moyen</span><span class="tag tag--trophee">Tier S</span></div><h3 class="card__title">Build Cyberpunk 2077 · Netrunner overclock</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>4 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,8 <span style="color:var(--ink-400); font-weight:400;">(205)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>20 janv.</span></div></div></article><article class="card" data-item data-game="poe" data-game-name="Path of Exile 2" data-diff="expert" data-type="s" data-title="Build Path of Exile 2 · Sorcière · Infusion de chaos" data-href="build.html"><div class="card__thumb cover-poe"><span class="card__game">Path of Exile 2</span><button class="fav" type="button" data-fav-id="rb-8" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top card__top--chars"><span class="tag tag--carte">Early game</span><span class="tag tag--guide">Expert</span><span class="tag tag--trophee">Tier S</span></div><h3 class="card__title">Build Path of Exile 2 · Sorcière · Infusion de chaos</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>7 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,7 <span style="color:var(--ink-400); font-weight:400;">(142)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>7 févr.</span></div></div></article><article class="card" data-item data-game="bg3" data-game-name="Baldur's Gate 3" data-diff="moyen" data-type="s" data-title="Build Baldur's Gate 3 · Roublard assassin" data-href="build.html"><div class="card__thumb cover-bg"><span class="card__game">Baldur's Gate 3</span><button class="fav" type="button" data-fav-id="rb-5" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top card__top--chars"><span class="tag tag--carte">Tout le jeu</span><span class="tag tag--guide">Moyen</span><span class="tag tag--trophee">Tier S</span></div><h3 class="card__title">Build Baldur's Gate 3 · Roublard assassin</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>6 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,6 <span style="color:var(--ink-400); font-weight:400;">(124)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>2 avr.</span></div></div></article>
-      </div>
+      <article class="card" data-item data-game="zelda" data-game-name="Zelda: TotK" data-diff="facile" data-type="b" data-title="Build Zelda: TotK · Amalgame · lances longues" data-href="build.html"><div class="card__thumb cover-zd"><span class="card__game">Zelda: TotK</span><button class="fav" type="button" data-fav-id="rb-zelda-pop" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top card__top--chars"><span class="tag tag--carte">Early game</span><span class="tag tag--guide">Facile</span><span class="tag tag--trophee">Tier B</span></div><h3 class="card__title">Build Zelda: TotK · Amalgame · lances longues</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>5 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,3 <span style="color:var(--ink-400); font-weight:400;">(43)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>15 déc.</span></div></div></article></div>
     </section>
 
     <section class="psec" style="padding-top:6px;">
@@ -1304,7 +1327,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
           <svg class="gsearch__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
           <input id="lsearch" type="text" placeholder="Rechercher un build, un jeu, un archetype..." aria-label="Rechercher">
         </div>
-        <div class="chipbar chipbar--game" role="group" aria-label="Filtrer par jeu">
+        <div class="gfilters"><div class="gdrop" data-drop="game"><button class="gdrop__btn" type="button"><span class="gdrop__lbl">Tout</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></button><div class="chipbar chipbar--game" role="group" aria-label="Filtrer par jeu">
         <button class="fchip is-on" type="button" data-chip="all" data-bar="game">Tous</button>
         <button class="fchip" type="button" data-chip="er" data-bar="game">Elden Ring</button>
         <button class="fchip" type="button" data-chip="bg3" data-bar="game">Baldur's Gate 3</button>
@@ -1313,14 +1336,14 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
         <button class="fchip" type="button" data-chip="hades" data-bar="game">Hades II</button>
         <button class="fchip" type="button" data-chip="poe" data-bar="game">Path of Exile 2</button>
         <button class="fchip" type="button" data-chip="diablo" data-bar="game">Diablo IV</button>
-        </div>
-        <div class="chipbar chipbar--type" role="group" aria-label="Filtrer par tier">
+        </div></div>
+        <div class="gdrop" data-drop="type"><button class="gdrop__btn" type="button"><span class="gdrop__lbl">Tous tiers</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></button><div class="chipbar chipbar--type" role="group" aria-label="Filtrer par tier">
         <button class="fchip is-on" type="button" data-chip="all" data-bar="type">Tous tiers</button>
         <button class="fchip" type="button" data-chip="s" data-bar="type">Tier S</button>
         <button class="fchip" type="button" data-chip="a" data-bar="type">Tier A</button>
         <button class="fchip" type="button" data-chip="b" data-bar="type">Tier B</button>
-        </div><div class="chipbar chipbar--diff" role="group" aria-label="Filtrer par difficulté"><button class="fchip is-on" type="button" data-chip="all" data-bar="diff">Toutes difficultés</button><button class="fchip" type="button" data-chip="facile" data-bar="diff">Facile</button><button class="fchip" type="button" data-chip="moyen" data-bar="diff">Moyen</button><button class="fchip" type="button" data-chip="expert" data-bar="diff">Expert</button></div>
-      <select class="catsort" id="lsort" aria-label="Trier"><option value="recent">Plus récents</option><option value="consult">Les plus consultés</option><option value="az">A → Z</option></select></div>
+        </div></div><div class="gdrop" data-drop="diff"><button class="gdrop__btn" type="button"><span class="gdrop__lbl">Toutes difficultés</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></button><div class="chipbar chipbar--diff" role="group" aria-label="Filtrer par difficulté"><button class="fchip is-on" type="button" data-chip="all" data-bar="diff">Toutes difficultés</button><button class="fchip" type="button" data-chip="facile" data-bar="diff">Facile</button><button class="fchip" type="button" data-chip="moyen" data-bar="diff">Moyen</button><button class="fchip" type="button" data-chip="expert" data-bar="diff">Expert</button></div></div>
+      <select class="catsort" id="lsort" aria-label="Trier"><option value="recent">Plus récents</option><option value="consult">Les plus consultés</option><option value="az">A → Z</option></select></div></div>
       <div class="lrow" style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom:14px;"><div class="lcount" id="lcount"></div><div class="scope only-auth" data-scope-target="builds-scope"><button class="scope__btn active" data-scope="tous">Tout</button><button class="scope__btn" data-scope="suivis">Mes jeux</button><button class="scope__btn" data-scope="favoris">Favoris</button></div></div>
       <div class="guides" data-list="builds" data-noun="build" id="buildList">
         <article class="card" data-item data-game="er" data-game-name="Elden Ring" data-diff="facile" data-type="s" data-title="Build Elden Ring · Samouraï saignement" data-href="build.html"><div class="card__thumb cover-er"><span class="card__game">Elden Ring</span><button class="fav on" type="button" data-fav-id="b-samurai" aria-label="Ajouter aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></button></div><div class="card__body"><div class="card__top card__top--chars"><span class="tag tag--carte">Early game</span><span class="tag tag--guide">Facile</span><span class="tag tag--trophee">Tier S</span></div><h3 class="card__title">Build Elden Ring · Samouraï saignement</h3><div class="card__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>4 min</span><span class="card__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,9 <span style="color:var(--ink-400); font-weight:400;">(240)</span></span><span class="card__date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>1er juill.</span></div></div></article>
@@ -1344,7 +1367,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
         <h2 class="sec-title">Par type de ressource</h2>
       </div>
       <div class="rband">
-        <a class="rlink" href="jeux.html"><span class="rlink__ico" style="background:var(--magenta-pale); color:var(--magenta);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="11" x2="10" y2="11"/><line x1="8" y1="9" x2="8" y2="13"/><line x1="15" y1="12" x2="15.01" y2="12"/><line x1="18" y1="10" x2="18.01" y2="10"/><rect width="20" height="12" x="2" y="6" rx="2"/></svg></span><span class="rlink__t">Jeux</span><span class="rlink__m">Le catalogue complet et les fiches de chaque jeu.</span></a>
+        <a class="rlink" href="jeux.html"><span class="rlink__ico" style="background:#e7f0ff; color:#2f5fd0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="11" x2="10" y2="11"/><line x1="8" y1="9" x2="8" y2="13"/><line x1="15" y1="12" x2="15.01" y2="12"/><line x1="18" y1="10" x2="18.01" y2="10"/><rect width="20" height="12" x="2" y="6" rx="2"/></svg></span><span class="rlink__t">Jeux</span><span class="rlink__m">Le catalogue complet et les fiches de chaque jeu.</span></a>
         <a class="rlink" href="guides.html"><span class="rlink__ico" style="background:var(--magenta-pale); color:var(--magenta);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg></span><span class="rlink__t">Guides</span><span class="rlink__m">Tous les guides, soluces et astuces sur tes jeux.</span></a>
         <a class="rlink" href="cartes.html"><span class="rlink__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></span><span class="rlink__t">Cartes interactives</span><span class="rlink__m">Coffres, objets, boss, quêtes et PNJ, filtrables.</span></a>
         <a class="rlink" href="actualites.html"><span class="rlink__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0V9a1 1 0 0 1 1-1h1"/><path d="M16 6h2M16 10h2M10 6h2v4h-2z"/><path d="M10 14h8M10 18h8"/></svg></span><span class="rlink__t">Actualités</span><span class="rlink__m">Toutes les actualités et news sur tes jeux.</span></a>
@@ -1899,15 +1922,24 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     if(countEl) countEl.innerHTML = '<b>'+n+'</b> '+noun+(n>1?'s':'');
   }
   if(search) search.addEventListener('input', function(){ q=norm(search.value).trim(); apply(); });
+  var DEFLBL={game:'Tout',type:'Tous tiers',diff:'Toutes difficultés'};
   Array.prototype.forEach.call(document.querySelectorAll('[data-chip]'), function(c){
     c.addEventListener('click', function(){
       var bar=c.getAttribute('data-bar');
       Array.prototype.forEach.call(document.querySelectorAll('[data-bar="'+bar+'"]'), function(x){ x.classList.remove('is-on'); });
       c.classList.add('is-on');
-      if(bar==='game') fGame=c.getAttribute('data-chip'); else if(bar==='type') fType=c.getAttribute('data-chip'); else if(bar==='diff') fDiff=c.getAttribute('data-chip');
+      var val=c.getAttribute('data-chip');
+      if(bar==='game') fGame=val; else if(bar==='type') fType=val; else if(bar==='diff') fDiff=val;
+      var lbl=document.querySelector('.gdrop[data-drop="'+bar+'"] .gdrop__lbl');
+      if(lbl) lbl.textContent = (val==='all') ? DEFLBL[bar] : c.textContent.trim();
+      var dd=c.closest('.gdrop'); if(dd) dd.classList.remove('open');
       apply();
     });
   });
+  Array.prototype.forEach.call(document.querySelectorAll('.gdrop__btn'), function(bt){
+    bt.addEventListener('click', function(e){ e.stopPropagation(); var d=bt.closest('.gdrop'); var w=d.classList.contains('open'); document.querySelectorAll('.gdrop').forEach(function(x){x.classList.remove('open');}); if(!w)d.classList.add('open'); });
+  });
+  document.addEventListener('click', function(e){ if(!e.target.closest('.gdrop')) document.querySelectorAll('.gdrop').forEach(function(x){x.classList.remove('open');}); });
   var sortSel=document.getElementById('lsort');
   if(sortSel) sortSel.addEventListener('change', function(){ fSort=this.value; apply(); });
   Array.prototype.forEach.call(document.querySelectorAll('.scope__btn'), function(b){
