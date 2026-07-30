@@ -1130,6 +1130,88 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
   .gscreens{flex-direction:column;}
 }
 
+    .gchip--tier{background:var(--magenta); color:#fff; border-color:transparent; font-weight:800;}
+.community{display:grid; grid-template-columns:1.6fr 1fr; gap:28px; align-items:start;}
+.community__side{background:linear-gradient(160deg,#5865F2,#4752c4); color:#fff; border-radius:var(--r-xl); padding:26px; display:flex; flex-direction:column; gap:16px;}
+.community__side h3{font-size:21px;}
+.community__side p{font-size:14px; color:rgba(255,255,255,.85); line-height:1.5;}
+.community__stat{display:flex; gap:24px;}
+.community__stat .v{font-family:var(--serif); font-weight:800; font-size:24px;}
+.community__stat .l{font-size:12px; color:rgba(255,255,255,.8);}
+.community{grid-template-columns:1fr;}
+.ratebox{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:18px 20px; margin:22px 0 8px;}
+.ratebox__head{display:flex; align-items:center; gap:20px; flex-wrap:wrap;}
+.ratebox__scorebox{display:flex; align-items:center; gap:14px;}
+.ratebox__score{font-family:var(--serif,var(--sans)); font-weight:800; font-size:38px; line-height:1; color:var(--noir);}
+.ratebox__scoremeta{display:flex; flex-direction:column; gap:4px;}
+.ratebox__count{font-size:13px; color:var(--ink-500);}
+.ratebox__stars{display:inline-flex; gap:3px;}
+.ratebox__stars svg{width:20px; height:20px;}
+.ratebox__stars--display{position:relative; color:var(--line-2,#e2e2e8);}
+.ratebox__stars--display .ratebox__fill{position:absolute; top:0; left:0; overflow:hidden; white-space:nowrap; color:var(--or); display:inline-flex; gap:3px;}
+.ratebox__divider{width:1px; align-self:stretch; background:var(--line); margin:2px 0;}
+.ratebox__action{display:flex; flex-direction:column; gap:8px;}
+.ratebox__label{font-weight:700; font-size:14px; color:var(--noir); margin:0;}
+.ratebox__stars--input{gap:4px;}
+.ratebox__starbtn{background:none; border:none; padding:2px; cursor:pointer; color:var(--line-2,#d9d9e0); line-height:0; transition:transform .1s ease, color .12s ease;}
+.ratebox__starbtn svg{width:26px; height:26px;}
+.ratebox__starbtn:hover{transform:scale(1.12);}
+.ratebox__starbtn.hot{color:var(--or);}
+.ratebox__hint{font-size:12.5px; color:var(--ink-500); margin:0; min-height:16px;}
+.ratebox__divider{display:block; width:100%; height:1px; align-self:auto; background:var(--line); margin:0;}
+.ratebox__head{gap:18px;}
+.ratebox{max-width:none;}
+.ratebox__title{font-family:var(--serif,var(--sans)); font-weight:800; font-size:19px; line-height:1.2; margin:0 0 14px; color:var(--noir);}
+.ratebox .only-guest{display:block;}
+.ratebox__hint--guest{color:var(--ink-600,var(--ink-500));}
+.ratebox__hint--guest a{color:var(--magenta); font-weight:700; text-decoration:underline;}
+.ratebox__action{max-width:300px;}
+.ratebox__hint--guest{max-width:280px;}
+.combox{max-width:none; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:18px 20px; margin:16px 0 8px;}
+.combox__title{font-family:var(--serif,var(--sans)); font-weight:800; font-size:19px; line-height:1.2; margin:0 0 14px; color:var(--noir);}
+.combox__write{display:flex; gap:12px; align-items:flex-start;}
+.combox__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); background:var(--noir); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; border:2px solid var(--magenta);}
+.combox__field{flex:1; min-width:0;}
+.combox__ta{width:100%; box-sizing:border-box; font-family:var(--sans); font-size:14px; color:var(--noir); background:var(--surface-2); border:1px solid var(--line-2, var(--line)); border-radius:var(--r); padding:11px 13px; resize:vertical; min-height:82px; outline:none; transition:border-color .15s, box-shadow .15s;}
+.combox__ta:focus{border-color:var(--magenta); box-shadow:0 0 0 3px rgba(162,0,188,.10); background:#fff;}
+.combox__bar{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:10px;}
+.combox__count{font-size:12px; color:var(--ink-500);}
+.combox__guest{display:flex; gap:11px; align-items:center; background:var(--surface-2); border:1px dashed var(--line-2, var(--line)); border-radius:var(--r); padding:14px 15px;}
+.combox__guest svg{width:18px; height:18px; flex:none; color:var(--ink-500);}
+.combox__guest p{margin:0; font-size:13px; color:var(--ink-600, var(--ink-500)); line-height:1.45;}
+.combox__guest a{color:var(--magenta); font-weight:700; text-decoration:underline;}
+.comlist{list-style:none; margin:10px 0 0; padding:16px 0 0; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:16px;}
+.com{display:flex; gap:12px;}
+.com__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; color:#fff; background:var(--noir);}
+.com__ava--a{background:#5b3fa6;}
+.com__ava--b{background:#1f7a68;}
+.com__ava--c{background:#a63f6b;}
+.com__ava--d{background:#2f5fd0;}
+.com__ava--e{background:#a8651f;}
+.com__body{flex:1; min-width:0;}
+.com__head{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;}
+.com__name{font-weight:800; font-size:14px; color:var(--noir);}
+.com__date{font-size:12px; color:var(--ink-400, var(--ink-500));}
+.com__stars{display:inline-flex; gap:2px; color:var(--or); margin-left:2px;}
+.com__stars svg{width:13px; height:13px;}
+.com__txt{margin:6px 0 0; font-size:14px; line-height:1.55; color:var(--ink-700, var(--noir));}
+.com.is-hidden{display:none;}
+.combox__more{margin-top:16px; display:flex; justify-content:center;}
+.combox__more.is-done{display:none;}
+.combox{padding:18px 16px;}
+.combox__write{display:none;}
+.combox__write{display:flex;}
+.combox__guest{display:none;}
+.combox__guest{display:flex;}
+.combox__hint{margin:8px 0 0; font-size:12.5px; color:var(--magenta); font-weight:600; min-height:16px;}
+.ratebox__title, .gart .combox__title{font-family:var(--serif,var(--sans)); font-size:19px; font-weight:800; line-height:1.2; margin:0 0 14px; color:var(--noir); scroll-margin-top:0;}
+.ratebox__label{margin:0; line-height:1.3; font-size:14px; color:var(--noir);}
+.ratebox__hint{margin:0; line-height:1.4; font-size:12.5px; color:var(--ink-500);}
+.ratebox__hint--guest{color:var(--ink-600,var(--ink-500));}
+.com__txt{margin:6px 0 0; line-height:1.55; font-size:14px; color:var(--ink-700);}
+.combox__hint{margin:8px 0 0; line-height:1.4; font-size:12.5px; color:var(--magenta); min-height:0;}
+.combox__hint:empty{margin:0;}
+.combox__count{font-size:12px;}
 </style>
 </head>
 <body>
@@ -1294,14 +1376,14 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
   <div class="ghero__in">
     <div class="wrap">
       <nav class="crumb" aria-label="Fil d'Ariane"><a href="jeux.html">Jeux</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> <a href="jeu.html">Elden Ring</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> <a href="builds.html">Builds</a> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> <span>Samourai saignement</span></nav>
-      <div class="ghero__chips"><span class="gtag gtag--mg">Tier S</span> <span class="gchip">Disponible dès le début</span> <span class="gchip">Difficulté : facile</span> <span class="gchip">Mêlée · Saignement</span></div>
+      <div class="ghero__chips"><span class="gchip gchip--tier">Tier S</span> <span class="gchip">Disponible dès le début</span> <span class="gchip">Difficulté : facile</span> <span class="gchip">Mêlée · Saignement</span></div>
       <h1 class="ghero__title">Samourai saignement</h1>
       <div class="gdmeta">
         <span class="gdmeta__i"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg> Build recommandé débutant</span>
         <span class="gdmeta__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18M7 3v4M17 3v4"/><rect x="3" y="5" width="18" height="16" rx="2"/></svg> Mis à jour le 12 juin · patch 1.12.3</span>
       </div>
       <div class="gdactions">
-        <button class="btn btn--ondark btn--fav only-auth" id="gdFav" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> <span>Sauvegarder</span></button>
+        <button class="btn btn--primary btn--fav only-auth is-fav" id="gdFav" type="button" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> <span>Sauvegardé</span></button>
         <span class="gdguest only-guest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> <span><a href="connexion.html">Connecte-toi</a> pour sauvegarder ce build.</span></span>
         <button class="btn btn--ondark" type="button" onclick="if(navigator.share){navigator.share({title:document.title,url:location.href});}else{return false;}">Partager</button>
       </div>
@@ -1317,57 +1399,127 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
 
         <div class="gcallout">
           <span class="gcallout__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span>
-          <p><b>En une phrase.</b> Deux katanas avec la cendre de guerre <b>Vœu du seigneur du sang</b>, on empile les procs de saignement, et on monte la Dextérité en priorité.</p>
+          <p><b>En une phrase.</b> Deux katanas avec la cendre de guerre <b>Entaille sanglante</b>, on empile les procs de saignement, et on monte la Dextérité en priorité.</p>
         </div>
 
         <h2 id="compo">Composition du build</h2>
         <div class="icard" style="box-shadow:none;">
           <div class="irow"><span class="irow__k">Arme principale</span><span class="irow__v">Uchigatana (+ saignement)</span></div>
-          <div class="irow"><span class="irow__k">Arme secondaire</span><span class="irow__v">Rivière de sang</span></div>
-          <div class="irow"><span class="irow__k">Cendre de guerre</span><span class="irow__v">Vœu du seigneur du sang</span></div>
-          <div class="irow"><span class="irow__k">Talismans</span><span class="irow__v">Griffe de l'aigle, Lacrima cramoisie, Talisman du guerrier</span></div>
-          <div class="irow"><span class="irow__k">Cendres d'esprit</span><span class="irow__v">Mimetisme ou Loups sanguinaires</span></div>
+          <div class="irow"><span class="irow__k">Arme secondaire</span><span class="irow__v">Rivière sanglante</span></div>
+          <div class="irow"><span class="irow__k">Cendre de guerre</span><span class="irow__v">Entaille sanglante</span></div>
+          <div class="irow"><span class="irow__k">Talismans</span><span class="irow__v">Exultation du seigneur du sang, Insigne de l'épée ailée décomposée, Prothèse de Millicent</span></div>
+          
         </div>
 
         <h2 id="stats">Statistiques à prioriser</h2>
         <ul class="gsteps">
           <li><b>Dextérité (priorité 1)</b> : monte jusqu'à 50 : c'est ton dégât principal et le scaling des katanas.</li>
-          <li><b>Vigueur (priorité 2)</b> : vise 40 pour survivre aux gros combos de boss.</li>
+          
           <li><b>Endurance</b> : assez pour deux roulades et trois coups d'affîlée.</li>
           <li><b>Force</b> : juste ce qu'il faut pour le prérequis des armes (autour de 16).</li>
         </ul>
 
         <h2 id="ou">Où trouver les objets</h2>
-        <p>L'Uchigatana est <strong>offerte si tu choisis la classe Samourai</strong> à la création. Sinon, on la récupère tôt dans les Tombes des Héros. La <strong>Rivière de sang</strong> se trouve après un combat dans une crypte de l'Entre-terre.</p>
-        <div class="gscreens">
-          <div class="gscreen c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg><span>Capture : emplacement sur la carte</span></div>
-          <div class="gscreen c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg><span>Capture : l'arme en jeu</span></div>
-        </div>
-        <div class="gcallout gcallout--warn">
-          <span class="gcallout__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span>
-          <p><b>Attention.</b> La Rivière de sang demande des prérequis en Arcane : prévois quelques niveaux si tu veux débloquer son arme de guerre dès que possible.</p>
-        </div>
+<h3>Arme principale · l'Uchigatana</h3>
+<p>L'Uchigatana est <strong>offert d'emblée si tu choisis la classe Samouraï</strong> à la création. Sinon, il se ramasse tôt dans <strong>les Catacombes funestes, en Nécrolimbe</strong>, sur un cadavre au fond du donjon.</p>
+<div class="gscreens"><div class="gscreen c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><span>Carte : Catacombes funestes (Nécrolimbe)</span></div><div class="gscreen c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><span>En jeu : l'Uchigatana récupérée</span></div></div>
+<h3>Arme secondaire · la Rivière sanglante</h3>
+<p>La <strong>Rivière sanglante</strong> s'obtient dans les <strong>Cimes des Géants</strong> : à l'<strong>Église du Repos</strong>, un envahisseur (Okina) t'attaque — vaincs-le pour récupérer le katana. Prévois quelques niveaux d'<strong>Ésotérisme</strong> pour l'équiper.</p>
+<div class="gscreens"><div class="gscreen c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><span>Carte : Église du Repos (Cimes des Géants)</span></div><div class="gscreen c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><span>En jeu : la Rivière sanglante en main</span></div></div>
+<h3>Cendre de guerre · l'Entaille sanglante</h3>
+<p>L'<strong>Entaille sanglante</strong> se récupère en <strong>Nécrolimbe</strong>, près de la <strong>Cabane du maître d'armes</strong> : elle transforme un coup chargé en frappe qui saigne, idéale pour amorcer l'hémorragie.</p>
+<div class="gscreens"><div class="gscreen c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><span>Carte : Cabane du maître d'armes (Nécrolimbe)</span></div><div class="gscreen c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><span>En jeu : l'Entaille sanglante appliquée</span></div></div>
+<h3>Talisman · l'Exultation du seigneur du sang</h3>
+<p>L'<strong>Exultation du seigneur du sang</strong> augmente ton attaque quand un ennemi saigne autour de toi. On la trouve au fond des <strong>Catacombes de Leyndell</strong>, derrière un passage gardé.</p>
+<div class="gscreens"><div class="gscreen c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><span>Carte : Catacombes de Leyndell</span></div><div class="gscreen c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><span>En jeu : l'Exultation du seigneur du sang</span></div></div>
+<div class="gcallout gcallout--warn"><span class="gcallout__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span><p><b>Attention.</b> La Rivière sanglante demande des prérequis en Ésotérisme : prévois quelques niveaux si tu veux débloquer sa cendre de guerre dès que possible.</p></div>
 
         <h2 id="loop">Boucle de jeu</h2>
         <ul class="gsteps">
           <li>Approche le boss et place <b>2-3 coups rapides</b> pour amorcer la jauge de saignement.</li>
-          <li>Déclenche la cendre de guerre <b>Vœu du seigneur du sang</b> pour booster tes procs.</li>
+          <li>Déclenche la cendre de guerre <b>Entaille sanglante</b> pour booster tes procs.</li>
           <li>Quand la jauge se remplit, l'hémorragie inflige un <b>gros dégât instantané</b> : répète.</li>
         </ul>
 
-        <div class="preminset">
-          <span class="preminset__lock"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg> Contenu Premium</span>
-          <h3>Variante end-game &amp; optimisation NG+</h3>
-          <div class="preminset__blur"><p>Répartition exacte des points jusqu'au niveau 150, infusions alternatives, et la rotation optimale contre les boss du DLC...</p></div>
-          <p class="only-guest" style="color:var(--ink-600); font-size:14px;">Réservé aux membres Premium. <a href="premium.html" style="color:var(--magenta); font-weight:700;">Découvrir Premium</a> ou <a href="connexion.html" style="color:var(--magenta); font-weight:700;">se connecter</a>.</p>
-          <div class="only-auth">
-            <p style="color:var(--ink-700); font-size:14.5px;"><b>Niveau 150 :</b> Dextérité 60, Vigueur 50, Endurance 30, Arcane 30. <b>DLC :</b> ajoute le Larme écarlate en arme tertiaire pour les boss résistants au saignement.</p>
-            <a class="btn btn--primary" href="premium.html">Voir toutes les variantes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <section class="ratebox" aria-label="Notation">
+      <h2 class="ratebox__title">Laisse une note</h2>
+      <div class="ratebox__head">
+        <div class="ratebox__scorebox">
+          <span class="ratebox__score">4,9</span>
+          <div class="ratebox__scoremeta">
+            <div class="ratebox__stars ratebox__stars--display"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span class="ratebox__fill" style="width:98%;"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span></span></div>
+            <span class="ratebox__count" id="rateCount">412 avis</span>
           </div>
         </div>
+        <div class="ratebox__divider" aria-hidden="true"></div>
+        <div class="ratebox__action">
+          <p class="ratebox__label only-auth">Ton avis</p>
+          <p class="ratebox__label only-guest">Ton avis</p>
+          <div class="ratebox__stars ratebox__stars--input" id="rateInput" role="radiogroup"><button class="ratebox__starbtn" type="button" data-v="1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button><button class="ratebox__starbtn" type="button" data-v="5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></button></div>
+          <p class="ratebox__hint only-auth" id="rateHint">Clique sur une étoile pour laisser ta note.</p>
+          <p class="ratebox__hint ratebox__hint--guest only-guest">Il faut un compte pour laisser une note. <a href="connexion.html">Se connecter</a></p>
+        </div>
+      </div>
+    </section>
 
-        <h2 id="related">Builds similaires</h2>
-        <div class="glist"><a class="grow" href="build.html"><span class="grow__n">S</span><span class="grow__b"><span class="grow__t">Mage intelligence · Comète d'Azur</span><span class="grow__m">L'alternative à distance la plus sûre</span></span><span class="gtag gtag--mg">Tier S</span><span class="grow__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a><a class="grow" href="build.html"><span class="grow__n">A</span><span class="grow__b"><span class="grow__t">Chevalier de la foi</span><span class="grow__m">Build défensif et accessible</span></span><span class="gtag gtag--or">Tier A</span><span class="grow__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a><a class="grow" href="build.html"><span class="grow__n">B</span><span class="grow__b"><span class="grow__t">Sorcier-guerrier hybride</span><span class="grow__m">Pour varier mêlée et sorts</span></span><span class="gtag gtag--cy">Tier B</span><span class="grow__go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a></div>
+    <section class="combox" aria-label="Commentaires">
+      <h2 class="combox__title">Commentaires</h2>
+      <div class="combox__write only-auth">
+        <span class="combox__ava" aria-hidden="true">É</span>
+        <div class="combox__field">
+          <textarea class="combox__ta" id="comTa" maxlength="600" placeholder="Donne ton avis sur ce guide..." aria-label="Ton commentaire"></textarea>
+          <div class="combox__bar">
+            <span class="combox__count" id="comCount">0 / 600</span>
+            <button class="btn btn--primary btn--sm" type="button" id="comSend">Publier</button>
+          </div>
+          <p class="combox__hint" id="comHint"></p>
+        </div>
+      </div>
+      <div class="combox__guest only-guest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+        <p>Il faut un compte pour laisser un commentaire. <a href="connexion.html">Se connecter</a></p>
+      </div>
+      <ul class="comlist" id="comList">
+        <li class="com">
+          <span class="com__ava com__ava--a" aria-hidden="true">M</span>
+          <div class="com__body">
+            <div class="com__head"><span class="com__name">Maelis_R</span><span class="com__stars" aria-label="5 sur 5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span class="com__date">il y a 2 jours</span></div>
+            <p class="com__txt">Le timing du Waterfowl Dance est enfin clair pour moi. J'ai suivi la partie sur l'esquive en diagonale et j'ai eu la phase 1 du premier coup.</p>
+          </div>
+        </li>
+        <li class="com">
+          <span class="com__ava com__ava--b" aria-hidden="true">T</span>
+          <div class="com__body">
+            <div class="com__head"><span class="com__name">TarnishedKev</span><span class="com__stars" aria-label="5 sur 5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span class="com__date">il y a 4 jours</span></div>
+            <p class="com__txt">Guide très complet. Le passage sur la Fiole miraculeuse et la Cendre d'esprit m'a évité de perdre des heures à tester au hasard.</p>
+          </div>
+        </li>
+        <li class="com">
+          <span class="com__ava com__ava--c" aria-hidden="true">N</span>
+          <div class="com__body">
+            <div class="com__head"><span class="com__name">Nyx_Solaire</span><span class="com__stars" aria-label="4 sur 5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span class="com__date">il y a 6 jours</span></div>
+            <p class="com__txt">Très bon guide dans l'ensemble. J'aurais aimé un peu plus de détails sur la phase 2 avec la pourriture écarlate, mais le reste est nickel.</p>
+          </div>
+        </li>
+        <li class="com is-hidden">
+          <span class="com__ava com__ava--d" aria-hidden="true">J</span>
+          <div class="com__body">
+            <div class="com__head"><span class="com__name">Jules_A</span><span class="com__stars" aria-label="5 sur 5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span class="com__date">il y a 1 semaine</span></div>
+            <p class="com__txt">Les conseils sur le build sont pertinents : je suis passé en foi avec Flamme noire comme suggéré et la différence est énorme.</p>
+          </div>
+        </li>
+        <li class="com is-hidden">
+          <span class="com__ava com__ava--e" aria-hidden="true">L</span>
+          <div class="com__body">
+            <div class="com__head"><span class="com__name">Lyra_84</span><span class="com__stars" aria-label="4 sur 5"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg></span><span class="com__date">il y a 2 semaines</span></div>
+            <p class="com__txt">Bien expliqué et bien structuré. Les vidéos aident beaucoup pour visualiser les patterns.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="combox__more" id="comMoreWrap">
+        <button class="btn btn--ghost btn--sm" type="button" id="comMore">Voir plus de commentaires</button>
+      </div>
+    </section>
+        <h2 id="related">Découvrir d'autres builds</h2><div class="newsl"><a class="newsrow" href="build.html"><span class="newsrow__date">2<span>juill.</span></span><span class="newsrow__b"><span class="newsrow__t">Build Cyberpunk 2077 · Netrunner overclock</span><span class="newsrow__m" style="display:flex; gap:6px; align-items:center;"><span class="tag" style="background:var(--cyan-pale); color:var(--cyan-ink); font-size:11px; font-weight:800; padding:2px 9px; border-radius:99px;">Tout le jeu</span></span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 4 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,8 <span class="newsrow__cnt">(205)</span></span></span></span></a><a class="newsrow" href="build.html"><span class="newsrow__date">30<span>juin</span></span><span class="newsrow__b"><span class="newsrow__t">Build Baldur's Gate 3 · Roublard assassin</span><span class="newsrow__m" style="display:flex; gap:6px; align-items:center;"><span class="tag" style="background:var(--cyan-pale); color:var(--cyan-ink); font-size:11px; font-weight:800; padding:2px 9px; border-radius:99px;">Tout le jeu</span></span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 6 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,7 <span class="newsrow__cnt">(124)</span></span></span></span></a><a class="newsrow" href="build.html"><span class="newsrow__date">28<span>juin</span></span><span class="newsrow__b"><span class="newsrow__t">Build Elden Ring · Sorcier-guerrier hybride</span><span class="newsrow__m" style="display:flex; gap:6px; align-items:center;"><span class="tag" style="background:var(--cyan-pale); color:var(--cyan-ink); font-size:11px; font-weight:800; padding:2px 9px; border-radius:99px;">Tout le jeu</span></span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 6 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,3 <span class="newsrow__cnt">(54)</span></span></span></span></a></div>
       </article>
 
       <aside class="gside">
@@ -1378,25 +1530,22 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
             <li><a href="#stats">Statistiques</a></li>
             <li><a href="#ou">Où trouver les objets</a></li>
             <li><a href="#loop">Boucle de jeu</a></li>
-            <li><a href="#related">Builds similaires</a></li>
+            <li><a href="#related">Découvrir d'autres builds</a></li>
           </ul>
         </div>
         <div class="icard">
-          <p class="icard__h">Fiche build</p>
+          <p class="icard__h">En bref</p>
           <div class="irow"><span class="irow__k">Tier</span><span class="irow__v">S</span></div>
           <div class="irow"><span class="irow__k">Difficulté</span><span class="irow__v">Facile</span></div>
           <div class="irow"><span class="irow__k">Disponibilité</span><span class="irow__v">Dès le début</span></div>
           <div class="irow"><span class="irow__k">Type</span><span class="irow__v">Mêlée · Saignement</span></div>
           <div class="irow"><span class="irow__k">Stat clé</span><span class="irow__v">Dextérité</span></div>
         </div>
-        <div class="icard only-auth">
-          <p class="icard__h">Ta progression</p>
-          <button class="btn btn--ghost progbtn" id="gdProg" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <span>Marquer comme essayé</span></button>
-        </div>
+        
         <div class="icard only-guest">
-          <p class="icard__h">Garde tes builds</p>
+          <p class="icard__h">Enregistre ce build</p>
           <p style="font-size:13.5px; color:var(--ink-600); margin:0 0 12px;">Avec un compte Lynk, sauvegarde tes builds favoris et suis lesquels tu as testés.</p>
-          <a class="btn btn--primary progbtn" href="inscription.html">Créer un compte</a>
+          <a class="btn btn--primary" href="inscription.html">Créer un compte</a>
         </div>
       </aside>
     </div>
@@ -1909,7 +2058,10 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
   var fav=document.getElementById('gdFav'), KEY='lynk_fav_builds', ID='b-samurai';
   function g(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
   function s(a){ try{ localStorage.setItem(KEY, JSON.stringify(a)); }catch(e){} }
-  if(fav){ if(g().indexOf(ID)>=0) fav.classList.add('is-fav');
+  if(fav){
+    try{ if(isAuth() && localStorage.getItem(KEY)===null){ s(['b-samurai']); } }catch(e){}
+    function refl(){ var on=g().indexOf(ID)>=0; fav.classList.toggle('is-fav',on); fav.setAttribute('aria-pressed',on?'true':'false'); var sp=fav.querySelector('span'); if(sp) sp.textContent=on?'Sauvegard\u00e9':'Sauvegarder'; }
+    refl();
     fav.addEventListener('click', function(){ if(!isAuth()){ location.href='connexion.html'; return; }
       var a=g(),i=a.indexOf(ID); if(i>=0){a.splice(i,1);fav.classList.remove('is-fav');fav.querySelector('span').textContent='Sauvegarder';}
       else{a.push(ID);fav.classList.add('is-fav');fav.querySelector('span').textContent='Sauvegard\u00e9';} s(a); }); }
@@ -1918,6 +2070,23 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
     prog.querySelector('span').textContent = prog.classList.contains('is-done')?'Build essay\u00e9 \u2713':'Marquer comme essay\u00e9'; }); }
 })();
 
+</script>
+<script>
+(function(){
+  var art=document.querySelector('.gart'); if(!art) return;
+  var eb=null;
+  document.querySelectorAll('.icard').forEach(function(c){ var hh=c.querySelector('.icard__h'); if(hh && hh.textContent.trim()==='En bref') eb=c; });
+  if(!eb) return;
+  var compo=document.getElementById('compo'); if(!compo) return;
+  var op=eb.parentElement, on=eb.nextElementSibling;
+  var mq=window.matchMedia('(max-width:980px)');
+  function place(){
+    if(mq.matches){ if(!(eb.nextElementSibling===compo)){ compo.parentElement.insertBefore(eb, compo); } }
+    else { if(eb.parentElement!==op || eb.nextElementSibling!==on){ if(on&&on.parentElement===op){op.insertBefore(eb,on);}else{op.appendChild(eb);} } }
+  }
+  place();
+  if(mq.addEventListener) mq.addEventListener('change', place); else mq.addListener(place);
+})();
 </script>
 </body>
 </html>
