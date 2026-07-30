@@ -216,10 +216,11 @@ button.avatar{cursor:pointer; padding:0; font-family:var(--serif);}
 .accmenu__item--logout{color:#c0392b;}
 .accmenu__item--logout svg{color:#c0392b;}
 .accmenu__item--logout:hover{background:#fdecea; color:#c0392b;}
-@media (max-width:520px){ .accmenu{position:fixed; top:64px; right:10px; left:10px; width:auto;} }
+@media (max-width:520px){ .accmenu{position:fixed; top:64px; right:10px; left:10px; width:auto;}}
 .only-guest{display:inline-flex;}
 .only-auth{display:none;}
 body.is-auth .only-guest{display:none;}
+    .icard.only-guest{display:block;}
 body.is-auth .only-auth{display:inline-flex;}
 body.is-auth .nav__right .only-auth{display:flex;}
 
@@ -233,7 +234,7 @@ body.is-auth .nav__right .only-auth{display:flex;}
    border-bottom:1px solid var(--line);}
 .hero__inner{max-width:920px; margin:0 auto; padding:64px var(--gut) 56px; text-align:center;}
 .hero__eyebrow{display:inline-flex; align-items:center; gap:9px; font-family:var(--mono); font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--magenta-ink); background:rgba(255,255,255,.7); border:1px solid var(--line); padding:7px 15px; border-radius:var(--r-pill); margin-bottom:24px; white-space:nowrap;}
-@media (max-width:880px){ .hero__eyebrow{font-size:10px; white-space:normal;} }
+@media (max-width:880px){ .hero__eyebrow{font-size:10px; white-space:normal;}}
 .hero h1{font-size:58px; font-weight:800; letter-spacing:-.035em; line-height:1.02;}
 .hero h1 .m{color:var(--magenta);}
 .hero__sub{font-size:19px; color:var(--ink-500); margin:20px auto 0; max-width:60ch; line-height:1.5;}
@@ -676,8 +677,7 @@ body.is-embed #deviceHost{display:none !important;}
   .nav__right .btn--ghost.hide-mobile{display:none;}
   .nav__search{min-width:130px;}
   .nav__inner{gap:10px;}
-  .nav__link{font-size:13px; padding:9px 7px;}
-}
+  .nav__link{font-size:13px; padding:9px 7px;}}
 
 @media (max-width:880px){
   :root{--gut:18px;}
@@ -713,16 +713,14 @@ body.is-embed #deviceHost{display:none !important;}
   .show-mobile{display:flex;}
   .hide-mobile{display:none !important;}
   .discover{grid-template-columns:1fr; padding:24px 20px; gap:24px;}
-  .demo-card{margin:0 auto; transform:none;}
-}
+  .demo-card{margin:0 auto; transform:none;}}
 
 @media (max-width:520px){
   .games{grid-template-columns:1fr 1fr;}
   .why{grid-template-columns:1fr;}
   .hero h1{font-size:32px;}
   .trust{gap:14px;}
-  .trust__sep{display:none;}
-}
+  .trust__sep{display:none;}}
 
 /* badge premium */
 .badge--prem{display:inline-flex; align-items:center; gap:5px; background:var(--or-pale); color:var(--or-ink); font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; border-radius:var(--r-pill); padding:3px 9px; vertical-align:2px; margin-left:6px;}
@@ -743,17 +741,14 @@ body.is-embed #deviceHost{display:none !important;}
 @media (max-width:880px){
   .nav__search .ac{border-radius:18px; padding:10px; border:1px solid var(--line); box-shadow:var(--sh-lg);}
   .nav__search .ac__item{padding:11px 10px; border-radius:12px;}
-  .nav__search .ac__ico{width:34px; height:34px; border-radius:9px;}
-}
+  .nav__search .ac__ico{width:34px; height:34px; border-radius:9px;}}
 
 /* recherche : panneau large façon méga-menu */
 .ac__cols{display:grid; grid-template-columns:1fr 1fr; gap:4px 16px;}
 @media (min-width:881px){
-  .nav__search .ac{width:640px; left:auto; right:0; padding:14px;}
-}
+  .nav__search .ac{width:640px; left:auto; right:0; padding:14px;}}
 @media (max-width:880px){
-  .ac__cols{grid-template-columns:1fr;}
-}
+  .ac__cols{grid-template-columns:1fr;}}
 
 /* actus : temps de lecture */
 .ncard__m{display:flex; align-items:center; gap:6px;}
@@ -807,8 +802,7 @@ body.drawer-open{overflow:hidden;}
 /* === espace en haut sur mobile : zone OPAQUE intégrée à la nav (rien ne défile dessous) === */
 @media (max-width:880px){
   .nav{ padding-top: env(safe-area-inset-top, 0px); background: var(--blanc); }
-  .mdrawer__panel{ padding-top: calc(20px + env(safe-area-inset-top, 0px)); }
-}
+  .mdrawer__panel{ padding-top: calc(20px + env(safe-area-inset-top, 0px)); }}
 body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
 body.is-embed .mdrawer__panel{ padding-top: 44px; }
 
@@ -901,8 +895,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
   .cgrid{grid-template-columns:1fr; gap:28px;}
   .rights{grid-template-columns:1fr;}
   .idrow{flex-direction:column; gap:3px;}
-  .idrow__k{width:auto;}
-}
+  .idrow__k{width:auto;}}
 
 /* ===== covers supplémentaires (jeux du catalogue) ===== */
 .cover-hd,.cover-ff,.cover-hk,.cover-sf,.cover-w3,.cover-sv{position:relative; background-size:cover;}
@@ -1005,7 +998,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .newsrow__t{display:block; font-weight:700; font-size:15px; color:var(--noir); line-height:1.3;}
 .newsrow__m{display:block; font-size:12.5px; color:var(--ink-400); margin-top:3px; line-height:1.45;}
 .newsrow__tag{flex:none;}
-@media (max-width:560px){ .newsrow__tag{display:none;} }
+@media (max-width:560px){ .newsrow__tag{display:none;}}
 .grow__go{color:var(--magenta);} .grow__go svg{width:18px; height:18px;}
 .gtag{font-size:11px; font-weight:800; padding:3px 9px; border-radius:var(--r-pill); white-space:nowrap;}
 .gtag--or{background:var(--or-pale); color:var(--or-ink);}
@@ -1027,8 +1020,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 
 @media (max-width:760px){
   .mapteaser{grid-template-columns:1fr;}
-  .gstats{gap:20px 26px;}
-}
+  .gstats{gap:20px 26px;}}
 
 /* ===== plus recherchés : carrousel horizontal ===== */
 .rail{display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; padding:4px 2px 14px; -webkit-overflow-scrolling:touch; scrollbar-width:thin; scrollbar-color:var(--line-2) transparent;}
@@ -1045,8 +1037,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 @media (max-width:560px){
   .railcard{flex-basis:150px;}
   .railcard__rank{font-size:34px;}
-  .rail-hint{display:block;}
-}
+  .rail-hint{display:block;}}
 
 /* ===== tous les jeux : liste compacte ===== */
 .glist2{display:flex; flex-direction:column; gap:9px;}
@@ -1062,8 +1053,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .grow2__go svg{width:18px; height:18px;}
 @media (max-width:560px){
   .grow2__cover{width:40px; height:52px;}
-  .grow2__badge{display:none;}
-}
+  .grow2__badge{display:none;}}
 
 /* ---- page-specific ---- */
 
@@ -1127,90 +1117,12 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
   .gside{position:static; flex-basis:auto; width:100%;}
   .gart{max-width:none;}
   .toc-card{display:none;}
-  .gscreens{flex-direction:column;}
-}
+  .gscreens{flex-direction:column;}}
 
     .gchip--tier{background:var(--magenta); color:#fff; border-color:transparent; font-weight:800;}
-
-
-
-
-
-
-
-
-.ratebox{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:18px 20px; margin:22px 0 8px;}
-.ratebox__head{display:flex; align-items:center; gap:20px; flex-wrap:wrap;}
-.ratebox__scorebox{display:flex; align-items:center; gap:14px;}
-.ratebox__score{font-family:var(--serif,var(--sans)); font-weight:800; font-size:38px; line-height:1; color:var(--noir);}
-.ratebox__scoremeta{display:flex; flex-direction:column; gap:4px;}
-.ratebox__count{font-size:13px; color:var(--ink-500);}
-.ratebox__stars{display:inline-flex; gap:3px;}
-.ratebox__stars svg{width:20px; height:20px;}
-.ratebox__stars--display{position:relative; color:var(--line-2,#e2e2e8);}
-.ratebox__stars--display .ratebox__fill{position:absolute; top:0; left:0; overflow:hidden; white-space:nowrap; color:var(--or); display:inline-flex; gap:3px;}
-.ratebox__divider{width:1px; align-self:stretch; background:var(--line); margin:2px 0;}
-.ratebox__action{display:flex; flex-direction:column; gap:8px;}
-.ratebox__label{font-weight:700; font-size:14px; color:var(--noir); margin:0;}
-.ratebox__stars--input{gap:4px;}
-.ratebox__starbtn{background:none; border:none; padding:2px; cursor:pointer; color:var(--line-2,#d9d9e0); line-height:0; transition:transform .1s ease, color .12s ease;}
-.ratebox__starbtn svg{width:26px; height:26px;}
-.ratebox__starbtn:hover{transform:scale(1.12);}
-.ratebox__starbtn.hot{color:var(--or);}
-.ratebox__hint{font-size:12.5px; color:var(--ink-500); margin:0; min-height:16px;}
-
-
-
-.ratebox__title{font-family:var(--serif,var(--sans)); font-weight:800; font-size:19px; line-height:1.2; margin:0 0 14px; color:var(--noir);}
-.ratebox .only-guest{display:block;}
-.ratebox__hint--guest{color:var(--ink-600,var(--ink-500));}
-.ratebox__hint--guest a{color:var(--magenta); font-weight:700; text-decoration:underline;}
-
-
-.combox{max-width:none; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:18px 20px; margin:16px 0 8px;}
-.combox__title{font-family:var(--serif,var(--sans)); font-weight:800; font-size:19px; line-height:1.2; margin:0 0 14px; color:var(--noir);}
-.combox__write{display:flex; gap:12px; align-items:flex-start;}
-.combox__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); background:var(--noir); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; border:2px solid var(--magenta);}
-.combox__field{flex:1; min-width:0;}
-.combox__ta{width:100%; box-sizing:border-box; font-family:var(--sans); font-size:14px; color:var(--noir); background:var(--surface-2); border:1px solid var(--line-2, var(--line)); border-radius:var(--r); padding:11px 13px; resize:vertical; min-height:82px; outline:none; transition:border-color .15s, box-shadow .15s;}
-.combox__ta:focus{border-color:var(--magenta); box-shadow:0 0 0 3px rgba(162,0,188,.10); background:#fff;}
-.combox__bar{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:10px;}
-.combox__count{font-size:12px; color:var(--ink-500);}
-.combox__guest{display:flex; gap:11px; align-items:center; background:var(--surface-2); border:1px dashed var(--line-2, var(--line)); border-radius:var(--r); padding:14px 15px;}
-.combox__guest svg{width:18px; height:18px; flex:none; color:var(--ink-500);}
-.combox__guest p{margin:0; font-size:13px; color:var(--ink-600, var(--ink-500)); line-height:1.45;}
-.combox__guest a{color:var(--magenta); font-weight:700; text-decoration:underline;}
 .comlist{list-style:none; margin:10px 0 0; padding:16px 0 0; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:16px;}
 .com{display:flex; gap:12px;}
-.com__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; color:#fff; background:var(--noir);}
-.com__ava--a{background:#5b3fa6;}
-.com__ava--b{background:#1f7a68;}
-.com__ava--c{background:#a63f6b;}
-.com__ava--d{background:#2f5fd0;}
-.com__ava--e{background:#a8651f;}
-.com__body{flex:1; min-width:0;}
-.com__head{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;}
-.com__name{font-weight:800; font-size:14px; color:var(--noir);}
-.com__date{font-size:12px; color:var(--ink-400, var(--ink-500));}
-.com__stars{display:inline-flex; gap:2px; color:var(--or); margin-left:2px;}
-.com__stars svg{width:13px; height:13px;}
-.com__txt{margin:6px 0 0; font-size:14px; line-height:1.55; color:var(--ink-700, var(--noir));}
 .com.is-hidden{display:none;}
-.combox__more{margin-top:16px; display:flex; justify-content:center;}
-.combox__more.is-done{display:none;}
-
-
-
-
-
-.combox__hint{margin:8px 0 0; font-size:12.5px; color:var(--magenta); font-weight:600; min-height:16px;}
-.ratebox__title, .gart .combox__title{font-family:var(--serif,var(--sans)); font-size:19px; font-weight:800; line-height:1.2; margin:0 0 14px; color:var(--noir); scroll-margin-top:0;}
-
-
-
-
-
-.combox__hint:empty{margin:0;}
 
 
     .newsrow__foot{display:flex; align-items:center; gap:14px; margin-top:7px; font-size:12px; color:var(--ink-500);}
@@ -1230,24 +1142,79 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
       .community__stat{display:flex; gap:24px;}
       .community__stat .v{font-family:var(--serif); font-weight:800; font-size:24px;}
       .community__stat .l{font-size:12px; color:rgba(255,255,255,.8);}
-      .community{grid-template-columns:1fr;}
-      .ratebox__divider{display:block; width:100%; height:1px; align-self:auto; background:var(--line); margin:0;}
-      .ratebox__head{gap:18px;}
-      .ratebox{max-width:none;}
-      .ratebox__action{max-width:300px;}
-      .ratebox__hint--guest{max-width:280px;}
-      .combox{padding:18px 16px;}
-      .ratebox__label{margin:0; line-height:1.3; font-size:14px; color:var(--noir);}
-      .ratebox__hint{margin:0; line-height:1.4; font-size:12.5px; color:var(--ink-500);}
-      .ratebox__hint--guest{color:var(--ink-600,var(--ink-500));}
-      .com__txt{margin:6px 0 0; line-height:1.55; font-size:14px; color:var(--ink-700);}
-      .combox__hint{margin:8px 0 0; line-height:1.4; font-size:12.5px; color:var(--magenta); min-height:0;}
-      .combox__count{font-size:12px;}
-    }
+      .community{grid-template-columns:1fr;}}
     body:not(.is-auth) .combox__write{display:none;}
     body.is-auth .combox__write{display:flex;}
     body.is-auth .combox__guest{display:none;}
     body:not(.is-auth) .combox__guest{display:flex;}
+.ratebox__head{display:flex; align-items:center; gap:20px; flex-wrap:wrap;}
+.ratebox__scorebox{display:flex; align-items:center; gap:14px;}
+.ratebox__score{font-family:var(--serif,var(--sans)); font-weight:800; font-size:38px; line-height:1; color:var(--noir);}
+.ratebox__scoremeta{display:flex; flex-direction:column; gap:4px;}
+.ratebox__count{font-size:13px; color:var(--ink-500);}
+.ratebox__stars{display:inline-flex; gap:3px;}
+.ratebox__stars svg{width:20px; height:20px;}
+.ratebox__stars--display{position:relative; color:var(--line-2,#e2e2e8);}
+.ratebox__stars--display .ratebox__fill{position:absolute; top:0; left:0; overflow:hidden; white-space:nowrap; color:var(--or); display:inline-flex; gap:3px;}
+.ratebox__divider{width:1px; align-self:stretch; background:var(--line); margin:2px 0;}
+.ratebox__action{display:flex; flex-direction:column; gap:8px;}
+.ratebox__label{font-weight:700; font-size:14px; color:var(--noir); margin:0;}
+.ratebox__stars--input{gap:4px;}
+.ratebox__starbtn{background:none; border:none; padding:2px; cursor:pointer; color:var(--line-2,#d9d9e0); line-height:0; transition:transform .1s ease, color .12s ease;}
+.ratebox__starbtn svg{width:26px; height:26px;}
+.ratebox__starbtn:hover{transform:scale(1.12);}
+.ratebox__starbtn.hot{color:var(--or);}
+.ratebox__hint{font-size:12.5px; color:var(--ink-500); margin:0; min-height:16px;}
+.ratebox__head{gap:18px;}
+.ratebox{max-width:none;}
+.ratebox__title{font-family:var(--serif,var(--sans)); font-weight:800; font-size:19px; line-height:1.2; margin:0 0 14px; color:var(--noir);}
+.ratebox .only-guest{display:block;}
+.ratebox__hint--guest{color:var(--ink-600,var(--ink-500));}
+.ratebox__hint--guest a{color:var(--magenta); font-weight:700; text-decoration:underline;}
+.ratebox__action{max-width:300px;}
+.ratebox__hint--guest{max-width:280px;}
+.combox__title{font-family:var(--serif,var(--sans)); font-weight:800; font-size:19px; line-height:1.2; margin:0 0 14px; color:var(--noir);}
+.combox__write{display:flex; gap:12px; align-items:flex-start;}
+.combox__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); background:var(--noir); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; border:2px solid var(--magenta);}
+.combox__field{flex:1; min-width:0;}
+.combox__ta{width:100%; box-sizing:border-box; font-family:var(--sans); font-size:14px; color:var(--noir); background:var(--surface-2); border:1px solid var(--line-2, var(--line)); border-radius:var(--r); padding:11px 13px; resize:vertical; min-height:82px; outline:none; transition:border-color .15s, box-shadow .15s;}
+.combox__ta:focus{border-color:var(--magenta); box-shadow:0 0 0 3px rgba(162,0,188,.10); background:#fff;}
+.combox__bar{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:10px;}
+.combox__count{font-size:12px; color:var(--ink-500);}
+.combox__guest{display:flex; gap:11px; align-items:center; background:var(--surface-2); border:1px dashed var(--line-2, var(--line)); border-radius:var(--r); padding:14px 15px;}
+.combox__guest svg{width:18px; height:18px; flex:none; color:var(--ink-500);}
+.combox__guest p{margin:0; font-size:13px; color:var(--ink-600, var(--ink-500)); line-height:1.45;}
+.combox__guest a{color:var(--magenta); font-weight:700; text-decoration:underline;}
+.com__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; color:#fff; background:var(--noir);}
+.com__ava--a{background:#5b3fa6;}
+.com__ava--b{background:#1f7a68;}
+.com__ava--c{background:#a63f6b;}
+.com__ava--d{background:#2f5fd0;}
+.com__ava--e{background:#a8651f;}
+.com__body{flex:1; min-width:0;}
+.com__head{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;}
+.com__name{font-weight:800; font-size:14px; color:var(--noir);}
+.com__date{font-size:12px; color:var(--ink-400, var(--ink-500));}
+.com__stars{display:inline-flex; gap:2px; color:var(--or); margin-left:2px;}
+.com__stars svg{width:13px; height:13px;}
+.com__txt{margin:6px 0 0; font-size:14px; line-height:1.55; color:var(--ink-700, var(--noir));}
+.combox__more{margin-top:16px; display:flex; justify-content:center;}
+.combox__more.is-done{display:none;}
+.combox__hint{margin:8px 0 0; font-size:12.5px; color:var(--magenta); font-weight:600; min-height:16px;}
+@media (max-width:640px){
+
+}
+
+    .gart .ratebox__title, .gart .combox__title{font-family:var(--serif,var(--sans)); font-size:19px; font-weight:800; line-height:1.2; margin:0 0 14px; color:var(--noir); scroll-margin-top:0;}
+    .gart .ratebox__label{margin:0; line-height:1.3; font-size:14px; color:var(--noir);}
+    .gart .ratebox__hint{margin:0; line-height:1.4; font-size:12.5px; color:var(--ink-500);}
+    .gart .ratebox__hint--guest{color:var(--ink-600,var(--ink-500));}
+    .gart .com__txt{margin:6px 0 0; line-height:1.55; font-size:14px; color:var(--ink-700);}
+    .gart .combox__hint{margin:8px 0 0; line-height:1.4; font-size:12.5px; color:var(--magenta); min-height:0;}
+    .gart .combox__hint:empty{margin:0;}
+    .gart .combox__count{font-size:12px;}
+
+    .newsl .newsrow__tag{display:flex; align-self:center;}
 </style>
 </head>
 <body>
@@ -1455,7 +1422,7 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
 <p>La <strong>Rivière sanglante</strong> s'obtient dans les <strong>Cimes des Géants</strong> : à l'<strong>Église du Repos</strong>, un envahisseur (Okina) t'attaque — vaincs-le pour récupérer le katana. Il te faut <strong>20 en Ésotérisme</strong> pour l'équiper.</p>
 <div class="gscreens"><div class="gscreen c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><span>Carte : Église du Repos (Cimes des Géants)</span></div><div class="gscreen c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><span>En jeu : la Rivière sanglante en main</span></div></div>
 <h3>Cendre de guerre · l'Entaille sanglante</h3>
-<p>L'<strong>Entaille sanglante</strong> se récupère au <strong>Fort Haight</strong>, en Nécrolimbe, après avoir nettoyé le fort : elle transforme un coup chargé en frappe qui saigne, idéale pour amorcer l'hémorragie.</p>
+<p>L'<strong>Entaille sanglante</strong> se récupère au <strong>Fort Haight</strong>, en Nécrolimbe : élimine le <strong>Chevalier de Godrick</strong> posté au sommet des remparts du fort pour l'obtenir. Elle transforme un coup chargé en frappe qui saigne, idéale pour amorcer l'hémorragie.</p>
 <div class="gscreens"><div class="gscreen c1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><span>Carte : Fort Haight (Nécrolimbe)</span></div><div class="gscreen c2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="1.6"></circle><path d="m21 15-5-5L5 21"></path></svg><span>En jeu : l'Entaille sanglante appliquée</span></div></div>
 <h3>Talisman · l'Exultation du seigneur du sang</h3>
 <p>L'<strong>Exultation du seigneur du sang</strong> augmente ton attaque de <strong>20%</strong> quand un ennemi saigne autour de toi. On la trouve dans la <strong>Prison souterraine des Parias</strong>.</p>
@@ -1469,7 +1436,7 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
           <li>Quand la jauge se remplit, l'hémorragie inflige un <b>gros dégât instantané</b> : répète.</li>
         </ul>
 
-        <h2 id="related">Découvrir d'autres builds</h2><div class="newsl"><a class="newsrow" href="build.html"><span class="newsrow__date">2<span>juill.</span></span><span class="newsrow__b"><span class="newsrow__t">Build Cyberpunk 2077 · Netrunner overclock</span><span class="newsrow__m" style="display:flex; gap:6px; align-items:center;"><span class="tag" style="background:var(--cyan-pale); color:var(--cyan-ink); font-size:11px; font-weight:800; padding:2px 9px; border-radius:99px;">Tout le jeu</span></span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 4 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,8 <span class="newsrow__cnt">(205)</span></span></span></span></a><a class="newsrow" href="build.html"><span class="newsrow__date">30<span>juin</span></span><span class="newsrow__b"><span class="newsrow__t">Build Baldur's Gate 3 · Roublard assassin</span><span class="newsrow__m" style="display:flex; gap:6px; align-items:center;"><span class="tag" style="background:var(--cyan-pale); color:var(--cyan-ink); font-size:11px; font-weight:800; padding:2px 9px; border-radius:99px;">Tout le jeu</span></span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 6 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,7 <span class="newsrow__cnt">(124)</span></span></span></span></a><a class="newsrow" href="build.html"><span class="newsrow__date">28<span>juin</span></span><span class="newsrow__b"><span class="newsrow__t">Build Elden Ring · Sorcier-guerrier hybride</span><span class="newsrow__m" style="display:flex; gap:6px; align-items:center;"><span class="tag" style="background:var(--cyan-pale); color:var(--cyan-ink); font-size:11px; font-weight:800; padding:2px 9px; border-radius:99px;">Tout le jeu</span></span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 6 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,3 <span class="newsrow__cnt">(54)</span></span></span></span></a></div>
+        <h2 id="related">Découvrir d'autres builds</h2><div class="newsl"><a class="newsrow" href="build.html"><span class="newsrow__date">20<span>janv.</span></span><span class="newsrow__b"><span class="newsrow__t">Build Cyberpunk 2077 · Netrunner overclock</span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 4 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,8 <span class="newsrow__cnt">(205)</span></span></span></span><span class="newsrow__tag"><span class="tag tag--carte">Tout le jeu</span></span></a><a class="newsrow" href="build.html"><span class="newsrow__date">2<span>avr.</span></span><span class="newsrow__b"><span class="newsrow__t">Build Baldur's Gate 3 · Roublard assassin</span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 6 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,7 <span class="newsrow__cnt">(124)</span></span></span></span><span class="newsrow__tag"><span class="tag tag--carte">Tout le jeu</span></span></a><a class="newsrow" href="build.html"><span class="newsrow__date">8<span>mai</span></span><span class="newsrow__b"><span class="newsrow__t">Build Elden Ring · Sorcier-guerrier hybride</span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 6 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,3 <span class="newsrow__cnt">(54)</span></span></span></span><span class="newsrow__tag"><span class="tag tag--carte">Tout le jeu</span></span></a></div>
         <section class="ratebox" aria-label="Notation">
       <h2 class="ratebox__title">Laisse une note</h2>
       <div class="ratebox__head">
@@ -2087,7 +2054,7 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
   function g(){ try{ return JSON.parse(localStorage.getItem(KEY)||'[]'); }catch(e){ return []; } }
   function s(a){ try{ localStorage.setItem(KEY, JSON.stringify(a)); }catch(e){} }
   if(fav){
-    try{ if(isAuth() && localStorage.getItem(KEY)===null){ s(['b-samurai']); } }catch(e){}
+    try{ if(isAuth()){ var _c=g(); if(_c.indexOf('b-samurai')<0){ _c.push('b-samurai'); s(_c); } } }catch(e){}
     function refl(){ var on=g().indexOf(ID)>=0; fav.classList.toggle('is-fav',on); fav.setAttribute('aria-pressed',on?'true':'false'); var sp=fav.querySelector('span'); if(sp) sp.textContent=on?'Sauvegard\u00e9':'Sauvegarder'; }
     refl();
     fav.addEventListener('click', function(){ if(!isAuth()){ location.href='connexion.html'; return; }
