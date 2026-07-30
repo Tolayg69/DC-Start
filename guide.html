@@ -2170,5 +2170,27 @@ body:not(.is-auth) .combox__guest{display:flex;}
     ta.value=''; count.textContent='0 / 600'; if(comHint) comHint.textContent='';
   }); }
 })();</script>
+<script>
+(function(){
+  var art=document.querySelector('.gart'); if(!art) return;
+  var enbref=null;
+  document.querySelectorAll('.icard').forEach(function(c){ var hh=c.querySelector('.icard__h'); if(hh && hh.textContent.trim()==='En bref') enbref=c; });
+  if(!enbref) return;
+  var firstH2=art.querySelector('h2'); if(!firstH2) return;
+  var origParent=enbref.parentElement, origNext=enbref.nextElementSibling;
+  var mq=window.matchMedia('(max-width:980px)');
+  function place(){
+    if(mq.matches){
+      if(!(enbref.nextElementSibling===firstH2)){ firstH2.parentElement.insertBefore(enbref, firstH2); }
+    } else {
+      if(enbref.parentElement!==origParent || enbref.nextElementSibling!==origNext){
+        if(origNext && origNext.parentElement===origParent){ origParent.insertBefore(enbref, origNext); } else { origParent.appendChild(enbref); }
+      }
+    }
+  }
+  place();
+  if(mq.addEventListener) mq.addEventListener('change', place); else mq.addListener(place);
+})();
+</script>
 </body>
 </html>
