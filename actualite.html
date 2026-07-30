@@ -1223,6 +1223,13 @@ body:not(.is-auth) .combox__guest{display:flex;}
     .gart .combox__hint{margin:8px 0 0; line-height:1.4; font-size:12.5px; color:var(--magenta); min-height:0;}
     .gart .combox__hint:empty{margin:0;}
     .gart .combox__count{font-size:12px;}
+
+    .newsrow__foot{display:flex; align-items:center; gap:14px; margin-top:7px; font-size:12px; color:var(--ink-500);}
+    .newsrow__foot .i{display:inline-flex; align-items:center; gap:5px;}
+    .newsrow__foot .i svg{width:13px; height:13px;}
+    .newsrow__rate{display:inline-flex; align-items:center; gap:4px; font-weight:700; color:var(--noir);}
+    .newsrow__rate svg{width:13px; height:13px; fill:#f5a623;}
+    .newsrow__cnt{color:var(--ink-400); font-weight:400;}
 </style>
 </head>
 <body>
@@ -1445,8 +1452,8 @@ body:not(.is-auth) .combox__guest{display:flex;}
           <li class="fix">Divers ajustements de textes et de traductions dans les descriptions d'objets.</li>
         </ul>
 
-        <h2 id="related">À lire ensuite</h2>
-        <div class="newsl"><a class="newsrow" href="actualite.html"><span class="newsrow__date">03<span>juin</span></span><span class="newsrow__b"><span class="newsrow__t">Cyberpunk 2077 : Mise à jour 2.2 : personnalisation de véhicules et refonte du gameplay</span><span class="newsrow__m">Véhicules personnalisables, combats à moto retravaillés et nouveaux contrats.</span></span><span class="newsrow__tag"><span class="tag tag--maj">MàJ</span></span></a><a class="newsrow" href="actualite.html"><span class="newsrow__date">28<span>mai</span></span><span class="newsrow__b"><span class="newsrow__t">Hades II : la mise à jour majeure ajoute une nouvelle région</span><span class="newsrow__m">Une région inédite, de nouvelles armes et un boss de fin remanié.</span></span><span class="newsrow__tag"><span class="tag tag--maj">MàJ</span></span></a></div>
+        <h2 id="related">À lire également</h2>
+        <div class="newsl"><a class="newsrow" href="actualite.html"><span class="newsrow__date">1er<span>juill.</span></span><span class="newsrow__b"><span class="newsrow__t">Cyberpunk 2077 : Mise à jour 2.2 : personnalisation de véhicules et refonte du gameplay</span><span class="newsrow__m">Véhicules personnalisables, combats à moto retravaillés et nouveaux contrats.</span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 4 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,6 <span class="newsrow__cnt">(142)</span></span></span></span><span class="newsrow__tag"><span class="tag tag--maj">MàJ</span></span></a><a class="newsrow" href="actualite.html"><span class="newsrow__date">27<span>juin</span></span><span class="newsrow__b"><span class="newsrow__t">Hades II : la mise à jour majeure ajoute une nouvelle région</span><span class="newsrow__m">Une région inédite, de nouvelles armes et un boss de fin remanié.</span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 4 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,7 <span class="newsrow__cnt">(153)</span></span></span></span><span class="newsrow__tag"><span class="tag tag--maj">MàJ</span></span></a></div>
       
 
       <section class="ratebox" aria-label="Notation">
@@ -1536,11 +1543,11 @@ body:not(.is-auth) .combox__guest{display:flex;}
             <li><a href="#armes">Armes rééquilibrées</a></li>
             <li><a href="#sorts">Incantations et sorts</a></li>
             <li><a href="#online">PvP &amp; stabilité</a></li>
-            <li><a href="#related">À lire ensuite</a></li>
+            <li><a href="#related">À lire également</a></li>
           </ul>
         </div>
         <div class="icard">
-          <p class="icard__h">Détails</p>
+          <p class="icard__h">En bref</p>
           <div class="irow"><span class="irow__k">Jeu</span><span class="irow__v">Elden Ring</span></div>
           <div class="irow"><span class="irow__k">Version</span><span class="irow__v">1.12.3</span></div>
           <div class="irow"><span class="irow__k">Date</span><span class="irow__v">12 juin</span></div>
@@ -2119,5 +2126,27 @@ body:not(.is-auth) .combox__guest{display:flex;}
     ta.value=''; count.textContent='0 / 600'; if(comHint) comHint.textContent='';
   }); }
 })();</script>
+<script>
+(function(){
+  var art=document.querySelector('.gart'); if(!art) return;
+  var enbref=null;
+  document.querySelectorAll('.icard').forEach(function(c){ var hh=c.querySelector('.icard__h'); if(hh && hh.textContent.trim()==='En bref') enbref=c; });
+  if(!enbref) return;
+  var firstH2=art.querySelector('h2'); if(!firstH2) return;
+  var origParent=enbref.parentElement, origNext=enbref.nextElementSibling;
+  var mq=window.matchMedia('(max-width:980px)');
+  function place(){
+    if(mq.matches){
+      if(!(enbref.nextElementSibling===firstH2)){ firstH2.parentElement.insertBefore(enbref, firstH2); }
+    } else {
+      if(enbref.parentElement!==origParent || enbref.nextElementSibling!==origNext){
+        if(origNext && origNext.parentElement===origParent){ origParent.insertBefore(enbref, origNext); } else { origParent.appendChild(enbref); }
+      }
+    }
+  }
+  place();
+  if(mq.addEventListener) mq.addEventListener('change', place); else mq.addListener(place);
+})();
+</script>
 </body>
 </html>
