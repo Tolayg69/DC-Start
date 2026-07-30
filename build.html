@@ -1122,7 +1122,6 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
     .gchip--tier{background:var(--magenta); color:#fff; border-color:transparent; font-weight:800;}
 .comlist{list-style:none; margin:10px 0 0; padding:16px 0 0; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:16px;}
 .com{display:flex; gap:12px;}
-.com.is-hidden{display:none;}
 
 
     .newsrow__foot{display:flex; align-items:center; gap:14px; margin-top:7px; font-size:12px; color:var(--ink-500);}
@@ -1143,10 +1142,11 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
       .community__stat .v{font-family:var(--serif); font-weight:800; font-size:24px;}
       .community__stat .l{font-size:12px; color:rgba(255,255,255,.8);}
       .community{grid-template-columns:1fr;}}
-    body:not(.is-auth) .combox__write{display:none;}
-    body.is-auth .combox__write{display:flex;}
-    body.is-auth .combox__guest{display:none;}
-    body:not(.is-auth) .combox__guest{display:flex;}
+
+
+    .newsl .newsrow__tag{display:flex; align-self:center;}
+/* --- encart notation --- */
+.ratebox{background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:18px 20px; margin:22px 0 8px;}
 .ratebox__head{display:flex; align-items:center; gap:20px; flex-wrap:wrap;}
 .ratebox__scorebox{display:flex; align-items:center; gap:14px;}
 .ratebox__score{font-family:var(--serif,var(--sans)); font-weight:800; font-size:38px; line-height:1; color:var(--noir);}
@@ -1165,14 +1165,14 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
 .ratebox__starbtn:hover{transform:scale(1.12);}
 .ratebox__starbtn.hot{color:var(--or);}
 .ratebox__hint{font-size:12.5px; color:var(--ink-500); margin:0; min-height:16px;}
-.ratebox__head{gap:18px;}
+
 .ratebox{max-width:none;}
 .ratebox__title{font-family:var(--serif,var(--sans)); font-weight:800; font-size:19px; line-height:1.2; margin:0 0 14px; color:var(--noir);}
 .ratebox .only-guest{display:block;}
 .ratebox__hint--guest{color:var(--ink-600,var(--ink-500));}
 .ratebox__hint--guest a{color:var(--magenta); font-weight:700; text-decoration:underline;}
-.ratebox__action{max-width:300px;}
-.ratebox__hint--guest{max-width:280px;}
+/* --- encart commentaires --- */
+.combox{max-width:none; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:18px 20px; margin:16px 0 8px;}
 .combox__title{font-family:var(--serif,var(--sans)); font-weight:800; font-size:19px; line-height:1.2; margin:0 0 14px; color:var(--noir);}
 .combox__write{display:flex; gap:12px; align-items:flex-start;}
 .combox__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); background:var(--noir); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; border:2px solid var(--magenta);}
@@ -1198,23 +1198,29 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
 .com__stars{display:inline-flex; gap:2px; color:var(--or); margin-left:2px;}
 .com__stars svg{width:13px; height:13px;}
 .com__txt{margin:6px 0 0; font-size:14px; line-height:1.55; color:var(--ink-700, var(--noir));}
+.com.is-hidden{display:none;}
 .combox__more{margin-top:16px; display:flex; justify-content:center;}
 .combox__more.is-done{display:none;}
+body:not(.is-auth) .combox__write{display:none;}
+body.is-auth .combox__write{display:flex;}
+body.is-auth .combox__guest{display:none;}
+body:not(.is-auth) .combox__guest{display:flex;}
 .combox__hint{margin:8px 0 0; font-size:12.5px; color:var(--magenta); font-weight:600; min-height:16px;}
+/* Encarts note/commentaires : neutraliser l'héritage .gart (titres h2 + p) */
+    .gart .ratebox__title, .gart .combox__title{font-family:var(--serif,var(--sans)); font-size:19px; font-weight:800; line-height:1.2; margin:0 0 14px; color:var(--noir); scroll-margin-top:0;}
+.gart .ratebox__label{margin:0; line-height:1.3; font-size:14px; color:var(--noir);}
+.gart .ratebox__hint{margin:0; line-height:1.4; font-size:12.5px; color:var(--ink-500);}
+.gart .ratebox__hint--guest{color:var(--ink-600,var(--ink-500));}
+.gart .com__txt{margin:6px 0 0; line-height:1.55; font-size:14px; color:var(--ink-700);}
+.gart .combox__hint{margin:8px 0 0; line-height:1.4; font-size:12.5px; color:var(--magenta); min-height:0;}
+.gart .combox__hint:empty{margin:0;}
+.gart .combox__count{font-size:12px;}
 @media (max-width:640px){
 
 }
 
-    .gart .ratebox__title, .gart .combox__title{font-family:var(--serif,var(--sans)); font-size:19px; font-weight:800; line-height:1.2; margin:0 0 14px; color:var(--noir); scroll-margin-top:0;}
-    .gart .ratebox__label{margin:0; line-height:1.3; font-size:14px; color:var(--noir);}
-    .gart .ratebox__hint{margin:0; line-height:1.4; font-size:12.5px; color:var(--ink-500);}
-    .gart .ratebox__hint--guest{color:var(--ink-600,var(--ink-500));}
-    .gart .com__txt{margin:6px 0 0; line-height:1.55; font-size:14px; color:var(--ink-700);}
-    .gart .combox__hint{margin:8px 0 0; line-height:1.4; font-size:12.5px; color:var(--magenta); min-height:0;}
-    .gart .combox__hint:empty{margin:0;}
-    .gart .combox__count{font-size:12px;}
-
-    .newsl .newsrow__tag{display:flex; align-self:center;}
+    @media (max-width:560px){ .ratebox__head{gap:18px;} }
+    .newsl + .ratebox{margin-top:42px;}
 </style>
 </head>
 <body>
@@ -1436,7 +1442,7 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
           <li>Quand la jauge se remplit, l'hémorragie inflige un <b>gros dégât instantané</b> : répète.</li>
         </ul>
 
-        <h2 id="related">Découvrir d'autres builds</h2><div class="newsl"><a class="newsrow" href="build.html"><span class="newsrow__date">20<span>janv.</span></span><span class="newsrow__b"><span class="newsrow__t">Build Cyberpunk 2077 · Netrunner overclock</span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 4 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,8 <span class="newsrow__cnt">(205)</span></span></span></span><span class="newsrow__tag"><span class="tag tag--carte">Tout le jeu</span></span></a><a class="newsrow" href="build.html"><span class="newsrow__date">2<span>avr.</span></span><span class="newsrow__b"><span class="newsrow__t">Build Baldur's Gate 3 · Roublard assassin</span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 6 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,7 <span class="newsrow__cnt">(124)</span></span></span></span><span class="newsrow__tag"><span class="tag tag--carte">Tout le jeu</span></span></a><a class="newsrow" href="build.html"><span class="newsrow__date">8<span>mai</span></span><span class="newsrow__b"><span class="newsrow__t">Build Elden Ring · Sorcier-guerrier hybride</span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 6 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,3 <span class="newsrow__cnt">(54)</span></span></span></span><span class="newsrow__tag"><span class="tag tag--carte">Tout le jeu</span></span></a></div>
+        <h2 id="related">Découvrir d'autres builds</h2><div class="newsl"><a class="newsrow" href="build.html"><span class="newsrow__date">20<span>janv.</span></span><span class="newsrow__b"><span class="newsrow__t">Build Cyberpunk 2077 · Netrunner overclock</span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 4 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,8 <span class="newsrow__cnt">(205)</span></span></span></span><span class="newsrow__tag"><span class="tag tag--carte">Tout le jeu</span></span></a><a class="newsrow" href="build.html"><span class="newsrow__date">2<span>avr.</span></span><span class="newsrow__b"><span class="newsrow__t">Build Baldur's Gate 3 · Roublard assassin</span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 6 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,6 <span class="newsrow__cnt">(124)</span></span></span></span><span class="newsrow__tag"><span class="tag tag--carte">Tout le jeu</span></span></a><a class="newsrow" href="build.html"><span class="newsrow__date">8<span>mai</span></span><span class="newsrow__b"><span class="newsrow__t">Build Elden Ring · Sorcier-guerrier hybride</span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 6 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,5 <span class="newsrow__cnt">(54)</span></span></span></span><span class="newsrow__tag"><span class="tag tag--carte">Tout le jeu</span></span></a></div>
         <section class="ratebox" aria-label="Notation">
       <h2 class="ratebox__title">Laisse une note</h2>
       <div class="ratebox__head">
