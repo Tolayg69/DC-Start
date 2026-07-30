@@ -1467,9 +1467,9 @@ body:not(.is-auth) .combox__guest{display:flex;}
     <section class="combox" aria-label="Commentaires">
       <h2 class="combox__title">Commentaires</h2>
       <div class="combox__write only-auth">
-        <span class="combox__ava" aria-hidden="true">É</span>
+        <span class="combox__ava" aria-hidden="true">E</span>
         <div class="combox__field">
-          <textarea class="combox__ta" id="comTa" maxlength="600" placeholder="Donne ton avis sur ce guide..." aria-label="Ton commentaire"></textarea>
+          <textarea class="combox__ta" id="comTa" maxlength="600" placeholder="Donne ton avis sur ce build..." aria-label="Ton commentaire"></textarea>
           <div class="combox__bar">
             <span class="combox__count" id="comCount">0 / 600</span>
             <button class="btn btn--primary btn--sm" type="button" id="comSend">Publier</button>
@@ -2087,6 +2087,58 @@ body:not(.is-auth) .combox__guest{display:flex;}
   }
   place();
   if(mq.addEventListener) mq.addEventListener('change', place); else mq.addListener(place);
+})();
+</script>
+<script>
+(function(){
+  var wrap=document.getElementById('rateInput'); if(!wrap) return;
+  var hint=document.getElementById('rateHint');
+  var btns=[].slice.call(wrap.querySelectorAll('.ratebox__starbtn'));
+  var current=0;
+  function isAuth(){ return document.body.classList.contains('is-auth'); }
+  function paint(n){ btns.forEach(function(b,i){ b.classList.toggle('hot', i<n); }); }
+  function go(u){ try{ window.top.location.href=u; }catch(_){ window.location.href=u; } }
+  btns.forEach(function(b){
+    var v=parseInt(b.getAttribute('data-v'),10);
+    b.addEventListener('mouseenter', function(){ if(isAuth()) paint(v); });
+    b.addEventListener('click', function(){
+      if(!isAuth()){ go('connexion.html'); return; }
+      current=v; window.__lynkRating=v; paint(v); var rc=document.getElementById('rateCount'); if(rc){ rc.textContent='241 avis'; } if(hint) hint.textContent='Ta note : '+v+'/5. Merci !';
+      var ch=document.getElementById('comHint'); if(ch) ch.textContent='';
+    });
+  });
+  wrap.addEventListener('mouseleave', function(){ paint(current); });
+})();
+</script>
+<script>
+(function(){
+  var list=document.getElementById('comList'); if(!list) return;
+  var more=document.getElementById('comMore'), wrap=document.getElementById('comMoreWrap');
+  var ta=document.getElementById('comTa'), count=document.getElementById('comCount'), send=document.getElementById('comSend'), comHint=document.getElementById('comHint');
+  var STAR='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6L12 2z"></path></svg>';
+  function isAuth(){ return document.body.classList.contains('is-auth'); }
+  function go(u){ try{ window.top.location.href=u; }catch(_){ window.location.href=u; } }
+  if(more){ more.addEventListener('click', function(){
+    list.querySelectorAll('.com.is-hidden').forEach(function(c){ c.classList.remove('is-hidden'); });
+    wrap.classList.add('is-done');
+  }); }
+  if(ta && count){ ta.addEventListener('input', function(){ count.textContent = ta.value.length + ' / 600'; }); }
+  if(send){ send.addEventListener('click', function(){
+    if(!isAuth()){ go('connexion.html'); return; }
+    var rating = window.__lynkRating || 0;
+    if(!rating){ if(comHint) comHint.textContent='Mets d\u2019abord une note ci-dessus pour pouvoir laisser un commentaire.'; return; }
+    var v=(ta.value||'').trim();
+    if(!v){ ta.focus(); return; }
+    var stars='<span class="com__stars" aria-label="'+rating+' sur 5">';
+    for(var k=0;k<rating;k++) stars+=STAR;
+    stars+='</span>';
+    var li=document.createElement('li');
+    li.className='com';
+    li.innerHTML='<span class="com__ava" aria-hidden="true">E</span><div class="com__body"><div class="com__head"><span class="com__name">Toi</span>'+stars+'<span class="com__date">\u00e0 l\u2019instant</span></div><p class="com__txt"></p></div>';
+    li.querySelector('.com__txt').textContent=v;
+    list.insertBefore(li, list.firstChild);
+    ta.value=''; count.textContent='0 / 600'; if(comHint) comHint.textContent='';
+  }); }
 })();
 </script>
 </body>
