@@ -1070,9 +1070,10 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 
 .gtools{display:flex; flex-wrap:wrap; align-items:center; column-gap:7px; row-gap:14px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:14px 16px; margin-bottom:22px;}
 .gsearch{position:relative;}
-.gsearch input{width:100%; box-sizing:border-box; font-family:var(--sans); font-size:15px; padding:14px 16px 14px 46px; border:1px solid var(--line); border-radius:var(--r); background:#fff; color:var(--noir); box-shadow:var(--sh-xs);}
+    .gsearch{flex:1 1 100%; position:relative; display:flex; align-items:center; gap:11px; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-xs); padding:13px 16px;}
+.gsearch input{flex:1; padding:0; border:none; background:none; box-shadow:none; font-family:var(--sans); font-size:15px; color:var(--noir); outline:none; min-width:0;}
 .gsearch input:focus{outline:none; border-color:var(--magenta); box-shadow:0 0 0 3px var(--mg-soft);}
-.gsearch__ico{position:absolute; left:16px; top:50%; transform:translateY(-50%); width:20px; height:20px; color:var(--ink-400); pointer-events:none;}
+.gsearch__ico{position:static; transform:none; left:auto; top:auto; width:19px; height:19px; color:var(--ink-400); flex:none; pointer-events:none;}
 .chipbar{display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; -webkit-overflow-scrolling:touch; scrollbar-width:none;}
 .chipbar::-webkit-scrollbar{display:none;}
 .fchip{flex:none; cursor:pointer; font-family:var(--sans); font-weight:700; font-size:13px; padding:8px 14px; border-radius:var(--r-pill); border:1px solid var(--line); background:#fff; color:var(--ink-700); white-space:nowrap; transition:all .14s;}
@@ -1100,7 +1101,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     .gfilters{flex:1 1 100%; display:flex; flex-wrap:wrap; align-items:center; column-gap:10px; row-gap:12px;}
     .gfilters .gdrop[data-drop="game"]{flex:1 1 100%;}
     .gfilters .gdrop[data-drop="type"]{flex:0 1 auto;}
-    .gfilters .gdrop[data-drop="diff"]{flex:0 1 auto;}
+    .gfilters .gdrop[data-drop="diff"]{flex:1 1 100%;}
     .gfilters .catsort{margin-left:auto; align-self:auto;}
     .gdrop{position:relative;}
     .gdrop__btn{display:none;}
@@ -1367,7 +1368,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
         <h2 class="sec-title">Par type de ressource</h2>
       </div>
       <div class="rband">
-        <a class="rlink" href="jeux.html"><span class="rlink__ico" style="background:#e7f0ff; color:#2f5fd0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="11" x2="10" y2="11"/><line x1="8" y1="9" x2="8" y2="13"/><line x1="15" y1="12" x2="15.01" y2="12"/><line x1="18" y1="10" x2="18.01" y2="10"/><rect width="20" height="12" x="2" y="6" rx="2"/></svg></span><span class="rlink__t">Jeux</span><span class="rlink__m">Le catalogue complet et les fiches de chaque jeu.</span></a>
+        <a class="rlink" href="jeux.html"><span class="rlink__ico" style="background:#e7f0ff; color:#2f5fd0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="11" x2="10" y2="11"/><line x1="8" y1="9" x2="8" y2="13"/><line x1="15" y1="12" x2="15.01" y2="12"/><line x1="18" y1="10" x2="18.01" y2="10"/><rect width="20" height="12" x="2" y="6" rx="2"/></svg></span><span class="rlink__t">Jeux</span><span class="rlink__m">Tous les contenus, classés par jeu.</span></a>
         <a class="rlink" href="guides.html"><span class="rlink__ico" style="background:var(--magenta-pale); color:var(--magenta);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/></svg></span><span class="rlink__t">Guides</span><span class="rlink__m">Tous les guides, soluces et astuces sur tes jeux.</span></a>
         <a class="rlink" href="cartes.html"><span class="rlink__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></span><span class="rlink__t">Cartes interactives</span><span class="rlink__m">Coffres, objets, boss, quêtes et PNJ, filtrables.</span></a>
         <a class="rlink" href="actualites.html"><span class="rlink__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0V9a1 1 0 0 1 1-1h1"/><path d="M16 6h2M16 10h2M10 6h2v4h-2z"/><path d="M10 14h8M10 18h8"/></svg></span><span class="rlink__t">Actualités</span><span class="rlink__m">Toutes les actualités et news sur tes jeux.</span></a>
