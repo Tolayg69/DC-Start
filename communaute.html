@@ -1477,6 +1477,10 @@ body:not(.is-auth) .psec.only-guest{display:block;}
         <a class="btn btn--primary only-auth" href="nouvelle-discussion.html">Poser une question <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
         <a class="btn btn--primary only-guest" href="connexion.html">Se connecter <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
       </div>
+      <div class="psec__head">
+        <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Le forum</span>
+        <h2 class="sec-title">Toutes les discussions</h2>
+      </div>
       <div class="gtools">
         <div class="gsearch">
           <svg class="gsearch__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
@@ -1519,6 +1523,7 @@ body:not(.is-auth) .psec.only-guest{display:block;}
         </div>
           </div>
           <select class="catsort" id="lsort" aria-label="Trier">
+          <option value="recent">Plus récents</option>
             <option value="consult">Les plus consultées</option>
             <option value="az">A → Z</option>
           </select>
@@ -2116,7 +2121,7 @@ body:not(.is-auth) .psec.only-guest{display:block;}
   var empty = document.getElementById('lempty');
   var countEl = document.getElementById('lcount');
   var noun = root.getAttribute('data-noun') || 'r\u00e9sultat';
-  var fGame=['all'], fType=['all'], fGenre=['all'], q='', fScope='tous', fSort='consult';
+  var fGame=['all'], fType=['all'], fGenre=['all'], q='', fScope='tous', fSort='recent';
   var FOLLOWED_G=['er','zelda','bg3'];
   var orig=rows.slice();
   function norm(s){ return (s||'').toLowerCase(); }
