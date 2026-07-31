@@ -725,7 +725,7 @@ body.is-embed #deviceHost{display:none !important;}
 }
 
 /* badge premium */
-.badge--prem{display:inline-flex; align-items:center; gap:5px; background:var(--or-pale); color:var(--or-ink); font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; border-radius:var(--r-pill); padding:3px 9px; vertical-align:2px; margin-left:6px;}
+.badge--prem{font-family:var(--sans); display:inline-flex; align-items:center; gap:5px; background:var(--or-pale); color:var(--or-ink); font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; border-radius:var(--r-pill); padding:3px 9px; vertical-align:2px; margin-left:6px; line-height:15px;}
 .badge--prem svg{width:10px; height:10px;}
 
 /* drawer : accordéon Jeux */
@@ -1094,6 +1094,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
 
     @media (max-width:520px){ .catbar .catsort{flex:1 1 100%; width:100%; margin-left:0;} }
+    .card .badge--prem, .mapcard .badge--prem{ padding:5px 9px; }
 </style>
 </head>
 <body>
