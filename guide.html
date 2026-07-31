@@ -120,7 +120,7 @@ p{margin:0;}
 /* ===================================================================
    ÉTIQUETTES type de contenu + badges d'état
    =================================================================== */
-.tag{display:inline-flex; align-items:center; gap:5px; font-family:var(--mono); font-size:11px; letter-spacing:.04em; text-transform:uppercase; font-weight:400; padding:4px 9px; border-radius:var(--r-pill); white-space:nowrap;}
+.tag{display:inline-flex; align-items:center; gap:5px; font-family:var(--sans); font-size:11.5px; font-weight:700; padding:4px 9px; border-radius:var(--r-pill); white-space:nowrap;}
 .tag--guide{background:var(--magenta-pale); color:var(--magenta-ink);}
 .tag--soluce{background:var(--magenta-pale); color:var(--magenta-ink);}
 .tag--build{background:var(--or-pale); color:var(--or-ink);}
@@ -1007,7 +1007,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .newsrow__tag{flex:none;}
 @media (max-width:560px){ .newsrow__tag{display:none;} }
 .grow__go{color:var(--magenta);} .grow__go svg{width:18px; height:18px;}
-.gtag{font-size:11px; font-weight:800; padding:3px 9px; border-radius:var(--r-pill); white-space:nowrap;}
+.gtag{font-size:11.5px; font-weight:700; padding:3px 9px; border-radius:var(--r-pill); white-space:nowrap;}
 .gtag--or{background:var(--or-pale); color:var(--or-ink);}
 .gtag--cy{background:var(--cyan-pale); color:var(--cyan-ink);}
 .gtag--mg{background:var(--magenta-pale); color:var(--magenta-ink);}
@@ -1236,6 +1236,7 @@ body:not(.is-auth) .combox__guest{display:flex;}
     .newsrow__rate svg{width:13px; height:13px; fill:#f5a623;}
     .newsrow__cnt{color:var(--ink-400); font-weight:400;}
     .gart .combox__rules{margin:0 0 12px; font-size:11.5px; color:var(--ink-400); line-height:1.45;}
+    .gbuild .newsrow__tag{display:flex; align-self:center;}
 </style>
 </head>
 <body>
@@ -1482,14 +1483,7 @@ body:not(.is-auth) .combox__guest{display:flex;}
         <div class="newsl"><a class="newsrow" href="guide.html"><span class="newsrow__date">2<span>juill.</span></span><span class="newsrow__b"><span class="newsrow__t">Quête de Ranni : toutes les étapes pour l'Âge des astres</span><span class="newsrow__m">Débloque la fin « Âge des astres », étape par étape</span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 12 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,8 <span class="newsrow__cnt">(356)</span></span></span></span><span class="newsrow__tag"><span class="gtag gtag--mg">Quête</span></span></a><a class="newsrow" href="guide.html"><span class="newsrow__date">1er<span>juill.</span></span><span class="newsrow__b"><span class="newsrow__t">Toutes les Larmes de cristal : emplacements et effets</span><span class="newsrow__m">Emplacements et effets, carte à l'appui</span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 9 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,7 <span class="newsrow__cnt">(241)</span></span></span></span><span class="newsrow__tag"><span class="gtag gtag--cy">Carte</span></span></a><a class="newsrow" href="guide.html"><span class="newsrow__date">28<span>juin</span></span><span class="newsrow__b"><span class="newsrow__t">Farm de runes rapide : la meilleure méthode pour monter de niveau</span><span class="newsrow__m">La méthode la plus rapide pour monter de niveau</span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 6 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,6 <span class="newsrow__cnt">(512)</span></span></span></span><span class="newsrow__tag"><span class="gtag gtag--or">Astuce</span></span></a></div>
         <div class="gbuild">
           <h2 class="gbuild__h">Build recommandé pour ce boss</h2>
-          <a class="gbuild__card" href="build.html">
-            <span class="gbuild__cover cover-er"></span>
-            <span class="gbuild__body">
-              <span class="gbuild__t">Samouraï saignement</span>
-              <span class="gbuild__m">Disponible dès le début · Difficulté facile · Tier S</span>
-            </span>
-            <svg class="gbuild__go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-          </a>
+          <div class="newsl"><a class="newsrow" href="build.html"><span class="newsrow__date">1er<span>juill.</span></span><span class="newsrow__b"><span class="newsrow__t">Build Elden Ring · Samouraï saignement</span><span class="newsrow__foot"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg> 4 min</span><span class="newsrow__rate"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg> 4,9 <span class="newsrow__cnt">(240)</span></span></span></span><span class="newsrow__tag"><span class="tag tag--carte">Early game</span></span></a></div>
         </div>
       
 
