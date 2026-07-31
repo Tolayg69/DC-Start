@@ -1975,7 +1975,7 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
       var show = okG && okT && okQ && okS; r.style.display = show?'':'none'; if(show) n++;
     });
     var sorted=orig.slice();
-    if(fSort==='az'){ sorted.sort(function(a,b){ return norm(a.getAttribute('data-title')).localeCompare(norm(b.getAttribute('data-title'))); }); }
+    if(fSort==='az'){ sorted.sort(function(a,b){ return norm(a.getAttribute('data-title')).localeCompare(norm(b.getAttribute('data-title'))); }); } else if(fSort==='consult'){ sorted.sort(function(a,b){ function pv(r){ var e=r.querySelector('.card__rate'); if(!e) return 0; var t=e.textContent; var v=t.match(/\((\d+)\)/); var g=t.match(/([\d,]+)/); return (v?+v[1]:0)*100+(g?parseFloat(g[1].replace(',','.')):0); } return pv(b)-pv(a); }); }
     sorted.forEach(function(r){ root.appendChild(r); });
     if(empty) empty.classList.toggle('is-on', n===0);
     if(countEl) countEl.innerHTML = '<b>'+n+'</b> '+(n>1?'résultats':'résultat');
