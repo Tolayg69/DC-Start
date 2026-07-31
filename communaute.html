@@ -123,7 +123,7 @@ p{margin:0;}
 /* ===================================================================
    ÉTIQUETTES type de contenu + badges d'état
    =================================================================== */
-.tag{display:inline-flex; align-items:center; gap:5px; font-family:var(--mono); font-size:11px; letter-spacing:.04em; text-transform:uppercase; font-weight:400; padding:4px 9px; border-radius:var(--r-pill); white-space:nowrap;}
+.tag{display:inline-flex; align-items:center; gap:5px; font-family:var(--sans); font-size:11.5px; font-weight:700; padding:4px 9px; border-radius:var(--r-pill); white-space:nowrap;}
 .tag--guide{background:var(--magenta-pale); color:var(--magenta-ink);}
 .tag--soluce{background:var(--magenta-pale); color:var(--magenta-ink);}
 .tag--build{background:var(--or-pale); color:var(--or-ink);}
@@ -734,7 +734,7 @@ body.is-embed #deviceHost{display:none !important;}
 }
 
 /* badge premium */
-.badge--prem{display:inline-flex; align-items:center; gap:5px; background:var(--or-pale); color:var(--or-ink); font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; border-radius:var(--r-pill); padding:3px 9px; vertical-align:2px; margin-left:6px;}
+.badge--prem{display:inline-flex; align-items:center; gap:5px; background:var(--or-pale); color:var(--or-ink); font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; border-radius:var(--r-pill); padding:3px 9px; vertical-align:2px; margin-left:6px; line-height:15px;}
 .badge--prem svg{width:10px; height:10px;}
 
 /* drawer : accordéon Jeux */
@@ -1016,7 +1016,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .newsrow__tag{flex:none;}
 @media (max-width:560px){ .newsrow__tag{display:none;} }
 .grow__go{color:var(--magenta);} .grow__go svg{width:18px; height:18px;}
-.gtag{font-size:11px; font-weight:800; padding:3px 9px; border-radius:var(--r-pill); white-space:nowrap;}
+.gtag{font-size:11.5px; font-weight:700; padding:3px 9px; border-radius:var(--r-pill); white-space:nowrap;}
 .gtag--or{background:var(--or-pale); color:var(--or-ink);}
 .gtag--cy{background:var(--cyan-pale); color:var(--cyan-ink);}
 .gtag--mg{background:var(--magenta-pale); color:var(--magenta-ink);}
@@ -1174,12 +1174,13 @@ body:not(.is-auth) .psec.only-guest{display:block;}
 .mdisc__b{min-width:0; overflow:hidden;}
 
 .mdisc__meta{font-size:11.5px; color:var(--ink-500); display:flex; align-items:center; flex-wrap:wrap; gap:6px; line-height:1.3;}
-.mdisc__meta .gtag{font-size:10px; padding:2px 7px;}
+.mdisc__meta .gtag{font-size:11.5px; font-weight:700; padding:3px 9px;}
 .mdisc__badge{align-self:center;}
 
 .commecard--disclist{padding:6px 18px;}
 .commecard--disclist .disc{border:none; box-shadow:none; border-radius:0; padding:15px 0; border-top:1px solid var(--line); gap:14px;}
 .commecard--disclist .disc:first-child{border-top:0;}
+    .card .badge--prem, .mapcard .badge--prem{ padding:5px 9px; }
 </style>
 </head>
 <body>
