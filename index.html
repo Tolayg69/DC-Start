@@ -766,7 +766,7 @@ body.is-embed #deviceHost{display:none !important;}
 }
 
 /* badge premium */
-.badge--prem{display:inline-flex; align-items:center; gap:5px; background:var(--or-pale); color:var(--or-ink); font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; border-radius:var(--r-pill); padding:5px 9px; line-height:15px; vertical-align:2px; margin-left:6px;}
+.badge--prem{display:inline-flex; align-items:center; gap:5px; background:var(--or-pale); color:var(--or-ink); font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; border-radius:var(--r-pill); padding:3px 9px; line-height:15px; vertical-align:2px; margin-left:6px;}
 .badge--prem svg{width:10px; height:10px;}
 .card__date{margin-left:auto; display:inline-flex; align-items:center; gap:5px; color:var(--ink-400); white-space:nowrap;}
 .card__top .badge--prem{margin-left:0;}
@@ -896,7 +896,7 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
     .tag--patch{background:var(--magenta-pale); color:var(--magenta-ink);}
     .tag--maj{background:var(--cyan-pale); color:var(--cyan-ink);}
     .tag--news{background:var(--or-pale); color:var(--or-ink);}
-    .sec-title .badge--prem, .fl-row__t .badge--prem{ padding:3px 9px; line-height:15px; }
+    .card .badge--prem, .mapcard .badge--prem{ padding:5px 9px; }
 </style>
 </head>
 <body>
@@ -1328,11 +1328,6 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
         <span class="marker" style="top:66%; left:24%; background:var(--or);"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"></circle></svg></span>
         <span class="marker" style="top:30%; left:78%; background:var(--magenta);"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg></span>
         <span class="marker" style="top:74%; left:70%; background:var(--cyan);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>
-        <div class="map-legend">
-          <span><i style="background:var(--magenta)"></i>Quêtes</span>
-          <span><i style="background:var(--cyan)"></i>Objets</span>
-          <span><i style="background:var(--or)"></i>Mes marqueurs</span>
-        </div>
       </div>
       <div class="feature__intro">
         <span class="sec-kicker"><span class="dots"><i></i><i></i></span> Cartes interactives</span>
