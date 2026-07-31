@@ -1075,7 +1075,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .gdmeta__i svg{width:15px; height:15px;}
 .gdactions{display:flex; flex-wrap:wrap; gap:10px;}
 .gdguest{font-size:13px; color:rgba(255,255,255,.78); background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:9px 14px; border-radius:var(--r); display:inline-flex; align-items:center; gap:8px;}
-.gdguest a{color:var(--magenta); text-decoration:underline; font-weight:700;}
+.gdguest a{color:#fff; text-decoration:underline; font-weight:700;}
 .btn--fav.is-fav{background:var(--magenta); border-color:var(--magenta); color:#fff;}
 .btn--fav.is-fav svg{fill:#fff;}
 .gart h2{font-family:var(--serif); font-size:26px; font-weight:800; color:var(--noir); margin:34px 0 12px; scroll-margin-top:80px;}
@@ -1235,7 +1235,7 @@ body:not(.is-auth) .combox__guest{display:flex;}
     .newsrow__rate{display:inline-flex; align-items:center; gap:4px; font-weight:700; color:var(--noir);}
     .newsrow__rate svg{width:13px; height:13px; fill:#f5a623;}
     .newsrow__cnt{color:var(--ink-400); font-weight:400;}
-    .combox__rules{font-size:12px; color:var(--ink-500); line-height:1.4; margin:0 0 10px;}
+    .gart .combox__rules{margin:0 0 12px; font-size:11.5px; color:var(--ink-400); line-height:1.45;}
 </style>
 </head>
 <body>
@@ -1517,7 +1517,7 @@ body:not(.is-auth) .combox__guest{display:flex;}
     <section class="combox" aria-label="Commentaires">
       <h2 class="combox__title">Commentaires</h2>
       <div class="combox__write only-auth">
-        <span class="combox__ava" aria-hidden="true">É</span>
+        <span class="combox__ava" aria-hidden="true">E</span>
         <div class="combox__field">
           <textarea class="combox__ta" id="comTa" maxlength="600" placeholder="Donne ton avis sur ce guide..." aria-label="Ton commentaire"></textarea>
           <p class="combox__rules">En publiant, tu acceptes les règles de la communauté. Reste courtois : les propos injurieux ou hors-sujet peuvent être modérés.</p>
@@ -2174,7 +2174,7 @@ body:not(.is-auth) .combox__guest{display:flex;}
     stars+='</span>';
     var li=document.createElement('li');
     li.className='com';
-    li.innerHTML='<span class="com__ava com__ava--me" aria-hidden="true">e</span><div class="com__body"><div class="com__head"><span class="com__name">Toi</span>'+stars+'<span class="com__date">\u00e0 l\u2019instant</span></div><p class="com__txt"></p></div>';
+    li.innerHTML='<span class="com__ava com__ava--me" aria-hidden="true">E</span><div class="com__body"><div class="com__head"><span class="com__name">Toi</span>'+stars+'<span class="com__date">\u00e0 l\u2019instant</span></div><p class="com__txt"></p></div>';
     li.querySelector('.com__txt').textContent=v;
     list.insertBefore(li, list.firstChild);
     ta.value=''; count.textContent='0 / 600'; if(comHint) comHint.textContent='';
