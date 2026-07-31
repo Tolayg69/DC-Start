@@ -725,7 +725,7 @@ body.is-embed #deviceHost{display:none !important;}
 }
 
 /* badge premium */
-.badge--prem{display:inline-flex; align-items:center; gap:5px; background:var(--or-pale); color:var(--or-ink); font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; border-radius:var(--r-pill); padding:3px 9px; vertical-align:2px; margin-left:6px;}
+.badge--prem{font-family:var(--sans); display:inline-flex; align-items:center; gap:5px; background:var(--or-pale); color:var(--or-ink); font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; border-radius:var(--r-pill); padding:3px 9px; vertical-align:2px; margin-left:6px; line-height:15px;}
 .badge--prem svg{width:10px; height:10px;}
 
 /* drawer : accordéon Jeux */
@@ -1051,7 +1051,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .uploadzone__t{display:block; font-size:13.5px; font-weight:700; color:var(--ink-700);}
 .uploadzone__t b{color:var(--magenta);}
 .uploadzone__hint{display:block; font-size:12px; color:var(--ink-400); margin-top:4px;}
-.borderpick{display:flex; gap:13px; flex-wrap:wrap;}
+.borderpick{display:flex; gap:13px; flex-wrap:wrap; margin:12px 0 14px;}
 .bopt{width:46px; height:46px; border-radius:50%; background:var(--noir); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:16px; cursor:pointer; box-shadow:0 0 0 3px var(--bc,transparent); border:2px solid #fff; transition:transform .12s;}
 .bopt:hover{transform:scale(1.07);}
 .bopt.is-active{outline:2px solid var(--noir); outline-offset:3px;}
@@ -1174,6 +1174,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .fav-panel.is-empty .fav-grid, .fav-panel.is-empty .fav-list{display:none;}
 .fav-panel.is-empty .fav-empty{display:block;}
 @media (max-width:600px){ .fav-tab{padding:10px 11px; font-size:13px;} }
+    .card .badge--prem, .mapcard .badge--prem{ padding:5px 9px; }
 </style>
 </head>
 <body>
@@ -1896,7 +1897,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
       Array.prototype.forEach.call(document.querySelectorAll('.bopt'), function(x){ x.classList.remove('is-active'); });
       o.classList.add('is-active');
       var big=document.querySelector('.avpick__big');
-      if(big) big.style.boxShadow = '0 0 0 3px '+ (o.style.getPropertyValue('--bc')||'transparent');
+      if(big) big.style.borderColor = (o.style.getPropertyValue('--bc')||'transparent');
     });
   });
   // amis : actions + états vides + compteur dynamique
