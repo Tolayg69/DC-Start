@@ -1068,6 +1068,10 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 }
 
 body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
+
+    .gdguest{font-size:13px; color:rgba(255,255,255,.78); background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:9px 14px; border-radius:var(--r); display:inline-flex; align-items:center; gap:8px;}
+    .gdguest a{color:#fff; text-decoration:underline; font-weight:700;}
+    .gdguest svg{width:16px; height:16px; flex:none;}
 </style>
 </head>
 <body>
@@ -1243,7 +1247,7 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
       </div>
       <p class="ghero__desc">Tout ce qu'il te faut pour l'Entre-terre, au même endroit : carte interactive, guides, soluce complète, guide des trophées et builds, fiables et tenus à jour.</p>
       <div class="ghero__cta">
-        <button class="btn btn--primary gfollow" type="button" aria-pressed="false" aria-label="Suivre Elden Ring"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> <span class="gfollow__t">Suivre ce jeu</span></button>
+        <span class="gdguest only-guest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg> <span><a href="connexion.html">Connecte-toi</a> pour sauvegarder ce jeu.</span></span><button class="btn btn--primary gfollow only-auth" type="button" aria-pressed="false" aria-label="Suivre Elden Ring"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> <span class="gfollow__t">Suivre ce jeu</span></button>
         <button class="btn btn--ondark" type="button" onclick="if(navigator.share){navigator.share({title:document.title,url:location.href});}else{return false;}">Partager</button>
       </div>
       <div class="gstats">
