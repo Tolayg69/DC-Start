@@ -2137,7 +2137,7 @@ body:not(.is-auth) .psec.only-guest{display:block;}
       var show = okG && okT && okGe && okQ && okS; r.style.display = show?'':'none'; if(show) n++;
     });
     var sorted=orig.slice();
-    if(fSort==='az'){ sorted.sort(function(a,b){ return norm(a.getAttribute('data-title')).localeCompare(norm(b.getAttribute('data-title'))); }); }
+    if(fSort==='az'){ sorted.sort(function(a,b){ return norm(a.getAttribute('data-title')).localeCompare(norm(b.getAttribute('data-title'))); }); } else if(fSort==='consult'){ sorted.sort(function(a,b){ function pr(r){ var e=r.querySelector('.disc__stat__n'); return e?(parseInt(e.textContent.replace(/\D/g,''),10)||0):0; } return pr(b)-pr(a); }); }
     sorted.forEach(function(r){ root.appendChild(r); });
     if(empty) empty.classList.toggle('is-on', n===0);
     if(countEl) countEl.innerHTML = '<b>'+n+'</b> '+(n>1?'discussions':'discussion');
