@@ -1075,7 +1075,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .gdmeta__i svg{width:15px; height:15px;}
 .gdactions{display:flex; flex-wrap:wrap; gap:10px;}
 .gdguest{font-size:13px; color:rgba(255,255,255,.78); background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:9px 14px; border-radius:var(--r); display:inline-flex; align-items:center; gap:8px;}
-.gdguest a{color:#fff; text-decoration:underline; font-weight:700;}
+.gdguest a{color:var(--magenta); text-decoration:underline; font-weight:700;}
 .gdguest svg{width:16px; height:16px; flex:none;}
 .btn--fav.is-fav{background:var(--magenta); border-color:var(--magenta); color:#fff;}
 .btn--fav.is-fav svg{fill:#fff;}
@@ -1194,7 +1194,8 @@ body.is-auth .preminset__blur{filter:none; opacity:1;}
 .combox__guest a{color:var(--magenta); font-weight:700; text-decoration:underline;}
 .comlist{list-style:none; margin:10px 0 0; padding:16px 0 0; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:16px;}
 .com{display:flex; gap:12px;}
-.com__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; color:#fff; background:var(--noir);}
+.com__ava--me{border:2px solid var(--magenta);}
+    .com__ava{width:38px; height:38px; flex:none; border-radius:var(--r-pill); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:14px; color:#fff; background:var(--noir);}
 .com__ava--a{background:#5b3fa6;} .com__ava--b{background:#1f7a68;} .com__ava--c{background:#a63f6b;} .com__ava--d{background:#2f5fd0;} .com__ava--e{background:#a8651f;}
 .com__body{flex:1; min-width:0;}
 .com__head{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;}
@@ -1230,6 +1231,7 @@ body:not(.is-auth) .combox__guest{display:flex;}
     .newsrow__rate{display:inline-flex; align-items:center; gap:4px; font-weight:700; color:var(--noir);}
     .newsrow__rate svg{width:13px; height:13px; fill:#f5a623;}
     .newsrow__cnt{color:var(--ink-400); font-weight:400;}
+    .combox__rules{font-size:12px; color:var(--ink-500); line-height:1.4; margin:0 0 10px;}
 </style>
 </head>
 <body>
@@ -1402,7 +1404,7 @@ body:not(.is-auth) .combox__guest{display:flex;}
         <span class="gdmeta__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~4 min de lecture</span>
       </div>
       <div class="gdactions">
-        <button class="btn btn--primary btn--fav is-fav only-auth" id="gdFav" type="button" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> <span>Sauvegardé</span></button>
+        <button class="btn btn--primary btn--fav is-fav only-auth" id="gdFav" type="button" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> <span>Sauvegardée</span></button>
         <span class="gdguest only-guest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> <span><a href="connexion.html">Connecte-toi</a> pour sauvegarder cette actualité.</span></span>
         <button class="btn btn--ondark" type="button" onclick="if(navigator.share){navigator.share({title:document.title,url:location.href});}else{return false;}">Partager</button>
       </div>
@@ -1483,6 +1485,7 @@ body:not(.is-auth) .combox__guest{display:flex;}
         <span class="combox__ava" aria-hidden="true">É</span>
         <div class="combox__field">
           <textarea class="combox__ta" id="comTa" maxlength="600" placeholder="Donne ton avis sur cette actualité..." aria-label="Ton commentaire"></textarea>
+          <p class="combox__rules">En publiant, tu acceptes les règles de la communauté. Reste courtois : les propos injurieux ou hors-sujet peuvent être modérés.</p>
           <div class="combox__bar">
             <span class="combox__count" id="comCount">0 / 600</span>
             <button class="btn btn--primary btn--sm" type="button" id="comSend">Publier</button>
@@ -2074,7 +2077,7 @@ body:not(.is-auth) .combox__guest{display:flex;}
   if(fav){ if(g().indexOf(ID)>=0) fav.classList.add('is-fav');
     fav.addEventListener('click', function(){ if(!isAuth()){ location.href='connexion.html'; return; }
       var a=g(),i=a.indexOf(ID); if(i>=0){a.splice(i,1);fav.classList.remove('is-fav');fav.querySelector('span').textContent='Sauvegarder';}
-      else{a.push(ID);fav.classList.add('is-fav');fav.querySelector('span').textContent='Sauvegard\u00e9';} s(a); }); }
+      else{a.push(ID);fav.classList.add('is-fav');fav.querySelector('span').textContent='Sauvegard\u00e9e';} s(a); }); }
 })();
 
 </script>
@@ -2120,7 +2123,7 @@ body:not(.is-auth) .combox__guest{display:flex;}
     stars+='</span>';
     var li=document.createElement('li');
     li.className='com';
-    li.innerHTML='<span class="com__ava" aria-hidden="true">\u00c9</span><div class="com__body"><div class="com__head"><span class="com__name">Toi</span>'+stars+'<span class="com__date">\u00e0 l\u2019instant</span></div><p class="com__txt"></p></div>';
+    li.innerHTML='<span class="com__ava com__ava--me" aria-hidden="true">e</span><div class="com__body"><div class="com__head"><span class="com__name">Toi</span>'+stars+'<span class="com__date">\u00e0 l\u2019instant</span></div><p class="com__txt"></p></div>';
     li.querySelector('.com__txt').textContent=v;
     list.insertBefore(li, list.firstChild);
     ta.value=''; count.textContent='0 / 600'; if(comHint) comHint.textContent='';
