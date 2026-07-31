@@ -1173,6 +1173,9 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     .favitem__m .fmeta{display:inline-flex; align-items:center; gap:4px; margin-right:10px; vertical-align:middle;}
     .favitem__m .fmeta svg{width:13px; height:13px; flex:none;}
     .favitem__m .fmeta--rate{color:var(--noir); font-weight:700;} .favitem__m .fcnt{color:var(--ink-400); font-weight:400;}
+    @media (max-width:560px){
+      .favitem__m .tag{display:flex; width:fit-content; margin:0 0 6px 0;}
+    }
     .favitem__m .fmeta--rate svg{color:var(--or); fill:var(--or);}
 
     .favitem__m .tag--guide,.favitem__m .tag--soluce,.favitem__m .tag--patch{background:var(--magenta-pale); color:var(--magenta-ink);}
