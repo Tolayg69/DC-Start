@@ -120,7 +120,7 @@ p{margin:0;}
 /* ===================================================================
    ÉTIQUETTES type de contenu + badges d'état
    =================================================================== */
-.tag{display:inline-flex; align-items:center; gap:5px; font-family:var(--mono); font-size:11px; letter-spacing:.04em; text-transform:uppercase; font-weight:400; padding:4px 9px; border-radius:var(--r-pill); white-space:nowrap;}
+.tag{display:inline-flex; align-items:center; gap:5px; font-family:var(--sans); font-size:11.5px; font-weight:700; padding:4px 9px; border-radius:var(--r-pill); white-space:nowrap;}
 .tag--guide{background:var(--magenta-pale); color:var(--magenta-ink);}
 .tag--soluce{background:var(--magenta-pale); color:var(--magenta-ink);}
 .tag--build{background:var(--or-pale); color:var(--or-ink);}
@@ -725,7 +725,7 @@ body.is-embed #deviceHost{display:none !important;}
 }
 
 /* badge premium */
-.badge--prem{display:inline-flex; align-items:center; gap:5px; background:var(--or-pale); color:var(--or-ink); font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; border-radius:var(--r-pill); padding:3px 9px; vertical-align:2px; margin-left:6px;}
+.badge--prem{font-family:var(--sans); display:inline-flex; align-items:center; gap:5px; background:var(--or-pale); color:var(--or-ink); font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; border-radius:var(--r-pill); padding:3px 9px; vertical-align:2px; margin-left:6px; line-height:15px;}
 .badge--prem svg{width:10px; height:10px;}
 
 /* drawer : accordéon Jeux */
@@ -1007,7 +1007,7 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
 .newsrow__tag{flex:none;}
 @media (max-width:560px){ .newsrow__tag{display:none;} }
 .grow__go{color:var(--magenta);} .grow__go svg{width:18px; height:18px;}
-.gtag{font-size:11px; font-weight:800; padding:3px 9px; border-radius:var(--r-pill); white-space:nowrap;}
+.gtag{font-size:11.5px; font-weight:700; padding:4px 9px; line-height:1.5; border-radius:var(--r-pill); white-space:nowrap;}
 .gtag--or{background:var(--or-pale); color:var(--or-ink);}
 .gtag--cy{background:var(--cyan-pale); color:var(--cyan-ink);}
 .gtag--mg{background:var(--magenta-pale); color:var(--magenta-ink);}
@@ -1090,7 +1090,8 @@ body.is-embed .mdrawer__panel{ padding-top: 44px; }
     .succ__disc__stat{flex:none; text-align:center; min-width:56px;}
     .succ__disc__stat b{font-family:var(--serif); font-weight:800; font-size:18px; color:var(--magenta); line-height:1; display:block;}
     .succ__disc__stat span{font-size:10.5px; color:var(--ink-400); text-transform:uppercase; letter-spacing:.04em; font-weight:800; margin-top:3px; display:block;}
-  </style>
+      .card .badge--prem, .mapcard .badge--prem{ padding:5px 9px; }
+</style>
 </head>
 <body>
 
