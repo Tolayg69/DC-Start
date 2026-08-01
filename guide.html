@@ -1238,9 +1238,227 @@ body:not(.is-auth) .combox__guest{display:flex;}
     .gart .combox__rules{margin:0 0 12px; font-size:11.5px; color:var(--ink-400); line-height:1.45;}
     .gbuild .newsrow__tag{display:flex; align-self:center;}
     .card .badge--prem, .mapcard .badge--prem{ padding:5px 9px; }
+
+/* === NAV BAR (sync index) === */
+/* ===================================================================
+   LOGO + signature 2 points
+   =================================================================== */
+.logo{display:inline-flex; align-items:center; background:#000; border-radius:11px; padding:8px 13px;}
+.logo img{height:18px; width:auto;}
+.logo--lg{padding:11px 17px; border-radius:13px;}
+.logo--lg img{height:24px;}
+.logo--plain{background:none; padding:0;}
+.dots{display:inline-flex; gap:4px; vertical-align:middle;}
+.dots i{width:6px; height:6px; border-radius:50%; background:var(--magenta);}
+.dots--col{flex-direction:column;}
+.dots--lg i{width:9px; height:9px;}
+.sec-kicker{display:inline-flex; align-items:center; gap:9px; font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--magenta); font-weight:400;}
+/* link arrow */
+.link-arrow{display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:14px; color:var(--magenta);}
+.link-arrow svg{width:16px; height:16px; transition:transform .15s ease;}
+.link-arrow:hover svg{transform:translateX(3px);}
+/* ===================================================================
+   NAVBAR + méga-menu
+   =================================================================== */
+.nav{position:sticky; top:0; z-index:60; background:var(--blanc); border-bottom:1px solid var(--line);}
+.nav__inner{display:flex; align-items:center; gap:13px; height:68px; max-width:var(--maxw); margin:0 auto; padding:0 var(--gut);}
+.nav__links{display:flex; align-items:center; gap:3px; flex:none;}
+.nav__link{display:inline-flex; align-items:center; gap:6px; font-size:13.5px; font-weight:700; color:var(--ink-700); padding:9px 9px; border-radius:var(--r-sm); transition:background .15s, color .15s;}
+.nav__link:hover{background:var(--surface-3); color:var(--magenta);}
+.nav__link .chev{width:14px; height:14px; opacity:.5; transition:transform .18s;}
+.nav__item{position:relative;}
+.nav__item:hover .chev{transform:rotate(180deg);}
+.nav__search{flex:1; min-width:170px;}
+.nav__right{display:flex; align-items:center; gap:10px; flex:none;}
+.nav .nav__burger{display:none;}
+/* compact search in nav */
+.search{position:relative;}
+.search__field{display:flex; align-items:center; gap:10px; background:var(--surface-3); border:1.5px solid transparent; border-radius:var(--r-pill); padding:0 16px; height:44px; transition:border-color .16s, background .16s, box-shadow .16s;}
+.search__field:focus-within{background:#fff; border-color:var(--magenta); box-shadow:var(--sh-mag);}
+.search__field svg{width:18px; height:18px; color:var(--ink-400); flex:none;}
+.search__input{flex:1; min-width:0; border:none; background:none; outline:none; font-family:var(--sans); font-size:15px; color:var(--noir);}
+.search__input::placeholder{color:var(--ink-400);}
+.search__kbd{font-family:var(--mono); font-size:11px; color:var(--ink-400); border:1px solid var(--line-2); border-radius:6px; padding:2px 6px; flex:none;}
+/* autocomplete dropdown */
+.ac{position:absolute; top:calc(100% + 8px); left:0; right:0; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-lg); padding:8px; z-index:80; display:none;}
+.ac.open{display:block;}
+.ac__group{padding:6px 8px 2px;}
+.ac__glabel{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-400);}
+.ac__item{display:flex; align-items:center; gap:11px; padding:9px 10px; border-radius:var(--r-sm); cursor:pointer;}
+.ac__item:hover, .ac__item.active{background:var(--surface-3);}
+.ac__ico{width:30px; height:30px; border-radius:8px; flex:none; display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:11px; color:#fff;}
+.ac__txt{flex:1; min-width:0;}
+.ac__t{font-weight:700; font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.ac__m{font-size:12px; color:var(--ink-400);}
+.ac__go{font-family:var(--mono); font-size:11px; color:var(--ink-400);}
+/* méga-menu */
+
+    .mega__row--prem,.mdrawer__sublink--prem{position:relative;}
+body:not(.is-auth) .mega__row--prem,body:not(.is-auth) .mdrawer__sublink--prem{cursor:not-allowed;}
+body:not(.is-auth) .mega__row--prem::after{content:attr(data-locktip); position:absolute; left:12px; top:-6px; transform:translateY(-100%); background:var(--noir); color:#fff; font-size:11px; font-weight:700; padding:6px 10px; border-radius:7px; white-space:nowrap; opacity:0; visibility:hidden; pointer-events:none; transition:opacity .12s; z-index:90; box-shadow:var(--sh-md);}
+body:not(.is-auth) .mega__row--prem:hover::after{opacity:1; visibility:visible;}
+.mdrawer__sublink--prem .mdrawer__subname{white-space:nowrap;}
+.mprem-lock{display:none;}
+.mdrawer__sublink--prem{flex-wrap:wrap;}
+body:not(.is-auth) .mdrawer__sublink--prem.show-lock::after{content:attr(data-locktip); flex-basis:100%; width:100%; margin-top:6px; font-size:11px; font-weight:700; color:var(--or-ink);}
+body:not(.is-auth) .mdrawer__sublink--prem .mprem-lock{display:inline-flex; align-items:center; margin-left:8px; color:var(--noir); flex:none;}
+.mprem-lock svg{width:16px; height:16px;}
+.mega--cartes .badge--prem,.mdrawer__sublink--prem .badge--prem{padding-top:2px; padding-bottom:2px;}
+.mega{position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%) translateY(6px); width:560px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-lg); padding:18px; opacity:0; visibility:hidden; transition:opacity .14s, transform .14s, visibility 0s .14s; z-index:70;}
+/* pont invisible sur l'espace nav<->menu pour ne pas perdre le survol */
+.mega::before{content:""; position:absolute; left:0; right:0; top:-14px; height:14px;}
+.nav__item:hover .mega{opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); transition:opacity .14s, transform .14s, visibility 0s; z-index:80;}
+.mega__grid{display:grid; grid-template-columns:1fr 1fr; gap:6px;}
+.mega__row{display:flex; align-items:center; gap:11px; padding:9px 10px; border-radius:var(--r-sm); transition:background .14s;}
+.mega__row:hover{background:var(--surface-3);}
+.mega__cover{width:38px; height:38px; border-radius:8px; flex:none;}
+.mega__name{font-weight:700; font-size:14px;}
+.mega--list .mega__name{flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.mega__name{overflow-wrap:break-word;}
+.mega__row > span:last-child{min-width:0;}
+.mega__meta{font-size:12px; color:var(--ink-400);}
+.mega__meta svg,.mdrawer__submeta svg{width:12px; height:12px; vertical-align:-2px; margin-right:3px; flex:none;}
+.mega__meta .mstar,.mdrawer__submeta .mstar{color:var(--or); fill:var(--or);}
+.mega--cartes .mega__name{white-space:nowrap;}
+.mega__foot{display:flex; align-items:center; justify-content:space-between; margin-top:14px; padding-top:14px; border-top:1px solid var(--line);}
+/* avatar + profil (connecté) */
+.iconbtn{width:44px; height:44px; border-radius:var(--r-pill); display:flex; align-items:center; justify-content:center; color:var(--ink-700); background:var(--surface-3); position:relative; transition:background .15s, color .15s;}
+.iconbtn:hover{background:var(--magenta-pale); color:var(--magenta);}
+.iconbtn svg{width:20px; height:20px;}
+.iconbtn__dot{position:absolute; top:9px; right:10px; width:8px; height:8px; border-radius:50%; background:var(--magenta); border:2px solid var(--blanc);}
+.points{display:inline-flex; align-items:center; gap:7px; background:var(--or-pale); color:var(--or-ink); font-weight:800; font-size:14px; padding:8px 13px; border-radius:var(--r-pill); font-family:var(--serif); white-space:nowrap;}
+.points svg{width:15px; height:15px;}
+.points--drawer{width:100%; justify-content:center; padding:12px 16px; font-size:15px;}
+.avatar{width:44px; height:44px; border-radius:var(--r-pill); background:var(--noir); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:16px; border:2px solid var(--magenta);}
+.nav__acc{position:relative; display:inline-flex;}
+.accmenu{position:absolute; top:calc(100% + 12px); right:0; width:288px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-lg); padding:8px; opacity:0; visibility:hidden; transform:translateY(6px); transition:opacity .14s, transform .14s, visibility 0s .14s; z-index:90;}
+.accmenu.open{opacity:1; visibility:visible; transform:translateY(0); transition:opacity .14s, transform .14s, visibility 0s;}
+.accmenu__head{display:flex; align-items:center; gap:11px; padding:9px 11px 12px; border-bottom:1px solid var(--line); margin-bottom:6px;}
+.accmenu__avatar{width:40px; height:40px; border-radius:50%; background:var(--noir); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-weight:800; font-size:15px; border:2px solid var(--magenta); flex:none;}
+.accmenu__id{min-width:0;}
+.accmenu__name{display:block; font-family:var(--serif); font-weight:800; font-size:15px; line-height:1.1;}
+.accmenu__meta{display:inline-flex; align-items:center; gap:5px; font-size:12px; font-weight:700; color:var(--or-ink); margin-top:3px;}
+.accmenu__meta svg{width:12px; height:12px;}
+.accmenu__list{display:flex; flex-direction:column; gap:1px;}
+.accmenu__item{display:flex; align-items:center; gap:11px; padding:9px 11px; border-radius:var(--r-sm); font-size:13.5px; font-weight:700; color:var(--ink-700); text-decoration:none; cursor:pointer; transition:background .12s, color .12s; border:none; background:none; width:100%; text-align:left; font-family:var(--sans);}
+.accmenu__item svg{width:17px; height:17px; flex:none; color:var(--ink-400);}
+.accmenu__item:hover{background:var(--surface-3); color:var(--noir);}
+.accmenu__item:hover svg{color:var(--ink-700);}
+.accmenu__sep{height:1px; background:var(--line); margin:6px 8px;}
+.accmenu__item--logout{color:#c0392b;}
+.accmenu__item--logout svg{color:#c0392b;}
+.accmenu__item--logout:hover{background:#fdecea; color:#c0392b;}
+@media (max-width:520px){.accmenu{position:fixed; top:64px; right:10px; left:10px; width:auto;}}
+/* show/hide by auth state */
+.only-guest{display:inline-flex;}
+.only-auth{display:none;}
+body.is-auth .only-guest{display:none;}
+body.is-auth .only-auth{display:inline-flex;}
+body.is-auth .nav__right .only-auth{display:flex;}
+body.is-auth .auth-guest{display:none;}
+body.is-auth .auth-only{display:block;}
+body.is-auth .premium-current{display:inline-flex;}
+/* ===================================================================
+   MOBILE MENU drawer
+   =================================================================== */
+.mdrawer{position:fixed; inset:0; z-index:100; display:none;}
+.mdrawer.open{display:block;}
+.mdrawer__scrim{position:absolute; inset:0; background:rgba(18,18,18,.4); backdrop-filter:blur(2px);}
+.mdrawer__panel{position:absolute; top:0; right:0; bottom:0; width:min(86vw,340px); background:#fff; box-shadow:var(--sh-lg); padding:20px; display:flex; flex-direction:column; gap:6px; overflow-y:auto;}
+.mdrawer__head{display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;}
+.mdrawer__link{display:flex; align-items:center; justify-content:space-between; padding:15px 12px; border-radius:var(--r-sm); font-weight:700; font-size:16px; border-bottom:1px solid var(--line);}
+.mdrawer__link:hover{background:var(--surface-3);}
+.mdrawer__cta{margin-top:18px; display:flex; flex-direction:column; gap:10px;}
+/* ===================================================================
+   JAQUETTES placeholder (à remplacer par les visuels réels)
+   =================================================================== */
+.cover-er,.cover-zd,.cover-bg,.cover-gi,.cover-cp,.cover-d4,.cover-poe,.cover-mh{position:relative; background-size:cover;}
+.cover-er{background:linear-gradient(165deg,#3d2347,#1c1022 70%);}
+.cover-zd{background:linear-gradient(165deg,#0e4f5c,#0a2730 70%);}
+.cover-bg{background:linear-gradient(165deg,#6b4a12,#2e1f08 70%);}
+.cover-gi{background:linear-gradient(165deg,#54286b,#241130 70%);}
+.cover-cp{background:linear-gradient(165deg,#7a6c10,#33300c 70%);}
+.cover-d4{background:linear-gradient(165deg,#5c1024,#260a10 70%);}
+.cover-poe{background:linear-gradient(165deg,#103a5c,#0a1826 70%);}
+.cover-mh{background:linear-gradient(165deg,#2f5c2a,#12260f 70%);}
+.cover-hollow{position:relative; background:linear-gradient(165deg,#1a2a3a,#0d1620 70%); background-size:cover;}
+.cover-hollow::before{content:""; position:absolute; inset:0; background:repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 2px, transparent 2px 11px); pointer-events:none;}
+.cover-er::before,.cover-zd::before,.cover-bg::before,.cover-gi::before,.cover-cp::before,.cover-d4::before,.cover-poe::before,.cover-mh::before{
+  content:""; position:absolute; inset:0;
+  background:repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 2px, transparent 2px 11px);
+  pointer-events:none;}
+body.is-auth .guest-only-block{display:none;}
+body.is-auth .auth-only-block{display:block;}
+body.is-embed .switcher{display:none;}
+body.is-embed #deviceHost{display:none !important;}
+@media (max-width:1080px){.nav__right .btn--ghost.hide-mobile{display:none;}.nav__search{min-width:130px;}.nav__inner{gap:10px;}.nav__link{font-size:13px; padding:9px 7px;}}
+@media (max-width:880px){.nav__inner{flex-wrap:wrap; height:auto; padding-top:12px; padding-bottom:12px; row-gap:10px; gap:12px;}.nav__links, .nav__search .search__kbd{display:none;}.nav__right{margin-left:auto;}.nav .nav__burger{display:flex;}.nav__search{order:3; flex-basis:100%;}}
+/* badge premium */
+.badge--prem{font-family:var(--sans); display:inline-flex; align-items:center; gap:5px; background:var(--or-pale); color:var(--or-ink); font-size:10px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; border-radius:var(--r-pill); padding:3px 9px; line-height:15px; vertical-align:2px; margin-left:6px;}
+.badge--prem svg{width:10px; height:10px;}
+.card__top .badge--prem{margin-left:0;}
+body:not(.is-auth) .card--premium .card__body, body:not(.is-auth) .card--premium .card__thumb{filter:blur(2.5px); pointer-events:none; user-select:none;}
+body:not(.is-auth) .card--premium .card__lock{display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; position:absolute; inset:0; background:linear-gradient(180deg, rgba(24,8,48,.72), rgba(24,8,48,.86)); backdrop-filter:blur(3px); color:#fff; text-align:center; padding:16px; border-radius:var(--r-lg); z-index:2;}
+/* drawer : accordéon Jeux */
+.mdrawer__acc{width:100%; background:none; cursor:pointer; font-family:inherit; text-align:left; color:inherit;}
+.mdrawer__chev{display:inline-flex; transition:transform .18s ease;}
+.mdrawer__acc.open .mdrawer__chev{transform:rotate(180deg);}
+.mdrawer__sub{display:none; padding:2px 2px 8px; border-bottom:1px solid var(--line);}
+.mdrawer__sub.open{display:block;}
+.mdrawer__subkicker{display:flex; align-items:center; gap:8px; padding:9px 12px 5px;}
+.mdrawer__subtxt{display:flex; flex-direction:column; min-width:0; flex:1;}
+.mdrawer__subname{overflow-wrap:break-word;}
+.mdrawer__submeta{font-size:12px; font-weight:600; color:var(--ink-400); margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.mdrawer__sublink .badge--prem{flex:none;}
+.mdrawer__sublink{display:flex; align-items:center; gap:11px; padding:10px 12px; border-radius:10px; font-weight:700; font-size:14.5px; color:var(--ink-700);}
+.mdrawer__sublink:hover{background:var(--surface-3);}
+.mdrawer__subcover{width:30px; height:30px; border-radius:8px; flex:none;}
+.mdrawer__sublink--all{color:var(--magenta);}
+.mdrawer__arrow{margin-left:auto;}
+/* recherche : panneau large façon méga-menu */
+.ac__cols{display:grid; grid-template-columns:1fr 1fr; gap:4px 16px;}
+.ac__item{text-decoration:none; color:inherit;}
+.ac__ico{position:relative; overflow:hidden;}
+@media (min-width:881px){.nav__search .ac{width:640px; left:auto; right:0; padding:14px;}}
+@media (max-width:880px){.ac__cols{grid-template-columns:1fr;}}
+/* favoris & fonctionnalités premium : réservés aux connectés */
+
+/* toggle Mes jeux / Tout (premium, connecté) */
+body:not(.is-auth) .scope.only-auth{display:none !important;}
+/* méga-menus liste (guides, cartes, trophées) */
+.mega--list{width:312px; padding:14px;}
+.mega--list > .sec-kicker{display:inline-flex; margin:2px 4px 10px;}
+.mega__list{display:flex; flex-direction:column; gap:2px;}
+.mega--list .mega__row{padding:8px 10px;}
+.mega--list .mega__cover{width:32px; height:32px;}
+.mega--list .mega__foot{margin-top:10px; padding-top:12px; justify-content:flex-end;}
+/* drawer notifications */
+.ndrawer__list{display:flex; flex-direction:column; gap:3px; margin-top:4px;}
+.nitem{display:flex; align-items:flex-start; gap:11px; padding:11px 10px; border-radius:12px; transition:background .14s;}
+.nitem:hover{background:var(--surface-3);}
+.nitem__ico{width:34px; height:34px; border-radius:10px; display:inline-flex; align-items:center; justify-content:center; flex:none;}
+.nitem__ico svg{width:17px; height:17px;}
+.nitem__txt{display:flex; flex-direction:column; line-height:1.3; flex:1; min-width:0;}
+.nitem__txt b{font-size:13.5px; color:var(--noir);}
+.nitem__txt span{font-size:12px; color:var(--ink-400); font-weight:700; margin-top:2px;}
+.nitem__dot{width:8px; height:8px; border-radius:50%; background:var(--magenta); margin-top:6px; flex:none;}
+.nitem--read .nitem__dot{background:transparent;}
+.ndrawer__actions{display:flex; justify-content:flex-start; padding:0 10px 6px;}
+.ndrawer__readall{background:none; border:none; color:var(--magenta); font-family:var(--sans); font-weight:700; font-size:13px; cursor:pointer; padding:4px 0;}
+.ndrawer__readall:hover{text-decoration:underline;}
+.ndrawer__readall:disabled{color:var(--ink-400); cursor:default; text-decoration:none;}
+#ndrawer .mdrawer__head{padding-left:10px; margin-bottom:2px;}
+/* verrou du scroll d'arrière-plan quand un drawer est ouvert */
+body.drawer-open{overflow:hidden;}
+body.is-embed .nav{ padding-top: 44px; background: var(--blanc); }
+body.is-embed .mdrawer__panel{ padding-top: 44px; }
+body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
+.card .badge--prem, .mapcard .badge--prem{ padding:5px 9px; }
 </style>
 </head>
 <body>
+<script>document.addEventListener('click', function(e){ if(!e.target||!e.target.closest) return; var pr=e.target.closest('.mega__row--prem, .mdrawer__sublink--prem'); if(pr && !document.body.classList.contains('is-auth')){ e.preventDefault(); e.stopImmediatePropagation(); if(pr.classList.contains('mdrawer__sublink--prem')){pr.classList.toggle('show-lock');} } }, true);</script>
+
 
 <div id="site">
 
@@ -1288,59 +1506,12 @@ body:not(.is-auth) .combox__guest{display:flex;}
           </div>
         </div>
       </div>
-      <div class="nav__item">
-        <a class="nav__link" href="guides.html">Guides <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></a>
-        <div class="mega mega--list">
-      <span class="sec-kicker" style="font-size:11px;"><span class="dots"><i></i><i></i></span> Les plus consultés cette semaine</span>
-      <div class="mega__list">
-      <a class="mega__row" href="guide.html"><span class="mega__cover cover-er"></span><span class="mega__name">Elden Ring</span></a>
-      <a class="mega__row" href="guide.html"><span class="mega__cover cover-zd"></span><span class="mega__name">Zelda : TOTK</span></a>
-      <a class="mega__row" href="guide.html"><span class="mega__cover cover-bg"></span><span class="mega__name">Baldur's Gate 3</span></a>
-      <a class="mega__row" href="guide.html"><span class="mega__cover cover-gi"></span><span class="mega__name">Genshin Impact</span></a>
-      <a class="mega__row" href="guide.html"><span class="mega__cover cover-cp"></span><span class="mega__name">Cyberpunk 2077</span></a>
-      <a class="mega__row" href="guide.html"><span class="mega__cover cover-d4"></span><span class="mega__name">Diablo IV</span></a>
-      </div>
-      <div class="mega__foot"><a class="link-arrow" href="guides.html">Tous les guides
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
-      </div>
-    </div>
-      </div>
-      <div class="nav__item">
-        <a class="nav__link" href="cartes.html">Cartes <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></a>
-        <div class="mega mega--list">
-      <span class="sec-kicker" style="font-size:11px;"><span class="dots"><i></i><i></i></span> Les plus consultés cette semaine</span>
-      <div class="mega__list">
-      <a class="mega__row" href="carte.html"><span class="mega__cover cover-er"></span><span class="mega__name">Elden Ring</span></a>
-      <a class="mega__row" href="carte.html"><span class="mega__cover cover-zd"></span><span class="mega__name">Zelda : TOTK</span></a>
-      <a class="mega__row" href="carte.html"><span class="mega__cover cover-bg"></span><span class="mega__name">Baldur's Gate 3</span></a>
-      <a class="mega__row" href="carte.html"><span class="mega__cover cover-gi"></span><span class="mega__name">Genshin Impact</span></a>
-      <a class="mega__row" href="carte.html"><span class="mega__cover cover-cp"></span><span class="mega__name">Cyberpunk 2077</span></a>
-      <a class="mega__row" href="carte.html"><span class="mega__cover cover-d4"></span><span class="mega__name">Diablo IV</span></a>
-      </div>
-      <div class="mega__foot"><a class="link-arrow" href="cartes.html">Toutes les cartes
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
-      </div>
-    </div>
-      </div>
+      <div class="nav__item"> <a class="nav__link" href="guides.html">Guides <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></a> <div class="mega"> <div class="mega__grid"> <a class="mega__row" href="guide.html"><span class="mega__cover cover-er"></span><span><span class="mega__name">Battre Malenia : stratégie complète, builds conseillés et invocations</span><br><span class="mega__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>12 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,8 (412)</span></span></a> <a class="mega__row" href="guide.html"><span class="mega__cover cover-zd"></span><span><span class="mega__name">Toutes les graines Korogu : carte interactive et méthode par région</span><br><span class="mega__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>8 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,9 (803)</span></span></a> <a class="mega__row" href="guide.html"><span class="mega__cover cover-bg"></span><span><span class="mega__name">Build Moine voie de l'astre : dégâts maximum pour l'acte 3</span><br><span class="mega__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>15 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,9 (287)</span></span></a> <a class="mega__row" href="guide.html"><span class="mega__cover cover-gi"></span><span><span class="mega__name">Réussir l'Abîme 12 étoiles : équipes F2P et rotations détaillées</span><br><span class="mega__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>10 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,7 (529)</span></span></a> <a class="mega__row" href="guide.html"><span class="mega__cover cover-d4"></span><span><span class="mega__name">Farm d'or efficace en saison 8 : les 5 méthodes qui marchent vraiment</span><br><span class="mega__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>6 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,5 (74)</span></span></a> <a class="mega__row" href="guide.html"><span class="mega__cover cover-cp"></span><span><span class="mega__name">Cyberpunk 2077 : toutes les fins et comment les débloquer</span><br><span class="mega__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>14 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,6 (193)</span></span></a> </div> <div class="mega__foot"> <span class="sec-kicker" style="font-size:11px;"><span class="dots"><i></i><i></i></span> Les plus consultés cette semaine</span> <a class="link-arrow" href="guides.html">Tous les guides <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a> </div> </div> </div>
+      <div class="nav__item"> <a class="nav__link" href="cartes.html" data-cartes>Cartes <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></a> <div class="mega mega--cartes"> <div class="mega__grid"> <a class="mega__row" href="carte.html"><span class="mega__cover cover-er"></span><span><span class="mega__name">Elden Ring</span><br><span class="mega__meta">+320 lieux · boss, objets, PNJ</span></span></a> <a class="mega__row mega__row--prem" href="carte.html" data-locktip="Réservé aux abonnés Premium"><span class="mega__cover cover-cp"></span><span><span class="mega__name">Cyberpunk 2077 <span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></span><br><span class="mega__meta">+540 lieux · contrats, butin</span></span></a> <a class="mega__row" href="carte.html"><span class="mega__cover cover-zd"></span><span><span class="mega__name">Zelda: TotK</span><br><span class="mega__meta">152 sanctuaires · grottes</span></span></a> <a class="mega__row mega__row--prem" href="carte.html" data-locktip="Réservé aux abonnés Premium"><span class="mega__cover cover-bg"></span><span><span class="mega__name">Baldur's Gate 3 <span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></span><br><span class="mega__meta">Actes 1 à 3 · secrets</span></span></a> <a class="mega__row" href="carte.html"><span class="mega__cover cover-hollow"></span><span><span class="mega__name">Hollow Knight</span><br><span class="mega__meta">Autels, donjons, événements</span></span></a> <a class="mega__row mega__row--prem" href="carte.html" data-locktip="Réservé aux abonnés Premium"><span class="mega__cover cover-poe"></span><span><span class="mega__name">Path of Exile 2 <span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></span><br><span class="mega__meta">Actes et zones de ligue</span></span></a> </div> <div class="mega__foot"> <span class="sec-kicker" style="font-size:11px;"><span class="dots"><i></i><i></i></span> Les plus consultées cette semaine</span> <a class="link-arrow" href="cartes.html">Toutes les cartes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a> </div> </div> </div>
       <a class="nav__link" href="actualites.html">Actualités</a>
       <a class="nav__link" href="communaute.html">Communauté</a>
-      <div class="nav__item">
-        <a class="nav__link" href="trophees.html">Trophées <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></a>
-        <div class="mega mega--list">
-      <span class="sec-kicker" style="font-size:11px;"><span class="dots"><i></i><i></i></span> Les plus consultés cette semaine</span>
-      <div class="mega__list">
-      <a class="mega__row" href="trophee.html"><span class="mega__cover cover-er"></span><span class="mega__name">Elden Ring</span></a>
-      <a class="mega__row" href="trophee.html"><span class="mega__cover cover-bg"></span><span class="mega__name">Baldur's Gate 3</span></a>
-      <a class="mega__row" href="trophee.html"><span class="mega__cover cover-gi"></span><span class="mega__name">Genshin Impact</span></a>
-      <a class="mega__row" href="trophee.html"><span class="mega__cover cover-cp"></span><span class="mega__name">Cyberpunk 2077</span></a>
-      <a class="mega__row" href="trophee.html"><span class="mega__cover cover-d4"></span><span class="mega__name">Diablo IV</span></a>
-      </div>
-      <div class="mega__foot"><a class="link-arrow" href="trophees.html">Tous les guides de trophées
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
-      </div>
-    </div>
-      </div>
-      <a class="nav__link" href="builds.html">Builds</a>
+      <div class="nav__item"> <a class="nav__link" href="trophees.html">Trophées <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></a> <div class="mega"> <div class="mega__grid"> <a class="mega__row" href="trophee.html"><span class="mega__cover cover-er"></span><span><span class="mega__name">Guide des trophées · Platine Elden Ring</span><br><span class="mega__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg>42 trophées · <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>90 h</span></span></a> <a class="mega__row" href="trophee.html"><span class="mega__cover cover-hollow"></span><span><span class="mega__name">Guide des trophées · Platine Hollow Knight</span><br><span class="mega__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg>63 trophées · <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>40 h</span></span></a> <a class="mega__row" href="trophee.html"><span class="mega__cover cover-bg"></span><span><span class="mega__name">Guide des trophées · Platine Baldur's Gate 3</span><br><span class="mega__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg>54 trophées · <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>120 h</span></span></a> <a class="mega__row" href="trophee.html"><span class="mega__cover cover-d4"></span><span><span class="mega__name">Guide des trophées · Platine Diablo IV</span><br><span class="mega__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg>41 trophées · <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>35 h</span></span></a> <a class="mega__row" href="trophee.html"><span class="mega__cover cover-mh"></span><span><span class="mega__name">Guide des trophées · Platine Monster Hunter Wilds</span><br><span class="mega__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg>50 trophées · <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>70 h</span></span></a> <a class="mega__row" href="trophee.html"><span class="mega__cover cover-cp"></span><span><span class="mega__name">Guide des trophées · Platine Cyberpunk 2077</span><br><span class="mega__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg>45 trophées · <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>60 h</span></span></a> </div> <div class="mega__foot"> <span class="sec-kicker" style="font-size:11px;"><span class="dots"><i></i><i></i></span> Les plus consultés cette semaine</span> <a class="link-arrow" href="trophees.html">Tous les guides de trophées <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a> </div> </div> </div>
+      <div class="nav__item"> <a class="nav__link" href="builds.html">Builds <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></a> <div class="mega"> <div class="mega__grid"> <a class="mega__row" href="build.html"><span class="mega__cover cover-er"></span><span><span class="mega__name">Build Elden Ring · Samouraï saignement</span><br><span class="mega__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>4 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,9 (240)</span></span></a> <a class="mega__row" href="build.html"><span class="mega__cover cover-d4"></span><span><span class="mega__name">Build Diablo IV · Sorcier givre</span><br><span class="mega__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>3 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,8 (310)</span></span></a> <a class="mega__row" href="build.html"><span class="mega__cover cover-cp"></span><span><span class="mega__name">Build Cyberpunk 2077 · Netrunner overclock</span><br><span class="mega__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>4 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,8 (205)</span></span></a> <a class="mega__row" href="build.html"><span class="mega__cover cover-poe"></span><span><span class="mega__name">Build Path of Exile 2 · Sorcière · Infusion de chaos</span><br><span class="mega__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>7 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,7 (142)</span></span></a> <a class="mega__row" href="build.html"><span class="mega__cover cover-bg"></span><span><span class="mega__name">Build Baldur's Gate 3 · Roublard assassin</span><br><span class="mega__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>6 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,6 (124)</span></span></a> <a class="mega__row" href="build.html"><span class="mega__cover cover-zd"></span><span><span class="mega__name">Build Zelda: TotK · Amalgame · lances longues</span><br><span class="mega__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>5 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,3 (43)</span></span></a> </div> <div class="mega__foot"> <span class="sec-kicker" style="font-size:11px;"><span class="dots"><i></i><i></i></span> Les plus consultés cette semaine</span> <a class="link-arrow" href="builds.html">Tous les builds <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a> </div> </div> </div>
     </div>
 
     <div class="nav__search search">
@@ -1367,10 +1538,10 @@ body:not(.is-auth) .combox__guest{display:flex;}
         <span class="iconbtn__dot"></span>
       </button>
       <div class="nav__acc only-auth">
-        <button class="avatar" id="accBtn" type="button" aria-label="Mon compte" aria-haspopup="true" aria-expanded="false">É</button>
+        <button class="avatar" id="accBtn" type="button" aria-label="Mon compte" aria-haspopup="true" aria-expanded="false">E</button>
         <div class="accmenu" id="accMenu" aria-hidden="true">
           <div class="accmenu__head">
-            <span class="accmenu__avatar">É</span>
+            <span class="accmenu__avatar">E</span>
             <span class="accmenu__id"><span class="accmenu__name">Élyo</span><span class="accmenu__meta"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"/></svg> Premium · 11 540 points</span></span>
           </div>
           <div class="accmenu__list">
@@ -1688,49 +1859,7 @@ body:not(.is-auth) .combox__guest{display:flex;}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg>
       </button>
     </div>
-    <button class="mdrawer__link mdrawer__acc" type="button">Jeux <span class="mdrawer__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="m6 9 6 6 6-6"></path></svg></span></button>
-    <div class="mdrawer__sub">
-      <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-er"></span>Elden Ring</a>
-      <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-zd"></span>Zelda : Tears of the Kingdom</a>
-      <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-bg"></span>Baldur's Gate 3</a>
-      <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-gi"></span>Genshin Impact</a>
-      <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-cp"></span>Cyberpunk 2077</a>
-      <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-d4"></span>Diablo IV</a>
-      <a class="mdrawer__sublink mdrawer__sublink--all" href="jeux.html">Tous les jeux →</a>
-    </div>
-    <button class="mdrawer__link mdrawer__acc" type="button">Guides <span class="mdrawer__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="m6 9 6 6 6-6"></path></svg></span></button>
-    <div class="mdrawer__sub">
-      <a class="mdrawer__sublink" href="guide.html"><span class="mdrawer__subcover cover-er"></span>Elden Ring</a>
-      <a class="mdrawer__sublink" href="guide.html"><span class="mdrawer__subcover cover-zd"></span>Zelda : Tears of the Kingdom</a>
-      <a class="mdrawer__sublink" href="guide.html"><span class="mdrawer__subcover cover-bg"></span>Baldur's Gate 3</a>
-      <a class="mdrawer__sublink" href="guide.html"><span class="mdrawer__subcover cover-gi"></span>Genshin Impact</a>
-      <a class="mdrawer__sublink" href="guide.html"><span class="mdrawer__subcover cover-cp"></span>Cyberpunk 2077</a>
-      <a class="mdrawer__sublink" href="guide.html"><span class="mdrawer__subcover cover-d4"></span>Diablo IV</a>
-      <a class="mdrawer__sublink mdrawer__sublink--all" href="guides.html">Tous les guides →</a>
-    </div>
-    <button class="mdrawer__link mdrawer__acc" type="button">Cartes interactives <span class="mdrawer__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="m6 9 6 6 6-6"></path></svg></span></button>
-    <div class="mdrawer__sub">
-      <a class="mdrawer__sublink" href="carte.html"><span class="mdrawer__subcover cover-er"></span>Elden Ring</a>
-      <a class="mdrawer__sublink" href="carte.html"><span class="mdrawer__subcover cover-zd"></span>Zelda : Tears of the Kingdom</a>
-      <a class="mdrawer__sublink" href="carte.html"><span class="mdrawer__subcover cover-bg"></span>Baldur's Gate 3</a>
-      <a class="mdrawer__sublink" href="carte.html"><span class="mdrawer__subcover cover-gi"></span>Genshin Impact</a>
-      <a class="mdrawer__sublink" href="carte.html"><span class="mdrawer__subcover cover-cp"></span>Cyberpunk 2077</a>
-      <a class="mdrawer__sublink" href="carte.html"><span class="mdrawer__subcover cover-d4"></span>Diablo IV</a>
-      <a class="mdrawer__sublink mdrawer__sublink--all" href="cartes.html">Toutes les cartes →</a>
-    </div>
-    <a class="mdrawer__link" href="actualites.html">Actualités <span>→</span></a>
-    <a class="mdrawer__link" href="communaute.html">Communauté <span>→</span></a>
-    <button class="mdrawer__link mdrawer__acc" type="button">Trophées <span class="mdrawer__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="m6 9 6 6 6-6"></path></svg></span></button>
-    <div class="mdrawer__sub">
-      <a class="mdrawer__sublink" href="trophee.html"><span class="mdrawer__subcover cover-er"></span>Elden Ring</a>
-      <a class="mdrawer__sublink" href="trophee.html"><span class="mdrawer__subcover cover-bg"></span>Baldur's Gate 3</a>
-      <a class="mdrawer__sublink" href="trophee.html"><span class="mdrawer__subcover cover-gi"></span>Genshin Impact</a>
-      <a class="mdrawer__sublink" href="trophee.html"><span class="mdrawer__subcover cover-cp"></span>Cyberpunk 2077</a>
-      <a class="mdrawer__sublink" href="trophee.html"><span class="mdrawer__subcover cover-d4"></span>Diablo IV</a>
-      <a class="mdrawer__sublink mdrawer__sublink--all" href="trophees.html">Tous les guides de trophées →</a>
-    </div>
-    <a class="mdrawer__link" href="builds.html">Builds <span>→</span></a>
-    <div class="mdrawer__cta">
+    <button class="mdrawer__link mdrawer__acc" type="button">Jeux <span class="mdrawer__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="m6 9 6 6 6-6"></path></svg></span></button> <div class="mdrawer__sub"> <span class="sec-kicker mdrawer__subkicker" style="font-size:11px;"><span class="dots"><i></i><i></i></span> Les plus consultés cette semaine</span> <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-er"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Elden Ring</span><span class="mdrawer__submeta">214 guides · carte interactive · trophées</span></span></a> <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-zd"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Zelda : Tears of the Kingdom</span><span class="mdrawer__submeta">186 guides · carte interactive · soluce complète</span></span></a> <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-bg"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Baldur's Gate 3</span><span class="mdrawer__submeta">158 guides · soluce complète · builds</span></span></a> <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-gi"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Genshin Impact</span><span class="mdrawer__submeta">142 guides · carte interactive · builds</span></span></a> <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-cp"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Cyberpunk 2077</span><span class="mdrawer__submeta">96 guides · soluce complète · trophées</span></span></a> <a class="mdrawer__sublink" href="jeu.html"><span class="mdrawer__subcover cover-d4"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Diablo IV</span><span class="mdrawer__submeta">88 guides · soluce complète · builds</span></span></a> <a class="mdrawer__sublink mdrawer__sublink--all" href="jeux.html">Tous les jeux →</a> </div> <button class="mdrawer__link mdrawer__acc" type="button">Guides <span class="mdrawer__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="m6 9 6 6 6-6"></path></svg></span></button> <div class="mdrawer__sub"> <span class="sec-kicker mdrawer__subkicker" style="font-size:11px;"><span class="dots"><i></i><i></i></span> Les plus consultés cette semaine</span> <a class="mdrawer__sublink" href="guide.html"><span class="mdrawer__subcover cover-er"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Battre Malenia : stratégie complète, builds conseillés et invocations</span><span class="mdrawer__submeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>12 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,8 (412)</span></span></a> <a class="mdrawer__sublink" href="guide.html"><span class="mdrawer__subcover cover-zd"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Toutes les graines Korogu : carte interactive et méthode par région</span><span class="mdrawer__submeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>8 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,9 (803)</span></span></a> <a class="mdrawer__sublink" href="guide.html"><span class="mdrawer__subcover cover-bg"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Build Moine voie de l'astre : dégâts maximum pour l'acte 3</span><span class="mdrawer__submeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>15 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,9 (287)</span></span></a> <a class="mdrawer__sublink" href="guide.html"><span class="mdrawer__subcover cover-gi"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Réussir l'Abîme 12 étoiles : équipes F2P et rotations détaillées</span><span class="mdrawer__submeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>10 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,7 (529)</span></span></a> <a class="mdrawer__sublink" href="guide.html"><span class="mdrawer__subcover cover-d4"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Farm d'or efficace en saison 8 : les 5 méthodes qui marchent vraiment</span><span class="mdrawer__submeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>6 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,5 (74)</span></span></a> <a class="mdrawer__sublink" href="guide.html"><span class="mdrawer__subcover cover-cp"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Cyberpunk 2077 : toutes les fins et comment les débloquer</span><span class="mdrawer__submeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>14 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,6 (193)</span></span></a> <a class="mdrawer__sublink mdrawer__sublink--all" href="guides.html">Tous les guides →</a> </div> <button class="mdrawer__link mdrawer__acc" type="button">Cartes interactives <span class="mdrawer__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="m6 9 6 6 6-6"></path></svg></span></button> <div class="mdrawer__sub"> <span class="sec-kicker mdrawer__subkicker" style="font-size:11px;"><span class="dots"><i></i><i></i></span> Les plus consultées cette semaine</span> <a class="mdrawer__sublink" href="carte.html"><span class="mdrawer__subcover cover-er"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Elden Ring</span><span class="mdrawer__submeta">+320 lieux · boss, objets, PNJ</span></span></a> <a class="mdrawer__sublink mdrawer__sublink--prem" href="carte.html" data-locktip="Réservé aux abonnés Premium"><span class="mdrawer__subcover cover-cp"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Cyberpunk 2077 <span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></span><span class="mdrawer__submeta">+540 lieux · contrats, butin</span></span><span class="mprem-lock" title="Réservé aux abonnés Premium" aria-label="Réservé aux abonnés Premium"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span></a> <a class="mdrawer__sublink" href="carte.html"><span class="mdrawer__subcover cover-zd"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Zelda: TotK</span><span class="mdrawer__submeta">152 sanctuaires · grottes</span></span></a> <a class="mdrawer__sublink mdrawer__sublink--prem" href="carte.html" data-locktip="Réservé aux abonnés Premium"><span class="mdrawer__subcover cover-bg"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Baldur's Gate 3 <span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></span><span class="mdrawer__submeta">Actes 1 à 3 · secrets</span></span><span class="mprem-lock" title="Réservé aux abonnés Premium" aria-label="Réservé aux abonnés Premium"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span></a> <a class="mdrawer__sublink" href="carte.html"><span class="mdrawer__subcover cover-hollow"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Hollow Knight</span><span class="mdrawer__submeta">Autels, donjons, événements</span></span></a> <a class="mdrawer__sublink mdrawer__sublink--prem" href="carte.html" data-locktip="Réservé aux abonnés Premium"><span class="mdrawer__subcover cover-poe"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Path of Exile 2 <span class="badge--prem"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>Premium</span></span><span class="mdrawer__submeta">Actes et zones de ligue</span></span><span class="mprem-lock" title="Réservé aux abonnés Premium" aria-label="Réservé aux abonnés Premium"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span></a> <a class="mdrawer__sublink mdrawer__sublink--all" href="cartes.html">Toutes les cartes →</a> </div> <a class="mdrawer__link" href="actualites.html">Actualités <span class="mdrawer__arrow">→</span></a> <a class="mdrawer__link" href="communaute.html">Communauté <span class="mdrawer__arrow">→</span></a> <button class="mdrawer__link mdrawer__acc" type="button">Trophées <span class="mdrawer__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="m6 9 6 6 6-6"></path></svg></span></button> <div class="mdrawer__sub"> <span class="sec-kicker mdrawer__subkicker" style="font-size:11px;"><span class="dots"><i></i><i></i></span> Les plus consultés cette semaine</span> <a class="mdrawer__sublink" href="trophee.html"><span class="mdrawer__subcover cover-er"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Guide des trophées · Platine Elden Ring</span><span class="mdrawer__submeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg>42 trophées · <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>90 h</span></span></a> <a class="mdrawer__sublink" href="trophee.html"><span class="mdrawer__subcover cover-hollow"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Guide des trophées · Platine Hollow Knight</span><span class="mdrawer__submeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg>63 trophées · <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>40 h</span></span></a> <a class="mdrawer__sublink" href="trophee.html"><span class="mdrawer__subcover cover-bg"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Guide des trophées · Platine Baldur's Gate 3</span><span class="mdrawer__submeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg>54 trophées · <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>120 h</span></span></a> <a class="mdrawer__sublink" href="trophee.html"><span class="mdrawer__subcover cover-d4"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Guide des trophées · Platine Diablo IV</span><span class="mdrawer__submeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg>41 trophées · <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>35 h</span></span></a> <a class="mdrawer__sublink" href="trophee.html"><span class="mdrawer__subcover cover-mh"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Guide des trophées · Platine Monster Hunter Wilds</span><span class="mdrawer__submeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg>50 trophées · <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>70 h</span></span></a> <a class="mdrawer__sublink" href="trophee.html"><span class="mdrawer__subcover cover-cp"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Guide des trophées · Platine Cyberpunk 2077</span><span class="mdrawer__submeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M9 19h6M10 22h4M12 15v4"/></svg>45 trophées · <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>60 h</span></span></a> <a class="mdrawer__sublink mdrawer__sublink--all" href="trophees.html">Tous les guides de trophées →</a> </div> <button class="mdrawer__link mdrawer__acc" type="button">Builds <span class="mdrawer__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="m6 9 6 6 6-6"></path></svg></span></button> <div class="mdrawer__sub"> <span class="sec-kicker mdrawer__subkicker" style="font-size:11px;"><span class="dots"><i></i><i></i></span> Les plus consultés cette semaine</span> <a class="mdrawer__sublink" href="build.html"><span class="mdrawer__subcover cover-er"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Build Elden Ring · Samouraï saignement</span><span class="mdrawer__submeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>4 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,9 (240)</span></span></a> <a class="mdrawer__sublink" href="build.html"><span class="mdrawer__subcover cover-d4"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Build Diablo IV · Sorcier givre</span><span class="mdrawer__submeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>3 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,8 (310)</span></span></a> <a class="mdrawer__sublink" href="build.html"><span class="mdrawer__subcover cover-cp"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Build Cyberpunk 2077 · Netrunner overclock</span><span class="mdrawer__submeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>4 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,8 (205)</span></span></a> <a class="mdrawer__sublink" href="build.html"><span class="mdrawer__subcover cover-poe"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Build Path of Exile 2 · Sorcière · Infusion de chaos</span><span class="mdrawer__submeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>7 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,7 (142)</span></span></a> <a class="mdrawer__sublink" href="build.html"><span class="mdrawer__subcover cover-bg"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Build Baldur's Gate 3 · Roublard assassin</span><span class="mdrawer__submeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>6 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,6 (124)</span></span></a> <a class="mdrawer__sublink" href="build.html"><span class="mdrawer__subcover cover-zd"></span><span class="mdrawer__subtxt"><span class="mdrawer__subname">Build Zelda: TotK · Amalgame · lances longues</span><span class="mdrawer__submeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>5 min · <svg class="mstar" viewBox="0 0 24 24"><path d="M12 2l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 14.6 7 17.5l1.2-5.6L4 8l5.6-.6L12 2z"></path></svg>4,3 (43)</span></span></a> <a class="mdrawer__sublink mdrawer__sublink--all" href="builds.html">Tous les builds →</a> </div> <div class="mdrawer__cta">
       <a class="btn btn--primary btn--block only-guest" href="inscription.html">S'inscrire</a>
       <a class="btn btn--outline btn--block only-guest" href="connexion.html">Connexion</a>
       <a class="btn btn--premium btn--block only-guest" href="premium.html">Découvrir Premium</a>
@@ -1751,31 +1880,31 @@ body:not(.is-auth) .combox__guest{display:flex;}
     </div>
     <div class="ndrawer__actions"><button class="ndrawer__readall" id="ndrawerReadAll" type="button">Tout marquer comme lu</button></div>
     <div class="ndrawer__list">
-      <div class="nitem">
+      <a class="nitem" href="actualite.html">
         <span class="nitem__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg></span>
         <span class="nitem__txt"><b>Patch 1.12.3 déployé</b><span>Elden Ring · il y a 2 h</span></span>
         <span class="nitem__dot"></span>
-      </div>
+      </a>
       <a class="nitem" href="guide.html">
-        <span class="nitem__ico" style="background:var(--magenta-pale); color:var(--magenta-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg></span>
+        <span class="nitem__ico" style="background:var(--magenta-pale); color:var(--magenta);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg></span>
         <span class="nitem__txt"><b>Guide mis à jour : « Battre Malenia »</b><span>Elden Ring · il y a 3 h</span></span>
         <span class="nitem__dot"></span>
       </a>
-      <div class="nitem">
+      <a class="nitem" href="discussion.html">
         <span class="nitem__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span>
         <span class="nitem__txt"><b>2 réponses à ta question sur l’Abîme</b><span>Forum Genshin Impact · il y a 40 min</span></span>
         <span class="nitem__dot"></span>
-      </div>
-      <div class="nitem nitem--read">
-        <span class="nitem__ico" style="background:var(--magenta-pale); color:var(--magenta-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg></span>
+      </a>
+      <a class="nitem nitem--read" href="actualite.html">
+        <span class="nitem__ico" style="background:var(--magenta-pale); color:var(--magenta);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg></span>
         <span class="nitem__txt"><b>Nouvel article : sanctuaires du désert de Gerudo</b><span>Zelda TOTK · hier</span></span>
         <span class="nitem__dot"></span>
-      </div>
-      <div class="nitem nitem--read">
+      </a>
+      <a class="nitem nitem--read" href="actualite.html">
         <span class="nitem__ico" style="background:var(--cyan-pale); color:var(--cyan-ink);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg></span>
         <span class="nitem__txt"><b>Événement 5.7 : bannières dès demain</b><span>Genshin Impact · hier</span></span>
         <span class="nitem__dot"></span>
-      </div>
+      </a>
     </div>
   </aside>
 </div>
@@ -1958,7 +2087,7 @@ body:not(.is-auth) .combox__guest{display:flex;}
       if(!ac.contains(e.target) && e.target!==input) ac.classList.remove('open');
     });
   }
-  wireSearch('#navSearchInput', '#navAc');
+  /* ancienne recherche neutralisée */
 
   /* ---------- favoris ---------- */
   document.querySelectorAll('.fav').forEach(function(f){
@@ -2197,5 +2326,52 @@ body:not(.is-auth) .combox__guest{display:flex;}
   if(mq.addEventListener) mq.addEventListener('change', place); else mq.addListener(place);
 })();
 </script>
+
+<script>(function(){ var SUGG = [
+    {t:'Elden Ring', m:'214 guides · carte interactive · trophées', k:'jeu', cov:'cover-er', l:'jeu.html'},
+    {t:'Zelda : Tears of the Kingdom', m:'186 guides · carte interactive · soluce complète', k:'jeu', cov:'cover-zd', l:'jeu.html'},
+    {t:'Baldur’s Gate 3', m:'158 guides · soluce complète · builds', k:'jeu', cov:'cover-bg', l:'jeu.html'},
+    {t:'Genshin Impact', m:'142 guides · carte interactive · builds', k:'jeu', cov:'cover-gi', l:'jeu.html'},
+    {t:'Battre Malenia : stratégie complète', m:'Guide · Elden Ring', k:'guide', cov:'cover-er', l:'guide.html'},
+    {t:'Toutes les graines Korogu', m:'Carte interactive · Zelda TOTK', k:'carte', cov:'cover-zd', l:'carte.html'},
+    {t:'Build Moine voie de l’astre', m:'Build · Baldur’s Gate 3', k:'build', cov:'cover-bg', l:'build.html'},
+    {t:'Platine Elden Ring', m:'Trophées · Elden Ring', k:'trophee', cov:'cover-er', l:'trophee.html'},
+    {t:'Réussir l’Abîme 12 étoiles', m:'Guide · Genshin Impact', k:'guide', cov:'cover-gi', l:'guide.html'},
+    {t:'Build Samouraï saignement', m:'Build · Elden Ring', k:'build', cov:'cover-er', l:'build.html'},
+    {t:'Cyberpunk 2077', m:'Carte interactive · Cyberpunk 2077', k:'carte', cov:'cover-cp', l:'carte.html'}
+  ];
+  function wireSearch(rootSel, acSel){
+    var input = document.querySelector(rootSel);
+    var ac = document.querySelector(acSel);
+    if(!input || !ac) return;
+    function topSugg(){ var g=[],c=[]; SUGG.forEach(function(s){ if(s.k==='jeu'){ if(g.length<4) g.push(s); } else if(c.length<4){ c.push(s); } }); return g.concat(c); }
+    function render(list){
+      var games = list.filter(function(s){return s.k==='jeu'});
+      var conts = list.filter(function(s){return s.k!=='jeu'});
+      function grp(label, arr){
+        if(!arr.length) return '';
+        var h = '<div class="ac__col"><div class="ac__group"><span class="ac__glabel">'+label+'</span></div>';
+        arr.forEach(function(s){ h += row(s); });
+        return h + '</div>';
+      }
+      var cols = grp('Jeux', games) + grp('Contenus', conts);
+      ac.innerHTML = cols ? '<div class="ac__cols">'+cols+'</div>'
+        : '<div class="ac__group"><span class="ac__glabel">Aucun résultat</span></div>';
+    }
+    function row(s){
+      return '<a class="ac__item" href="'+s.l+'"><span class="ac__ico '+s.cov+'"></span>'+
+        '<span class="ac__txt"><span class="ac__t">'+s.t+'</span><br><span class="ac__m">'+s.m+'</span></span></a>';
+    }
+    input.addEventListener('focus', function(){ render(topSugg()); ac.classList.add('open'); });
+    input.addEventListener('input', function(){
+      var q = input.value.trim().toLowerCase();
+      var list = q ? SUGG.filter(function(s){ return (s.t+' '+s.m).toLowerCase().indexOf(q)>=0 }) : topSugg();
+      render(list); ac.classList.add('open');
+    });
+    document.addEventListener('click', function(e){
+      if(!ac.contains(e.target) && e.target!==input) ac.classList.remove('open');
+    });
+  }
+  wireSearch('#navSearchInput', '#navAc'); })();</script>
 </body>
 </html>
