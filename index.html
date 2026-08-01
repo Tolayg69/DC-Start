@@ -182,7 +182,7 @@ p{margin:0;}
     body:not(.is-auth) .mega__row--prem,body:not(.is-auth) .mdrawer__sublink--prem{cursor:not-allowed;}
     body:not(.is-auth) .mega__row--prem::after{content:attr(data-locktip); position:absolute; left:12px; top:-6px; transform:translateY(-100%); background:var(--noir); color:#fff; font-size:11px; font-weight:700; padding:6px 10px; border-radius:7px; white-space:nowrap; opacity:0; visibility:hidden; pointer-events:none; transition:opacity .12s; z-index:90; box-shadow:var(--sh-md);}
     body:not(.is-auth) .mega__row--prem:hover::after{opacity:1; visibility:visible;}
-    .mdrawer__sublink--prem .mdrawer__subname{white-space:nowrap;} .mprem-lock{display:none;} body:not(.is-auth) .mdrawer__sublink--prem .mprem-lock{display:inline-flex; align-items:center; margin-left:8px; color:var(--or-ink); flex:none;} .mprem-lock svg{width:16px; height:16px;} .mega--cartes .badge--prem,.mdrawer__sublink--prem .badge--prem{padding-top:2px; padding-bottom:2px;}
+    .mdrawer__sublink--prem .mdrawer__subname{white-space:nowrap;} .mprem-lock{display:none;} .mdrawer__sublink--prem{flex-wrap:wrap;} body:not(.is-auth) .mdrawer__sublink--prem.show-lock::after{content:attr(data-locktip); flex-basis:100%; width:100%; margin-top:6px; font-size:11px; font-weight:700; color:var(--or-ink);} body:not(.is-auth) .mdrawer__sublink--prem .mprem-lock{display:inline-flex; align-items:center; margin-left:8px; color:var(--noir); flex:none;} .mprem-lock svg{width:16px; height:16px;} .mega--cartes .badge--prem,.mdrawer__sublink--prem .badge--prem{padding-top:2px; padding-bottom:2px;}
     .mega{position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%) translateY(6px); width:560px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-lg); padding:18px; opacity:0; visibility:hidden; transition:opacity .14s, transform .14s, visibility 0s .14s; z-index:70;}
 /* pont invisible sur l'espace nav<->menu pour ne pas perdre le survol */
 .mega::before{content:""; position:absolute; left:0; right:0; top:-14px; height:14px;}
@@ -1822,7 +1822,7 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
     var saved = localStorage.getItem('lynk_proto_state');
     if(saved){ var sv = JSON.parse(saved); if(sv){ if(typeof sv.auth !== 'undefined') state.auth = !!sv.auth; if(typeof sv.view !== 'undefined') state.view = sv.view; } }
   }catch(e){}
-  document.addEventListener('click', function(e){ if(!e.target||!e.target.closest) return; var pr=e.target.closest('.mega__row--prem, .mdrawer__sublink--prem'); if(pr && !document.body.classList.contains('is-auth')){ e.preventDefault(); e.stopImmediatePropagation(); } }, true);
+  document.addEventListener('click', function(e){ if(!e.target||!e.target.closest) return; var pr=e.target.closest('.mega__row--prem, .mdrawer__sublink--prem'); if(pr && !document.body.classList.contains('is-auth')){ e.preventDefault(); e.stopImmediatePropagation(); if(pr.classList.contains('mdrawer__sublink--prem')){pr.classList.toggle('show-lock');} } }, true);
   if(isEmbed){
     state.auth = params.get('auth') === '1';
     state.view = 'desktop';
