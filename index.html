@@ -805,7 +805,7 @@ body:not(.is-auth) .card--premium .card__lock{display:flex; flex-direction:colum
 }
 
 /* recherche : panneau large façon méga-menu */
-.ac__cols{display:grid; grid-template-columns:1fr 1fr; gap:4px 16px;}
+.ac__cols{display:grid; grid-template-columns:1fr 1fr; gap:4px 16px;} .ac__item{text-decoration:none; color:inherit;} .ac__ico{position:relative; overflow:hidden;}
 @media (min-width:881px){
   .nav__search .ac{width:640px; left:auto; right:0; padding:14px;}
 }
@@ -1931,20 +1931,23 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
 
   /* ---------- recherche : autocomplétion ---------- */
   var SUGG = [
-    {t:'Elden Ring', m:'214 guides · carte interactive', k:'jeu', c:'#5C1268'},
-    {t:'Zelda : Tears of the Kingdom', m:'186 guides · carte interactive', k:'jeu', c:'#0a5563'},
-    {t:'Baldur’s Gate 3', m:'158 guides · builds', k:'jeu', c:'#7a4c00'},
-    {t:'Genshin Impact', m:'142 guides · suivi d’événements', k:'jeu', c:'#5C1268'},
-    {t:'Battre Malenia : stratégie complète', m:'Guide · Elden Ring', k:'guide', c:'#a200bc'},
-    {t:'Toutes les graines Korogu', m:'Carte interactive · Zelda TOTK', k:'carte', c:'#06b6d4'},
-    {t:'Build Moine : dégâts maximum', m:'Build · Baldur’s Gate 3', k:'build', c:'#f5a623'},
-    {t:'Platine Elden Ring : route optimisée', m:'Trophées · Elden Ring', k:'guide', c:'#6E5212'},
-    {t:'Monter niveau 90 rapidement', m:'Astuce · Genshin Impact', k:'guide', c:'#a200bc'}
+    {t:'Elden Ring', m:'214 guides · carte interactive · trophées', k:'jeu', cov:'cover-er', l:'jeu.html'},
+    {t:'Zelda : Tears of the Kingdom', m:'186 guides · carte interactive · soluce complète', k:'jeu', cov:'cover-zd', l:'jeu.html'},
+    {t:'Baldur’s Gate 3', m:'158 guides · soluce complète · builds', k:'jeu', cov:'cover-bg', l:'jeu.html'},
+    {t:'Genshin Impact', m:'142 guides · carte interactive · builds', k:'jeu', cov:'cover-gi', l:'jeu.html'},
+    {t:'Battre Malenia : stratégie complète', m:'Guide · Elden Ring', k:'guide', cov:'cover-er', l:'guide.html'},
+    {t:'Toutes les graines Korogu', m:'Carte interactive · Zelda TOTK', k:'carte', cov:'cover-zd', l:'carte.html'},
+    {t:'Build Moine voie de l’astre', m:'Build · Baldur’s Gate 3', k:'build', cov:'cover-bg', l:'build.html'},
+    {t:'Platine Elden Ring', m:'Trophées · Elden Ring', k:'trophee', cov:'cover-er', l:'trophee.html'},
+    {t:'Réussir l’Abîme 12 étoiles', m:'Guide · Genshin Impact', k:'guide', cov:'cover-gi', l:'guide.html'},
+    {t:'Build Samouraï saignement', m:'Build · Elden Ring', k:'build', cov:'cover-er', l:'build.html'},
+    {t:'Cyberpunk 2077', m:'Carte interactive · Cyberpunk 2077', k:'carte', cov:'cover-cp', l:'carte.html'}
   ];
   function wireSearch(rootSel, acSel){
     var input = document.querySelector(rootSel);
     var ac = document.querySelector(acSel);
     if(!input || !ac) return;
+    function topSugg(){ var g=[],c=[]; SUGG.forEach(function(s){ if(s.k==='jeu'){ if(g.length<4) g.push(s); } else if(c.length<4){ c.push(s); } }); return g.concat(c); }
     function render(list){
       var games = list.filter(function(s){return s.k==='jeu'});
       var conts = list.filter(function(s){return s.k!=='jeu'});
@@ -1959,14 +1962,13 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
         : '<div class="ac__group"><span class="ac__glabel">Aucun résultat</span></div>';
     }
     function row(s){
-      return '<div class="ac__item"><span class="ac__ico" style="background:'+s.c+'">'+s.t.slice(0,1)+'</span>'+
-        '<span class="ac__txt"><span class="ac__t">'+s.t+'</span><br><span class="ac__m">'+s.m+'</span></span>'+
-        '<span class="ac__go">↵</span></div>';
+      return '<a class="ac__item" href="'+s.l+'"><span class="ac__ico '+s.cov+'"></span>'+
+        '<span class="ac__txt"><span class="ac__t">'+s.t+'</span><br><span class="ac__m">'+s.m+'</span></span></a>';
     }
-    input.addEventListener('focus', function(){ render(SUGG.slice(0,6)); ac.classList.add('open'); });
+    input.addEventListener('focus', function(){ render(topSugg()); ac.classList.add('open'); });
     input.addEventListener('input', function(){
       var q = input.value.trim().toLowerCase();
-      var list = q ? SUGG.filter(function(s){ return (s.t+' '+s.m).toLowerCase().indexOf(q)>=0 }) : SUGG.slice(0,6);
+      var list = q ? SUGG.filter(function(s){ return (s.t+' '+s.m).toLowerCase().indexOf(q)>=0 }) : topSugg();
       render(list); ac.classList.add('open');
     });
     document.addEventListener('click', function(e){
