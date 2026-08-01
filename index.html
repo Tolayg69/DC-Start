@@ -182,7 +182,7 @@ p{margin:0;}
     body:not(.is-auth) .mega__row--prem,body:not(.is-auth) .mdrawer__sublink--prem{cursor:not-allowed;}
     body:not(.is-auth) .mega__row--prem::after{content:attr(data-locktip); position:absolute; left:12px; top:-6px; transform:translateY(-100%); background:var(--noir); color:#fff; font-size:11px; font-weight:700; padding:6px 10px; border-radius:7px; white-space:nowrap; opacity:0; visibility:hidden; pointer-events:none; transition:opacity .12s; z-index:90; box-shadow:var(--sh-md);}
     body:not(.is-auth) .mega__row--prem:hover::after{opacity:1; visibility:visible;}
-    body:not(.is-auth) .mdrawer__sublink--prem::after{content:attr(data-locktip); display:block; width:100%; margin-top:4px; font-size:11px; font-weight:700; color:var(--or-ink);}
+    body:not(.is-auth) .mdrawer__sublink--prem.show-lock::after{content:attr(data-locktip); display:block; width:100%; margin-top:4px; font-size:11px; font-weight:700; color:var(--or-ink);}
     .mega{position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%) translateY(6px); width:560px; background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-lg); padding:18px; opacity:0; visibility:hidden; transition:opacity .14s, transform .14s, visibility 0s .14s; z-index:70;}
 /* pont invisible sur l'espace nav<->menu pour ne pas perdre le survol */
 .mega::before{content:""; position:absolute; left:0; right:0; top:-14px; height:14px;}
@@ -1832,6 +1832,7 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
       if(e.target.closest('.fav')) return;
       var a = e.target.closest('a[href]');
       if(!a) return;
+      if((a.classList.contains('mega__row--prem')||a.classList.contains('mdrawer__sublink--prem')) && !document.body.classList.contains('is-auth')){ e.preventDefault(); e.stopPropagation(); if(a.classList.contains('mdrawer__sublink--prem')){a.classList.toggle('show-lock');} return; }
       var href = a.getAttribute('href') || '';
       if(!href || href.charAt(0) === '#' || href.indexOf('javascript:') === 0) return;
       if(a.getAttribute('onclick')) return;
@@ -2123,5 +2124,5 @@ body:not(.is-auth) .fav.on svg{color:var(--ink-500); fill:none;}
 
 </script>
 <script id="lynk-thread-nav">(function(){Array.prototype.forEach.call(document.querySelectorAll(".community .thread"),function(t){t.style.cursor="pointer";t.addEventListener("click",function(){try{window.top.location.href="discussion.html";}catch(e){window.location.href="discussion.html";}});});})();</script>
-<script>(function(){function block(e){if(!document.body.classList.contains("is-auth")){e.preventDefault();e.stopPropagation();}}document.querySelectorAll(".mega__row--prem,.mdrawer__sublink--prem").forEach(function(el){el.addEventListener("click",block);});})();</script></body>
+</body>
 </html>
