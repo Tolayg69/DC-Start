@@ -185,7 +185,7 @@ p{margin:0;}
 .mega__row{display:flex; align-items:center; gap:11px; padding:9px 10px; border-radius:var(--r-sm); transition:background .14s;}
 .mega__row:hover{background:var(--surface-3);}
 .mega__cover{width:38px; height:38px; border-radius:8px; flex:none;}
-.mega__name{font-weight:700; font-size:14px;} .mega--list .mega__name{flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;} .mega__name{display:inline-block; max-width:100%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; vertical-align:top;} .mega__row > span:last-child{min-width:0; overflow:hidden;}
+.mega__name{font-weight:700; font-size:14px;} .mega--list .mega__name{flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;} .mega__name{overflow-wrap:break-word;} .mega__row > span:last-child{min-width:0;}
 .mega__meta{font-size:12px; color:var(--ink-400);}
 .mega__foot{display:flex; align-items:center; justify-content:space-between; margin-top:14px; padding-top:14px; border-top:1px solid var(--line);}
 
@@ -785,7 +785,7 @@ body:not(.is-auth) .card--premium .card__lock{display:flex; flex-direction:colum
 .mdrawer__chev{display:inline-flex; transition:transform .18s ease;}
 .mdrawer__acc.open .mdrawer__chev{transform:rotate(180deg);}
 .mdrawer__sub{display:none; padding:2px 2px 8px; border-bottom:1px solid var(--line);}
-.mdrawer__sub.open{display:block;} .mdrawer__subkicker{display:flex; align-items:center; gap:8px; padding:9px 12px 5px;} .mdrawer__subtxt{display:flex; flex-direction:column; min-width:0; flex:1;} .mdrawer__subname{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;} .mdrawer__submeta{font-size:12px; font-weight:600; color:var(--ink-400); margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;} .mdrawer__sublink .badge--prem{flex:none;}
+.mdrawer__sub.open{display:block;} .mdrawer__subkicker{display:flex; align-items:center; gap:8px; padding:9px 12px 5px;} .mdrawer__subtxt{display:flex; flex-direction:column; min-width:0; flex:1;} .mdrawer__subname{overflow-wrap:break-word;} .mdrawer__submeta{font-size:12px; font-weight:600; color:var(--ink-400); margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;} .mdrawer__sublink .badge--prem{flex:none;}
 .mdrawer__sublink{display:flex; align-items:center; gap:11px; padding:10px 12px; border-radius:10px; font-weight:700; font-size:14.5px; color:var(--ink-700);}
 .mdrawer__sublink:hover{background:var(--surface-3);}
 .mdrawer__subcover{width:30px; height:30px; border-radius:8px; flex:none;}
